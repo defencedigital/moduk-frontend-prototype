@@ -1,0 +1,186 @@
+@include moduk-exports("moduk/core/typography") {
+
+  // Headings
+
+  %moduk-heading-xl {
+    @include moduk-text-colour;
+    @include moduk-font($size: 48, $weight: bold);
+
+    display: block;
+
+    margin-top: 0;
+    @include moduk-responsive-margin(8, "bottom");
+  }
+
+  .moduk-heading-xl {
+    @extend %moduk-heading-xl;
+  }
+
+  %moduk-heading-l {
+    @include moduk-text-colour;
+    @include moduk-font($size: 36, $weight: bold);
+
+    display: block;
+
+    margin-top: 0;
+    @include moduk-responsive-margin(6, "bottom");
+  }
+
+  .moduk-heading-l {
+    @extend %moduk-heading-l;
+  }
+
+  %moduk-heading-m {
+    @include moduk-text-colour;
+    @include moduk-font($size: 24, $weight: bold);
+
+    display: block;
+
+    margin-top: 0;
+    @include moduk-responsive-margin(4, "bottom");
+  }
+
+  .moduk-heading-m {
+    @extend %moduk-heading-m;
+  }
+
+  %moduk-heading-s {
+    @include moduk-text-colour;
+    @include moduk-font($size: 19, $weight: bold);
+
+    display: block;
+
+    margin-top: 0;
+    @include moduk-responsive-margin(4, "bottom");
+  }
+
+  .moduk-heading-s {
+    @extend %moduk-heading-s;
+  }
+
+  // Captions to be used inside headings
+
+  .moduk-caption-xl {
+    @include moduk-font($size: 27);
+
+    display: block;
+
+    margin-bottom: moduk-spacing(1);
+
+    color: $moduk-secondary-text-colour;
+  }
+
+  .moduk-caption-l {
+    @include moduk-font($size: 24);
+
+    display: block;
+
+    margin-bottom: moduk-spacing(1);
+    color: $moduk-secondary-text-colour;
+
+    @include moduk-media-query($from: tablet) {
+      margin-bottom: 0;
+    }
+  }
+
+  .moduk-caption-m {
+    @include moduk-font($size: 19);
+
+    display: block;
+
+    color: $moduk-secondary-text-colour;
+  }
+
+  // Body (paragraphs)
+
+  %moduk-body-l {
+    @include moduk-text-colour;
+    @include moduk-font($size: 24);
+
+    margin-top: 0;
+    @include moduk-responsive-margin(6, "bottom");
+  }
+
+  .moduk-body-l {
+    @extend %moduk-body-l;
+  }
+
+  %moduk-body-m {
+    @include moduk-text-colour;
+    @include moduk-font($size: 19);
+
+    margin-top: 0;
+    @include moduk-responsive-margin(4, "bottom");
+  }
+
+  .moduk-body-m {
+    @extend %moduk-body-m;
+  }
+
+  %moduk-body-s {
+    @include moduk-text-colour;
+    @include moduk-font($size: 16);
+
+    margin-top: 0;
+    @include moduk-responsive-margin(4, "bottom");
+  }
+
+  .moduk-body-s {
+    @extend %moduk-body-s;
+  }
+
+  %moduk-body-xs {
+    @include moduk-text-colour;
+    @include moduk-font($size: 14);
+
+    margin-top: 0;
+    @include moduk-responsive-margin(4, "bottom");
+  }
+
+  .moduk-body-xs {
+    @extend %moduk-body-xs;
+  }
+
+  // Usage aliases
+
+  // Using extend to alias means we also inherit any contextual adjustments that
+  // refer to the 'original' class name
+
+  .moduk-body-lead {
+    @extend %moduk-body-l;
+  }
+
+  .moduk-body {
+    @extend %moduk-body-m;
+  }
+
+  // Contextual adjustments
+  // Add top padding to headings that appear directly after paragraphs.
+
+  %moduk-body-l  + %moduk-heading-l {
+    padding-top: moduk-spacing(1);
+
+    @include moduk-media-query($from: tablet) {
+      padding-top: moduk-spacing(2);
+    }
+  }
+
+  %moduk-body-m  + %moduk-heading-l,
+  %moduk-body-s  + %moduk-heading-l,
+  %moduk-list + %moduk-heading-l {
+    @include moduk-responsive-padding(4, "top");
+  }
+
+  %moduk-body-m + %moduk-heading-m,
+  %moduk-body-s + %moduk-heading-m,
+  %moduk-list + %moduk-heading-m,
+  %moduk-body-m + %moduk-heading-s,
+  %moduk-body-s + %moduk-heading-s,
+  %moduk-list + %moduk-heading-s {
+    padding-top: moduk-spacing(1);
+
+    @include moduk-media-query($from: tablet) {
+      padding-top: moduk-spacing(2);
+    }
+  }
+}

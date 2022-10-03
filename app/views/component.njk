@@ -17,15 +17,15 @@
 {% block beforeContent %}
   {{ govukBreadcrumbs({
     "items": [
-    { text: 'GOV.UK Frontend', href: '/' + legacyQuery },
+    { text: 'MOD.UK Frontend', href: '/' + legacyQuery },
     { text: componentNameHuman | capitalize }
     ]
   }) }}
 {% endblock %}
 
 {% block content %}
-  <div class="govuk-width-container">
-    <h1 class="govuk-heading-xl">
+  <div class="moduk-width-container">
+    <h1 class="moduk-heading-xl">
       {% block componentName %}
         {{ componentNameHuman | capitalize }}
       {% endblock %}

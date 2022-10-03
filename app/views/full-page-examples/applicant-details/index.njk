@@ -66,18 +66,18 @@ notes: >-
             <input class="form-control {%- if errors["full-name"] %} form-control-error {% endif %}" id="full-name" type="text" name="full-name" value="{{ values['full-name'] }}" autocomplete="name">
           </div>
 
-          {% set dateInputDayClass = "govuk-input--width-2" %}
-          {% set dateInputMonthClass = "govuk-input--width-2" %}
-          {% set dateInputYearClass = "govuk-input--width-4" %}
+          {% set dateInputDayClass = "moduk-input--width-2" %}
+          {% set dateInputMonthClass = "moduk-input--width-2" %}
+          {% set dateInputYearClass = "moduk-input--width-4" %}
 
           {% if errors["dob-day"] %}
-            {% set dateInputDayClass = dateInputDayClass + " govuk-input--error" %}
+            {% set dateInputDayClass = dateInputDayClass + " moduk-input--error" %}
           {% endif %}
           {% if errors["dob-month"] %}
-            {% set dateInputMonthClass = dateInputMonthClass + " govuk-input--error" %}
+            {% set dateInputMonthClass = dateInputMonthClass + " moduk-input--error" %}
           {% endif %}
           {% if errors["dob-year"] %}
-            {% set dateInputYearClass = dateInputYearClass + " govuk-input--error" %}
+            {% set dateInputYearClass = dateInputYearClass + " moduk-input--error" %}
           {% endif %}
 
           {{ govukDateInput({
@@ -86,7 +86,7 @@ notes: >-
             fieldset: {
               legend: {
                 text: "Date of birth",
-                classes: "govuk-fieldset__legend--s"
+                classes: "moduk-fieldset__legend--s"
               }
             },
             hint: {

@@ -47,35 +47,35 @@ notes: >-
 {% endblock %}
 
 {% block content %}
-  <h1 class="govuk-heading-xl">{{ pageTitle }}</h1>
+  <h1 class="moduk-heading-xl">{{ pageTitle }}</h1>
 
   {{ govukInput({
     label: {
       text: "Search GOV.UK",
-      classes: "govuk-label--l, govuk-visually-hidden"
+      classes: "moduk-label--l, moduk-visually-hidden"
     },
     id: "search",
     name: "search",
-    classes: "govuk-!-width-two-thirds",
+    classes: "moduk-!-width-two-thirds",
     value: "driving"
   }) }}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-one-third">
-      <ul class="govuk-list govuk-list--spaced app-filter">
-        <li><a class="govuk-link" href="#">Topic</a></li>
-        <li><a class="govuk-link" href="#">Content type</a></li>
-        <li><a class="govuk-link" href="#">Updated</a></li>
+  <div class="moduk-grid-row">
+    <div class="moduk-grid-column-one-third">
+      <ul class="moduk-list moduk-list--spaced app-filter">
+        <li><a class="moduk-link" href="#">Topic</a></li>
+        <li><a class="moduk-link" href="#">Content type</a></li>
+        <li><a class="moduk-link" href="#">Updated</a></li>
       </ul>
       <form method="get" novalidate>
         {{ govukCheckboxes({
           idPrefix: "organisation",
           name: "organisation",
-          classes: "govuk-checkboxes--small",
+          classes: "moduk-checkboxes--small",
           fieldset: {
             legend: {
-              html: "<a class='govuk-link' href=''>Organisation</a>",
-              classes: "app-open-fieldset govuk-fieldset__legend--s"
+              html: "<a class='moduk-link' href=''>Organisation</a>",
+              classes: "app-open-fieldset moduk-fieldset__legend--s"
             }
           },
           items: [
@@ -102,12 +102,12 @@ notes: >-
         }) }}
       </form>
     </div>
-    <div class="govuk-grid-column-two-thirds">
+    <div class="moduk-grid-column-two-thirds">
       <div class="app-search-results-summary">
-        <h2 class="govuk-heading-s">{{ total }} results</h2>
-        <span class="subscribe-link"><a href="#" class="govuk-link govuk-body-s">Subscribe to feed</a></span>
+        <h2 class="moduk-heading-s">{{ total }} results</h2>
+        <span class="subscribe-link"><a href="#" class="moduk-link moduk-body-s">Subscribe to feed</a></span>
       </div>
-      <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible govuk-!-margin-bottom-3">
+      <hr class="moduk-section-break moduk-section-break--s moduk-section-break--visible moduk-!-margin-bottom-3">
       <div class="app-search-result-sort">
         {{ govukSelect({
           id: "sort",
@@ -133,28 +133,28 @@ notes: >-
           ]
         }) }}
       </div>
-      <ul class="govuk-list app-document-list">
+      <ul class="moduk-list app-document-list">
           {% for document in documents %}
               {% set document = document.document %}
               <li>
-                  <h3 class="govuk-heading-s govuk-!-margin-bottom-2">
-                    <a class="govuk-link govuk-link--no-underline" href="https://gov.uk{{ document.link }}">
+                  <h3 class="moduk-heading-s moduk-!-margin-bottom-2">
+                    <a class="moduk-link moduk-link--no-underline" href="https://gov.uk{{ document.link }}">
                       {{ document.title }}
                     </a>
                   </h3>
-                  <p class="govuk-body-s govuk-!-margin-bottom-4">
+                  <p class="moduk-body-s moduk-!-margin-bottom-4">
                       {{ document.summary }}
                   </p>
                   {% if document.children %}
-                    <ul class="govuk-list app-search-result-list__children">
+                    <ul class="moduk-list app-search-result-list__children">
                       {% for child in document.children %}
                         <li>
-                          <h4 class="govuk-heading-xs govuk-!-margin-bottom-1 govuk-!-margin-top-1">
-                            <a class="govuk-link govuk-link--no-underline" href="#">
+                          <h4 class="moduk-heading-xs moduk-!-margin-bottom-1 moduk-!-margin-top-1">
+                            <a class="moduk-link moduk-link--no-underline" href="#">
                               {{ child.title }}
                             </a>
                           </h4>
-                          <p class="govuk-body-s">
+                          <p class="moduk-body-s">
                             {{ child.summary }}
                           </p>
                         </li>
@@ -162,9 +162,9 @@ notes: >-
                     </ul>
                   {% endif %}
                   {% if document.metadata %}
-                    <ul class="app-metadata-list govuk-!-padding-0">
+                    <ul class="app-metadata-list moduk-!-padding-0">
                         {% for data in document.metadata %}
-                            <li class="govuk-body govuk-!-font-size-16">
+                            <li class="moduk-body moduk-!-font-size-16">
                                 {% if data['is_text'] %}
                                     {{ data.value }}
                                 {% endif %}

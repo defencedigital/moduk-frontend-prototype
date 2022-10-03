@@ -1,0 +1,47 @@
+@include moduk-exports("moduk/component/skip-link") {
+  .moduk-skip-link {
+    @include moduk-visually-hidden-focusable;
+    @include moduk-typography-common;
+    @include moduk-link-decoration;
+    @include moduk-link-style-text;
+    @include moduk-typography-responsive($size: 16);
+
+    display: block;
+    padding: moduk-spacing(2) moduk-spacing(3);
+
+    // Respect 'display cutout' safe area (avoids notches and rounded corners)
+    @supports (padding: unquote("max(calc(0px))")) {
+      $padding-safe-area-right: calc(#{moduk-spacing(3)} + env(safe-area-inset-right));
+      $padding-safe-area-left: calc(#{moduk-spacing(3)} + env(safe-area-inset-left));
+
+      // Use max() to pick largest padding, default or with safe area
+      // Escaped due to Sass max() vs. CSS native max()
+      padding-right: unquote("max(#{moduk-spacing(3)}, #{$padding-safe-area-right})");
+      padding-left: unquote("max(#{moduk-spacing(3)}, #{$padding-safe-area-left})");
+    }
+
+    &:focus {
+      outline: $moduk-focus-width solid $moduk-focus-colour;
+      outline-offset: 0;
+      background-color: $moduk-focus-colour;
+
+      // Undo unwanted changes when global styles are enabled
+      @if $moduk-global-styles {
+        box-shadow: none;
+      }
+    }
+  }
+
+  .moduk-skip-link-focused-element {
+    &:focus {
+      // Remove the native visible focus indicator when the element is programmatically focused.
+      //
+      // We set the focus on the linked element (this is usually the <main> element) when the skip
+      // link is activated to improve screen reader announcements. However, we remove the visible
+      // focus indicator from the linked element because the user cannot interact with it.
+      //
+      // A related discussion: https://github.com/w3c/wcag/issues/1001
+      outline: none;
+    }
+  }
+}

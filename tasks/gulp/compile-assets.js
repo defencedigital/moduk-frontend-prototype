@@ -188,7 +188,7 @@ gulp.task('js:compile', () => {
   return merge(srcFiles.map(function (file) {
     // This is combined with destinationPath in gulp.dest()
     // so the files are output to the correct folders
-    const newDirectoryPath = path.dirname(file).replace('src/govuk', '')
+    const newDirectoryPath = path.dirname(file).replace('src/moduk', '')
 
     // We only want to give component JavaScript a unique module name
     let moduleName = 'GOVUKFrontend'

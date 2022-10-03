@@ -1,0 +1,26 @@
+@import "../error-message/index";
+@import "../input/index";
+@import "../hint/index";
+@import "../label/index";
+
+@include moduk-exports("moduk/component/date-input") {
+  .moduk-date-input {
+    @include moduk-clearfix;
+    // font-size: 0 removes whitespace caused by inline-block
+    font-size: 0;
+  }
+
+  .moduk-date-input__item {
+    display: inline-block;
+    margin-right: moduk-spacing(4);
+    margin-bottom: 0;
+  }
+
+  .moduk-date-input__label {
+    display: block;
+  }
+
+  .moduk-date-input__input {
+    margin-bottom: 0;
+  }
+}

@@ -31,12 +31,12 @@
     ]
   }) }}
 
-  <h1 class="govuk-heading-xl">Passport details</h1>
+  <h1 class="moduk-heading-xl">Passport details</h1>
 
   {{ govukInput({
     label: {
       text: "Passport number",
-      classes: "govuk-label--m"
+      classes: "moduk-label--m"
     },
     hint: {
       text: "For example, 502135326"
@@ -52,7 +52,7 @@
     fieldset: {
       legend: {
         text: 'Expiry date',
-        classes: 'govuk-fieldset__legend--m'
+        classes: 'moduk-fieldset__legend--m'
       }
     },
     hint: {
@@ -63,11 +63,11 @@
     items:[
       {
         name: 'month',
-        classes: 'govuk-input--width-2 govuk-input--error'
+        classes: 'moduk-input--width-2 moduk-input--error'
       },
       {
         name: 'year',
-        classes: 'govuk-input--width-4 govuk-input--error'
+        classes: 'moduk-input--width-4 moduk-input--error'
       }
     ],
     errorMessage: {

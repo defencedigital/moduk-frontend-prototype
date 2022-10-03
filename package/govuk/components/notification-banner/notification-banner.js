@@ -501,8 +501,202 @@ if (detect) return
 })
 .call('object' === typeof window && window || 'object' === typeof self && self || 'object' === typeof global && global || {});
 
-function NotificationBanner ($module) {
+(function(undefined) {
+
+  // Detection from https://raw.githubusercontent.com/Financial-Times/polyfill-library/13cf7c340974d128d557580b5e2dafcd1b1192d1/polyfills/Element/prototype/dataset/detect.js
+  var detect = (function(){
+    if (!document.documentElement.dataset) {
+      return false;
+    }
+    var el = document.createElement('div');
+    el.setAttribute("data-a-b", "c");
+    return el.dataset && el.dataset.aB == "c";
+  }());
+
+  if (detect) return
+
+  // Polyfill derived from  https://raw.githubusercontent.com/Financial-Times/polyfill-library/13cf7c340974d128d557580b5e2dafcd1b1192d1/polyfills/Element/prototype/dataset/polyfill.js
+  Object.defineProperty(Element.prototype, 'dataset', {
+    get: function() {
+      var element = this;
+      var attributes = this.attributes;
+      var map = {};
+  
+      for (var i = 0; i < attributes.length; i++) {
+        var attribute = attributes[i];
+  
+        // This regex has been edited from the original polyfill, to add
+        // support for period (.) separators in data-* attribute names. These
+        // are allowed in the HTML spec, but were not covered by the original
+        // polyfill's regex. We use periods in our i18n implementation.
+        if (attribute && attribute.name && (/^data-\w[.\w-]*$/).test(attribute.name)) {
+          var name = attribute.name;
+          var value = attribute.value;
+  
+          var propName = name.substr(5).replace(/-./g, function (prop) {
+            return prop.charAt(1).toUpperCase();
+          });
+          
+          // If this browser supports __defineGetter__ and __defineSetter__,
+          // continue using defineProperty. If not (like IE 8 and below), we use
+          // a hacky fallback which at least gives an object in the right format
+          if ('__defineGetter__' in Object.prototype && '__defineSetter__' in Object.prototype) {
+            Object.defineProperty(map, propName, {
+              enumerable: true,
+              get: function() {
+                return this.value;
+              }.bind({value: value || ''}),
+              set: function setter(name, value) {
+                if (typeof value !== 'undefined') {
+                  this.setAttribute(name, value);
+                } else {
+                  this.removeAttribute(name);
+                }
+              }.bind(element, name)
+            });
+          } else {
+            map[propName] = value;
+          }
+
+        }
+      }
+  
+      return map;
+    }
+  });
+
+}).call('object' === typeof window && window || 'object' === typeof self && self || 'object' === typeof global && global || {});
+
+/**
+ * Config flattening function. Takes any number of objects, flattens them into
+ * namespaced key-value pairs, (e.g. {'i18n.showSection': 'Show section'}) and
+ * combines them together, with greatest priority on the LAST item passed in.
+ *
+ * @param {...Object} - Any number of objects to merge together.
+ * @returns {Object} - A flattened object of key-value pairs.
+ */
+function mergeConfigs (/* ...config objects */) {
+  // Function to take nested objects and flatten them to a dot-separated keyed
+  // object. Doing this means we don't need to do any deep/recursive merging of
+  // each of our objects, nor transform our dataset from a flat list into a
+  // nested object.
+  var flattenObject = function (configObject) {
+    // Prepare an empty return object
+    var flattenedObject = {};
+
+    // Our flattening function, this is called recursively for each level of
+    // depth in the object. At each level we prepend the previous level names to
+    // the key using `prefix`.
+    var flattenLoop = function (obj, prefix) {
+      // Loop through keys...
+      for (var key in obj) {
+        // Check to see if this is a prototypical key/value,
+        // if it is, skip it.
+        if (!Object.prototype.hasOwnProperty.call(obj, key)) {
+          continue
+        }
+        var value = obj[key];
+        var prefixedKey = prefix ? prefix + '.' + key : key;
+        if (typeof value === 'object') {
+          // If the value is a nested object, recurse over that too
+          flattenLoop(value, prefixedKey);
+        } else {
+          // Otherwise, add this value to our return object
+          flattenedObject[prefixedKey] = value;
+        }
+      }
+    };
+
+    // Kick off the recursive loop
+    flattenLoop(configObject);
+    return flattenedObject
+  };
+
+  // Start with an empty object as our base
+  var formattedConfigObject = {};
+
+  // Loop through each of the remaining passed objects and push their keys
+  // one-by-one into configObject. Any duplicate keys will override the existing
+  // key with the new value.
+  for (var i = 0; i < arguments.length; i++) {
+    var obj = flattenObject(arguments[i]);
+    for (var key in obj) {
+      if (Object.prototype.hasOwnProperty.call(obj, key)) {
+        formattedConfigObject[key] = obj[key];
+      }
+    }
+  }
+
+  return formattedConfigObject
+}
+
+/**
+ * Normalise string
+ *
+ * 'If it looks like a duck, and it quacks like a duck…' 🦆
+ *
+ * If the passed value looks like a boolean or a number, convert it to a boolean
+ * or number.
+ *
+ * Designed to be used to convert config passed via data attributes (which are
+ * always strings) into something sensible.
+ *
+ * @param {String} value - The value to normalise
+ * @returns {(String|Boolean|Number)} Normalised data
+ */
+function normaliseString (value) {
+  if (typeof value !== 'string') {
+    return value
+  }
+
+  var trimmedValue = value.trim();
+
+  if (trimmedValue === 'true') {
+    return true
+  }
+
+  if (trimmedValue === 'false') {
+    return false
+  }
+
+  // Empty / whitespace-only strings are considered finite so we need to check
+  // the length of the trimmed string as well
+  if (trimmedValue.length > 0 && isFinite(trimmedValue)) {
+    return Number(trimmedValue)
+  }
+
+  return value
+}
+
+/**
+ * Normalise dataset
+ *
+ * Loop over an object and normalise each value using normaliseData function
+ *
+ * @param {DOMStringMap} dataset
+ * @returns {Object} Normalised dataset
+ */
+function normaliseDataset (dataset) {
+  var out = {};
+
+  for (var key in dataset) {
+    out[key] = normaliseString(dataset[key]);
+  }
+
+  return out
+}
+
+function NotificationBanner ($module, config) {
   this.$module = $module;
+
+  var defaultConfig = {
+    disableAutoFocus: false
+  };
+  this.config = mergeConfigs(
+    defaultConfig,
+    config || {},
+    normaliseDataset($module.dataset)
+  );
 }
 
 /**
@@ -531,7 +725,7 @@ NotificationBanner.prototype.init = function () {
 NotificationBanner.prototype.setFocus = function () {
   var $module = this.$module;
 
-  if ($module.getAttribute('data-disable-auto-focus') === 'true') {
+  if (this.config.disableAutoFocus) {
     return
   }
 

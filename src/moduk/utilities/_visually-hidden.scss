@@ -1,0 +1,9 @@
+@include moduk-exports("govuk/utilities/visually-hidden") {
+  .moduk-visually-hidden {
+    @include moduk-visually-hidden;
+  }
+
+  .moduk-visually-hidden-focusable {
+    @include moduk-visually-hidden-focusable;
+  }
+}

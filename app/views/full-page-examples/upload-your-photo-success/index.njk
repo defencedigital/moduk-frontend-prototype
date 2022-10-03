@@ -29,7 +29,7 @@ scenario: >-
         tag: {
             text: "beta"
         },
-        html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+        html: 'This is a new service – your <a class="moduk-link" href="#">feedback</a> will help us to improve it.'
     }) }}
     {{ govukBackLink({
         text: "Back",
@@ -38,23 +38,23 @@ scenario: >-
 {% endblock %}
 
 {% block content %}
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+  <div class="moduk-grid-row">
+    <div class="moduk-grid-column-two-thirds">
         <form method="post" novalidate>
             {% if isSuccess %}
                 {{ govukNotificationBanner({
                 "type": "success",
-                "html": "<p class=\"govuk-notification-banner__heading\">Success, your photo has been uploaded</p>\n"
+                "html": "<p class=\"moduk-notification-banner__heading\">Success, your photo has been uploaded</p>\n"
                 }) }}
             {% endif %}
 
-            <h1 class="govuk-heading-xl">Upload your photo</h1>
+            <h1 class="moduk-heading-xl">Upload your photo</h1>
 
-            <p class="govuk-body">
+            <p class="moduk-body">
                 Your photo will now go through an automated check.
             </p>
 
-            <p class="govuk-body">
+            <p class="moduk-body">
                 You’ll need to review it before you add the photo to your application.
             </p>
 
@@ -76,7 +76,7 @@ scenario: >-
                 items: [
                     {
                         value: "true",
-                        html: 'I accept the <a class="govuk-link" href="#">terms and conditions</a>',
+                        html: 'I accept the <a class="moduk-link" href="#">terms and conditions</a>',
                         checked: values["terms-and-conditions"]
                     }
                 ],

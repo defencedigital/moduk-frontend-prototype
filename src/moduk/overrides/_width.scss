@@ -1,0 +1,46 @@
+// stylelint-disable declaration-no-important
+@include moduk-exports("moduk/overrides/width") {
+  .moduk-\!-width-full {
+    width: 100% !important;
+  }
+
+  .moduk-\!-width-three-quarters {
+    width: 100% !important;
+
+    @include moduk-media-query($from: tablet) {
+      width: 75% !important;
+    }
+  }
+
+  .moduk-\!-width-two-thirds {
+    width: 100% !important;
+
+    @include moduk-media-query($from: tablet) {
+      width: 66.66% !important;
+    }
+  }
+
+  .moduk-\!-width-one-half {
+    width: 100% !important;
+
+    @include moduk-media-query($from: tablet) {
+      width: 50% !important;
+    }
+  }
+
+  .moduk-\!-width-one-third {
+    width: 100% !important;
+
+    @include moduk-media-query($from: tablet) {
+      width: 33.33% !important;
+    }
+  }
+
+  .moduk-\!-width-one-quarter {
+    width: 100% !important;
+
+    @include moduk-media-query($from: tablet) {
+      width: 25% !important;
+    }
+  }
+}

@@ -1,0 +1,81 @@
+@include moduk-exports("moduk/component/tag") {
+  .moduk-tag {
+
+    display: inline-block;
+
+    // When a user customises their colours often the background is removed,
+    // by adding a outline we ensure that the tag component still keeps it's meaning.
+    // https://accessibility.blog.gov.uk/2017/03/27/how-users-change-colours-on-websites/
+    outline: 2px solid transparent;
+    outline-offset: -2px;
+
+    color: moduk-colour("white");
+    background-color: moduk-colour("blue");
+    letter-spacing: 1px;
+
+    text-decoration: none;
+    text-transform: uppercase;
+
+    @if $moduk-use-legacy-font {
+      // Since New Transport sits slightly higher than other common fonts.
+      // We use intentionally uneven padding to make it balanced, this can be
+      // removed using the version of the font that has a more common vertical spacing.
+      @include moduk-font($size: 16, $weight: bold, $line-height: 1.25);
+      padding-top: 4px;
+      padding-right: 8px;
+      padding-bottom: 1px;
+      padding-left: 8px;
+    } @else {
+      @include moduk-font($size: 16, $weight: bold, $line-height: 1);
+      padding-top: 5px;
+      padding-right: 8px;
+      padding-bottom: 4px;
+      padding-left: 8px;
+    }
+  }
+
+  .moduk-tag--grey {
+    color: moduk-shade(moduk-colour("dark-grey", $legacy: "grey-1"), 30);
+    background: moduk-tint(moduk-colour("dark-grey", $legacy: "grey-1"), 90);
+  }
+
+  .moduk-tag--purple {
+    color: moduk-shade(moduk-colour("purple"), 20);
+    background: moduk-tint(moduk-colour("purple"), 80);
+  }
+
+  .moduk-tag--turquoise {
+    color: moduk-shade(moduk-colour("turquoise"), 60);
+    background: moduk-tint(moduk-colour("turquoise"), 70);
+  }
+
+  .moduk-tag--blue {
+    color: moduk-shade(moduk-colour("blue"), 30);
+    background: moduk-tint(moduk-colour("blue"), 80);
+  }
+
+  .moduk-tag--yellow {
+    color: moduk-shade(moduk-colour("yellow"), 65);
+    background: moduk-tint(moduk-colour("yellow"), 75);
+  }
+
+  .moduk-tag--orange {
+    color: moduk-shade(moduk-colour("orange"), 55);
+    background: moduk-tint(moduk-colour("orange"), 70);
+  }
+
+  .moduk-tag--red {
+    color: moduk-shade(moduk-colour("red"), 30);
+    background: moduk-tint(moduk-colour("red"), 80);
+  }
+
+  .moduk-tag--pink {
+    color: moduk-shade(moduk-colour("pink"), 40);
+    background: moduk-tint(moduk-colour("pink"), 80);
+  }
+
+  .moduk-tag--green {
+    color: moduk-shade(moduk-colour("green"), 20);
+    background: moduk-tint(moduk-colour("green"), 80);
+  }
+}

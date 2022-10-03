@@ -1,0 +1,89 @@
+@include moduk-exports("moduk/component/notification-banner") {
+  .moduk-notification-banner {
+    @include moduk-font($size: 19);
+    @include moduk-responsive-margin(8, "bottom");
+
+    border: $moduk-border-width solid $moduk-brand-colour;
+
+    background-color: $moduk-brand-colour;
+
+    &:focus {
+      outline: $moduk-focus-width solid $moduk-focus-colour;
+    }
+  }
+
+  .moduk-notification-banner__header {
+    padding: 2px moduk-spacing(3) moduk-spacing(1);
+
+    // Ensures the notification header appears separate to the notification body text in high contrast mode
+    border-bottom: 1px solid transparent;
+
+    @include moduk-media-query($from: tablet) {
+      padding: 2px moduk-spacing(4) moduk-spacing(1);
+    }
+  }
+
+  .moduk-notification-banner__title {
+    @include moduk-font($size: 19, $weight: bold);
+
+    margin: 0;
+
+    padding: 0;
+
+    color: moduk-colour("white");
+  }
+
+  .moduk-notification-banner__content {
+    $padding-tablet: moduk-spacing(4);
+    @include moduk-text-colour;
+    padding: moduk-spacing(3);
+
+    background-color: $moduk-body-background-colour;
+
+    @include moduk-media-query($from: tablet) {
+      padding: $padding-tablet;
+    }
+
+    // Wrap content at the same place that a 2/3 grid column ends, to maintain
+    // shorter line-lengths when the notification banner is full width
+    > * {
+      // When elements have their own padding (like lists), include the padding
+      // in the max-width calculation
+      box-sizing: border-box;
+
+      // Calculate the internal width of a two-thirds column...
+      $two-col-width: ($moduk-page-width * 2 / 3) - ($moduk-gutter * 1 / 3);
+
+      // ...and then factor in the left border and padding
+      $banner-exterior: ($padding-tablet + $moduk-border-width);
+      max-width: $two-col-width - $banner-exterior;
+    }
+
+    > :last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .moduk-notification-banner__heading {
+    @include moduk-font($size: 24, $weight: bold);
+
+    margin: 0 0 moduk-spacing(3) 0;
+
+    padding: 0;
+  }
+
+  .moduk-notification-banner__link {
+    @include moduk-link-common;
+    @include moduk-link-style-no-visited-state;
+  }
+
+  .moduk-notification-banner--success {
+    border-color: $moduk-success-colour;
+
+    background-color: $moduk-success-colour;
+
+    .moduk-notification-banner__link {
+      @include moduk-link-style-success;
+    }
+  }
+}

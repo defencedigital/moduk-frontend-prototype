@@ -1,0 +1,65 @@
+@include moduk-exports("moduk/component/table") {
+  .moduk-table {
+    @include moduk-font($size: 19);
+    @include moduk-text-colour;
+    width: 100%;
+    @include moduk-responsive-margin(6, "bottom");
+
+    border-spacing: 0;
+    border-collapse: collapse;
+  }
+
+  .moduk-table__header {
+    @include moduk-typography-weight-bold;
+  }
+
+  .moduk-table__header,
+  .moduk-table__cell {
+    padding: moduk-spacing(2) moduk-spacing(4) moduk-spacing(2) 0;
+    border-bottom: 1px solid $moduk-border-colour;
+    text-align: left;
+    vertical-align: top;
+  }
+
+  .moduk-table__cell--numeric {
+    @include moduk-font($size: false, $tabular: true);
+  }
+
+  .moduk-table__header--numeric,
+  .moduk-table__cell--numeric {
+    text-align: right;
+  }
+
+  .moduk-table__header:last-child,
+  .moduk-table__cell:last-child {
+    padding-right: 0;
+  }
+
+  .moduk-table__caption {
+    @include moduk-typography-weight-bold;
+
+    display: table-caption;
+    text-align: left;
+  }
+
+  // Modifiers that make captions look more like their equivalent headings
+
+  .moduk-table__caption--xl {
+    @include moduk-font($size: 48, $weight: bold);
+    margin-bottom: moduk-spacing(3);
+  }
+
+  .moduk-table__caption--l {
+    @include moduk-font($size: 36, $weight: bold);
+    margin-bottom: moduk-spacing(3);
+  }
+
+  .moduk-table__caption--m {
+    @include moduk-font($size: 24, $weight: bold);
+    margin-bottom: moduk-spacing(3);
+  }
+
+  .moduk-table__caption--s {
+    @include moduk-font($size: 19, $weight: bold);
+  }
+}

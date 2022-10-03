@@ -18,7 +18,7 @@ async function updateDistAssetsVersion () {
 
   // Loop through files
   const assetTasks = assetFiles.map(srcFilename => {
-    const destFilename = srcFilename.replace(/(govuk.*)(?=\.min)/g, '$1-' + pkg.version)
+    const destFilename = srcFilename.replace(/(moduk.*)(?=\.min)/g, '$1-' + pkg.version)
 
     // Move to new location
     return rename(srcFilename, destFilename)

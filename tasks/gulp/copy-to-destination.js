@@ -77,7 +77,7 @@ gulp.task('copy:files', () => {
           basename: 'macro-options',
           extname: '.json'
         }))
-    ).pipe(gulp.dest(`${taskArguments.destination}/govuk/`))
+    ).pipe(gulp.dest(`${taskArguments.destination}/moduk/`))
   )
 })
 

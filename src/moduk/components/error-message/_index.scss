@@ -1,0 +1,12 @@
+@include moduk-exports("moduk/component/error-message") {
+  .moduk-error-message {
+    @include moduk-font($size: 19, $weight: bold);
+
+    display: block;
+    margin-top: 0; // Reset any default browser margins for paragraphs
+    margin-bottom: moduk-spacing(3);
+    clear: both;
+
+    color: $moduk-error-colour;
+  }
+}

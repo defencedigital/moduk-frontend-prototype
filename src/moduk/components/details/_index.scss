@@ -1,0 +1,88 @@
+@include moduk-exports("moduk/component/details") {
+  .moduk-details {
+    @include moduk-font($size: 19);
+    @include moduk-text-colour;
+    @include moduk-responsive-margin(6, "bottom");
+
+    display: block;
+  }
+
+  .moduk-details__summary {
+    // Make the focus outline shrink-wrap the text content of the summary
+    display: inline-block;
+
+    // Absolutely position the marker against this element
+    position: relative;
+
+    margin-bottom: moduk-spacing(1);
+
+    // Allow for absolutely positioned marker and align with disclosed text
+    padding-left: moduk-spacing(4) + $moduk-border-width;
+
+    // Style the summary to look like a link...
+    color: $moduk-link-colour;
+    cursor: pointer;
+
+    &:hover {
+      color: $moduk-link-hover-colour;
+    }
+
+    &:focus {
+      @include moduk-focused-text;
+    }
+  }
+
+  // ...but only underline the text, not the arrow
+  .moduk-details__summary-text {
+    @include moduk-link-decoration;
+  }
+
+  .moduk-details__summary:hover .moduk-details__summary-text {
+    @include moduk-link-hover-decoration;
+  }
+
+  // Remove the underline when focussed to avoid duplicate borders
+  .moduk-details__summary:focus .moduk-details__summary-text {
+    text-decoration: none;
+  }
+
+  // Remove the default details marker so we can style our own consistently and
+  // ensure it displays in Firefox (see implementation.md for details)
+  .moduk-details__summary::-webkit-details-marker {
+    display: none;
+  }
+
+  // Append our own open / closed marker using a pseudo-element
+  .moduk-details__summary:before {
+    content: "";
+    position: absolute;
+
+    top: -1px;
+    bottom: 0;
+    left: 0;
+
+    margin: auto;
+
+    @include moduk-shape-arrow($direction: right, $base: 14px);
+
+    .moduk-details[open] > & {
+      @include moduk-shape-arrow($direction: down, $base: 14px);
+    }
+  }
+
+  .moduk-details__text {
+    padding-top: moduk-spacing(3);
+    padding-bottom: moduk-spacing(3);
+    padding-left: moduk-spacing(4);
+    border-left: $moduk-border-width solid $moduk-border-colour;
+  }
+
+  .moduk-details__text p {
+    margin-top: 0;
+    margin-bottom: moduk-spacing(4);
+  }
+
+  .moduk-details__text > :last-child {
+    margin-bottom: 0;
+  }
+}
