@@ -11,8 +11,8 @@ module.exports = {
   package: 'package/',
   public: 'public/',
   sassdoc: 'sassdoc/',
-  src: 'src/govuk/',
-  components: 'src/govuk/components/',
+  src: 'src/moduk/',
+  components: 'src/moduk/components/',
   ports: {
     app: 3000,
     test: 8888

@@ -1,6 +1,6 @@
-@import "../../../../src/govuk/base";
+@import "../../../../src/moduk/base";
 $govuk-new-link-styles: true;
-@import "../../../../src/govuk/core/all";
+@import "../../../../src/moduk/core/all";
 
 .app-header--campaign {
   padding-bottom: govuk-spacing(2);
