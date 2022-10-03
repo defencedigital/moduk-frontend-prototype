@@ -2,7 +2,7 @@
 {% from "./components/header/macro.njk" import govukHeader -%}
 {% from "./components/footer/macro.njk" import govukFooter -%}
 <!DOCTYPE html>
-<html lang="{{ htmlLang | default('en') }}" class="govuk-template {{ htmlClasses }}">
+<html lang="{{ htmlLang | default('en') }}" class="moduk-template {{ htmlClasses }}">
   <head>
     <meta charset="utf-8">
     <title{% if pageTitleLang %} lang="{{ pageTitleLang }}"{% endif %}>{% block pageTitle %}GOV.UK - The best place to find government services and information{% endblock %}</title>
