@@ -1,6 +1,6 @@
 @import "../base";
 
-@include moduk-exports("govuk/objects/template") {
+@include moduk-exports("moduk/objects/template") {
 
   // Applied to the <html> element
   .moduk-template {

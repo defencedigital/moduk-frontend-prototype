@@ -93,7 +93,7 @@ $_spacing-directions: (
   }
 }
 
-@include moduk-exports("govuk/overrides/spacing") {
+@include moduk-exports("moduk/overrides/spacing") {
   @include _moduk-generate-responsive-spacing-overrides("margin");
   @include _moduk-generate-responsive-spacing-overrides("padding");
 

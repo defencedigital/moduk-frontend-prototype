@@ -1,5 +1,5 @@
 // stylelint-disable declaration-no-important
-@include moduk-exports("govuk/overrides/text-align") {
+@include moduk-exports("moduk/overrides/text-align") {
   .moduk-\!-text-align-left {
     text-align: left !important;
   }

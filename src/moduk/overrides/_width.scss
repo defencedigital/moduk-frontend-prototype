@@ -1,5 +1,5 @@
 // stylelint-disable declaration-no-important
-@include moduk-exports("govuk/overrides/width") {
+@include moduk-exports("moduk/overrides/width") {
   .moduk-\!-width-full {
     width: 100% !important;
   }

@@ -18,9 +18,9 @@
 
 $moduk-use-legacy-font: if(
   (
-    $moduk-compatibility-govukfrontendtoolkit or
-    $moduk-compatibility-govuktemplate or
-    $moduk-compatibility-govukelements
+    $govuk-compatibility-modukfrontendtoolkit or
+    $govuk-compatibility-moduktemplate or
+    $govuk-compatibility-modukelements
   ),
   true,
   false
@@ -29,9 +29,9 @@ $moduk-use-legacy-font: if(
 // Only show the deprecation warning if user is setting $moduk-use-legacy-font
 // manually instead of automatically via compatibility variables
 @if $moduk-use-legacy-font == true and
-  $moduk-compatibility-govukfrontendtoolkit == false and
-  $moduk-compatibility-govuktemplate == false and
-  $moduk-compatibility-govukelements == false {
+  $govuk-compatibility-modukfrontendtoolkit == false and
+  $govuk-compatibility-moduktemplate == false and
+  $govuk-compatibility-modukelements == false {
   @warn "$moduk-use-legacy-font is deprecated. " +
     "From version 5.0, GOV.UK Frontend will only support the included version " +
     "of GDS Transport";

@@ -1,6 +1,6 @@
 @import "../base";
 
-@include moduk-exports("govuk/objects/grid") {
+@include moduk-exports("moduk/objects/grid") {
   .moduk-grid-row {
     @include moduk-clearfix;
     margin-right: - ($moduk-gutter-half);

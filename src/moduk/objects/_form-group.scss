@@ -1,6 +1,6 @@
 @import "../base";
 
-@include moduk-exports("govuk/objects/form-group") {
+@include moduk-exports("moduk/objects/form-group") {
   .moduk-form-group {
     @include moduk-clearfix;
     @include moduk-responsive-margin(6, "bottom");

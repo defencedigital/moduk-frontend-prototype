@@ -77,7 +77,7 @@
   }
 }
 
-@include moduk-exports("govuk/objects/width-container") {
+@include moduk-exports("moduk/objects/width-container") {
   .moduk-width-container {
     @include moduk-width-container;
   }

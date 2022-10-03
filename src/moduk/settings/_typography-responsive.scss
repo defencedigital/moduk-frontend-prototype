@@ -18,9 +18,9 @@
 
 $moduk-typography-use-rem: if(
   (
-    $moduk-compatibility-govukfrontendtoolkit or
-    $moduk-compatibility-govuktemplate or
-    $moduk-compatibility-govukelements
+    $govuk-compatibility-modukfrontendtoolkit or
+    $govuk-compatibility-moduktemplate or
+    $govuk-compatibility-modukelements
   ),
   false,
   true
@@ -29,9 +29,9 @@ $moduk-typography-use-rem: if(
 // Only show the deprecation warning if user is setting $moduk-typography-use-rem
 // manually instead of automatically via compatibility variables
 @if $moduk-typography-use-rem == false and
-  $moduk-compatibility-govukfrontendtoolkit == false and
-  $moduk-compatibility-govuktemplate == false and
-  $moduk-compatibility-govukelements == false {
+  $govuk-compatibility-modukfrontendtoolkit == false and
+  $govuk-compatibility-moduktemplate == false and
+  $govuk-compatibility-modukelements == false {
   @warn "$moduk-typography-use-rem is deprecated. " +
     "From version 5.0, GOV.UK Frontend will not support disabling rem font sizes";
 }

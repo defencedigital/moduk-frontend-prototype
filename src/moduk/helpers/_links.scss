@@ -97,16 +97,6 @@
     color: $moduk-focus-text-colour;
   }
 
-  // alphagov/govuk_template includes a specific a:link:focus selector
-  // designed to make unvisited link  s a slightly darker blue when focussed, so
-  // we need to override the text colour for that combination of selectors so
-  // so that unvisited links styled as buttons do not end up with dark blue
-  // text when focussed.
-  @include _moduk-compatibility(govuk_template) {
-    &:link:focus {
-      color: $moduk-focus-text-colour;
-    }
-  }
 }
 
 /// Error link styles
@@ -145,16 +135,6 @@
     color: $moduk-focus-text-colour;
   }
 
-  // alphagov/govuk_template includes a specific a:link:focus selector
-  // designed to make unvisited link  s a slightly darker blue when focussed, so
-  // we need to override the text colour for that combination of selectors so
-  // so that unvisited links styled as buttons do not end up with dark blue
-  // text when focussed.
-  @include _moduk-compatibility(govuk_template) {
-    &:link:focus {
-      color: $moduk-focus-text-colour;
-    }
-  }
 }
 
 /// Success link styles
@@ -193,16 +173,6 @@
     color: $moduk-focus-text-colour;
   }
 
-  // alphagov/govuk_template includes a specific a:link:focus selector
-  // designed to make unvisited link  s a slightly darker blue when focussed, so
-  // we need to override the text colour for that combination of selectors so
-  // so that unvisited links styled as buttons do not end up with dark blue
-  // text when focussed.
-  @include _moduk-compatibility(govuk_template) {
-    &:link:focus {
-      color: $moduk-focus-text-colour;
-    }
-  }
 }
 
 /// Muted link styles
@@ -238,14 +208,6 @@
     color: $moduk-focus-text-colour;
   }
 
-  // alphagov/govuk_template includes a specific a:link:focus selector designed
-  // to make unvisited links a slightly darker blue when focussed, so we need to
-  // override the text colour for that combination of selectors.
-  @include _moduk-compatibility(govuk_template) {
-    &:link:focus {
-      @include moduk-text-colour;
-    }
-  }
 }
 
 /// Text link styles
@@ -283,14 +245,6 @@
     @include moduk-text-colour;
   }
 
-  // alphagov/govuk_template includes a specific a:link:focus selector designed
-  // to make unvisited links a slightly darker blue when focussed, so we need to
-  // override the text colour for that combination of selectors.
-  @include _moduk-compatibility(govuk_template) {
-    &:link:focus {
-      @include moduk-text-colour;
-    }
-  }
 }
 
 /// Inverse link styles
@@ -326,14 +280,6 @@
     color: $moduk-focus-text-colour;
   }
 
-  // alphagov/govuk_template includes a specific a:link:focus selector designed
-  // to make unvisited links a slightly darker blue when focussed, so we need to
-  // override the text colour for that combination of selectors.
-  @include _moduk-compatibility(govuk_template) {
-    &:link:focus {
-      color: $moduk-focus-text-colour;
-    }
-  }
 }
 
 /// Default link styles, without a visited state

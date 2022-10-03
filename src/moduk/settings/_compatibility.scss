@@ -24,7 +24,7 @@
 /// @type Boolean
 /// @access public
 
-$moduk-compatibility-govukfrontendtoolkit: false !default;
+$govuk-compatibility-modukfrontendtoolkit: false !default;
 
 /// Compatibility Mode: alphagov/govuk_template
 ///
@@ -42,7 +42,7 @@ $moduk-compatibility-govukfrontendtoolkit: false !default;
 /// @type Boolean
 /// @access public
 
-$moduk-compatibility-govuktemplate: false !default;
+$govuk-compatibility-moduktemplate: false !default;
 
 /// Compatibility Mode: alphagov/govuk_elements
 ///
@@ -57,18 +57,18 @@ $moduk-compatibility-govuktemplate: false !default;
 /// @type Boolean
 /// @access public
 
-$moduk-compatibility-govukelements: false !default;
+$govuk-compatibility-modukelements: false !default;
 
 /// Compatibility Product Map
 ///
 /// Maps product names to their settings that we can use to lookup states from
-/// within the `@moduk-compatibility` mixin.
+/// within the `@govuk-compatibility` mixin.
 ///
 /// @type Map
 /// @access private
 
-$_moduk-compatibility: (
-  govuk_frontend_toolkit: $moduk-compatibility-govukfrontendtoolkit,
-  govuk_template: $moduk-compatibility-govuktemplate,
-  govuk_elements: $moduk-compatibility-govukelements,
+$_govuk-compatibility: (
+  moduk_frontend_toolkit: $govuk-compatibility-modukfrontendtoolkit,
+  moduk_template: $govuk-compatibility-moduktemplate,
+  moduk_elements: $govuk-compatibility-modukelements,
 );

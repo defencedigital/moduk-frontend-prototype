@@ -21,7 +21,7 @@
 //   </div>
 // </div>
 
-@include moduk-exports("govuk/objects/main-wrapper") {
+@include moduk-exports("moduk/objects/main-wrapper") {
   .moduk-main-wrapper {
     // In IE11 the `main` element can be used, but is not recognized  –
     // meaning it's not defined in IE's default style sheet,
