@@ -3,24 +3,24 @@
 @import "../hint/index";
 @import "../label/index";
 
-@include govuk-exports("govuk/component/date-input") {
-  .govuk-date-input {
-    @include govuk-clearfix;
+@include moduk-exports("moduk/component/date-input") {
+  .moduk-date-input {
+    @include moduk-clearfix;
     // font-size: 0 removes whitespace caused by inline-block
     font-size: 0;
   }
 
-  .govuk-date-input__item {
+  .moduk-date-input__item {
     display: inline-block;
-    margin-right: govuk-spacing(4);
+    margin-right: moduk-spacing(4);
     margin-bottom: 0;
   }
 
-  .govuk-date-input__label {
+  .moduk-date-input__label {
     display: block;
   }
 
-  .govuk-date-input__input {
+  .moduk-date-input__input {
     margin-bottom: 0;
   }
 }

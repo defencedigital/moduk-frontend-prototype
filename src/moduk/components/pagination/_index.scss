@@ -1,42 +1,42 @@
-@include govuk-exports("govuk/component/pagination") {
+@include moduk-exports("moduk/component/pagination") {
   // Flexbox enhancement for small screen visual design
   // Falls back to a float: left layout on non-flex browsers
-  .govuk-pagination {
-    @include govuk-responsive-margin(6, "bottom");
+  .moduk-pagination {
+    @include moduk-responsive-margin(6, "bottom");
     display: flex;
     flex-direction: column;
     align-items: center;
     flex-wrap: wrap;
 
-    @include govuk-media-query($from: tablet) {
+    @include moduk-media-query($from: tablet) {
       flex-direction: row;
       align-items: flex-start;
     }
   }
 
-  .govuk-pagination__list {
+  .moduk-pagination__list {
     margin: 0;
     padding: 0;
     list-style: none;
   }
 
-  .govuk-pagination__item,
-  .govuk-pagination__next,
-  .govuk-pagination__prev {
-    @include govuk-font(19);
+  .moduk-pagination__item,
+  .moduk-pagination__next,
+  .moduk-pagination__prev {
+    @include moduk-font(19);
     box-sizing: border-box;
     position: relative;
     min-width: 45px;
     min-height: 45px;
-    padding: govuk-spacing(2) govuk-spacing(3);
+    padding: moduk-spacing(2) moduk-spacing(3);
     float: left; // Float is ignored if flex is active for prev/next links
 
     &:hover {
-      background-color: govuk-colour("light-grey", $legacy: "grey-4");
+      background-color: moduk-colour("light-grey", $legacy: "grey-4");
     }
   }
 
-  .govuk-pagination__item {
+  .moduk-pagination__item {
     // Hide items on small screens except the prev/next items,
     // non-link items and the first and last items
     display: none;
@@ -45,56 +45,56 @@
     // visually sit in the middle of their touch area
     text-align: center;
 
-    @include govuk-media-query($from: tablet) {
+    @include moduk-media-query($from: tablet) {
       display: block;
     }
   }
 
-  .govuk-pagination__prev,
-  .govuk-pagination__next {
-    @include govuk-typography-weight-bold;
+  .moduk-pagination__prev,
+  .moduk-pagination__next {
+    @include moduk-typography-weight-bold;
 
     // Use flex to get around a whitespace issue between the arrow svg and the link text
     // without having to rely on whitespace control from backend tooling
-    .govuk-pagination__link {
+    .moduk-pagination__link {
       display: flex;
       align-items: center;
     }
   }
 
-  .govuk-pagination__prev {
+  .moduk-pagination__prev {
     padding-left: 0;
   }
 
-  .govuk-pagination__next {
+  .moduk-pagination__next {
     padding-right: 0;
   }
 
   // Only show first, last and non-link items on mobile
-  .govuk-pagination__item--current,
-  .govuk-pagination__item--ellipses,
-  .govuk-pagination__item:first-child,
-  .govuk-pagination__item:last-child {
+  .moduk-pagination__item--current,
+  .moduk-pagination__item--ellipses,
+  .moduk-pagination__item:first-child,
+  .moduk-pagination__item:last-child {
     display: block;
   }
 
-  .govuk-pagination__item--current {
-    @include govuk-typography-weight-bold;
+  .moduk-pagination__item--current {
+    @include moduk-typography-weight-bold;
     outline: 1px solid transparent;
-    background-color: $govuk-link-colour;
+    background-color: $moduk-link-colour;
 
     &:hover {
-      background-color: $govuk-link-colour;
+      background-color: $moduk-link-colour;
     }
 
-    .govuk-pagination__link {
-      @include govuk-link-style-inverse;
+    .moduk-pagination__link {
+      @include moduk-link-style-inverse;
     }
   }
 
-  .govuk-pagination__item--ellipses {
-    @include govuk-typography-weight-bold;
-    color: $govuk-secondary-text-colour;
+  .moduk-pagination__item--ellipses {
+    @include moduk-typography-weight-bold;
+    color: $moduk-secondary-text-colour;
 
     // Remove hover state for ellipsis items as they don't have links within them
     &:hover {
@@ -102,9 +102,9 @@
     }
   }
 
-  .govuk-pagination__link {
+  .moduk-pagination__link {
     display: block;
-    min-width: govuk-spacing(3);
+    min-width: moduk-spacing(3);
 
     // Increase the touch area for the link to the parent element.
     @media screen {
@@ -122,87 +122,87 @@
     // We do this so that we have a hover state in all possible instances
     &:hover,
     &:active {
-      .govuk-pagination__link-title--decorated {
-        @include govuk-link-decoration;
+      .moduk-pagination__link-title--decorated {
+        @include moduk-link-decoration;
       }
 
-      .govuk-pagination__link-label,
-      .govuk-pagination__link-title--decorated {
-        @include govuk-link-hover-decoration;
+      .moduk-pagination__link-label,
+      .moduk-pagination__link-title--decorated {
+        @include moduk-link-hover-decoration;
       }
     }
 
     &:focus {
-      .govuk-pagination__icon {
-        color: $govuk-focus-text-colour;
+      .moduk-pagination__icon {
+        color: $moduk-focus-text-colour;
       }
 
-      .govuk-pagination__link-label {
+      .moduk-pagination__link-label {
         text-decoration: none;
       }
 
-      .govuk-pagination__link-title--decorated {
+      .moduk-pagination__link-title--decorated {
         text-decoration: none;
       }
     }
   }
 
-  .govuk-pagination__link-label {
-    @include govuk-font($size: 19, $weight: "regular");
-    @include govuk-link-decoration;
+  .moduk-pagination__link-label {
+    @include moduk-font($size: 19, $weight: "regular");
+    @include moduk-link-decoration;
     display: inline-block;
-    padding-left: govuk-spacing(6);
+    padding-left: moduk-spacing(6);
   }
 
-  .govuk-pagination__icon {
+  .moduk-pagination__icon {
     // Set size using rems to make the icon scale with text if user resizes text in their browser
-    width: govuk-px-to-rem(15px);
-    height: govuk-px-to-rem(13px);
-    color: $govuk-secondary-text-colour;
+    width: moduk-px-to-rem(15px);
+    height: moduk-px-to-rem(13px);
+    color: $moduk-secondary-text-colour;
     fill: currentcolor;
     forced-color-adjust: auto;
   }
 
-  .govuk-pagination__icon--prev {
-    margin-right: govuk-spacing(3);
+  .moduk-pagination__icon--prev {
+    margin-right: moduk-spacing(3);
   }
 
-  .govuk-pagination__icon--next {
-    margin-left: govuk-spacing(3);
+  .moduk-pagination__icon--next {
+    margin-left: moduk-spacing(3);
   }
 
   // Block mode - position previous and next links above and below numbers
-  .govuk-pagination--block {
+  .moduk-pagination--block {
     display: block;
 
-    .govuk-pagination__item {
-      padding: govuk-spacing(3);
+    .moduk-pagination__item {
+      padding: moduk-spacing(3);
       float: none;
     }
 
-    .govuk-pagination__next,
-    .govuk-pagination__prev {
+    .moduk-pagination__next,
+    .moduk-pagination__prev {
       padding-left: 0;
       float: none;
     }
 
-    .govuk-pagination__next {
-      padding-right: govuk-spacing(3);
+    .moduk-pagination__next {
+      padding-right: moduk-spacing(3);
 
-      .govuk-pagination__icon {
+      .moduk-pagination__icon {
         margin-left: 0;
       }
     }
 
     // Only apply a border between prev and next if both are present
-    .govuk-pagination__prev + .govuk-pagination__next {
-      border-top: 1px solid $govuk-border-colour;
+    .moduk-pagination__prev + .moduk-pagination__next {
+      border-top: 1px solid $moduk-border-colour;
     }
 
     // Reset both these elements to their inline default, both to ensure that the focus state
     // for block mode "shrink wraps" text as expected
-    .govuk-pagination__link,
-    .govuk-pagination__link-title {
+    .moduk-pagination__link,
+    .moduk-pagination__link-title {
       display: inline;
     }
 
@@ -210,20 +210,20 @@
     // as block level whilst programmatically being inline
     // We do this to get around an NVDA quirk where adjacent block level
     // elements are always read out separately
-    .govuk-pagination__link-title:after {
+    .moduk-pagination__link-title:after {
       content: "";
       display: block;
     }
 
-    .govuk-pagination__link {
+    .moduk-pagination__link {
       text-align: left;
 
       &:focus {
         // apply focus styling to the label within the link as if it were being focused
         // to get around a display issue with a focusable inline element containing a mixture
         // of inline and inline-block level elements
-        .govuk-pagination__link-label {
-          @include govuk-focused-text;
+        .moduk-pagination__link-label {
+          @include moduk-focused-text;
         }
       }
 
@@ -232,8 +232,8 @@
       }
     }
 
-    .govuk-pagination__icon {
-      margin-right: govuk-spacing(2);
+    .moduk-pagination__icon {
+      margin-right: moduk-spacing(2);
     }
   }
 }

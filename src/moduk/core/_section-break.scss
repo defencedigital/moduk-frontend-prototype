@@ -1,56 +1,56 @@
-@include govuk-exports("govuk/core/section-break") {
+@include moduk-exports("moduk/core/section-break") {
 
-  %govuk-section-break {
+  %moduk-section-break {
     margin: 0;
     border: 0;
 
     // fix double-width section break and forced visible section break
     // when combined with styles from alphagov/elements
-    @include _govuk-compatibility(govuk_elements) {
+    @include _moduk-compatibility(govuk_elements) {
       height: 0;
     }
   }
 
-  .govuk-section-break {
-    @extend %govuk-section-break;
+  .moduk-section-break {
+    @extend %moduk-section-break;
   }
 
   // Sizes
 
-  %govuk-section-break--xl {
-    @include govuk-responsive-margin(8, "top");
-    @include govuk-responsive-margin(8, "bottom");
+  %moduk-section-break--xl {
+    @include moduk-responsive-margin(8, "top");
+    @include moduk-responsive-margin(8, "bottom");
   }
 
-  .govuk-section-break--xl {
-    @extend %govuk-section-break--xl;
+  .moduk-section-break--xl {
+    @extend %moduk-section-break--xl;
   }
 
-  %govuk-section-break--l {
-    @include govuk-responsive-margin(6, "top");
-    @include govuk-responsive-margin(6, "bottom");
+  %moduk-section-break--l {
+    @include moduk-responsive-margin(6, "top");
+    @include moduk-responsive-margin(6, "bottom");
   }
 
-  .govuk-section-break--l {
-    @extend %govuk-section-break--l;
+  .moduk-section-break--l {
+    @extend %moduk-section-break--l;
   }
 
-  %govuk-section-break--m {
-    @include govuk-responsive-margin(4, "top");
-    @include govuk-responsive-margin(4, "bottom");
+  %moduk-section-break--m {
+    @include moduk-responsive-margin(4, "top");
+    @include moduk-responsive-margin(4, "bottom");
   }
 
-  .govuk-section-break--m {
-    @extend %govuk-section-break--m;
+  .moduk-section-break--m {
+    @extend %moduk-section-break--m;
   }
 
   // Visible variant
 
-  %govuk-section-break--visible {
-    border-bottom: 1px solid $govuk-border-colour;
+  %moduk-section-break--visible {
+    border-bottom: 1px solid $moduk-border-colour;
   }
 
-  .govuk-section-break--visible {
-    @extend %govuk-section-break--visible;
+  .moduk-section-break--visible {
+    @extend %moduk-section-break--visible;
   }
 }

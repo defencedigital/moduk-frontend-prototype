@@ -17,11 +17,11 @@ describe('Pagination', () => {
 
     it('renders the correct URLs for each link', () => {
       const $ = render('pagination', examples.default)
-      const $previous = $('.govuk-pagination__prev .govuk-pagination__link')
-      const $next = $('.govuk-pagination__next .govuk-pagination__link')
-      const $firstNumber = $('.govuk-pagination__item:first-child .govuk-pagination__link')
-      const $secondNumber = $('.govuk-pagination__item:nth-child(2) .govuk-pagination__link')
-      const $thirdNumber = $('.govuk-pagination__item:last-child .govuk-pagination__link')
+      const $previous = $('.moduk-pagination__prev .moduk-pagination__link')
+      const $next = $('.moduk-pagination__next .moduk-pagination__link')
+      const $firstNumber = $('.moduk-pagination__item:first-child .moduk-pagination__link')
+      const $secondNumber = $('.moduk-pagination__item:nth-child(2) .moduk-pagination__link')
+      const $thirdNumber = $('.moduk-pagination__item:last-child .moduk-pagination__link')
 
       expect($previous.attr('href')).toEqual('/previous')
       expect($next.attr('href')).toEqual('/next')
@@ -32,9 +32,9 @@ describe('Pagination', () => {
 
     it('renders the correct number within each pagination item', () => {
       const $ = render('pagination', examples.default)
-      const $firstNumber = $('.govuk-pagination__item:first-child')
-      const $secondNumber = $('.govuk-pagination__item:nth-child(2)')
-      const $thirdNumber = $('.govuk-pagination__item:last-child')
+      const $firstNumber = $('.moduk-pagination__item:first-child')
+      const $secondNumber = $('.moduk-pagination__item:nth-child(2)')
+      const $thirdNumber = $('.moduk-pagination__item:last-child')
 
       expect($firstNumber.text().trim()).toEqual('1')
       expect($secondNumber.text().trim()).toEqual('2')
@@ -46,15 +46,15 @@ describe('Pagination', () => {
     // by aria-label on non-interactive elements like li's
     it('marks up the current item correctly', () => {
       const $ = render('pagination', examples.default)
-      const $currentNumber = $('.govuk-pagination__item--current')
-      const $currentNumberLink = $currentNumber.find('.govuk-pagination__link')
+      const $currentNumber = $('.moduk-pagination__item--current')
+      const $currentNumberLink = $currentNumber.find('.moduk-pagination__link')
 
       expect($currentNumberLink.attr('aria-current')).toEqual('page')
     })
 
     it('marks up pagination items as ellipses when specified', () => {
       const $ = render('pagination', examples['with many pages'])
-      const $firstEllipsis = $('.govuk-pagination__item:nth-child(2).govuk-pagination__item--ellipses')
+      const $firstEllipsis = $('.moduk-pagination__item:nth-child(2).moduk-pagination__item--ellipses')
 
       expect($firstEllipsis).toBeTruthy()
       // Test for the unicode character of &ctdot;
@@ -65,18 +65,18 @@ describe('Pagination', () => {
   describe('with custom text, labels and landmarks', () => {
     it('renders a custom navigation landmark', () => {
       const $ = render('pagination', examples['with custom navigation landmark'])
-      const $nav = $('.govuk-pagination')
+      const $nav = $('.moduk-pagination')
 
       expect($nav.attr('aria-label')).toEqual('search')
     })
 
     it('renders custom pagination item and prev/next link text', () => {
       const $ = render('pagination', examples['with custom link and item text'])
-      const $previous = $('.govuk-pagination__prev')
-      const $next = $('.govuk-pagination__next')
-      const $firstNumber = $('.govuk-pagination__item:first-child')
-      const $secondNumber = $('.govuk-pagination__item:nth-child(2)')
-      const $thirdNumber = $('.govuk-pagination__item:last-child')
+      const $previous = $('.moduk-pagination__prev')
+      const $next = $('.moduk-pagination__next')
+      const $firstNumber = $('.moduk-pagination__item:first-child')
+      const $secondNumber = $('.moduk-pagination__item:nth-child(2)')
+      const $thirdNumber = $('.moduk-pagination__item:last-child')
 
       expect($previous.text().trim()).toEqual('Previous page')
       expect($next.text().trim()).toEqual('Next page')
@@ -87,9 +87,9 @@ describe('Pagination', () => {
 
     it('renders custom accessible labels for pagination items', () => {
       const $ = render('pagination', examples['with custom accessible labels on item links'])
-      const $firstNumber = $('.govuk-pagination__item:first-child .govuk-pagination__link')
-      const $secondNumber = $('.govuk-pagination__item:nth-child(2) .govuk-pagination__link')
-      const $thirdNumber = $('.govuk-pagination__item:last-child .govuk-pagination__link')
+      const $firstNumber = $('.moduk-pagination__item:first-child .moduk-pagination__link')
+      const $secondNumber = $('.moduk-pagination__item:nth-child(2) .moduk-pagination__link')
+      const $thirdNumber = $('.moduk-pagination__item:last-child .moduk-pagination__link')
 
       expect($firstNumber.attr('aria-label')).toEqual('1st page')
       expect($secondNumber.attr('aria-label')).toEqual('2nd page (you are currently on this page)')
@@ -100,8 +100,8 @@ describe('Pagination', () => {
   describe('previous and next links', () => {
     it('applies the correct rel attribute to each link so that they communicate to search engines the intent of the links', () => {
       const $ = render('pagination', examples.default)
-      const $previous = $('.govuk-pagination__prev .govuk-pagination__link')
-      const $next = $('.govuk-pagination__next .govuk-pagination__link')
+      const $previous = $('.moduk-pagination__prev .moduk-pagination__link')
+      const $next = $('.moduk-pagination__next .moduk-pagination__link')
 
       expect($previous.attr('rel')).toEqual('prev')
       expect($next.attr('rel')).toEqual('next')
@@ -109,8 +109,8 @@ describe('Pagination', () => {
 
     it('sets aria-hidden="true" to each link so that they are ignored by assistive technology', () => {
       const $ = render('pagination', examples.default)
-      const $previousSvg = $('.govuk-pagination__icon--prev')
-      const $nextSvg = $('.govuk-pagination__icon--next')
+      const $previousSvg = $('.moduk-pagination__icon--prev')
+      const $nextSvg = $('.moduk-pagination__icon--next')
 
       expect($previousSvg.attr('aria-hidden')).toEqual('true')
       expect($nextSvg.attr('aria-hidden')).toEqual('true')
@@ -118,8 +118,8 @@ describe('Pagination', () => {
 
     it('sets focusable="false" so that IE does not treat it as an interactive element', () => {
       const $ = render('pagination', examples.default)
-      const $previousSvg = $('.govuk-pagination__icon--prev')
-      const $nextSvg = $('.govuk-pagination__icon--next')
+      const $previousSvg = $('.moduk-pagination__icon--prev')
+      const $nextSvg = $('.moduk-pagination__icon--next')
 
       expect($previousSvg.attr('focusable')).toEqual('false')
       expect($nextSvg.attr('focusable')).toEqual('false')
@@ -129,9 +129,9 @@ describe('Pagination', () => {
   describe('prev/next only view', () => {
     it('changes the display to prev/next only if no items are provided', () => {
       const $ = render('pagination', examples['with prev and next only'])
-      const $blockNav = $('.govuk-pagination--block')
-      const $previous = $('.govuk-pagination__prev')
-      const $next = $('.govuk-pagination__next')
+      const $blockNav = $('.moduk-pagination--block')
+      const $previous = $('.moduk-pagination__prev')
+      const $next = $('.moduk-pagination__next')
 
       expect($blockNav).toBeTruthy()
       expect($previous).toBeTruthy()
@@ -140,8 +140,8 @@ describe('Pagination', () => {
 
     it('applies labels when provided', () => {
       const $ = render('pagination', examples['with prev and next only and labels'])
-      const $prevLabel = $('.govuk-pagination__prev .govuk-pagination__link-label')
-      const $nextLabel = $('.govuk-pagination__next .govuk-pagination__link-label')
+      const $prevLabel = $('.moduk-pagination__prev .moduk-pagination__link-label')
+      const $nextLabel = $('.moduk-pagination__next .moduk-pagination__link-label')
 
       expect($prevLabel.text()).toEqual('1 of 3')
       expect($nextLabel.text()).toEqual('3 of 3')
@@ -152,8 +152,8 @@ describe('Pagination', () => {
     // of the label so that there's a clear underline hover state on the link
     it('adds the decoration class to the link title if no label is present', () => {
       const $ = render('pagination', examples['with prev and next only'])
-      const $decoratedPreviousLinkTitle = $('.govuk-pagination__prev .govuk-pagination__link-title--decorated')
-      const $decoratedNextLinkTitle = $('.govuk-pagination__next .govuk-pagination__link-title--decorated')
+      const $decoratedPreviousLinkTitle = $('.moduk-pagination__prev .moduk-pagination__link-title--decorated')
+      const $decoratedNextLinkTitle = $('.moduk-pagination__next .moduk-pagination__link-title--decorated')
 
       expect($decoratedPreviousLinkTitle).toBeTruthy()
       expect($decoratedNextLinkTitle).toBeTruthy()

@@ -54,45 +54,45 @@ examples:
   data:
     legend:
       text: What is your address?
-      classes: govuk-fieldset__legend--xl
+      classes: moduk-fieldset__legend--xl
 - name: styled as large text
   data:
     legend:
       text: What is your address?
-      classes: govuk-fieldset__legend--l
+      classes: moduk-fieldset__legend--l
 - name: styled as medium text
   data:
     legend:
       text: What is your address?
-      classes: govuk-fieldset__legend--m
+      classes: moduk-fieldset__legend--m
 - name: styled as small text
   data:
     legend:
       text: What is your address?
-      classes: govuk-fieldset__legend--s
+      classes: moduk-fieldset__legend--s
 - name: as page heading xl
   data:
     legend:
       text: What is your address?
-      classes: govuk-fieldset__legend--xl
+      classes: moduk-fieldset__legend--xl
       isPageHeading: true
 - name: as page heading l
   data:
     legend:
       text: What is your address?
-      classes: govuk-fieldset__legend--l
+      classes: moduk-fieldset__legend--l
       isPageHeading: true
 - name: as page heading m
   data:
     legend:
       text: What is your address?
-      classes: govuk-fieldset__legend--m
+      classes: moduk-fieldset__legend--m
       isPageHeading: true
 - name: as page heading s
   data:
     legend:
       text: What is your address?
-      classes: govuk-fieldset__legend--s
+      classes: moduk-fieldset__legend--s
       isPageHeading: true
 - name: as page heading without class
   data:

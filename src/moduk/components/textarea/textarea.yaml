@@ -110,7 +110,7 @@ examples:
       name: address
       label:
         text: Full address
-        classes: govuk-label--l
+        classes: moduk-label--l
         isPageHeading: true
 
   - name: with optional form-group classes

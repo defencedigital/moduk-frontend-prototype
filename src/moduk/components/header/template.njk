@@ -1,11 +1,11 @@
 {% set menuButtonText = params.menuButtonText if params.menuButtonText else 'Menu' %}
 
-<header class="govuk-header {{ params.classes if params.classes }}" role="banner" data-module="govuk-header"
+<header class="moduk-header {{ params.classes if params.classes }}" role="banner" data-module="moduk-header"
         {%- for attribute, value in params.attributes %} {{attribute}}="{{value}}"{% endfor %}>
-  <div class="govuk-header__container {{ params.containerClasses | default('govuk-width-container') }}">
-    <div class="govuk-header__logo">
-      <a href="{{ params.homepageUrl | default('/') }}" class="govuk-header__link govuk-header__link--homepage">
-        <span class="govuk-header__logotype">
+  <div class="moduk-header__container {{ params.containerClasses | default('moduk-width-container') }}">
+    <div class="moduk-header__logo">
+      <a href="{{ params.homepageUrl | default('/') }}" class="moduk-header__link moduk-header__link--homepage">
+        <span class="moduk-header__logotype">
           <!--[if gt IE 8]><!-->
           {#- We use an inline SVG for the crown so that we can cascade the
           currentColor into the crown whilst continuing to support older browsers
@@ -22,7 +22,7 @@
           <svg
             aria-hidden="true"
             focusable="false"
-            class="govuk-header__logotype-crown"
+            class="moduk-header__logotype-crown"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 132 97"
             height="30"
@@ -35,42 +35,42 @@
           </svg>
           <!--<![endif]-->
           <!--[if IE 8]>
-          <img src="{{ params.assetsPath | default('/assets/images') }}/govuk-logotype-crown.png" class="govuk-header__logotype-crown-fallback-image" width="36" height="32">
+          <img src="{{ params.assetsPath | default('/assets/images') }}/moduk-logotype-crown.png" class="moduk-header__logotype-crown-fallback-image" width="36" height="32">
           <![endif]-->
-          <span class="govuk-header__logotype-text">
+          <span class="moduk-header__logotype-text">
             GOV.UK
           </span>
         </span>
         {% if (params.productName) %}
-        <span class="govuk-header__product-name">
+        <span class="moduk-header__product-name">
           {{ params.productName }}
         </span>
         {% endif %}
       </a>
     </div>
     {% if params.serviceName or params.navigation  %}
-    <div class="govuk-header__content">
+    <div class="moduk-header__content">
     {% if params.serviceName %}
     {% if params.serviceUrl %}
-      <a href="{{ params.serviceUrl }}" class="govuk-header__link govuk-header__service-name">
+      <a href="{{ params.serviceUrl }}" class="moduk-header__link moduk-header__service-name">
         {{ params.serviceName }}
       </a>
     {% else%}
-      <span class="govuk-header__service-name">
+      <span class="moduk-header__service-name">
         {{ params.serviceName }}
       </span>
     {% endif %}
     {% endif %}
     {% if params.navigation %}
-    <nav aria-label="{{ params.navigationLabel | default(menuButtonText) }}" class="govuk-header__navigation {{ params.navigationClasses if params.navigationClasses }}">
-      <button type="button" class="govuk-header__menu-button govuk-js-header-toggle" aria-controls="navigation" aria-label="{{ params.menuButtonLabel | default('Show or hide menu') }}" hidden>{{ menuButtonText }}</button>
+    <nav aria-label="{{ params.navigationLabel | default(menuButtonText) }}" class="moduk-header__navigation {{ params.navigationClasses if params.navigationClasses }}">
+      <button type="button" class="moduk-header__menu-button moduk-js-header-toggle" aria-controls="navigation" aria-label="{{ params.menuButtonLabel | default('Show or hide menu') }}" hidden>{{ menuButtonText }}</button>
 
-      <ul id="navigation" class="govuk-header__navigation-list">
+      <ul id="navigation" class="moduk-header__navigation-list">
         {% for item in params.navigation %}
           {% if item.text or item.html %}
-            <li class="govuk-header__navigation-item{{ ' govuk-header__navigation-item--active' if item.active }}">
+            <li class="moduk-header__navigation-item{{ ' moduk-header__navigation-item--active' if item.active }}">
               {% if item.href %}
-                <a class="govuk-header__link" href="{{ item.href }}"{% for attribute, value in item.attributes %} {{attribute}}="{{value}}"{% endfor %}>
+                <a class="moduk-header__link" href="{{ item.href }}"{% for attribute, value in item.attributes %} {{attribute}}="{{value}}"{% endfor %}>
               {% endif %}
                 {{ item.html | safe if item.html else item.text }}
               {% if item.href %}

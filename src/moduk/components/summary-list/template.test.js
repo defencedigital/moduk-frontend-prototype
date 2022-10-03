@@ -20,14 +20,14 @@ describe('Summary list', () => {
     it('renders classes', async () => {
       const $ = render('summary-list', examples['no-border'])
 
-      const $component = $('.govuk-summary-list')
-      expect($component.hasClass('govuk-summary-list--no-border')).toBeTruthy()
+      const $component = $('.moduk-summary-list')
+      expect($component.hasClass('moduk-summary-list--no-border')).toBeTruthy()
     })
 
     it('renders with attributes', () => {
       const $ = render('summary-list', examples.attributes)
 
-      const $component = $('.govuk-summary-list')
+      const $component = $('.moduk-summary-list')
       expect($component.attr('data-attribute-1')).toEqual('value-1')
       expect($component.attr('data-attribute-2')).toEqual('value-2')
     })
@@ -37,16 +37,16 @@ describe('Summary list', () => {
     it('renders list without falsely values', async () => {
       const $ = render('summary-list', examples['with falsey values'])
 
-      const $component = $('.govuk-summary-list')
-      const $row = $component.find('.govuk-summary-list__row')
+      const $component = $('.moduk-summary-list')
+      const $row = $component.find('.moduk-summary-list__row')
       expect($row.length).toBe(2)
     })
 
     it('renders classes', async () => {
       const $ = render('summary-list', examples['rows with classes'])
 
-      const $component = $('.govuk-summary-list')
-      const $row = $component.find('.govuk-summary-list__row')
+      const $component = $('.moduk-summary-list')
+      const $row = $component.find('.moduk-summary-list__row')
       expect($row.hasClass('app-custom-class')).toBeTruthy()
     })
 
@@ -54,8 +54,8 @@ describe('Summary list', () => {
       it('renders text', async () => {
         const $ = render('summary-list', examples.default)
 
-        const $component = $('.govuk-summary-list')
-        const $key = $component.find('dt.govuk-summary-list__key')
+        const $component = $('.moduk-summary-list')
+        const $key = $component.find('dt.moduk-summary-list__key')
 
         expect($key.html()).toContain('Name')
       })
@@ -63,8 +63,8 @@ describe('Summary list', () => {
       it('renders html', async () => {
         const $ = render('summary-list', examples['key with html'])
 
-        const $component = $('.govuk-summary-list')
-        const $key = $component.find('dt.govuk-summary-list__key')
+        const $component = $('.moduk-summary-list')
+        const $key = $component.find('dt.moduk-summary-list__key')
 
         expect($key.html()).toContain('<b>Name</b>')
       })
@@ -72,8 +72,8 @@ describe('Summary list', () => {
       it('renders classes', async () => {
         const $ = render('summary-list', examples['key with classes'])
 
-        const $component = $('.govuk-summary-list')
-        const $key = $component.find('dt.govuk-summary-list__key')
+        const $component = $('.moduk-summary-list')
+        const $key = $component.find('dt.moduk-summary-list__key')
         expect($key.hasClass('app-custom-class')).toBeTruthy()
       })
     })
@@ -82,8 +82,8 @@ describe('Summary list', () => {
       it('renders text', async () => {
         const $ = render('summary-list', examples.default)
 
-        const $component = $('.govuk-summary-list')
-        const $value = $component.find('dd.govuk-summary-list__value')
+        const $component = $('.moduk-summary-list')
+        const $value = $component.find('dd.moduk-summary-list__value')
 
         expect($value.html()).toContain('Firstname Lastname')
       })
@@ -91,8 +91,8 @@ describe('Summary list', () => {
       it('renders html', async () => {
         const $ = render('summary-list', examples['value with html'])
 
-        const $component = $('.govuk-summary-list')
-        const $value = $component.find('dd.govuk-summary-list__value')
+        const $component = $('.moduk-summary-list')
+        const $value = $component.find('dd.moduk-summary-list__value')
 
         expect($value.html()).toContain('<span>email@email.com</span>')
       })
@@ -100,9 +100,9 @@ describe('Summary list', () => {
       it('renders classes', async () => {
         const $ = render('summary-list', examples['overridden-widths'])
 
-        const $component = $('.govuk-summary-list')
-        const $value = $component.find('dd.govuk-summary-list__value')
-        expect($value.hasClass('govuk-!-width-one-quarter')).toBeTruthy()
+        const $component = $('.moduk-summary-list')
+        const $value = $component.find('dd.moduk-summary-list__value')
+        expect($value.hasClass('moduk-!-width-one-quarter')).toBeTruthy()
       })
     })
 
@@ -110,8 +110,8 @@ describe('Summary list', () => {
       it('renders href', async () => {
         const $ = render('summary-list', examples['actions href'])
 
-        const $component = $('.govuk-summary-list')
-        const $actionLink = $component.find('.govuk-summary-list__actions > a')
+        const $component = $('.moduk-summary-list')
+        const $actionLink = $component.find('.moduk-summary-list__actions > a')
 
         expect($actionLink.attr('href')).toBe('https://www.gov.uk')
       })
@@ -119,8 +119,8 @@ describe('Summary list', () => {
       it('renders text', async () => {
         const $ = render('summary-list', examples['with actions'])
 
-        const $component = $('.govuk-summary-list')
-        const $actionLink = $component.find('.govuk-summary-list__actions > a')
+        const $component = $('.moduk-summary-list')
+        const $actionLink = $component.find('.moduk-summary-list__actions > a')
 
         expect($actionLink.text().trim()).toContain('Change date of birth')
       })
@@ -128,8 +128,8 @@ describe('Summary list', () => {
       it('renders html', async () => {
         const $ = render('summary-list', examples['actions with html'])
 
-        const $component = $('.govuk-summary-list')
-        const $actionLink = $component.find('.govuk-summary-list__actions > a')
+        const $component = $('.moduk-summary-list')
+        const $actionLink = $component.find('.moduk-summary-list__actions > a')
 
         expect($actionLink.html()).toContain('Edit<span class="visually-hidden"> name</span>')
       })
@@ -137,25 +137,25 @@ describe('Summary list', () => {
       it('allows the visually hidden prefix to be removed and then manually added with HTML', async () => {
         const $ = render('summary-list', examples.translated)
 
-        const $component = $('.govuk-summary-list')
-        const $actionLink = $component.find('.govuk-summary-list__actions > a')
+        const $component = $('.moduk-summary-list')
+        const $actionLink = $component.find('.moduk-summary-list__actions > a')
 
-        expect($actionLink.html()).toContain('Golygu<span class="govuk-visually-hidden"> dyddiad geni</span>')
+        expect($actionLink.html()).toContain('Golygu<span class="moduk-visually-hidden"> dyddiad geni</span>')
       })
 
       it('renders custom accessible name', async () => {
         const $ = render('summary-list', examples['with actions'])
 
-        const $component = $('.govuk-summary-list')
-        const $actionLink = $component.find('.govuk-summary-list__actions > a')
+        const $component = $('.moduk-summary-list')
+        const $actionLink = $component.find('.moduk-summary-list__actions > a')
         expect($actionLink.text().trim()).toContain('Change date of birth')
       })
 
       it('renders classes', async () => {
         const $ = render('summary-list', examples['actions with classes'])
 
-        const $component = $('.govuk-summary-list')
-        const $actionList = $component.find('.govuk-summary-list__actions')
+        const $component = $('.moduk-summary-list')
+        const $actionList = $component.find('.moduk-summary-list__actions')
 
         expect($actionList.hasClass('app-custom-class')).toBeTruthy()
       })
@@ -163,8 +163,8 @@ describe('Summary list', () => {
       it('renders attributes', async () => {
         const $ = render('summary-list', examples['actions with attributes'])
 
-        const $component = $('.govuk-summary-list')
-        const $actionLink = $component.find('.govuk-summary-list__actions > a')
+        const $component = $('.moduk-summary-list')
+        const $actionLink = $component.find('.moduk-summary-list__actions > a')
 
         expect($actionLink.attr('data-test-attribute')).toEqual('value')
         expect($actionLink.attr('data-test-attribute-2')).toEqual('value-2')
@@ -173,8 +173,8 @@ describe('Summary list', () => {
       it('renders a single anchor with one action', async () => {
         const $ = render('summary-list', examples['single action with anchor'])
 
-        const $component = $('.govuk-summary-list')
-        const $action = $component.find('.govuk-summary-list__actions > a')
+        const $component = $('.moduk-summary-list')
+        const $action = $component.find('.moduk-summary-list__actions > a')
 
         expect($action.html().trim()).toBe('First action')
       })
@@ -182,9 +182,9 @@ describe('Summary list', () => {
       it('renders a list with mutliple actions', async () => {
         const $ = render('summary-list', examples['with some actions'])
 
-        const $component = $('.govuk-summary-list')
-        const $actionList = $component.find('.govuk-summary-list__actions')
-        const $secondAction = $actionList.find('.govuk-summary-list__actions-list-item:last-child')
+        const $component = $('.moduk-summary-list')
+        const $actionList = $component.find('.moduk-summary-list__actions')
+        const $secondAction = $actionList.find('.moduk-summary-list__actions-list-item:last-child')
 
         expect($secondAction.text().trim()).toBe('Delete name')
       })
@@ -192,17 +192,17 @@ describe('Summary list', () => {
       it('renders classes on actions', async () => {
         const $ = render('summary-list', examples['classes on items'])
 
-        const $component = $('.govuk-summary-list')
-        const $action = $component.find('.govuk-summary-list__actions > a')
+        const $component = $('.moduk-summary-list')
+        const $action = $component.find('.moduk-summary-list__actions > a')
 
-        expect($action.hasClass('govuk-link--no-visited-state')).toBeTruthy()
+        expect($action.hasClass('moduk-link--no-visited-state')).toBeTruthy()
       })
 
       it('skips the action column when no array is provided', async () => {
         const $ = render('summary-list', examples.default)
 
-        const $component = $('.govuk-summary-list')
-        const $action = $component.find('.govuk-summary-list__actions')
+        const $component = $('.moduk-summary-list')
+        const $action = $component.find('.moduk-summary-list__actions')
 
         expect($action.length).toEqual(0)
       })
@@ -210,15 +210,15 @@ describe('Summary list', () => {
       it('skips the action column when no items are in the array provided', async () => {
         const $ = render('summary-list', examples['empty items array'])
 
-        const $component = $('.govuk-summary-list')
-        const $action = $component.find('.govuk-summary-list__actions')
+        const $component = $('.moduk-summary-list')
+        const $action = $component.find('.moduk-summary-list__actions')
 
         expect($action.length).toEqual(0)
       })
 
       describe('when only some rows have actions', () => {
         const $ = render('summary-list', examples['with some actions'])
-        const $component = $('.govuk-summary-list')
+        const $component = $('.moduk-summary-list')
 
         it('passes accessibility tests', async () => {
           const results = await axe($.html())
@@ -227,20 +227,20 @@ describe('Summary list', () => {
 
         it('does not add no-actions modifier class to rows with actions', () => {
           // The first row has actions
-          const $firstRow = $component.find('.govuk-summary-list__row:first-child')
-          expect($firstRow.hasClass('govuk-summary-list__row--no-actions')).toBeFalsy()
+          const $firstRow = $component.find('.moduk-summary-list__row:first-child')
+          expect($firstRow.hasClass('moduk-summary-list__row--no-actions')).toBeFalsy()
         })
 
         it('adds no-actions modifier class to rows without actions', () => {
           // The second row does not have actions
-          const $secondRow = $component.find('.govuk-summary-list__row:nth-child(2)')
-          expect($secondRow.hasClass('govuk-summary-list__row--no-actions')).toBeTruthy()
+          const $secondRow = $component.find('.moduk-summary-list__row:nth-child(2)')
+          expect($secondRow.hasClass('moduk-summary-list__row--no-actions')).toBeTruthy()
         })
       })
 
       describe('when no rows have actions', () => {
         const $ = render('summary-list', examples.default)
-        const $component = $('.govuk-summary-list')
+        const $component = $('.moduk-summary-list')
 
         it('passes accessibility tests', async () => {
           const results = await axe($.html())
@@ -249,8 +249,8 @@ describe('Summary list', () => {
 
         it('does not add no-actions modifier class to any of the rows', () => {
           // The first row has actions
-          const $rows = $component.find('.govuk-summary-list__row')
-          expect($rows.hasClass('govuk-summary-list__row--no-actions')).toBeFalsy()
+          const $rows = $component.find('.moduk-summary-list__row')
+          expect($rows.hasClass('moduk-summary-list__row--no-actions')).toBeFalsy()
         })
       })
     })

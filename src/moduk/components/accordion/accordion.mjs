@@ -21,25 +21,25 @@ import '../../vendor/polyfills/Element/prototype/classList.mjs'
  * @param {Object} config.i18n - Translations
  * @param {String} [config.i18n.hideAllSections='Hide all sections'] - Text for
  *   'hide all sections' button, used when at least one section is expanded
- * @param {String} [config.i18n.hideSection='Hide<span class="govuk-visually-hidden"> this section</span>']
+ * @param {String} [config.i18n.hideSection='Hide<span class="moduk-visually-hidden"> this section</span>']
  *   - Text for 'hide this section' button, used when a section is expanded
  * @param {String} [config.i18n.showAllSections='Show all sections'] - Text for
  *   'show all sections' button, used when all sections are collapsed
- * @param {String} [config.i18n.showSection='Show<span class="govuk-visually-hidden"> this section</span>']
+ * @param {String} [config.i18n.showSection='Show<span class="moduk-visually-hidden"> this section</span>']
  *   - Text for 'show this section' button, used when a section is collapsed
  */
 function Accordion ($module, config) {
   this.$module = $module
-  this.$sections = $module.querySelectorAll('.govuk-accordion__section')
+  this.$sections = $module.querySelectorAll('.moduk-accordion__section')
   this.$showAllButton = ''
   this.browserSupportsSessionStorage = helper.checkForSessionStorage()
 
   var defaultConfig = {
     i18n: {
       hideAllSections: 'Hide all sections',
-      hideSection: 'Hide<span class="govuk-visually-hidden"> this section</span>',
+      hideSection: 'Hide<span class="moduk-visually-hidden"> this section</span>',
       showAllSections: 'Show all sections',
-      showSection: 'Show<span class="govuk-visually-hidden"> this section</span>'
+      showSection: 'Show<span class="moduk-visually-hidden"> this section</span>'
     }
   }
   this.config = mergeConfigs(
@@ -49,25 +49,25 @@ function Accordion ($module, config) {
   )
   this.i18n = new I18n(extractConfigByNamespace(this.config, 'i18n'))
 
-  this.controlsClass = 'govuk-accordion__controls'
-  this.showAllClass = 'govuk-accordion__show-all'
-  this.showAllTextClass = 'govuk-accordion__show-all-text'
+  this.controlsClass = 'moduk-accordion__controls'
+  this.showAllClass = 'moduk-accordion__show-all'
+  this.showAllTextClass = 'moduk-accordion__show-all-text'
 
-  this.sectionExpandedClass = 'govuk-accordion__section--expanded'
-  this.sectionButtonClass = 'govuk-accordion__section-button'
-  this.sectionHeaderClass = 'govuk-accordion__section-header'
-  this.sectionHeadingClass = 'govuk-accordion__section-heading'
-  this.sectionHeadingTextClass = 'govuk-accordion__section-heading-text'
-  this.sectionHeadingTextFocusClass = 'govuk-accordion__section-heading-text-focus'
+  this.sectionExpandedClass = 'moduk-accordion__section--expanded'
+  this.sectionButtonClass = 'moduk-accordion__section-button'
+  this.sectionHeaderClass = 'moduk-accordion__section-header'
+  this.sectionHeadingClass = 'moduk-accordion__section-heading'
+  this.sectionHeadingTextClass = 'moduk-accordion__section-heading-text'
+  this.sectionHeadingTextFocusClass = 'moduk-accordion__section-heading-text-focus'
 
-  this.sectionShowHideToggleClass = 'govuk-accordion__section-toggle'
-  this.sectionShowHideToggleFocusClass = 'govuk-accordion__section-toggle-focus'
-  this.sectionShowHideTextClass = 'govuk-accordion__section-toggle-text'
-  this.upChevronIconClass = 'govuk-accordion-nav__chevron'
-  this.downChevronIconClass = 'govuk-accordion-nav__chevron--down'
+  this.sectionShowHideToggleClass = 'moduk-accordion__section-toggle'
+  this.sectionShowHideToggleFocusClass = 'moduk-accordion__section-toggle-focus'
+  this.sectionShowHideTextClass = 'moduk-accordion__section-toggle-text'
+  this.upChevronIconClass = 'moduk-accordion-nav__chevron'
+  this.downChevronIconClass = 'moduk-accordion-nav__chevron--down'
 
-  this.sectionSummaryClass = 'govuk-accordion__section-summary'
-  this.sectionSummaryFocusClass = 'govuk-accordion__section-summary-focus'
+  this.sectionSummaryClass = 'moduk-accordion__section-summary'
+  this.sectionSummaryFocusClass = 'moduk-accordion__section-summary-focus'
 }
 
 // Initialize component
@@ -136,7 +136,7 @@ Accordion.prototype.constructHeaderMarkup = function ($headerWrapper, index) {
   var $heading = $headerWrapper.querySelector('.' + this.sectionHeadingClass)
   var $summary = $headerWrapper.querySelector('.' + this.sectionSummaryClass)
 
-  // Create a button element that will replace the '.govuk-accordion__section-button' span
+  // Create a button element that will replace the '.moduk-accordion__section-button' span
   var $button = document.createElement('button')
   $button.setAttribute('type', 'button')
   $button.setAttribute('aria-controls', this.$module.id + '-content-' + (index + 1))
@@ -373,11 +373,11 @@ Accordion.prototype.setInitialState = function ($section) {
 *
 * Adding punctuation to the button can also improve its general semantics by dividing its contents
 * into thematic chunks.
-* See https://github.com/alphagov/govuk-frontend/issues/2327#issuecomment-922957442
+* See https://github.com/alphagov/moduk-frontend/issues/2327#issuecomment-922957442
 */
 Accordion.prototype.getButtonPunctuationEl = function () {
   var $punctuationEl = document.createElement('span')
-  $punctuationEl.classList.add('govuk-visually-hidden', 'govuk-accordion__section-heading-divider')
+  $punctuationEl.classList.add('moduk-visually-hidden', 'moduk-accordion__section-heading-divider')
   $punctuationEl.innerHTML = ', '
   return $punctuationEl
 }

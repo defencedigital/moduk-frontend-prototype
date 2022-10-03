@@ -8,7 +8,7 @@
 /// allowing users to adjust the base font-size. This is enabled by default,
 /// unless any of the compatibility mode settings are enabled.
 ///
-/// You should make sure that $govuk-root-font-size is set correctly for your
+/// You should make sure that $moduk-root-font-size is set correctly for your
 /// project.
 ///
 /// @type Boolean
@@ -16,23 +16,23 @@
 /// @deprecated Will be removed in v5.0 with the rest of the compatibility mode
 /// suite of tools and settings
 
-$govuk-typography-use-rem: if(
+$moduk-typography-use-rem: if(
   (
-    $govuk-compatibility-govukfrontendtoolkit or
-    $govuk-compatibility-govuktemplate or
-    $govuk-compatibility-govukelements
+    $moduk-compatibility-govukfrontendtoolkit or
+    $moduk-compatibility-govuktemplate or
+    $moduk-compatibility-govukelements
   ),
   false,
   true
 ) !default;
 
-// Only show the deprecation warning if user is setting $govuk-typography-use-rem
+// Only show the deprecation warning if user is setting $moduk-typography-use-rem
 // manually instead of automatically via compatibility variables
-@if $govuk-typography-use-rem == false and
-  $govuk-compatibility-govukfrontendtoolkit == false and
-  $govuk-compatibility-govuktemplate == false and
-  $govuk-compatibility-govukelements == false {
-  @warn "$govuk-typography-use-rem is deprecated. " +
+@if $moduk-typography-use-rem == false and
+  $moduk-compatibility-govukfrontendtoolkit == false and
+  $moduk-compatibility-govuktemplate == false and
+  $moduk-compatibility-govukelements == false {
+  @warn "$moduk-typography-use-rem is deprecated. " +
     "From version 5.0, GOV.UK Frontend will not support disabling rem font sizes";
 }
 
@@ -46,14 +46,14 @@ $govuk-typography-use-rem: if(
 /// should be set to 16px.
 ///
 /// If you are integrating Frontend into an existing project that also uses
-/// alphagov/govuk_template and you wish to enable `$govuk-typography-use-rem`
+/// alphagov/govuk_template and you wish to enable `$moduk-typography-use-rem`
 /// then you should set this to 10px to match the 62.5% (10px) base font size
 /// that govuk_template sets on the <html> element.
 ///
 /// @type Number
 /// @access public
 
-$govuk-root-font-size: 16px !default;
+$moduk-root-font-size: 16px !default;
 
 /// Responsive typography font map
 ///
@@ -79,7 +79,7 @@ $govuk-root-font-size: 16px !default;
 ///
 /// @access public
 
-$govuk-typography-scale: (
+$moduk-typography-scale: (
   80: (
     null: (
       font-size: 53px,

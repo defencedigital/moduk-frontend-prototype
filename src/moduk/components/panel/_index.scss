@@ -1,18 +1,18 @@
-@include govuk-exports("govuk/component/panel") {
-  .govuk-panel {
-    @include govuk-font($size: 19);
+@include moduk-exports("moduk/component/panel") {
+  .moduk-panel {
+    @include moduk-font($size: 19);
 
     box-sizing: border-box;
 
-    margin-bottom: govuk-spacing(3);
-    padding: govuk-spacing(7) - $govuk-border-width;
+    margin-bottom: moduk-spacing(3);
+    padding: moduk-spacing(7) - $moduk-border-width;
 
-    border: $govuk-border-width solid transparent;
+    border: $moduk-border-width solid transparent;
 
     text-align: center;
 
-    @include govuk-media-query($until: tablet) {
-      padding: govuk-spacing(3) - $govuk-border-width;
+    @include moduk-media-query($until: tablet) {
+      padding: moduk-spacing(3) - $moduk-border-width;
 
       // This is an if-all-else-fails attempt to stop long words from overflowing the container
       // on very narrow viewports by forcing them to break and wrap instead. This
@@ -28,29 +28,29 @@
     }
   }
 
-  .govuk-panel--confirmation {
-    color: govuk-colour("white");
-    background: govuk-colour("green", $legacy: "turquoise");
+  .moduk-panel--confirmation {
+    color: moduk-colour("white");
+    background: moduk-colour("green", $legacy: "turquoise");
 
-    @include govuk-media-query($media-type: print) {
+    @include moduk-media-query($media-type: print) {
       border-color: currentcolor;
-      color: $govuk-print-text-colour;
+      color: $moduk-print-text-colour;
       background: none;
     }
   }
 
-  .govuk-panel__title {
+  .moduk-panel__title {
     margin-top: 0;
-    margin-bottom: govuk-spacing(6);
+    margin-bottom: moduk-spacing(6);
 
-    @include govuk-font($size: 48, $weight: bold);
+    @include moduk-font($size: 48, $weight: bold);
   }
 
-  .govuk-panel__title:last-child {
+  .moduk-panel__title:last-child {
     margin-bottom: 0;
   }
 
-  .govuk-panel__body {
-    @include govuk-font($size: 36);
+  .moduk-panel__body {
+    @include moduk-font($size: 36);
   }
 }

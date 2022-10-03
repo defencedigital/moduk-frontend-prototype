@@ -1,9 +1,9 @@
-@include govuk-exports("govuk/utilities/visually-hidden") {
-  .govuk-visually-hidden {
-    @include govuk-visually-hidden;
+@include moduk-exports("govuk/utilities/visually-hidden") {
+  .moduk-visually-hidden {
+    @include moduk-visually-hidden;
   }
 
-  .govuk-visually-hidden-focusable {
-    @include govuk-visually-hidden-focusable;
+  .moduk-visually-hidden-focusable {
+    @include moduk-visually-hidden-focusable;
   }
 }

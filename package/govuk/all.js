@@ -4,35 +4,6 @@
 	(factory((global.GOVUKFrontend = {})));
 }(this, (function (exports) { 'use strict';
 
-/**
- * TODO: Ideally this would be a NodeList.prototype.forEach polyfill
- * This seems to fail in IE8, requires more investigation.
- * See: https://github.com/imagitama/nodelist-foreach-polyfill
- */
-function nodeListForEach (nodes, callback) {
-  if (window.NodeList.prototype.forEach) {
-    return nodes.forEach(callback)
-  }
-  for (var i = 0; i < nodes.length; i++) {
-    callback.call(window, nodes[i], i, nodes);
-  }
-}
-
-// Used to generate a unique string, allows multiple instances of the component without
-// Them conflicting with each other.
-// https://stackoverflow.com/a/8809472
-function generateUniqueID () {
-  var d = new Date().getTime();
-  if (typeof window.performance !== 'undefined' && typeof window.performance.now === 'function') {
-    d += window.performance.now(); // use high-precision timer if available
-  }
-  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
-    var r = (d + Math.random() * 16) % 16 | 0;
-    d = Math.floor(d / 16);
-    return (c === 'x' ? r : (r & 0x3 | 0x8)).toString(16)
-  })
-}
-
 (function(undefined) {
 
 // Detection from https://github.com/Financial-Times/polyfill-service/blob/master/packages/polyfill-library/polyfills/Object/defineProperty/detect.js
@@ -119,6 +90,702 @@ if (detect) return
 }(Object.defineProperty));
 })
 .call('object' === typeof window && window || 'object' === typeof self && self || 'object' === typeof global && global || {});
+
+(function(undefined) {
+
+// Detection from https://github.com/Financial-Times/polyfill-service/blob/master/packages/polyfill-library/polyfills/Document/detect.js
+var detect = ("Document" in this);
+
+if (detect) return
+
+// Polyfill from https://cdn.polyfill.io/v2/polyfill.js?features=Document&flags=always
+if ((typeof WorkerGlobalScope === "undefined") && (typeof importScripts !== "function")) {
+
+	if (this.HTMLDocument) { // IE8
+
+		// HTMLDocument is an extension of Document.  If the browser has HTMLDocument but not Document, the former will suffice as an alias for the latter.
+		this.Document = this.HTMLDocument;
+
+	} else {
+
+		// Create an empty function to act as the missing constructor for the document object, attach the document object as its prototype.  The function needs to be anonymous else it is hoisted and causes the feature detect to prematurely pass, preventing the assignments below being made.
+		this.Document = this.HTMLDocument = document.constructor = (new Function('return function Document() {}')());
+		this.Document.prototype = document;
+	}
+}
+
+
+})
+.call('object' === typeof window && window || 'object' === typeof self && self || 'object' === typeof global && global || {});
+
+(function(undefined) {
+
+// Detection from https://github.com/Financial-Times/polyfill-service/blob/master/packages/polyfill-library/polyfills/Element/detect.js
+var detect = ('Element' in this && 'HTMLElement' in this);
+
+if (detect) return
+
+// Polyfill from https://cdn.polyfill.io/v2/polyfill.js?features=Element&flags=always
+(function () {
+
+	// IE8
+	if (window.Element && !window.HTMLElement) {
+		window.HTMLElement = window.Element;
+		return;
+	}
+
+	// create Element constructor
+	window.Element = window.HTMLElement = new Function('return function Element() {}')();
+
+	// generate sandboxed iframe
+	var vbody = document.appendChild(document.createElement('body'));
+	var frame = vbody.appendChild(document.createElement('iframe'));
+
+	// use sandboxed iframe to replicate Element functionality
+	var frameDocument = frame.contentWindow.document;
+	var prototype = Element.prototype = frameDocument.appendChild(frameDocument.createElement('*'));
+	var cache = {};
+
+	// polyfill Element.prototype on an element
+	var shiv = function (element, deep) {
+		var
+		childNodes = element.childNodes || [],
+		index = -1,
+		key, value, childNode;
+
+		if (element.nodeType === 1 && element.constructor !== Element) {
+			element.constructor = Element;
+
+			for (key in cache) {
+				value = cache[key];
+				element[key] = value;
+			}
+		}
+
+		while (childNode = deep && childNodes[++index]) {
+			shiv(childNode, deep);
+		}
+
+		return element;
+	};
+
+	var elements = document.getElementsByTagName('*');
+	var nativeCreateElement = document.createElement;
+	var interval;
+	var loopLimit = 100;
+
+	prototype.attachEvent('onpropertychange', function (event) {
+		var
+		propertyName = event.propertyName,
+		nonValue = !cache.hasOwnProperty(propertyName),
+		newValue = prototype[propertyName],
+		oldValue = cache[propertyName],
+		index = -1,
+		element;
+
+		while (element = elements[++index]) {
+			if (element.nodeType === 1) {
+				if (nonValue || element[propertyName] === oldValue) {
+					element[propertyName] = newValue;
+				}
+			}
+		}
+
+		cache[propertyName] = newValue;
+	});
+
+	prototype.constructor = Element;
+
+	if (!prototype.hasAttribute) {
+		// <Element>.hasAttribute
+		prototype.hasAttribute = function hasAttribute(name) {
+			return this.getAttribute(name) !== null;
+		};
+	}
+
+	// Apply Element prototype to the pre-existing DOM as soon as the body element appears.
+	function bodyCheck() {
+		if (!(loopLimit--)) clearTimeout(interval);
+		if (document.body && !document.body.prototype && /(complete|interactive)/.test(document.readyState)) {
+			shiv(document, true);
+			if (interval && document.body.prototype) clearTimeout(interval);
+			return (!!document.body.prototype);
+		}
+		return false;
+	}
+	if (!bodyCheck()) {
+		document.onreadystatechange = bodyCheck;
+		interval = setInterval(bodyCheck, 25);
+	}
+
+	// Apply to any new elements created after load
+	document.createElement = function createElement(nodeName) {
+		var element = nativeCreateElement(String(nodeName).toLowerCase());
+		return shiv(element);
+	};
+
+	// remove sandboxed iframe
+	document.removeChild(vbody);
+}());
+
+})
+.call('object' === typeof window && window || 'object' === typeof self && self || 'object' === typeof global && global || {});
+
+(function(undefined) {
+
+  // Detection from https://raw.githubusercontent.com/Financial-Times/polyfill-library/13cf7c340974d128d557580b5e2dafcd1b1192d1/polyfills/Element/prototype/dataset/detect.js
+  var detect = (function(){
+    if (!document.documentElement.dataset) {
+      return false;
+    }
+    var el = document.createElement('div');
+    el.setAttribute("data-a-b", "c");
+    return el.dataset && el.dataset.aB == "c";
+  }());
+
+  if (detect) return
+
+  // Polyfill derived from  https://raw.githubusercontent.com/Financial-Times/polyfill-library/13cf7c340974d128d557580b5e2dafcd1b1192d1/polyfills/Element/prototype/dataset/polyfill.js
+  Object.defineProperty(Element.prototype, 'dataset', {
+    get: function() {
+      var element = this;
+      var attributes = this.attributes;
+      var map = {};
+  
+      for (var i = 0; i < attributes.length; i++) {
+        var attribute = attributes[i];
+  
+        // This regex has been edited from the original polyfill, to add
+        // support for period (.) separators in data-* attribute names. These
+        // are allowed in the HTML spec, but were not covered by the original
+        // polyfill's regex. We use periods in our i18n implementation.
+        if (attribute && attribute.name && (/^data-\w[.\w-]*$/).test(attribute.name)) {
+          var name = attribute.name;
+          var value = attribute.value;
+  
+          var propName = name.substr(5).replace(/-./g, function (prop) {
+            return prop.charAt(1).toUpperCase();
+          });
+          
+          // If this browser supports __defineGetter__ and __defineSetter__,
+          // continue using defineProperty. If not (like IE 8 and below), we use
+          // a hacky fallback which at least gives an object in the right format
+          if ('__defineGetter__' in Object.prototype && '__defineSetter__' in Object.prototype) {
+            Object.defineProperty(map, propName, {
+              enumerable: true,
+              get: function() {
+                return this.value;
+              }.bind({value: value || ''}),
+              set: function setter(name, value) {
+                if (typeof value !== 'undefined') {
+                  this.setAttribute(name, value);
+                } else {
+                  this.removeAttribute(name);
+                }
+              }.bind(element, name)
+            });
+          } else {
+            map[propName] = value;
+          }
+
+        }
+      }
+  
+      return map;
+    }
+  });
+
+}).call('object' === typeof window && window || 'object' === typeof self && self || 'object' === typeof global && global || {});
+
+/**
+ * TODO: Ideally this would be a NodeList.prototype.forEach polyfill
+ * This seems to fail in IE8, requires more investigation.
+ * See: https://github.com/imagitama/nodelist-foreach-polyfill
+ */
+function nodeListForEach (nodes, callback) {
+  if (window.NodeList.prototype.forEach) {
+    return nodes.forEach(callback)
+  }
+  for (var i = 0; i < nodes.length; i++) {
+    callback.call(window, nodes[i], i, nodes);
+  }
+}
+
+/**
+ * Used to generate a unique string, allows multiple instances of the component
+ * without them conflicting with each other.
+ * https://stackoverflow.com/a/8809472
+ */
+function generateUniqueID () {
+  var d = new Date().getTime();
+  if (typeof window.performance !== 'undefined' && typeof window.performance.now === 'function') {
+    d += window.performance.now(); // use high-precision timer if available
+  }
+  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+    var r = (d + Math.random() * 16) % 16 | 0;
+    d = Math.floor(d / 16);
+    return (c === 'x' ? r : (r & 0x3 | 0x8)).toString(16)
+  })
+}
+
+/**
+ * Config flattening function. Takes any number of objects, flattens them into
+ * namespaced key-value pairs, (e.g. {'i18n.showSection': 'Show section'}) and
+ * combines them together, with greatest priority on the LAST item passed in.
+ *
+ * @param {...Object} - Any number of objects to merge together.
+ * @returns {Object} - A flattened object of key-value pairs.
+ */
+function mergeConfigs (/* ...config objects */) {
+  // Function to take nested objects and flatten them to a dot-separated keyed
+  // object. Doing this means we don't need to do any deep/recursive merging of
+  // each of our objects, nor transform our dataset from a flat list into a
+  // nested object.
+  var flattenObject = function (configObject) {
+    // Prepare an empty return object
+    var flattenedObject = {};
+
+    // Our flattening function, this is called recursively for each level of
+    // depth in the object. At each level we prepend the previous level names to
+    // the key using `prefix`.
+    var flattenLoop = function (obj, prefix) {
+      // Loop through keys...
+      for (var key in obj) {
+        // Check to see if this is a prototypical key/value,
+        // if it is, skip it.
+        if (!Object.prototype.hasOwnProperty.call(obj, key)) {
+          continue
+        }
+        var value = obj[key];
+        var prefixedKey = prefix ? prefix + '.' + key : key;
+        if (typeof value === 'object') {
+          // If the value is a nested object, recurse over that too
+          flattenLoop(value, prefixedKey);
+        } else {
+          // Otherwise, add this value to our return object
+          flattenedObject[prefixedKey] = value;
+        }
+      }
+    };
+
+    // Kick off the recursive loop
+    flattenLoop(configObject);
+    return flattenedObject
+  };
+
+  // Start with an empty object as our base
+  var formattedConfigObject = {};
+
+  // Loop through each of the remaining passed objects and push their keys
+  // one-by-one into configObject. Any duplicate keys will override the existing
+  // key with the new value.
+  for (var i = 0; i < arguments.length; i++) {
+    var obj = flattenObject(arguments[i]);
+    for (var key in obj) {
+      if (Object.prototype.hasOwnProperty.call(obj, key)) {
+        formattedConfigObject[key] = obj[key];
+      }
+    }
+  }
+
+  return formattedConfigObject
+}
+
+/**
+ * Extracts keys starting with a particular namespace from a flattened config
+ * object, removing the namespace in the process.
+ *
+ * @param {Object} configObject  - The object to extract key-value pairs from.
+ * @param {String} namespace     - The namespace to filter keys with.
+ * @returns {Object}
+ */
+function extractConfigByNamespace (configObject, namespace) {
+  // Check we have what we need
+  if (!configObject || typeof configObject !== 'object') {
+    throw new Error('Provide a `configObject` of type "object".')
+  }
+  if (!namespace || typeof namespace !== 'string') {
+    throw new Error('Provide a `namespace` of type "string" to filter the `configObject` by.')
+  }
+  var newObject = {};
+  for (var key in configObject) {
+    // Split the key into parts, using . as our namespace separator
+    var keyParts = key.split('.');
+    // Check if the first namespace matches the configured namespace
+    if (Object.prototype.hasOwnProperty.call(configObject, key) && keyParts[0] === namespace) {
+      // Remove the first item (the namespace) from the parts array,
+      // but only if there is more than one part (we don't want blank keys!)
+      if (keyParts.length > 1) {
+        keyParts.shift();
+      }
+      // Join the remaining parts back together
+      var newKey = keyParts.join('.');
+      // Add them to our new object
+      newObject[newKey] = configObject[key];
+    }
+  }
+  return newObject
+}
+
+/**
+ * Normalise string
+ *
+ * 'If it looks like a duck, and it quacks like a duck…' 🦆
+ *
+ * If the passed value looks like a boolean or a number, convert it to a boolean
+ * or number.
+ *
+ * Designed to be used to convert config passed via data attributes (which are
+ * always strings) into something sensible.
+ *
+ * @param {String} value - The value to normalise
+ * @returns {(String|Boolean|Number)} Normalised data
+ */
+function normaliseString (value) {
+  if (typeof value !== 'string') {
+    return value
+  }
+
+  var trimmedValue = value.trim();
+
+  if (trimmedValue === 'true') {
+    return true
+  }
+
+  if (trimmedValue === 'false') {
+    return false
+  }
+
+  // Empty / whitespace-only strings are considered finite so we need to check
+  // the length of the trimmed string as well
+  if (trimmedValue.length > 0 && isFinite(trimmedValue)) {
+    return Number(trimmedValue)
+  }
+
+  return value
+}
+
+/**
+ * Normalise dataset
+ *
+ * Loop over an object and normalise each value using normaliseData function
+ *
+ * @param {DOMStringMap} dataset
+ * @returns {Object} Normalised dataset
+ */
+function normaliseDataset (dataset) {
+  var out = {};
+
+  for (var key in dataset) {
+    out[key] = normaliseString(dataset[key]);
+  }
+
+  return out
+}
+
+/**
+ * i18n support initialisation function
+ *
+ * @constructor
+ * @param  {Object}  translations   - Key-value pairs of the translation strings to use.
+ * @param  {Object}  config         - Configuration options for the function.
+ * @param  {String}  config.locale  - An overriding locale for the PluralRules functionality.
+ */
+function I18n (translations, config) {
+  config = config || {};
+
+  // Make list of translations available throughout function
+  this.translations = translations || {};
+
+  // The locale to use for PluralRules and NumberFormat
+  this.locale = config.locale || document.documentElement.lang || 'en';
+}
+
+/**
+ * The most used function - takes the key for a given piece of UI text and
+ * returns the appropriate string.
+ *
+ * @param    {String}  lookupKey  - The lookup key of the string to use.
+ * @param    {Object}  options    - Any options passed with the translation string, e.g: for string interpolation.
+ * @returns  {String}             - The appropriate translation string.
+ */
+I18n.prototype.t = function (lookupKey, options) {
+  if (!lookupKey) {
+    // Print a console error if no lookup key has been provided
+    throw new Error('i18n: lookup key missing')
+  }
+
+  // If the `count` option is set, determine which plural suffix is needed and
+  // change the lookupKey to match. We check to see if it's undefined instead of
+  // falsy, as this could legitimately be 0.
+  if (options && typeof options.count !== 'undefined') {
+    // Get the plural suffix
+    var pluralSuffix = this.getPluralSuffix(options.count);
+
+    // We need to transform this to have an initial uppercase letter,
+    // as our keys are stored in camelCase
+    pluralSuffix = pluralSuffix.charAt(0).toUpperCase() + pluralSuffix.slice(1);
+
+    // Overwrite our existing lookupKey
+    lookupKey = lookupKey + pluralSuffix;
+
+    // Throw an error if this new key doesn't exist
+    if (!(lookupKey in this.translations)) {
+      throw new Error('i18n: Plural form "' + pluralSuffix + '" is required for "' + this.locale + '" locale')
+    }
+  }
+
+  if (lookupKey in this.translations) {
+    // Fetch the translation string for that lookup key
+    var translationString = this.translations[lookupKey];
+
+    // Check for ${} placeholders in the translation string
+    if (translationString.match(/%{(.\S+)}/)) {
+      if (!options) {
+        throw new Error('i18n: cannot replace placeholders in string if no option data provided')
+      }
+
+      return this.replacePlaceholders(translationString, options)
+    } else {
+      return translationString
+    }
+  } else {
+    // If the key wasn't found in our translations object,
+    // return the lookup key itself as the fallback
+    return lookupKey
+  }
+};
+
+/**
+ * Takes a translation string with placeholders, and replaces the placeholders
+ * with the provided data
+ *
+ * @param    {String}  translationString  - The translation string
+ * @param    {Object}  options    - Any options passed with the translation string, e.g: for string interpolation.
+ * @returns  {String}             - The translation string to output, with ${} placeholders replaced
+ */
+I18n.prototype.replacePlaceholders = function (translationString, options) {
+  // eslint-disable-next-line prefer-regex-literals
+  var placeholderRegex = RegExp(/%{(.\S+)}/, 'g');
+  var placeholderMatch;
+
+  // Use `exec` for fetching regex matches, as matchAll() is not supported in IE
+  while ((placeholderMatch = placeholderRegex.exec(translationString)) !== null) {
+    var placeholderIncludingBraces = placeholderMatch[0];
+    var placeholderKey = placeholderMatch[1];
+    if (Object.prototype.hasOwnProperty.call(options, placeholderKey)) {
+      var placeholderValue = options[placeholderKey];
+
+      // If a user has passed `false` as the value for the placeholder
+      // treat it as though the value should not be displayed
+      if (placeholderValue === false) {
+        translationString = translationString.replace(placeholderIncludingBraces, '');
+      }
+
+      // If the placeholder's value is a number, localise the number formatting
+      if (typeof placeholderValue === 'number' && this.hasIntlNumberFormatSupport()) {
+        placeholderValue = new Intl.NumberFormat(this.locale).format(placeholderValue);
+      }
+
+      translationString = translationString.replace(placeholderIncludingBraces, placeholderValue);
+    } else {
+      throw new Error('i18n: no data found to replace ' + placeholderMatch[0] + ' placeholder in string')
+    }
+  }
+
+  return translationString
+};
+
+/**
+ * Check to see if the browser supports Intl and Intl.PluralRules.
+ *
+ * It requires all conditions to be met in order to be supported:
+ * - The browser supports the Intl class (true in IE11)
+ * - The implementation of Intl supports PluralRules (NOT true in IE11)
+ * - The browser/OS has plural rules for the current locale (browser dependent)
+ *
+ * @returns  {boolean}  - Returns true if all conditions are met. Returns false otherwise.
+ */
+I18n.prototype.hasIntlPluralRulesSupport = function () {
+  return Boolean(window.Intl && ('PluralRules' in window.Intl && Intl.PluralRules.supportedLocalesOf(this.locale).length))
+};
+
+/**
+ * Check to see if the browser supports Intl and Intl.NumberFormat.
+ *
+ * It requires all conditions to be met in order to be supported:
+ * - The browser supports the Intl class (true in IE11)
+ * - The implementation of Intl supports NumberFormat (also true in IE11)
+ * - The browser/OS has number formatting rules for the current locale (browser dependent)
+ *
+ * @returns  {boolean}  - Returns true if all conditions are met. Returns false otherwise.
+ */
+I18n.prototype.hasIntlNumberFormatSupport = function () {
+  return Boolean(window.Intl && ('NumberFormat' in window.Intl && Intl.NumberFormat.supportedLocalesOf(this.locale).length))
+};
+
+/**
+ * Get the appropriate suffix for the plural form.
+ *
+ * The locale may include a regional indicator (such as en-GB), but we don't
+ * usually care about this part, as pluralisation rules are usually the same
+ * regardless of region. There are exceptions, however, (e.g. Portuguese) so
+ * this searches by both the full and shortened locale codes, just to be sure.
+ *
+ * @param    {number}  count       - Number used to determine which pluralisation to use.
+ * @returns  {string}              - The suffix associated with the correct pluralisation for this locale.
+ */
+I18n.prototype.getPluralSuffix = function (count) {
+  var locale = this.locale;
+  var localeShort = locale.split('-')[0];
+  var keySuffix = 'other';
+
+  // Validate that the number is actually a number.
+  //
+  // Number(count) will turn anything that can't be converted to a Number type
+  // into 'NaN'. isFinite filters out NaN, as it isn't a finite number.
+  count = Number(count);
+  if (!isFinite(count)) { return keySuffix }
+
+  // Check to verify that all the requirements for Intl.PluralRules are met.
+  // If so, we can use that instead of our custom implementation. Otherwise,
+  // use the hardcoded fallback.
+  if (this.hasIntlPluralRulesSupport()) {
+    var pluralRules = new Intl.PluralRules(this.locale);
+    keySuffix = pluralRules.select(count);
+  } else {
+    // Currently our custom code can only handle positive integers, so let's
+    // make sure our number is one of those.
+    count = Math.abs(Math.floor(count));
+
+    // Look through the plural rules map to find which `pluralRule` is
+    // appropriate for our current `locale`.
+    for (var pluralRule in this.pluralRulesMap) {
+      if (Object.prototype.hasOwnProperty.call(this.pluralRulesMap, pluralRule)) {
+        var languages = this.pluralRulesMap[pluralRule];
+        if (languages.indexOf(locale) > -1 || languages.indexOf(localeShort) > -1) {
+          keySuffix = this.pluralRules[pluralRule](count);
+          break
+        }
+      }
+    }
+  }
+
+  return keySuffix
+};
+
+/**
+ * Map of plural rules to languages where those rules apply.
+ *
+ * Note: These groups are named for the most dominant or recognisable language
+ * that uses each system. The groupings do not imply that the languages are
+ * related to one another. Many languages have evolved the same systems
+ * independently of one another.
+ *
+ * Code to support more languages can be found in the i18n spike:
+ * https://github.com/alphagov/govuk-frontend/blob/spike-i18n-support/src/govuk/i18n.mjs
+ *
+ * Languages currently supported:
+ *
+ * Arabic: Arabic (ar)
+ * Chinese: Burmese (my), Chinese (zh), Indonesian (id), Japanese (ja),
+ *   Javanese (jv), Korean (ko), Malay (ms), Thai (th), Vietnamese (vi)
+ * French: Armenian (hy), Bangla (bn), French (fr), Gujarati (gu), Hindi (hi),
+ *   Persian Farsi (fa), Punjabi (pa), Zulu (zu)
+ * German: Afrikaans (af), Albanian (sq), Azerbaijani (az), Basque (eu),
+ *   Bulgarian (bg), Catalan (ca), Danish (da), Dutch (nl), English (en),
+ *   Estonian (et), Finnish (fi), Georgian (ka), German (de), Greek (el),
+ *   Hungarian (hu), Luxembourgish (lb), Norwegian (no), Somali (so),
+ *   Swahili (sw), Swedish (sv), Tamil (ta), Telugu (te), Turkish (tr),
+ *   Urdu (ur)
+ * Irish: Irish Gaelic (ga)
+ * Russian: Russian (ru), Ukrainian (uk)
+ * Scottish: Scottish Gaelic (gd)
+ * Spanish: European Portuguese (pt-PT), Italian (it), Spanish (es)
+ * Welsh: Welsh (cy)
+ */
+I18n.prototype.pluralRulesMap = {
+  arabic: ['ar'],
+  chinese: ['my', 'zh', 'id', 'ja', 'jv', 'ko', 'ms', 'th', 'vi'],
+  french: ['hy', 'bn', 'fr', 'gu', 'hi', 'fa', 'pa', 'zu'],
+  german: [
+    'af', 'sq', 'az', 'eu', 'bg', 'ca', 'da', 'nl', 'en', 'et', 'fi', 'ka',
+    'de', 'el', 'hu', 'lb', 'no', 'so', 'sw', 'sv', 'ta', 'te', 'tr', 'ur'
+  ],
+  irish: ['ga'],
+  russian: ['ru', 'uk'],
+  scottish: ['gd'],
+  spanish: ['pt-PT', 'it', 'es'],
+  welsh: ['cy']
+};
+
+/**
+ * Different pluralisation rule sets
+ *
+ * Returns the appropriate suffix for the plural form associated with `n`.
+ * Possible suffixes: 'zero', 'one', 'two', 'few', 'many', 'other' (the actual
+ * meaning of each differs per locale). 'other' should always exist, even in
+ * languages without plurals, such as Chinese.
+ * https://unicode-org.github.io/cldr-staging/charts/latest/supplemental/language_plural_rules.html
+ *
+ * @param    {number}  n  - The `count` number being passed through. This must be a positive integer. Negative numbers and decimals aren't accounted for.
+ * @returns  {string}     - The string that needs to be suffixed to the key (without separator).
+ */
+I18n.prototype.pluralRules = {
+  arabic: function (n) {
+    if (n === 0) { return 'zero' }
+    if (n === 1) { return 'one' }
+    if (n === 2) { return 'two' }
+    if (n % 100 >= 3 && n % 100 <= 10) { return 'few' }
+    if (n % 100 >= 11 && n % 100 <= 99) { return 'many' }
+    return 'other'
+  },
+  chinese: function () {
+    return 'other'
+  },
+  french: function (n) {
+    return n === 0 || n === 1 ? 'one' : 'other'
+  },
+  german: function (n) {
+    return n === 1 ? 'one' : 'other'
+  },
+  irish: function (n) {
+    if (n === 1) { return 'one' }
+    if (n === 2) { return 'two' }
+    if (n >= 3 && n <= 6) { return 'few' }
+    if (n >= 7 && n <= 10) { return 'many' }
+    return 'other'
+  },
+  russian: function (n) {
+    var lastTwo = n % 100;
+    var last = lastTwo % 10;
+    if (last === 1 && lastTwo !== 11) { return 'one' }
+    if (last >= 2 && last <= 4 && !(lastTwo >= 12 && lastTwo <= 14)) { return 'few' }
+    if (last === 0 || (last >= 5 && last <= 9) || (lastTwo >= 11 && lastTwo <= 14)) { return 'many' }
+    // Note: The 'other' suffix is only used by decimal numbers in Russian.
+    // We don't anticipate it being used, but it's here for consistency.
+    return 'other'
+  },
+  scottish: function (n) {
+    if (n === 1 || n === 11) { return 'one' }
+    if (n === 2 || n === 12) { return 'two' }
+    if ((n >= 3 && n <= 10) || (n >= 13 && n <= 19)) { return 'few' }
+    return 'other'
+  },
+  spanish: function (n) {
+    if (n === 1) { return 'one' }
+    if (n % 1000000 === 0 && n !== 0) { return 'many' }
+    return 'other'
+  },
+  welsh: function (n) {
+    if (n === 0) { return 'zero' }
+    if (n === 1) { return 'one' }
+    if (n === 2) { return 'two' }
+    if (n === 3) { return 'few' }
+    if (n === 6) { return 'many' }
+    return 'other'
+  }
+};
 
 (function(undefined) {
   // Detection from https://github.com/Financial-Times/polyfill-service/blob/master/packages/polyfill-library/polyfills/Function/prototype/bind/detect.js
@@ -545,146 +1212,6 @@ if (detect) return
 
 (function(undefined) {
 
-// Detection from https://github.com/Financial-Times/polyfill-service/blob/master/packages/polyfill-library/polyfills/Document/detect.js
-var detect = ("Document" in this);
-
-if (detect) return
-
-// Polyfill from https://cdn.polyfill.io/v2/polyfill.js?features=Document&flags=always
-if ((typeof WorkerGlobalScope === "undefined") && (typeof importScripts !== "function")) {
-
-	if (this.HTMLDocument) { // IE8
-
-		// HTMLDocument is an extension of Document.  If the browser has HTMLDocument but not Document, the former will suffice as an alias for the latter.
-		this.Document = this.HTMLDocument;
-
-	} else {
-
-		// Create an empty function to act as the missing constructor for the document object, attach the document object as its prototype.  The function needs to be anonymous else it is hoisted and causes the feature detect to prematurely pass, preventing the assignments below being made.
-		this.Document = this.HTMLDocument = document.constructor = (new Function('return function Document() {}')());
-		this.Document.prototype = document;
-	}
-}
-
-
-})
-.call('object' === typeof window && window || 'object' === typeof self && self || 'object' === typeof global && global || {});
-
-(function(undefined) {
-
-// Detection from https://github.com/Financial-Times/polyfill-service/blob/master/packages/polyfill-library/polyfills/Element/detect.js
-var detect = ('Element' in this && 'HTMLElement' in this);
-
-if (detect) return
-
-// Polyfill from https://cdn.polyfill.io/v2/polyfill.js?features=Element&flags=always
-(function () {
-
-	// IE8
-	if (window.Element && !window.HTMLElement) {
-		window.HTMLElement = window.Element;
-		return;
-	}
-
-	// create Element constructor
-	window.Element = window.HTMLElement = new Function('return function Element() {}')();
-
-	// generate sandboxed iframe
-	var vbody = document.appendChild(document.createElement('body'));
-	var frame = vbody.appendChild(document.createElement('iframe'));
-
-	// use sandboxed iframe to replicate Element functionality
-	var frameDocument = frame.contentWindow.document;
-	var prototype = Element.prototype = frameDocument.appendChild(frameDocument.createElement('*'));
-	var cache = {};
-
-	// polyfill Element.prototype on an element
-	var shiv = function (element, deep) {
-		var
-		childNodes = element.childNodes || [],
-		index = -1,
-		key, value, childNode;
-
-		if (element.nodeType === 1 && element.constructor !== Element) {
-			element.constructor = Element;
-
-			for (key in cache) {
-				value = cache[key];
-				element[key] = value;
-			}
-		}
-
-		while (childNode = deep && childNodes[++index]) {
-			shiv(childNode, deep);
-		}
-
-		return element;
-	};
-
-	var elements = document.getElementsByTagName('*');
-	var nativeCreateElement = document.createElement;
-	var interval;
-	var loopLimit = 100;
-
-	prototype.attachEvent('onpropertychange', function (event) {
-		var
-		propertyName = event.propertyName,
-		nonValue = !cache.hasOwnProperty(propertyName),
-		newValue = prototype[propertyName],
-		oldValue = cache[propertyName],
-		index = -1,
-		element;
-
-		while (element = elements[++index]) {
-			if (element.nodeType === 1) {
-				if (nonValue || element[propertyName] === oldValue) {
-					element[propertyName] = newValue;
-				}
-			}
-		}
-
-		cache[propertyName] = newValue;
-	});
-
-	prototype.constructor = Element;
-
-	if (!prototype.hasAttribute) {
-		// <Element>.hasAttribute
-		prototype.hasAttribute = function hasAttribute(name) {
-			return this.getAttribute(name) !== null;
-		};
-	}
-
-	// Apply Element prototype to the pre-existing DOM as soon as the body element appears.
-	function bodyCheck() {
-		if (!(loopLimit--)) clearTimeout(interval);
-		if (document.body && !document.body.prototype && /(complete|interactive)/.test(document.readyState)) {
-			shiv(document, true);
-			if (interval && document.body.prototype) clearTimeout(interval);
-			return (!!document.body.prototype);
-		}
-		return false;
-	}
-	if (!bodyCheck()) {
-		document.onreadystatechange = bodyCheck;
-		interval = setInterval(bodyCheck, 25);
-	}
-
-	// Apply to any new elements created after load
-	document.createElement = function createElement(nodeName) {
-		var element = nativeCreateElement(String(nodeName).toLowerCase());
-		return shiv(element);
-	};
-
-	// remove sandboxed iframe
-	document.removeChild(vbody);
-}());
-
-})
-.call('object' === typeof window && window || 'object' === typeof self && self || 'object' === typeof global && global || {});
-
-(function(undefined) {
-
     // Detection from https://raw.githubusercontent.com/Financial-Times/polyfill-service/8717a9e04ac7aff99b4980fbedead98036b0929a/packages/polyfill-library/polyfills/Element/prototype/classList/detect.js
     var detect = (
       'document' in this && "classList" in document.documentElement && 'Element' in this && 'classList' in Element.prototype && (function () {
@@ -773,12 +1300,51 @@ if (detect) return
 
 }).call('object' === typeof window && window || 'object' === typeof self && self || 'object' === typeof global && global || {});
 
-function Accordion ($module) {
+/**
+ * Accordion component
+ *
+ * This allows a collection of sections to be collapsed by default, showing only
+ * their headers. Sections can be expanded or collapsed individually by clicking
+ * their headers. A "Show all sections" button is also added to the top of the
+ * accordion, which switches to "Hide all sections" when all the sections are
+ * expanded.
+ *
+ * The state of each section is saved to the DOM via the `aria-expanded`
+ * attribute, which also provides accessibility.
+ *
+ * @class
+ * @param {HTMLElement} $module HTML element to use for accordion
+ * @param {Object} config
+ * @param {Object} config.i18n - Translations
+ * @param {String} [config.i18n.hideAllSections='Hide all sections'] - Text for
+ *   'hide all sections' button, used when at least one section is expanded
+ * @param {String} [config.i18n.hideSection='Hide<span class="govuk-visually-hidden"> this section</span>']
+ *   - Text for 'hide this section' button, used when a section is expanded
+ * @param {String} [config.i18n.showAllSections='Show all sections'] - Text for
+ *   'show all sections' button, used when all sections are collapsed
+ * @param {String} [config.i18n.showSection='Show<span class="govuk-visually-hidden"> this section</span>']
+ *   - Text for 'show this section' button, used when a section is collapsed
+ */
+function Accordion ($module, config) {
   this.$module = $module;
-  this.moduleId = $module.getAttribute('id');
-  this.$sections = $module.querySelectorAll('.govuk-accordion__section');
+  this.$sections = $module.querySelectorAll('.moduk-accordion__section');
   this.$showAllButton = '';
   this.browserSupportsSessionStorage = helper.checkForSessionStorage();
+
+  var defaultConfig = {
+    i18n: {
+      hideAllSections: 'Hide all sections',
+      hideSection: 'Hide<span class="govuk-visually-hidden"> this section</span>',
+      showAllSections: 'Show all sections',
+      showSection: 'Show<span class="govuk-visually-hidden"> this section</span>'
+    }
+  };
+  this.config = mergeConfigs(
+    defaultConfig,
+    config || {},
+    normaliseDataset($module.dataset)
+  );
+  this.i18n = new I18n(extractConfigByNamespace(this.config, 'i18n'));
 
   this.controlsClass = 'govuk-accordion__controls';
   this.showAllClass = 'govuk-accordion__show-all';
@@ -867,10 +1433,10 @@ Accordion.prototype.constructHeaderMarkup = function ($headerWrapper, index) {
   var $heading = $headerWrapper.querySelector('.' + this.sectionHeadingClass);
   var $summary = $headerWrapper.querySelector('.' + this.sectionSummaryClass);
 
-  // Create a button element that will replace the '.govuk-accordion__section-button' span
+  // Create a button element that will replace the '.moduk-accordion__section-button' span
   var $button = document.createElement('button');
   $button.setAttribute('type', 'button');
-  $button.setAttribute('aria-controls', this.moduleId + '-content-' + (index + 1));
+  $button.setAttribute('aria-controls', this.$module.id + '-content-' + (index + 1));
 
   // Copy all attributes (https://developer.mozilla.org/en-US/docs/Web/API/Element/attributes) from $span to $button
   for (var i = 0; i < $span.attributes.length; i++) {
@@ -987,15 +1553,11 @@ Accordion.prototype.setExpanded = function (expanded, $section) {
   var $icon = $section.querySelector('.' + this.upChevronIconClass);
   var $showHideText = $section.querySelector('.' + this.sectionShowHideTextClass);
   var $button = $section.querySelector('.' + this.sectionButtonClass);
-  var newButtonText = expanded ? 'Hide' : 'Show';
-
-  // Build additional copy of "this section" for assistive technology and place inside toggle link
-  var $visuallyHiddenText = document.createElement('span');
-  $visuallyHiddenText.classList.add('govuk-visually-hidden');
-  $visuallyHiddenText.innerHTML = ' this section';
+  var newButtonText = expanded
+    ? this.i18n.t('hideSection')
+    : this.i18n.t('showSection');
 
   $showHideText.innerHTML = newButtonText;
-  $showHideText.appendChild($visuallyHiddenText);
   $button.setAttribute('aria-expanded', expanded);
 
   // Swap icon, change class
@@ -1032,7 +1594,9 @@ Accordion.prototype.checkIfAllSectionsOpen = function () {
 Accordion.prototype.updateShowAllButton = function (expanded) {
   var $showAllIcon = this.$showAllButton.querySelector('.' + this.upChevronIconClass);
   var $showAllText = this.$showAllButton.querySelector('.' + this.showAllTextClass);
-  var newButtonText = expanded ? 'Hide all sections' : 'Show all sections';
+  var newButtonText = expanded
+    ? this.i18n.t('hideAllSections')
+    : this.i18n.t('showAllSections');
   this.$showAllButton.setAttribute('aria-expanded', expanded);
   $showAllText.innerHTML = newButtonText;
 
@@ -1388,44 +1952,79 @@ if (detect) return
 var KEY_SPACE = 32;
 var DEBOUNCE_TIMEOUT_IN_SECONDS = 1;
 
-function Button ($module) {
+/**
+ * JavaScript enhancements for the Button component
+ *
+ * @class
+ * @param {HTMLElement} $module - The element this component controls
+ * @param {Object} config
+ * @param {Boolean} [config.preventDoubleClick=false] - Whether the button should prevent double clicks
+ */
+function Button ($module, config) {
+  if (!$module) {
+    return this
+  }
+
   this.$module = $module;
   this.debounceFormSubmitTimer = null;
+
+  var defaultConfig = {
+    preventDoubleClick: false
+  };
+  this.config = mergeConfigs(
+    defaultConfig,
+    config || {},
+    normaliseDataset($module.dataset)
+  );
 }
 
 /**
-* JavaScript 'shim' to trigger the click event of element(s) when the space key is pressed.
-*
-* Created since some Assistive Technologies (for example some Screenreaders)
-* will tell a user to press space on a 'button', so this functionality needs to be shimmed
-* See https://github.com/alphagov/govuk_elements/pull/272#issuecomment-233028270
-*
-* @param {object} event event
-*/
+ * Initialise component
+ */
+Button.prototype.init = function () {
+  if (!this.$module) {
+    return
+  }
+
+  this.$module.addEventListener('keydown', this.handleKeyDown);
+  this.$module.addEventListener('click', this.debounce.bind(this));
+};
+
+/**
+ * Trigger a click event when the space key is pressed
+ *
+ * Some screen readers tell users they can activate things with the 'button'
+ * role, so we need to match the functionality of native HTML buttons
+ *
+ * See https://github.com/alphagov/govuk_elements/pull/272#issuecomment-233028270
+ *
+ * @param {KeyboardEvent} event
+ */
 Button.prototype.handleKeyDown = function (event) {
-  // get the target element
   var target = event.target;
-  // if the element has a role='button' and the pressed key is a space, we'll simulate a click
+
   if (target.getAttribute('role') === 'button' && event.keyCode === KEY_SPACE) {
-    event.preventDefault();
-    // trigger the target's click event
+    event.preventDefault(); // prevent the page from scrolling
     target.click();
   }
 };
 
 /**
-* If the click quickly succeeds a previous click then nothing will happen.
-* This stops people accidentally causing multiple form submissions by
-* double clicking buttons.
-*/
+ * Debounce double-clicks
+ *
+ * If the click quickly succeeds a previous click then nothing will happen. This
+ * stops people accidentally causing multiple form submissions by double
+ * clicking buttons.
+ *
+ * @param {MouseEvent} event
+ */
 Button.prototype.debounce = function (event) {
-  var target = event.target;
-  // Check the button that is clicked on has the preventDoubleClick feature enabled
-  if (target.getAttribute('data-prevent-double-click') !== 'true') {
+  // Check the button that was clicked has preventDoubleClick enabled
+  if (!this.config.preventDoubleClick) {
     return
   }
 
-  // If the timer is still running then we want to prevent the click from submitting the form
+  // If the timer is still running, prevent the click from submitting the form
   if (this.debounceFormSubmitTimer) {
     event.preventDefault();
     return false
@@ -1434,15 +2033,6 @@ Button.prototype.debounce = function (event) {
   this.debounceFormSubmitTimer = setTimeout(function () {
     this.debounceFormSubmitTimer = null;
   }.bind(this), DEBOUNCE_TIMEOUT_IN_SECONDS * 1000);
-};
-
-/**
-* Initialise an event listener for keydown at document level
-* this will help listening for later inserted elements with a role="button"
-*/
-Button.prototype.init = function () {
-  this.$module.addEventListener('keydown', this.handleKeyDown);
-  this.$module.addEventListener('click', this.debounce);
 };
 
 /**
@@ -1576,28 +2166,85 @@ Details.prototype.polyfillHandleInputs = function (node, callback) {
   node.addEventListener('click', callback);
 };
 
-function CharacterCount ($module) {
+/**
+ * JavaScript enhancements for the CharacterCount component
+ *
+ * Tracks the number of characters or words in the `.moduk-js-character-count`
+ * `<textarea>` inside the element. Displays a message with the remaining number
+ * of characters/words available, or the number of characters/words in excess.
+ *
+ * You can configure the message to only appear after a certain percentage
+ * of the available characters/words has been entered.
+ *
+ * @class
+ * @param {HTMLElement} $module - The element this component controls
+ * @param {Object} config
+ * @param {Number} config.maxlength - If `maxwords` is set, this is not required.
+ * The maximum number of characters. If `maxwords` is provided, it will be ignored.
+ * @param {Number} config.maxwords - If `maxlength` is set, this is not required.
+ * The maximum number of words. If `maxwords` is provided, `maxlength` will be ignored.
+ * @param {Number} [config.threshold=0] - The percentage value of the limit at
+ * which point the count message is displayed. If this attribute is set, the
+ * count message will be hidden by default.
+ */
+function CharacterCount ($module, config) {
+  if (!$module) {
+    return this
+  }
+
+  var defaultConfig = {
+    threshold: 0
+  };
+
+  // Read config set using dataset ('data-' values)
+  var datasetConfig = normaliseDataset($module.dataset);
+
+  // To ensure data-attributes take complete precedence, even if they change the
+  // type of count, we need to reset the `maxlength` and `maxwords` from the
+  // JavaScript config.
+  //
+  // We can't mutate `config`, though, as it may be shared across multiple
+  // components inside `initAll`.
+  var configOverrides = {};
+  if ('maxwords' in datasetConfig || 'maxlength' in datasetConfig) {
+    configOverrides = {
+      maxlength: false,
+      maxwords: false
+    };
+  }
+
+  this.config = mergeConfigs(
+    defaultConfig,
+    config || {},
+    configOverrides,
+    datasetConfig
+  );
+
+  // Determine the limit attribute (characters or words)
+  if (this.config.maxwords) {
+    this.maxLength = this.config.maxwords;
+  } else if (this.config.maxlength) {
+    this.maxLength = this.config.maxlength;
+  } else {
+    return
+  }
+
   this.$module = $module;
-  this.$textarea = $module.querySelector('.govuk-js-character-count');
+  this.$textarea = $module.querySelector('.moduk-js-character-count');
   this.$visibleCountMessage = null;
   this.$screenReaderCountMessage = null;
   this.lastInputTimestamp = null;
 }
 
-CharacterCount.prototype.defaults = {
-  characterCountAttribute: 'data-maxlength',
-  wordCountAttribute: 'data-maxwords'
-};
-
-// Initialize component
+/**
+ * Initialise component
+ */
 CharacterCount.prototype.init = function () {
   // Check that required elements are present
   if (!this.$textarea) {
     return
   }
 
-  // Check for module
-  var $module = this.$module;
   var $textarea = this.$textarea;
   var $fallbackLimitMessage = document.getElementById($textarea.id + '-info');
 
@@ -1614,7 +2261,8 @@ CharacterCount.prototype.init = function () {
   $fallbackLimitMessage.insertAdjacentElement('afterend', $screenReaderCountMessage);
 
   // Create our live-updating counter element, copying the classes from the
-  // fallback element for backwards compatibility as these may have been configured
+  // fallback element for backwards compatibility as these may have been
+  // configured
   var $visibleCountMessage = document.createElement('div');
   $visibleCountMessage.className = $fallbackLimitMessage.className;
   $visibleCountMessage.classList.add('govuk-character-count__status');
@@ -1625,32 +2273,15 @@ CharacterCount.prototype.init = function () {
   // Hide the fallback limit message
   $fallbackLimitMessage.classList.add('govuk-visually-hidden');
 
-  // Read options set using dataset ('data-' values)
-  this.options = this.getDataset($module);
-
-  // Determine the limit attribute (characters or words)
-  var countAttribute = this.defaults.characterCountAttribute;
-  if (this.options.maxwords) {
-    countAttribute = this.defaults.wordCountAttribute;
-  }
-
-  // Save the element limit
-  this.maxLength = $module.getAttribute(countAttribute);
-
-  // Check for limit
-  if (!this.maxLength) {
-    return
-  }
-
   // Remove hard limit if set
   $textarea.removeAttribute('maxlength');
 
   this.bindChangeEvents();
 
   // When the page is restored after navigating 'back' in some browsers the
-  // state of the character count is not restored until *after* the DOMContentLoaded
-  // event is fired, so we need to manually update it after the pageshow event
-  // in browsers that support it.
+  // state of the character count is not restored until *after* the
+  // DOMContentLoaded event is fired, so we need to manually update it after the
+  // pageshow event in browsers that support it.
   if ('onpageshow' in window) {
     window.addEventListener('pageshow', this.updateCountMessage.bind(this));
   } else {
@@ -1659,35 +2290,12 @@ CharacterCount.prototype.init = function () {
   this.updateCountMessage();
 };
 
-// Read data attributes
-CharacterCount.prototype.getDataset = function (element) {
-  var dataset = {};
-  var attributes = element.attributes;
-  if (attributes) {
-    for (var i = 0; i < attributes.length; i++) {
-      var attribute = attributes[i];
-      var match = attribute.name.match(/^data-(.+)/);
-      if (match) {
-        dataset[match[1]] = attribute.value;
-      }
-    }
-  }
-  return dataset
-};
-
-// Counts characters or words in text
-CharacterCount.prototype.count = function (text) {
-  var length;
-  if (this.options.maxwords) {
-    var tokens = text.match(/\S+/g) || []; // Matches consecutive non-whitespace chars
-    length = tokens.length;
-  } else {
-    length = text.length;
-  }
-  return length
-};
-
-// Bind input propertychange to the elements and update based on the change
+/**
+ * Bind change events
+ *
+ * Set up event listeners on the $textarea so that the count messages update
+ * when the user types.
+ */
 CharacterCount.prototype.bindChangeEvents = function () {
   var $textarea = this.$textarea;
   $textarea.addEventListener('keyup', this.handleKeyUp.bind(this));
@@ -1697,10 +2305,52 @@ CharacterCount.prototype.bindChangeEvents = function () {
   $textarea.addEventListener('blur', this.handleBlur.bind(this));
 };
 
-// Speech recognition software such as Dragon NaturallySpeaking will modify the
-// fields by directly changing its `value`. These changes don't trigger events
-// in JavaScript, so we need to poll to handle when and if they occur.
-CharacterCount.prototype.checkIfValueChanged = function () {
+/**
+ * Handle key up event
+ *
+ * Update the visible character counter and keep track of when the last update
+ * happened for each keypress
+ */
+CharacterCount.prototype.handleKeyUp = function () {
+  this.updateVisibleCountMessage();
+  this.lastInputTimestamp = Date.now();
+};
+
+/**
+ * Handle focus event
+ *
+ * Speech recognition software such as Dragon NaturallySpeaking will modify the
+ * fields by directly changing its `value`. These changes don't trigger events
+ * in JavaScript, so we need to poll to handle when and if they occur.
+ *
+ * Once the keyup event hasn't been detected for at least 1000 ms (1s), check if
+ * the textarea value has changed and update the count message if it has.
+ *
+ * This is so that the update triggered by the manual comparison doesn't
+ * conflict with debounced KeyboardEvent updates.
+ */
+CharacterCount.prototype.handleFocus = function () {
+  this.valueChecker = setInterval(function () {
+    if (!this.lastInputTimestamp || (Date.now() - 500) >= this.lastInputTimestamp) {
+      this.updateIfValueChanged();
+    }
+  }.bind(this), 1000);
+};
+
+/**
+ * Handle blur event
+ *
+ * Stop checking the textarea value once the textarea no longer has focus
+ */
+CharacterCount.prototype.handleBlur = function () {
+  // Cancel value checking on blur
+  clearInterval(this.valueChecker);
+};
+
+/**
+ * Update count message if textarea value has changed
+ */
+CharacterCount.prototype.updateIfValueChanged = function () {
   if (!this.$textarea.oldValue) this.$textarea.oldValue = '';
   if (this.$textarea.value !== this.$textarea.oldValue) {
     this.$textarea.oldValue = this.$textarea.value;
@@ -1708,14 +2358,20 @@ CharacterCount.prototype.checkIfValueChanged = function () {
   }
 };
 
-// Helper function to update both the visible and screen reader-specific
-// counters simultaneously (e.g. on init)
+/**
+ * Update count message
+ *
+ * Helper function to update both the visible and screen reader-specific
+ * counters simultaneously (e.g. on init)
+ */
 CharacterCount.prototype.updateCountMessage = function () {
   this.updateVisibleCountMessage();
   this.updateScreenReaderCountMessage();
 };
 
-// Update visible counter
+/**
+ * Update visible count message
+ */
 CharacterCount.prototype.updateVisibleCountMessage = function () {
   var $textarea = this.$textarea;
   var $visibleCountMessage = this.$visibleCountMessage;
@@ -1741,10 +2397,12 @@ CharacterCount.prototype.updateVisibleCountMessage = function () {
   }
 
   // Update message
-  $visibleCountMessage.innerHTML = this.formattedUpdateMessage();
+  $visibleCountMessage.innerHTML = this.getCountMessage();
 };
 
-// Update screen reader-specific counter
+/**
+ * Update screen reader count message
+ */
 CharacterCount.prototype.updateScreenReaderCountMessage = function () {
   var $screenReaderCountMessage = this.$screenReaderCountMessage;
 
@@ -1757,19 +2415,39 @@ CharacterCount.prototype.updateScreenReaderCountMessage = function () {
   }
 
   // Update message
-  $screenReaderCountMessage.innerHTML = this.formattedUpdateMessage();
+  $screenReaderCountMessage.innerHTML = this.getCountMessage();
 };
 
-// Format update message
-CharacterCount.prototype.formattedUpdateMessage = function () {
+/**
+ * Count the number of characters (or words, if `config.maxwords` is set)
+ * in the given text
+ *
+ * @param {String} text - The text to count the characters of
+ * @returns {Number} the number of characters (or words) in the text
+ */
+CharacterCount.prototype.count = function (text) {
+  if (this.config.maxwords) {
+    var tokens = text.match(/\S+/g) || []; // Matches consecutive non-whitespace chars
+    return tokens.length
+  } else {
+    return text.length
+  }
+};
+
+/**
+ * Get count message
+ *
+ * @returns {String} Status message
+ */
+CharacterCount.prototype.getCountMessage = function () {
   var $textarea = this.$textarea;
-  var options = this.options;
+  var config = this.config;
   var remainingNumber = this.maxLength - this.count($textarea.value);
 
   var charVerb = 'remaining';
   var charNoun = 'character';
   var displayNumber = remainingNumber;
-  if (options.maxwords) {
+  if (config.maxwords) {
     charNoun = 'word';
   }
   charNoun = charNoun + ((remainingNumber === -1 || remainingNumber === 1) ? '' : 's');
@@ -1780,46 +2458,31 @@ CharacterCount.prototype.formattedUpdateMessage = function () {
   return 'You have ' + displayNumber + ' ' + charNoun + ' ' + charVerb
 };
 
-// Checks whether the value is over the configured threshold for the input.
-// If there is no configured threshold, it is set to 0 and this function will
-// always return true.
+/**
+ * Check if count is over threshold
+ *
+ * Checks whether the value is over the configured threshold for the input.
+ * If there is no configured threshold, it is set to 0 and this function will
+ * always return true.
+ *
+ * @returns {Boolean} true if the current count is over the config.threshold
+ *   (or no threshold is set)
+ */
 CharacterCount.prototype.isOverThreshold = function () {
+  // No threshold means we're always above threshold so save some computation
+  if (!this.config.threshold) {
+    return true
+  }
+
   var $textarea = this.$textarea;
-  var options = this.options;
 
   // Determine the remaining number of characters/words
   var currentLength = this.count($textarea.value);
   var maxLength = this.maxLength;
 
-  // Set threshold if presented in options
-  var thresholdPercent = options.threshold ? options.threshold : 0;
-  var thresholdValue = maxLength * thresholdPercent / 100;
+  var thresholdValue = maxLength * this.config.threshold / 100;
 
   return (thresholdValue <= currentLength)
-};
-
-// Update the visible character counter and keep track of when the last update
-// happened for each keypress
-CharacterCount.prototype.handleKeyUp = function () {
-  this.updateVisibleCountMessage();
-  this.lastInputTimestamp = Date.now();
-};
-
-CharacterCount.prototype.handleFocus = function () {
-  // If the field is focused, and a keyup event hasn't been detected for at
-  // least 1000 ms (1 second), then run the manual change check.
-  // This is so that the update triggered by the manual comparison doesn't
-  // conflict with debounced KeyboardEvent updates.
-  this.valueChecker = setInterval(function () {
-    if (!this.lastInputTimestamp || (Date.now() - 500) >= this.lastInputTimestamp) {
-      this.checkIfValueChanged();
-    }
-  }.bind(this), 1000);
-};
-
-CharacterCount.prototype.handleBlur = function () {
-  // Cancel value checking on blur
-  clearInterval(this.valueChecker);
 };
 
 function Checkboxes ($module) {
@@ -2026,8 +2689,40 @@ Checkboxes.prototype.handleClick = function (event) {
 
 }).call('object' === typeof window && window || 'object' === typeof self && self || 'object' === typeof global && global || {});
 
-function ErrorSummary ($module) {
+/**
+ * JavaScript enhancements for the ErrorSummary
+ *
+ * Takes focus on initialisation for accessible announcement, unless disabled in configuration.
+ *
+ * @class
+ * @param {HTMLElement} $module - The element this component controls
+ * @param {Object} config
+ * @param {Boolean} [config.disableAutoFocus=false] - Whether to disable the component taking focus on initialisation
+ */
+function ErrorSummary ($module, config) {
+  // Some consuming code may not be passing a module,
+  // for example if they initialise the component
+  // on their own by directly passing the result
+  // of `document.querySelector`.
+  // To avoid breaking further JavaScript initialisation
+  // we need to safeguard against this so things keep
+  // working the same now we read the elements data attributes
+  if (!$module) {
+    // Little safety in case code gets ported as-is
+    // into and ES6 class constructor, where the return value matters
+    return this
+  }
+
   this.$module = $module;
+
+  var defaultConfig = {
+    disableAutoFocus: false
+  };
+  this.config = mergeConfigs(
+    defaultConfig,
+    config || {},
+    normaliseDataset($module.dataset)
+  );
 }
 
 ErrorSummary.prototype.init = function () {
@@ -2046,7 +2741,7 @@ ErrorSummary.prototype.init = function () {
 ErrorSummary.prototype.setFocus = function () {
   var $module = this.$module;
 
-  if ($module.getAttribute('data-disable-auto-focus') === 'true') {
+  if (this.config.disableAutoFocus) {
     return
   }
 
@@ -2189,8 +2884,17 @@ ErrorSummary.prototype.getAssociatedLegendOrLabel = function ($input) {
     $input.closest('label')
 };
 
-function NotificationBanner ($module) {
+function NotificationBanner ($module, config) {
   this.$module = $module;
+
+  var defaultConfig = {
+    disableAutoFocus: false
+  };
+  this.config = mergeConfigs(
+    defaultConfig,
+    config || {},
+    normaliseDataset($module.dataset)
+  );
 }
 
 /**
@@ -2219,7 +2923,7 @@ NotificationBanner.prototype.init = function () {
 NotificationBanner.prototype.setFocus = function () {
   var $module = this.$module;
 
-  if ($module.getAttribute('data-disable-auto-focus') === 'true') {
+  if (this.config.disableAutoFocus) {
     return
   }
 
@@ -2243,7 +2947,7 @@ NotificationBanner.prototype.setFocus = function () {
 
 function Header ($module) {
   this.$module = $module;
-  this.$menuButton = $module && $module.querySelector('.govuk-js-header-toggle');
+  this.$menuButton = $module && $module.querySelector('.moduk-js-header-toggle');
   this.$menu = this.$menuButton && $module.querySelector(
     '#' + this.$menuButton.getAttribute('aria-controls')
   );
@@ -2576,7 +3280,7 @@ SkipLink.prototype.getFragmentFromUrl = function () {
 
 function Tabs ($module) {
   this.$module = $module;
-  this.$tabs = $module.querySelectorAll('.govuk-tabs__tab');
+  this.$tabs = $module.querySelectorAll('.moduk-tabs__tab');
 
   this.keys = { left: 37, right: 39, up: 38, down: 40 };
   this.jsHiddenClass = 'govuk-tabs__panel--hidden';
@@ -2607,8 +3311,8 @@ Tabs.prototype.checkMode = function () {
 Tabs.prototype.setup = function () {
   var $module = this.$module;
   var $tabs = this.$tabs;
-  var $tabList = $module.querySelector('.govuk-tabs__list');
-  var $tabListItems = $module.querySelectorAll('.govuk-tabs__list-item');
+  var $tabList = $module.querySelector('.moduk-tabs__list');
+  var $tabListItems = $module.querySelectorAll('.moduk-tabs__list-item');
 
   if (!$tabs || !$tabList || !$tabListItems) {
     return
@@ -2648,8 +3352,8 @@ Tabs.prototype.setup = function () {
 Tabs.prototype.teardown = function () {
   var $module = this.$module;
   var $tabs = this.$tabs;
-  var $tabList = $module.querySelector('.govuk-tabs__list');
-  var $tabListItems = $module.querySelectorAll('.govuk-tabs__list-item');
+  var $tabList = $module.querySelector('.moduk-tabs__list');
+  var $tabListItems = $module.querySelectorAll('.moduk-tabs__list-item');
 
   if (!$tabs || !$tabList || !$tabListItems) {
     return
@@ -2706,7 +3410,7 @@ Tabs.prototype.showTab = function ($tab) {
 };
 
 Tabs.prototype.getTab = function (hash) {
-  return this.$module.querySelector('.govuk-tabs__tab[href="' + hash + '"]')
+  return this.$module.querySelector('.moduk-tabs__tab[href="' + hash + '"]')
 };
 
 Tabs.prototype.setAttributes = function ($tab) {
@@ -2784,7 +3488,7 @@ Tabs.prototype.activateNextTab = function () {
   var currentTab = this.getCurrentTab();
   var nextTabListItem = currentTab.parentNode.nextElementSibling;
   if (nextTabListItem) {
-    var nextTab = nextTabListItem.querySelector('.govuk-tabs__tab');
+    var nextTab = nextTabListItem.querySelector('.moduk-tabs__tab');
   }
   if (nextTab) {
     this.hideTab(currentTab);
@@ -2798,7 +3502,7 @@ Tabs.prototype.activatePreviousTab = function () {
   var currentTab = this.getCurrentTab();
   var previousTabListItem = currentTab.parentNode.previousElementSibling;
   if (previousTabListItem) {
-    var previousTab = previousTabListItem.querySelector('.govuk-tabs__tab');
+    var previousTab = previousTabListItem.querySelector('.moduk-tabs__tab');
   }
   if (previousTab) {
     this.hideTab(currentTab);
@@ -2836,7 +3540,7 @@ Tabs.prototype.highlightTab = function ($tab) {
 };
 
 Tabs.prototype.getCurrentTab = function () {
-  return this.$module.querySelector('.govuk-tabs__list-item--selected .govuk-tabs__tab')
+  return this.$module.querySelector('.moduk-tabs__list-item--selected .moduk-tabs__tab')
 };
 
 // this is because IE doesn't always return the actual value but a relative full path
@@ -2848,62 +3552,79 @@ Tabs.prototype.getHref = function ($tab) {
   return hash
 };
 
-function initAll (options) {
-  // Set the options to an empty object by default if no options are passed.
-  options = typeof options !== 'undefined' ? options : {};
+/**
+ * Initialise all components
+ *
+ * Use the `data-module` attributes to find, instantiate and init all of the
+ * components provided as part of GOV.UK Frontend.
+ *
+ * @param {Object} [config]
+ * @param {HTMLElement} [config.scope=document] - scope to query for components
+ * @param {Object} [config.accordion] - accordion config
+ * @param {Object} [config.button] - button config
+ * @param {Object} [config.characterCount] - character count config
+ * @param {Object} [config.errorSummary] - error summary config
+ * @param {Object} [config.notificationBanner] - notification banner config
+ */
+function initAll (config) {
+  config = typeof config !== 'undefined' ? config : {};
 
   // Allow the user to initialise GOV.UK Frontend in only certain sections of the page
   // Defaults to the entire document if nothing is set.
-  var scope = typeof options.scope !== 'undefined' ? options.scope : document;
+  var $scope = typeof config.scope !== 'undefined' ? config.scope : document;
 
-  var $buttons = scope.querySelectorAll('[data-module="govuk-button"]');
-  nodeListForEach($buttons, function ($button) {
-    new Button($button).init();
-  });
-
-  var $accordions = scope.querySelectorAll('[data-module="govuk-accordion"]');
+  var $accordions = $scope.querySelectorAll('[data-module="govuk-accordion"]');
   nodeListForEach($accordions, function ($accordion) {
-    new Accordion($accordion).init();
+    new Accordion($accordion, config.accordion).init();
   });
 
-  var $details = scope.querySelectorAll('[data-module="govuk-details"]');
-  nodeListForEach($details, function ($detail) {
-    new Details($detail).init();
+  var $buttons = $scope.querySelectorAll('[data-module="govuk-button"]');
+  nodeListForEach($buttons, function ($button) {
+    new Button($button, config.button).init();
   });
 
-  var $characterCounts = scope.querySelectorAll('[data-module="govuk-character-count"]');
+  var $characterCounts = $scope.querySelectorAll('[data-module="govuk-character-count"]');
   nodeListForEach($characterCounts, function ($characterCount) {
-    new CharacterCount($characterCount).init();
+    new CharacterCount($characterCount, config.characterCount).init();
   });
 
-  var $checkboxes = scope.querySelectorAll('[data-module="govuk-checkboxes"]');
+  var $checkboxes = $scope.querySelectorAll('[data-module="govuk-checkboxes"]');
   nodeListForEach($checkboxes, function ($checkbox) {
     new Checkboxes($checkbox).init();
   });
 
-  // Find first error summary module to enhance.
-  var $errorSummary = scope.querySelector('[data-module="govuk-error-summary"]');
-  new ErrorSummary($errorSummary).init();
-
-  // Find first header module to enhance.
-  var $toggleButton = scope.querySelector('[data-module="govuk-header"]');
-  new Header($toggleButton).init();
-
-  var $notificationBanners = scope.querySelectorAll('[data-module="govuk-notification-banner"]');
-  nodeListForEach($notificationBanners, function ($notificationBanner) {
-    new NotificationBanner($notificationBanner).init();
+  var $details = $scope.querySelectorAll('[data-module="govuk-details"]');
+  nodeListForEach($details, function ($detail) {
+    new Details($detail).init();
   });
 
-  var $radios = scope.querySelectorAll('[data-module="govuk-radios"]');
+  // Find first error summary module to enhance.
+  var $errorSummary = $scope.querySelector('[data-module="govuk-error-summary"]');
+  if ($errorSummary) {
+    new ErrorSummary($errorSummary, config.errorSummary).init();
+  }
+
+  // Find first header module to enhance.
+  var $header = $scope.querySelector('[data-module="govuk-header"]');
+  if ($header) {
+    new Header($header).init();
+  }
+
+  var $notificationBanners = $scope.querySelectorAll('[data-module="govuk-notification-banner"]');
+  nodeListForEach($notificationBanners, function ($notificationBanner) {
+    new NotificationBanner($notificationBanner, config.notificationBanner).init();
+  });
+
+  var $radios = $scope.querySelectorAll('[data-module="govuk-radios"]');
   nodeListForEach($radios, function ($radio) {
     new Radios($radio).init();
   });
 
   // Find first skip link module to enhance.
-  var $skipLink = scope.querySelector('[data-module="govuk-skip-link"]');
+  var $skipLink = $scope.querySelector('[data-module="govuk-skip-link"]');
   new SkipLink($skipLink).init();
 
-  var $tabs = scope.querySelectorAll('[data-module="govuk-tabs"]');
+  var $tabs = $scope.querySelectorAll('[data-module="govuk-tabs"]');
   nodeListForEach($tabs, function ($tabs) {
     new Tabs($tabs).init();
   });

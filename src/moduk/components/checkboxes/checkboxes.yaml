@@ -145,11 +145,11 @@ examples:
         text: Citizen of another country
         conditional:
           html: |
-            <div class="govuk-form-group">
-              <label class="govuk-label" for="input-example">
+            <div class="moduk-form-group">
+              <label class="moduk-label" for="input-example">
                 Country
               </label>
-            <input class="govuk-input" id="other-country" name="other-country" type="text" value="Ravka">
+            <input class="moduk-input" id="other-country" name="other-country" type="text" value="Ravka">
             </div>
     values: 
       - british
@@ -161,7 +161,7 @@ examples:
     fieldset:
       legend:
         text: Which types of waste do you transport regularly?
-        classes: govuk-fieldset__legend--l
+        classes: moduk-fieldset__legend--l
         isPageHeading: true
     items:
       - value: animal
@@ -181,7 +181,7 @@ examples:
     fieldset:
       legend:
         text: Do you have any access needs?
-        classes: govuk-fieldset__legend--l
+        classes: moduk-fieldset__legend--l
         isPageHeading: true
     items:
       - value: accessible-toilets
@@ -194,8 +194,8 @@ examples:
         text: Another access need
         conditional:
           html: |
-            <label class="govuk-label" for="other-access-needs">Other access needs</label>
-            <textarea class="govuk-textarea govuk-!-width-one-third" name="other-access-needs" id="other-access-needs"></textarea>
+            <label class="moduk-label" for="other-access-needs">Other access needs</label>
+            <textarea class="moduk-textarea moduk-!-width-one-third" name="other-access-needs" id="other-access-needs"></textarea>
       - divider: or
       - value: none
         text: None of these
@@ -228,7 +228,7 @@ examples:
     fieldset:
       legend:
         text: How do you want to sign in?
-        classes: govuk-fieldset__legend--l
+        classes: moduk-fieldset__legend--l
         isPageHeading: true
     items:
       - name: gateway
@@ -238,7 +238,7 @@ examples:
         hint:
           text: You'll have a user ID if you've registered for Self Assessment or filed a tax return online before.
       - name: verify
-        id: govuk-verify
+        id: moduk-verify
         value: gov-verify
         text: Sign in with GOV.UK Verify
         hint:
@@ -250,7 +250,7 @@ examples:
     fieldset:
       legend:
         text: How do you want to sign in?
-        classes: govuk-fieldset__legend--l
+        classes: moduk-fieldset__legend--l
         isPageHeading: true
     items:
       - name: gateway
@@ -260,7 +260,7 @@ examples:
         hint:
           text: You'll have a user ID if you've registered for Self Assessment or filed a tax return online before.
       - name: verify
-        id: govuk-verify
+        id: moduk-verify
         value: gov-verify
         text: Sign in with GOV.UK Verify
         hint:
@@ -273,7 +273,7 @@ examples:
     fieldset:
       legend:
         text: Which types of waste do you transport regularly?
-        classes: govuk-fieldset__legend--l
+        classes: moduk-fieldset__legend--l
         isPageHeading: true
     hint:
       text: Select all that apply
@@ -291,7 +291,7 @@ examples:
     fieldset:
       legend:
         text: Which types of waste do you transport regularly?
-        classes: govuk-fieldset__legend--m
+        classes: moduk-fieldset__legend--m
     hint:
       text: Select all that apply
     errorMessage:
@@ -439,20 +439,20 @@ examples:
         text: Email
         conditional:
           html: |
-            <label class="govuk-label" for="context-email">Email address</label>
-            <input class="govuk-input govuk-!-width-one-third" name="context-email" type="text" id="context-email">
+            <label class="moduk-label" for="context-email">Email address</label>
+            <input class="moduk-input moduk-!-width-one-third" name="context-email" type="text" id="context-email">
       - value: phone
         text: Phone
         conditional:
           html: |
-            <label class="govuk-label" for="contact-phone">Phone number</label>
-            <input class="govuk-input govuk-!-width-one-third" name="contact-phone" type="text" id="contact-phone">
+            <label class="moduk-label" for="contact-phone">Phone number</label>
+            <input class="moduk-input moduk-!-width-one-third" name="contact-phone" type="text" id="contact-phone">
       - value: text
         text: Text message
         conditional:
           html: |
-            <label class="govuk-label" for="contact-text-message">Mobile phone number</label>
-            <input class="govuk-input govuk-!-width-one-third" name="contact-text-message" type="text" id="contact-text-message">
+            <label class="moduk-label" for="contact-text-message">Mobile phone number</label>
+            <input class="moduk-input moduk-!-width-one-third" name="contact-text-message" type="text" id="contact-text-message">
 
 - name: with conditional items with special characters
   data:
@@ -466,20 +466,20 @@ examples:
         text: Email
         conditional:
           html: |
-            <label class="govuk-label" for="context-email">Email address</label>
-            <input class="govuk-input govuk-!-width-one-third" name="context-email" type="text" id="context-email">
+            <label class="moduk-label" for="context-email">Email address</label>
+            <input class="moduk-input moduk-!-width-one-third" name="context-email" type="text" id="context-email">
       - value: phone
         text: Phone
         conditional:
           html: |
-            <label class="govuk-label" for="contact-phone">Phone number</label>
-            <input class="govuk-input govuk-!-width-one-third" name="contact-phone" type="text" id="contact-phone">
+            <label class="moduk-label" for="contact-phone">Phone number</label>
+            <input class="moduk-input moduk-!-width-one-third" name="contact-phone" type="text" id="contact-phone">
       - value: text
         text: Text message
         conditional:
           html: |
-            <label class="govuk-label" for="contact-text-message">Mobile phone number</label>
-            <input class="govuk-input govuk-!-width-one-third" name="contact-text-message" type="text" id="contact-text-message">
+            <label class="moduk-label" for="contact-text-message">Mobile phone number</label>
+            <input class="moduk-input moduk-!-width-one-third" name="contact-text-message" type="text" id="contact-text-message">
 
 - name: with conditional item checked
   data:
@@ -494,27 +494,27 @@ examples:
       checked: true
       conditional:
         html: |
-          <label class="govuk-label" for="context-email">Email address</label>
-          <input class="govuk-input govuk-!-width-one-third" name="context-email" type="text" id="context-email">
+          <label class="moduk-label" for="context-email">Email address</label>
+          <input class="moduk-input moduk-!-width-one-third" name="context-email" type="text" id="context-email">
     - value: phone
       text: Phone
       conditional:
         html: |
-          <label class="govuk-label" for="contact-phone">Phone number</label>
-          <input class="govuk-input govuk-!-width-one-third" name="contact-phone" type="text" id="contact-phone">
+          <label class="moduk-label" for="contact-phone">Phone number</label>
+          <input class="moduk-input moduk-!-width-one-third" name="contact-phone" type="text" id="contact-phone">
     - value: text
       text: Text message
       conditional:
         html: |
-          <label class="govuk-label" for="contact-text-message">Mobile phone number</label>
-          <input class="govuk-input govuk-!-width-one-third" name="contact-text-message" type="text" id="contact-text-message">
+          <label class="moduk-label" for="contact-text-message">Mobile phone number</label>
+          <input class="moduk-input moduk-!-width-one-third" name="contact-text-message" type="text" id="contact-text-message">
 
 - name: with optional form-group classes showing group error
   data:
     name: how-contacted-checked
     idPrefix: how-contacted-checked
     formGroup:
-      classes: 'govuk-form-group--error'
+      classes: 'moduk-form-group--error'
     fieldset:
       legend:
         text: How do you want to be contacted?
@@ -523,28 +523,28 @@ examples:
       text: Email
       conditional:
         html: |
-          <label class="govuk-label" for="context-email">Email address</label>
-          <input class="govuk-input govuk-!-width-one-third" name="context-email" type="text" id="context-email">
+          <label class="moduk-label" for="context-email">Email address</label>
+          <input class="moduk-input moduk-!-width-one-third" name="context-email" type="text" id="context-email">
     - value: phone
       text: Phone
       checked: true
       conditional:
         html: |
-          <label class="govuk-label" for="contact-phone">Phone number</label>
-          <span id="contact-phone-error" class="govuk-error-message">Problem with input</span>
-          <input class="govuk-input govuk-input--error govuk-!-width-one-third" name="contact-phone" type="text" id="contact-phone" aria-describedby="contact-phone-error">
+          <label class="moduk-label" for="contact-phone">Phone number</label>
+          <span id="contact-phone-error" class="moduk-error-message">Problem with input</span>
+          <input class="moduk-input moduk-input--error moduk-!-width-one-third" name="contact-phone" type="text" id="contact-phone" aria-describedby="contact-phone-error">
     - value: text
       text: Text message
       conditional:
         html: |
-          <label class="govuk-label" for="contact-text-message">Mobile phone number</label>
-          <input class="govuk-input govuk-!-width-one-third" name="contact-text-message" type="text" id="contact-text-message">
+          <label class="moduk-label" for="contact-text-message">Mobile phone number</label>
+          <input class="moduk-input moduk-!-width-one-third" name="contact-text-message" type="text" id="contact-text-message">
 
 - name: small
   data:
     idPrefix: nationality
     name: nationality
-    classes: govuk-checkboxes--small
+    classes: moduk-checkboxes--small
     fieldset:
       legend:
         text: Filter by
@@ -560,7 +560,7 @@ examples:
   data:
     idPrefix: nationality
     name: nationality
-    classes: govuk-checkboxes--small
+    classes: moduk-checkboxes--small
     fieldset:
       legend:
         text: Filter by
@@ -593,7 +593,7 @@ examples:
   data:
     idPrefix: nationality
     name: nationality
-    classes: govuk-checkboxes--small
+    classes: moduk-checkboxes--small
     errorMessage:
       text: "Select a thing"
     fieldset:
@@ -611,7 +611,7 @@ examples:
   data:
     idPrefix: nationality
     name: nationality
-    classes: govuk-checkboxes--small
+    classes: moduk-checkboxes--small
     fieldset:
       legend:
         text: Filter by
@@ -629,7 +629,7 @@ examples:
   data:
     idPrefix: nationality
     name: nationality
-    classes: govuk-checkboxes--small
+    classes: moduk-checkboxes--small
     fieldset:
       legend:
         text: Filter by
@@ -646,7 +646,7 @@ examples:
   data:
     name: how-contacted
     idPrefix: how-contacted
-    classes: govuk-checkboxes--small
+    classes: moduk-checkboxes--small
     fieldset:
       legend:
         text: How do you want to be contacted?
@@ -655,8 +655,8 @@ examples:
         text: a thing
         conditional:
           html: |
-            <label class="govuk-label" for="context-email">Foo</label>
-            <input class="govuk-input govuk-!-width-one-third" name="context-email" type="text" id="context-email">
+            <label class="moduk-label" for="context-email">Foo</label>
+            <input class="moduk-input moduk-!-width-one-third" name="context-email" type="text" id="context-email">
       - value: b
         text: another thing
 

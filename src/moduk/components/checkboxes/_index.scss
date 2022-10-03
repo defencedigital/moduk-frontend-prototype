@@ -3,86 +3,86 @@
 @import "../hint/index";
 @import "../label/index";
 
-@include govuk-exports("govuk/component/checkboxes") {
+@include moduk-exports("moduk/component/checkboxes") {
 
-  $govuk-touch-target-size: 44px;
-  $govuk-checkboxes-size: 40px;
-  $govuk-small-checkboxes-size: 24px;
-  $govuk-checkboxes-label-padding-left-right: govuk-spacing(3);
+  $moduk-touch-target-size: 44px;
+  $moduk-checkboxes-size: 40px;
+  $moduk-small-checkboxes-size: 24px;
+  $moduk-checkboxes-label-padding-left-right: moduk-spacing(3);
 
-  .govuk-checkboxes__item {
-    @include govuk-font($size: 19);
+  .moduk-checkboxes__item {
+    @include moduk-font($size: 19);
 
     display: block;
     position: relative;
 
-    min-height: $govuk-checkboxes-size;
+    min-height: $moduk-checkboxes-size;
 
-    margin-bottom: govuk-spacing(2);
-    padding-left: $govuk-checkboxes-size;
+    margin-bottom: moduk-spacing(2);
+    padding-left: $moduk-checkboxes-size;
 
     clear: left;
   }
 
-  .govuk-checkboxes__item:last-child,
-  .govuk-checkboxes__item:last-of-type {
+  .moduk-checkboxes__item:last-child,
+  .moduk-checkboxes__item:last-of-type {
     margin-bottom: 0;
   }
 
-  .govuk-checkboxes__input {
-    $input-offset: ($govuk-touch-target-size - $govuk-checkboxes-size) / 2;
+  .moduk-checkboxes__input {
+    $input-offset: ($moduk-touch-target-size - $moduk-checkboxes-size) / 2;
 
     cursor: pointer;
 
     // IE8 doesn’t support pseudo-elements, so we don’t want to hide native
     // elements there.
-    @include govuk-not-ie8 {
+    @include moduk-not-ie8 {
       position: absolute;
 
       z-index: 1;
       top: $input-offset * -1;
       left: $input-offset * -1;
 
-      width: $govuk-touch-target-size;
-      height: $govuk-touch-target-size;
+      width: $moduk-touch-target-size;
+      height: $moduk-touch-target-size;
       margin: 0;
 
       opacity: 0;
     }
 
-    @include govuk-if-ie8 {
+    @include moduk-if-ie8 {
       margin-top: 10px;
-      margin-right: $govuk-checkboxes-size / -2;
-      margin-left: $govuk-checkboxes-size / -2;
+      margin-right: $moduk-checkboxes-size / -2;
+      margin-left: $moduk-checkboxes-size / -2;
       float: left;
 
       // add focus outline to input
       &:focus {
-        outline: $govuk-focus-width solid $govuk-focus-colour;
+        outline: $moduk-focus-width solid $moduk-focus-colour;
       }
     }
   }
 
-  .govuk-checkboxes__label {
+  .moduk-checkboxes__label {
     display: inline-block;
     margin-bottom: 0;
-    padding: 8px $govuk-checkboxes-label-padding-left-right govuk-spacing(1);
+    padding: 8px $moduk-checkboxes-label-padding-left-right moduk-spacing(1);
     cursor: pointer;
     // remove 300ms pause on mobile
     touch-action: manipulation;
   }
 
-  @include govuk-not-ie8 {
+  @include moduk-not-ie8 {
     // [ ] Check box
-    .govuk-checkboxes__label:before {
+    .moduk-checkboxes__label:before {
       content: "";
       box-sizing: border-box;
       position: absolute;
       top: 0;
       left: 0;
-      width: $govuk-checkboxes-size;
-      height: $govuk-checkboxes-size;
-      border: $govuk-border-width-form-element solid currentcolor;
+      width: $moduk-checkboxes-size;
+      height: $moduk-checkboxes-size;
+      border: $moduk-border-width-form-element solid currentcolor;
       background: transparent;
     }
 
@@ -90,7 +90,7 @@
     //
     // The check mark is a box with a border on the left and bottom side (└──),
     // rotated 45 degrees
-    .govuk-checkboxes__label:after {
+    .moduk-checkboxes__label:after {
       content: "";
       box-sizing: border-box;
 
@@ -113,21 +113,21 @@
     }
   }
 
-  .govuk-checkboxes__hint {
+  .moduk-checkboxes__hint {
     display: block;
-    padding-right: $govuk-checkboxes-label-padding-left-right;
-    padding-left: $govuk-checkboxes-label-padding-left-right;
+    padding-right: $moduk-checkboxes-label-padding-left-right;
+    padding-left: $moduk-checkboxes-label-padding-left-right;
   }
 
   // Focused state
-  .govuk-checkboxes__input:focus + .govuk-checkboxes__label:before {
+  .moduk-checkboxes__input:focus + .moduk-checkboxes__label:before {
     border-width: 4px;
 
     // When colours are overridden, the yellow box-shadow becomes invisible
     // which means the focus state is less obvious. By adding a transparent
     // outline, which becomes solid (text-coloured) in that context, we ensure
     // the focus remains clearly visible.
-    outline: $govuk-focus-width solid transparent;
+    outline: $moduk-focus-width solid transparent;
     outline-offset: 1px;
 
     // When in an explicit forced-color mode, we can use the Highlight system
@@ -136,22 +136,22 @@
       outline-color: Highlight;
     }
 
-    box-shadow: 0 0 0 $govuk-focus-width $govuk-focus-colour;
+    box-shadow: 0 0 0 $moduk-focus-width $moduk-focus-colour;
   }
 
   // Selected state
-  .govuk-checkboxes__input:checked + .govuk-checkboxes__label:after {
+  .moduk-checkboxes__input:checked + .moduk-checkboxes__label:after {
     opacity: 1;
   }
 
   // Disabled state
-  .govuk-checkboxes__input:disabled,
-  .govuk-checkboxes__input:disabled + .govuk-checkboxes__label {
+  .moduk-checkboxes__input:disabled,
+  .moduk-checkboxes__input:disabled + .moduk-checkboxes__label {
     cursor: default;
   }
 
-  .govuk-checkboxes__input:disabled + .govuk-checkboxes__label,
-  .govuk-checkboxes__input:disabled ~ .govuk-hint {
+  .moduk-checkboxes__input:disabled + .moduk-checkboxes__label,
+  .moduk-checkboxes__input:disabled ~ .moduk-hint {
     opacity: .5;
   }
 
@@ -159,12 +159,12 @@
   // Dividers ('or')
   // =========================================================
 
-  .govuk-checkboxes__divider {
-    $govuk-divider-size: $govuk-checkboxes-size !default;
-    @include govuk-font($size: 19);
-    @include govuk-text-colour;
-    width: $govuk-divider-size;
-    margin-bottom: govuk-spacing(2);
+  .moduk-checkboxes__divider {
+    $moduk-divider-size: $moduk-checkboxes-size !default;
+    @include moduk-font($size: 19);
+    @include moduk-text-colour;
+    width: $moduk-divider-size;
+    margin-bottom: moduk-spacing(2);
     text-align: center;
   }
 
@@ -174,19 +174,19 @@
 
   // The narrow border is used in the conditional reveals because the border has
   // to be an even number in order to be centred under the 40px checkbox or radio.
-  $conditional-border-width: $govuk-border-width-narrow;
+  $conditional-border-width: $moduk-border-width-narrow;
   // Calculate the amount of padding needed to keep the border centered against the checkbox.
-  $conditional-border-padding: ($govuk-checkboxes-size / 2) - ($conditional-border-width / 2);
+  $conditional-border-padding: ($moduk-checkboxes-size / 2) - ($conditional-border-width / 2);
   // Move the border centered with the checkbox
   $conditional-margin-left: $conditional-border-padding;
   // Move the contents of the conditional inline with the label
-  $conditional-padding-left: $conditional-border-padding + $govuk-checkboxes-label-padding-left-right;
+  $conditional-padding-left: $conditional-border-padding + $moduk-checkboxes-label-padding-left-right;
 
-  .govuk-checkboxes__conditional {
-    @include govuk-responsive-margin(4, "bottom");
+  .moduk-checkboxes__conditional {
+    @include moduk-responsive-margin(4, "bottom");
     margin-left: $conditional-margin-left;
     padding-left: $conditional-padding-left;
-    border-left: $conditional-border-width solid $govuk-border-colour;
+    border-left: $conditional-border-width solid $moduk-border-colour;
 
     .js-enabled &--hidden {
       display: none;
@@ -201,13 +201,13 @@
   // Small checkboxes
   // =========================================================
 
-  .govuk-checkboxes--small {
+  .moduk-checkboxes--small {
 
-    $input-offset: ($govuk-touch-target-size - $govuk-small-checkboxes-size) / 2;
-    $label-offset: $govuk-touch-target-size - $input-offset;
+    $input-offset: ($moduk-touch-target-size - $moduk-small-checkboxes-size) / 2;
+    $label-offset: $moduk-touch-target-size - $input-offset;
 
-    .govuk-checkboxes__item {
-      @include govuk-clearfix;
+    .moduk-checkboxes__item {
+      @include moduk-clearfix;
       min-height: 0;
       margin-bottom: 0;
       padding-left: $label-offset;
@@ -223,13 +223,13 @@
     //  └┆▲──┘
     //  ▲┆└─ Check box pseudo element, aligned with margin
     //  └─── Touch target (invisible input), shifted into the margin
-    .govuk-checkboxes__input {
-      @include govuk-not-ie8 {
+    .moduk-checkboxes__input {
+      @include moduk-not-ie8 {
         left: $input-offset * -1;
       }
 
-      @include govuk-if-ie8 {
-        margin-left: $govuk-small-checkboxes-size * -1;
+      @include moduk-if-ie8 {
+        margin-left: $moduk-small-checkboxes-size * -1;
       }
     }
 
@@ -238,13 +238,13 @@
     // Unlike larger checkboxes, we also have to float the label in order to
     // 'shrink' it, preventing the hover state from kicking in across the full
     // width of the parent element.
-    .govuk-checkboxes__label {
+    .moduk-checkboxes__label {
       margin-top: -2px;
-      padding: 13px govuk-spacing(3) 13px 1px;
+      padding: 13px moduk-spacing(3) 13px 1px;
       float: left;
 
-      @include govuk-media-query($from: tablet) {
-        padding: 11px govuk-spacing(3) 10px 1px;
+      @include moduk-media-query($from: tablet) {
+        padding: 11px moduk-spacing(3) 10px 1px;
       }
     }
 
@@ -252,16 +252,16 @@
     //
     // Reduce the size of the check box [1], vertically center it within the
     // touch target [2]
-    .govuk-checkboxes__label:before {
-      top: $input-offset - $govuk-border-width-form-element; // 2
-      width: $govuk-small-checkboxes-size; // 1
-      height: $govuk-small-checkboxes-size; // 1
+    .moduk-checkboxes__label:before {
+      top: $input-offset - $moduk-border-width-form-element; // 2
+      width: $moduk-small-checkboxes-size; // 1
+      height: $moduk-small-checkboxes-size; // 1
     }
 
     // ✔ Check mark
     //
     // Reduce the size of the check mark and re-align within the checkbox
-    .govuk-checkboxes__label:after {
+    .moduk-checkboxes__label:after {
       top: 15px;
       left: 6px;
       width: 12px;
@@ -277,14 +277,14 @@
     //
     // (If you do use them, they won't look completely broken... but seriously,
     // don't use them)
-    .govuk-checkboxes__hint {
+    .moduk-checkboxes__hint {
       padding: 0;
       clear: both;
     }
 
     // Align conditional reveals with small checkboxes
-    .govuk-checkboxes__conditional {
-      $margin-left: ($govuk-small-checkboxes-size / 2) - ($conditional-border-width / 2);
+    .moduk-checkboxes__conditional {
+      $margin-left: ($moduk-small-checkboxes-size / 2) - ($conditional-border-width / 2);
       margin-left: $margin-left;
       padding-left: $label-offset - ($margin-left + $conditional-border-width);
       clear: both;
@@ -296,8 +296,8 @@
     // is so much larger than their visible size, and so we need to provide
     // feedback to the user as to which checkbox they will select when their
     // cursor is outside of the visible area.
-    .govuk-checkboxes__item:hover .govuk-checkboxes__input:not(:disabled) + .govuk-checkboxes__label:before {
-      box-shadow: 0 0 0 $govuk-hover-width $govuk-hover-colour;
+    .moduk-checkboxes__item:hover .moduk-checkboxes__input:not(:disabled) + .moduk-checkboxes__label:before {
+      box-shadow: 0 0 0 $moduk-hover-width $moduk-hover-colour;
     }
 
     // Because we've overridden the border-shadow provided by the focus state,
@@ -305,10 +305,10 @@
     //
     // We use two box shadows, one that restores the original focus state [1]
     // and another that then applies the hover state [2].
-    .govuk-checkboxes__item:hover .govuk-checkboxes__input:focus + .govuk-checkboxes__label:before {
+    .moduk-checkboxes__item:hover .moduk-checkboxes__input:focus + .moduk-checkboxes__label:before {
       box-shadow:
-        0 0 0 $govuk-focus-width $govuk-focus-colour, // 1
-        0 0 0 $govuk-hover-width $govuk-hover-colour; // 2
+        0 0 0 $moduk-focus-width $moduk-focus-colour, // 1
+        0 0 0 $moduk-hover-width $moduk-hover-colour; // 2
     }
 
     // For devices that explicitly don't support hover, don't provide a hover
@@ -318,12 +318,12 @@
     // state in browsers that don't support `@media (hover)` (like Internet
     // Explorer) – so we have to 'undo' the hover state instead.
     @media (hover: none), (pointer: coarse) {
-      .govuk-checkboxes__item:hover .govuk-checkboxes__input:not(:disabled) + .govuk-checkboxes__label:before {
+      .moduk-checkboxes__item:hover .moduk-checkboxes__input:not(:disabled) + .moduk-checkboxes__label:before {
         box-shadow: initial;
       }
 
-      .govuk-checkboxes__item:hover .govuk-checkboxes__input:focus + .govuk-checkboxes__label:before {
-        box-shadow: 0 0 0 $govuk-focus-width $govuk-focus-colour;
+      .moduk-checkboxes__item:hover .moduk-checkboxes__input:focus + .moduk-checkboxes__label:before {
+        box-shadow: 0 0 0 $moduk-focus-width $moduk-focus-colour;
       }
     }
   }

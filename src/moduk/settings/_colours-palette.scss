@@ -18,23 +18,23 @@
 /// @deprecated Will be removed in v5.0 with the rest of the compatibility mode
 /// suite of tools and settings
 
-$govuk-use-legacy-palette: if(
+$moduk-use-legacy-palette: if(
   (
-    $govuk-compatibility-govukfrontendtoolkit or
-    $govuk-compatibility-govuktemplate or
-    $govuk-compatibility-govukelements
+    $moduk-compatibility-govukfrontendtoolkit or
+    $moduk-compatibility-govuktemplate or
+    $moduk-compatibility-govukelements
   ),
   true,
   false
 ) !default;
 
-// Only show the deprecation warning if user is setting $govuk-use-legacy-palette
+// Only show the deprecation warning if user is setting $moduk-use-legacy-palette
 // manually instead of automatically via compatibility variables
-@if $govuk-use-legacy-palette == true and
-  $govuk-compatibility-govukfrontendtoolkit == false and
-  $govuk-compatibility-govuktemplate == false and
-  $govuk-compatibility-govukelements == false {
-  @warn "$govuk-use-legacy-palette is deprecated. " +
+@if $moduk-use-legacy-palette == true and
+  $moduk-compatibility-govukfrontendtoolkit == false and
+  $moduk-compatibility-govuktemplate == false and
+  $moduk-compatibility-govukelements == false {
+  @warn "$moduk-use-legacy-palette is deprecated. " +
     "Only the modern colour palette will be supported from v5.0";
 }
 
@@ -42,11 +42,11 @@ $govuk-use-legacy-palette: if(
 ///
 /// This exists only because you cannot easily set a !default variable
 /// conditionally (thanks to the way scope works in Sass) so we set
-/// `$govuk-colour-palette` using the `if` function.
+/// `$moduk-colour-palette` using the `if` function.
 ///
 /// @access private
 
-$_govuk-colour-palette-modern: (
+$_moduk-colour-palette-modern: (
   "red": #d4351c,
   "yellow": #ffdd00,
   "green": #00703c,
@@ -75,11 +75,11 @@ $_govuk-colour-palette-modern: (
 ///
 /// This exists only because you cannot easily set a !default variable
 /// conditionally (thanks to the way scope works in Sass) so we set
-/// `$govuk-colour-palette` using the `if` function.
+/// `$moduk-colour-palette` using the `if` function.
 ///
 /// @access private
 
-$_govuk-colour-palette-legacy: (
+$_moduk-colour-palette-legacy: (
   "purple": #2e358b,
   "light-purple": #6f72af,
   "bright-purple": #912b88,
@@ -113,8 +113,8 @@ $_govuk-colour-palette-legacy: (
 ///
 /// @access public
 
-$govuk-colours: if(
-  $govuk-use-legacy-palette,
-  $_govuk-colour-palette-legacy,
-  $_govuk-colour-palette-modern
+$moduk-colours: if(
+  $moduk-use-legacy-palette,
+  $_moduk-colour-palette-legacy,
+  $_moduk-colour-palette-modern
 ) !default;

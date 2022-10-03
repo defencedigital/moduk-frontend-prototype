@@ -52,7 +52,7 @@ SkipLink.prototype.focusLinkedElement = function () {
   if (!$linkedElement.getAttribute('tabindex')) {
     // Set the element tabindex to -1 so it can be focused with JavaScript.
     $linkedElement.setAttribute('tabindex', '-1')
-    $linkedElement.classList.add('govuk-skip-link-focused-element')
+    $linkedElement.classList.add('moduk-skip-link-focused-element')
 
     // Add listener for blur on the focused element (unless the listener has previously been added)
     if (!this.linkedElementListener) {
@@ -71,7 +71,7 @@ SkipLink.prototype.focusLinkedElement = function () {
  */
 SkipLink.prototype.removeFocusProperties = function () {
   this.$linkedElement.removeAttribute('tabindex')
-  this.$linkedElement.classList.remove('govuk-skip-link-focused-element')
+  this.$linkedElement.classList.remove('moduk-skip-link-focused-element')
 }
 
 /**

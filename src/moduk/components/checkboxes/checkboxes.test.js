@@ -43,10 +43,10 @@ describe('Checkboxes with conditional reveals', () => {
 
     it('has no ARIA attributes applied', async () => {
       const $ = await goToAndGetComponent('checkboxes', 'with-conditional-items')
-      const $component = $('.govuk-checkboxes')
+      const $component = $('.moduk-checkboxes')
 
-      const hasAriaExpanded = $component.find('.govuk-checkboxes__input[aria-expanded]').length
-      const hasAriaControls = $component.find('.govuk-checkboxes__input[aria-controls]').length
+      const hasAriaExpanded = $component.find('.moduk-checkboxes__input[aria-expanded]').length
+      const hasAriaControls = $component.find('.moduk-checkboxes__input[aria-controls]').length
 
       expect(hasAriaExpanded).toBeFalsy()
       expect(hasAriaControls).toBeFalsy()
@@ -55,7 +55,7 @@ describe('Checkboxes with conditional reveals', () => {
     it('falls back to making all conditional content visible', async () => {
       await goToAndGetComponent('checkboxes', 'with-conditional-items')
 
-      const isContentVisible = await waitForVisibleSelector('.govuk-checkboxes__conditional')
+      const isContentVisible = await waitForVisibleSelector('.moduk-checkboxes__conditional')
       expect(isContentVisible).toBeTruthy()
     })
   })
@@ -63,48 +63,48 @@ describe('Checkboxes with conditional reveals', () => {
   describe('when JavaScript is available', () => {
     it('has conditional content revealed that is associated with a checked input', async () => {
       const $ = await goToAndGetComponent('checkboxes', 'with-conditional-item-checked')
-      const $component = $('.govuk-checkboxes')
-      const $checkedInput = $component.find('.govuk-checkboxes__input:checked')
+      const $component = $('.moduk-checkboxes')
+      const $checkedInput = $component.find('.moduk-checkboxes__input:checked')
       const inputAriaControls = $checkedInput.attr('aria-controls')
 
-      const isContentVisible = await waitForVisibleSelector(`[id="${inputAriaControls}"]:not(.govuk-checkboxes__conditional--hidden)`)
+      const isContentVisible = await waitForVisibleSelector(`[id="${inputAriaControls}"]:not(.moduk-checkboxes__conditional--hidden)`)
       expect(isContentVisible).toBeTruthy()
     })
 
     it('has no conditional content revealed that is associated with an unchecked input', async () => {
       const $ = await goToAndGetComponent('checkboxes', 'with-conditional-item-checked')
-      const $component = $('.govuk-checkboxes')
-      const $uncheckedInput = $component.find('.govuk-checkboxes__item').last().find('.govuk-checkboxes__input')
+      const $component = $('.moduk-checkboxes')
+      const $uncheckedInput = $component.find('.moduk-checkboxes__item').last().find('.moduk-checkboxes__input')
       const uncheckedInputAriaControls = $uncheckedInput.attr('aria-controls')
 
-      const isContentHidden = await waitForHiddenSelector(`[id="${uncheckedInputAriaControls}"].govuk-checkboxes__conditional--hidden`)
+      const isContentHidden = await waitForHiddenSelector(`[id="${uncheckedInputAriaControls}"].moduk-checkboxes__conditional--hidden`)
       expect(isContentHidden).toBeTruthy()
     })
 
     it('indicates when conditional content is collapsed or revealed', async () => {
       await goToAndGetComponent('checkboxes', 'with-conditional-items')
 
-      const isNotExpanded = await waitForVisibleSelector('.govuk-checkboxes__item:first-child .govuk-checkboxes__input[aria-expanded=false]')
+      const isNotExpanded = await waitForVisibleSelector('.moduk-checkboxes__item:first-child .moduk-checkboxes__input[aria-expanded=false]')
       expect(isNotExpanded).toBeTruthy()
 
-      await page.click('.govuk-checkboxes__item:first-child .govuk-checkboxes__input')
+      await page.click('.moduk-checkboxes__item:first-child .moduk-checkboxes__input')
 
-      const isExpanded = await waitForVisibleSelector('.govuk-checkboxes__item:first-child .govuk-checkboxes__input[aria-expanded=true]')
+      const isExpanded = await waitForVisibleSelector('.moduk-checkboxes__item:first-child .moduk-checkboxes__input[aria-expanded=true]')
       expect(isExpanded).toBeTruthy()
     })
 
     it('toggles the conditional content when clicking an input', async () => {
       const $ = await goToAndGetComponent('checkboxes', 'with-conditional-items')
-      const $component = $('.govuk-checkboxes')
-      const $firstInput = $component.find('.govuk-checkboxes__item:first-child .govuk-checkboxes__input')
+      const $component = $('.moduk-checkboxes')
+      const $firstInput = $component.find('.moduk-checkboxes__item:first-child .moduk-checkboxes__input')
       const firstInputAriaControls = $firstInput.attr('aria-controls')
 
-      await page.click('.govuk-checkboxes__item:first-child .govuk-checkboxes__input')
+      await page.click('.moduk-checkboxes__item:first-child .moduk-checkboxes__input')
 
       const isContentVisible = await waitForVisibleSelector(`[id="${firstInputAriaControls}"]`)
       expect(isContentVisible).toBeTruthy()
 
-      await page.click('.govuk-checkboxes__item:first-child .govuk-checkboxes__input')
+      await page.click('.moduk-checkboxes__item:first-child .moduk-checkboxes__input')
 
       const isContentHidden = await waitForHiddenSelector(`[id="${firstInputAriaControls}"]`)
       expect(isContentHidden).toBeTruthy()
@@ -112,11 +112,11 @@ describe('Checkboxes with conditional reveals', () => {
 
     it('toggles the conditional content when using an input with a keyboard', async () => {
       const $ = await goToAndGetComponent('checkboxes', 'with-conditional-items')
-      const $component = $('.govuk-checkboxes')
-      const $firstInput = $component.find('.govuk-checkboxes__item:first-child .govuk-checkboxes__input')
+      const $component = $('.moduk-checkboxes')
+      const $firstInput = $component.find('.moduk-checkboxes__item:first-child .moduk-checkboxes__input')
       const firstInputAriaControls = $firstInput.attr('aria-controls')
 
-      await page.focus('.govuk-checkboxes__item:first-child .govuk-checkboxes__input')
+      await page.focus('.moduk-checkboxes__item:first-child .moduk-checkboxes__input')
       await page.keyboard.press('Space')
 
       const isContentVisible = await waitForVisibleSelector(`[id="${firstInputAriaControls}"]`)

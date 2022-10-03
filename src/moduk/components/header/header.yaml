@@ -220,19 +220,19 @@ examples:
 
 - name: with product name
   data:
-    navigationClasses: govuk-header__navigation--end
+    navigationClasses: moduk-header__navigation--end
     productName: Product Name
 
 - name: full width
   data:
-    containerClasses: govuk-header__container--full-width
-    navigationClasses: govuk-header__navigation--end
+    containerClasses: moduk-header__container--full-width
+    navigationClasses: moduk-header__navigation--end
     productName: Product Name
 
 - name: full width with navigation
   data:
-    containerClasses: govuk-header__container--full-width
-    navigationClasses: govuk-header__navigation--end
+    containerClasses: moduk-header__container--full-width
+    navigationClasses: moduk-header__navigation--end
     productName: Product Name
     navigation:
       - href: '#1'

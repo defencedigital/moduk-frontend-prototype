@@ -33,7 +33,7 @@ describe('details', () => {
         return document.getElementById('default').querySelector('summary').getAttribute('aria-controls')
       })
       const controlledContainerId = await page.evaluate(() => {
-        return document.getElementById('default').querySelector('.govuk-details__text').getAttribute('id')
+        return document.getElementById('default').querySelector('.moduk-details__text').getAttribute('id')
       })
       expect(summaryAriaControls).toBe(controlledContainerId)
     })
@@ -51,7 +51,7 @@ describe('details', () => {
       await page.goto(baseUrl + '/examples/details-polyfill', { waitUntil: 'load' })
 
       const containerDisplay = await page.evaluate(() => {
-        const container = document.getElementById('default').querySelector('.govuk-details__text')
+        const container = document.getElementById('default').querySelector('.moduk-details__text')
         return window.getComputedStyle(container).getPropertyValue('display')
       })
 
@@ -85,7 +85,7 @@ describe('details', () => {
         await page.click('#default summary')
 
         const containerDisplay = await page.evaluate(() => {
-          const container = document.getElementById('default').querySelector('.govuk-details__text')
+          const container = document.getElementById('default').querySelector('.moduk-details__text')
           return window.getComputedStyle(container).getPropertyValue('display')
         })
 
@@ -119,7 +119,7 @@ describe('details', () => {
       await page.goto(baseUrl + '/examples/details-polyfill', { waitUntil: 'load' })
 
       const containerDisplay = await page.evaluate(() => {
-        const container = document.getElementById('expanded').querySelector('.govuk-details__text')
+        const container = document.getElementById('expanded').querySelector('.moduk-details__text')
         return window.getComputedStyle(container).getPropertyValue('display')
       })
 
@@ -138,7 +138,7 @@ describe('details', () => {
     it('should not be affected when clicking the revealed content', async () => {
       await page.goto(baseUrl + '/examples/details-polyfill', { waitUntil: 'load' })
 
-      await page.click('#expanded .govuk-details__text')
+      await page.click('#expanded .moduk-details__text')
 
       const summaryAriaExpanded = await page.evaluate(() => {
         return document.getElementById('expanded').querySelector('summary').getAttribute('aria-expanded')
@@ -164,7 +164,7 @@ describe('details', () => {
         await page.click('#expanded summary')
 
         const containerDisplay = await page.evaluate(() => {
-          const container = document.getElementById('expanded').querySelector('.govuk-details__text')
+          const container = document.getElementById('expanded').querySelector('.moduk-details__text')
           return window.getComputedStyle(container).getPropertyValue('display')
         })
 

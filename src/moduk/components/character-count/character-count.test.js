@@ -34,7 +34,7 @@ describe('Character count', () => {
 
     it('shows the fallback message', async () => {
       await goToExample()
-      const message = await page.$eval('.govuk-character-count__message', el => el.innerHTML.trim())
+      const message = await page.$eval('.moduk-character-count__message', el => el.innerHTML.trim())
 
       expect(message).toEqual('You can enter up to 10 characters')
     })
@@ -47,18 +47,18 @@ describe('Character count', () => {
       })
 
       it('injects the visual counter', async () => {
-        const message = await page.$('.govuk-character-count__status') !== null
+        const message = await page.$('.moduk-character-count__status') !== null
         expect(message).toBeTruthy()
       })
 
       it('injects the screen reader counter', async () => {
-        const srMessage = await page.$('.govuk-character-count__sr-status') !== null
+        const srMessage = await page.$('.moduk-character-count__sr-status') !== null
         expect(srMessage).toBeTruthy()
       })
 
       it('hides the fallback hint', async () => {
-        const messageClasses = await page.$eval('.govuk-character-count__message', el => el.className)
-        expect(messageClasses).toContain('govuk-visually-hidden')
+        const messageClasses = await page.$eval('.moduk-character-count__message', el => el.className)
+        expect(messageClasses).toContain('moduk-visually-hidden')
       })
     })
 
@@ -66,89 +66,89 @@ describe('Character count', () => {
       it('shows the dynamic message', async () => {
         await goToExample()
 
-        const message = await page.$eval('.govuk-character-count__status', el => el.innerHTML.trim())
+        const message = await page.$eval('.moduk-character-count__status', el => el.innerHTML.trim())
         expect(message).toEqual('You have 10 characters remaining')
 
-        const srMessage = await page.$eval('.govuk-character-count__sr-status', el => el.innerHTML.trim())
+        const srMessage = await page.$eval('.moduk-character-count__sr-status', el => el.innerHTML.trim())
         expect(srMessage).toEqual('You have 10 characters remaining')
       })
 
       it('shows the characters remaining if the field is pre-filled', async () => {
         await goToExample('with-default-value')
 
-        const message = await page.$eval('.govuk-character-count__status', el => el.innerHTML.trim())
+        const message = await page.$eval('.moduk-character-count__status', el => el.innerHTML.trim())
         expect(message).toEqual('You have 67 characters remaining')
 
-        const srMessage = await page.$eval('.govuk-character-count__sr-status', el => el.innerHTML.trim())
+        const srMessage = await page.$eval('.moduk-character-count__sr-status', el => el.innerHTML.trim())
         expect(srMessage).toEqual('You have 67 characters remaining')
       })
 
       it('counts down to the character limit', async () => {
         await goToExample()
-        await page.type('.govuk-js-character-count', 'A')
+        await page.type('.moduk-js-character-count', 'A')
 
-        const message = await page.$eval('.govuk-character-count__status', el => el.innerHTML.trim())
+        const message = await page.$eval('.moduk-character-count__status', el => el.innerHTML.trim())
         expect(message).toEqual('You have 9 characters remaining')
 
         // Wait for debounced update to happen
         await new Promise((resolve) => setTimeout(resolve, debouncedWaitTime))
 
-        const srMessage = await page.$eval('.govuk-character-count__sr-status', el => el.innerHTML.trim())
+        const srMessage = await page.$eval('.moduk-character-count__sr-status', el => el.innerHTML.trim())
         expect(srMessage).toEqual('You have 9 characters remaining')
       })
 
       it('uses the singular when there is only one character remaining', async () => {
         await goToExample()
-        await page.type('.govuk-js-character-count', 'A'.repeat(9))
+        await page.type('.moduk-js-character-count', 'A'.repeat(9))
 
-        const message = await page.$eval('.govuk-character-count__status', el => el.innerHTML.trim())
+        const message = await page.$eval('.moduk-character-count__status', el => el.innerHTML.trim())
         expect(message).toEqual('You have 1 character remaining')
 
         // Wait for debounced update to happen
         await new Promise((resolve) => setTimeout(resolve, debouncedWaitTime))
 
-        const srMessage = await page.$eval('.govuk-character-count__sr-status', el => el.innerHTML.trim())
+        const srMessage = await page.$eval('.moduk-character-count__sr-status', el => el.innerHTML.trim())
         expect(srMessage).toEqual('You have 1 character remaining')
       })
 
       describe('when the character limit is exceeded', () => {
         beforeAll(async () => {
           await goToExample()
-          await page.type('.govuk-js-character-count', 'A'.repeat(11))
+          await page.type('.moduk-js-character-count', 'A'.repeat(11))
         })
 
         it('shows the number of characters over the limit', async () => {
-          const message = await page.$eval('.govuk-character-count__status', el => el.innerHTML.trim())
+          const message = await page.$eval('.moduk-character-count__status', el => el.innerHTML.trim())
           expect(message).toEqual('You have 1 character too many')
 
           // Wait for debounced update to happen
           await new Promise((resolve) => setTimeout(resolve, debouncedWaitTime))
 
-          const srMessage = await page.$eval('.govuk-character-count__sr-status', el => el.innerHTML.trim())
+          const srMessage = await page.$eval('.moduk-character-count__sr-status', el => el.innerHTML.trim())
           expect(srMessage).toEqual('You have 1 character too many')
         })
 
         it('uses the plural when the limit is exceeded by 2 or more', async () => {
-          await page.type('.govuk-js-character-count', 'A')
+          await page.type('.moduk-js-character-count', 'A')
 
-          const message = await page.$eval('.govuk-character-count__status', el => el.innerHTML.trim())
+          const message = await page.$eval('.moduk-character-count__status', el => el.innerHTML.trim())
           expect(message).toEqual('You have 2 characters too many')
 
           // Wait for debounced update to happen
           await new Promise((resolve) => setTimeout(resolve, debouncedWaitTime))
 
-          const srMessage = await page.$eval('.govuk-character-count__sr-status', el => el.innerHTML.trim())
+          const srMessage = await page.$eval('.moduk-character-count__sr-status', el => el.innerHTML.trim())
           expect(srMessage).toEqual('You have 2 characters too many')
         })
 
         it('adds error styles to the textarea', async () => {
-          const textareaClasses = await page.$eval('.govuk-js-character-count', el => el.className)
-          expect(textareaClasses).toContain('govuk-textarea--error')
+          const textareaClasses = await page.$eval('.moduk-js-character-count', el => el.className)
+          expect(textareaClasses).toContain('moduk-textarea--error')
         })
 
         it('adds error styles to the count message', async () => {
-          const messageClasses = await page.$eval('.govuk-character-count__status', el => el.className)
-          expect(messageClasses).toContain('govuk-error-message')
+          const messageClasses = await page.$eval('.moduk-character-count__status', el => el.className)
+          expect(messageClasses).toContain('moduk-error-message')
         })
       })
 
@@ -158,21 +158,21 @@ describe('Character count', () => {
         })
 
         it('shows the number of characters over the limit', async () => {
-          const message = await page.$eval('.govuk-character-count__status', el => el.innerHTML.trim())
+          const message = await page.$eval('.moduk-character-count__status', el => el.innerHTML.trim())
           expect(message).toEqual('You have 23 characters too many')
 
-          const srMessage = await page.$eval('.govuk-character-count__sr-status', el => el.innerHTML.trim())
+          const srMessage = await page.$eval('.moduk-character-count__sr-status', el => el.innerHTML.trim())
           expect(srMessage).toEqual('You have 23 characters too many')
         })
 
         it('adds error styles to the textarea', async () => {
-          const textareaClasses = await page.$eval('.govuk-js-character-count', el => el.className)
-          expect(textareaClasses).toContain('govuk-textarea--error')
+          const textareaClasses = await page.$eval('.moduk-js-character-count', el => el.className)
+          expect(textareaClasses).toContain('moduk-textarea--error')
         })
 
         it('adds error styles to the count message', async () => {
-          const messageClasses = await page.$eval('.govuk-character-count__status', el => el.className)
-          expect(messageClasses).toContain('govuk-error-message')
+          const messageClasses = await page.$eval('.moduk-character-count__status', el => el.className)
+          expect(messageClasses).toContain('moduk-error-message')
         })
       })
 
@@ -182,28 +182,28 @@ describe('Character count', () => {
         })
 
         it('does not show the limit until the threshold is reached', async () => {
-          const visibility = await page.$eval('.govuk-character-count__status', el => window.getComputedStyle(el).visibility)
+          const visibility = await page.$eval('.moduk-character-count__status', el => window.getComputedStyle(el).visibility)
           expect(visibility).toEqual('hidden')
 
           // Wait for debounced update to happen
           await new Promise((resolve) => setTimeout(resolve, debouncedWaitTime))
 
           // Ensure threshold is hidden for users of assistive technologies
-          const ariaHidden = await page.$eval('.govuk-character-count__sr-status', el => el.getAttribute('aria-hidden'))
+          const ariaHidden = await page.$eval('.moduk-character-count__sr-status', el => el.getAttribute('aria-hidden'))
           expect(ariaHidden).toEqual('true')
         })
 
         it('becomes visible once the threshold is reached', async () => {
-          await page.type('.govuk-js-character-count', 'A'.repeat(8))
+          await page.type('.moduk-js-character-count', 'A'.repeat(8))
 
-          const visibility = await page.$eval('.govuk-character-count__status', el => window.getComputedStyle(el).visibility)
+          const visibility = await page.$eval('.moduk-character-count__status', el => window.getComputedStyle(el).visibility)
           expect(visibility).toEqual('visible')
 
           // Wait for debounced update to happen
           await new Promise((resolve) => setTimeout(resolve, debouncedWaitTime))
 
           // Ensure threshold is visible for users of assistive technologies
-          const ariaHidden = await page.$eval('.govuk-character-count__sr-status', el => el.getAttribute('aria-hidden'))
+          const ariaHidden = await page.$eval('.moduk-character-count__sr-status', el => el.getAttribute('aria-hidden'))
           expect(ariaHidden).toBeFalsy()
         })
       })
@@ -213,10 +213,10 @@ describe('Character count', () => {
         it('still works correctly', async () => {
           await goToExample('with-id-starting-with-number')
 
-          const message = await page.$eval('.govuk-character-count__status', el => el.innerHTML.trim())
+          const message = await page.$eval('.moduk-character-count__status', el => el.innerHTML.trim())
           expect(message).toEqual('You have 10 characters remaining')
 
-          const srMessage = await page.$eval('.govuk-character-count__sr-status', el => el.innerHTML.trim())
+          const srMessage = await page.$eval('.moduk-character-count__sr-status', el => el.innerHTML.trim())
           expect(srMessage).toEqual('You have 10 characters remaining')
         })
       })
@@ -225,10 +225,10 @@ describe('Character count', () => {
         it('still works correctly', async () => {
           await goToExample('with-id-with-special-characters')
 
-          const message = await page.$eval('.govuk-character-count__status', el => el.innerHTML.trim())
+          const message = await page.$eval('.moduk-character-count__status', el => el.innerHTML.trim())
           expect(message).toEqual('You have 10 characters remaining')
 
-          const srMessage = await page.$eval('.govuk-character-count__sr-status', el => el.innerHTML.trim())
+          const srMessage = await page.$eval('.moduk-character-count__sr-status', el => el.innerHTML.trim())
           expect(srMessage).toEqual('You have 10 characters remaining')
         })
       })
@@ -239,7 +239,7 @@ describe('Character count', () => {
         })
 
         it('should not have a maxlength attribute once the JS has run', async () => {
-          const textareaMaxLength = await page.$eval('.govuk-textarea', el => el.getAttribute('maxlength'))
+          const textareaMaxLength = await page.$eval('.moduk-textarea', el => el.getAttribute('maxlength'))
           expect(textareaMaxLength).toBeNull()
         })
       })
@@ -249,79 +249,79 @@ describe('Character count', () => {
       it('shows the dynamic message', async () => {
         await goToExample('with-word-count')
 
-        const message = await page.$eval('.govuk-character-count__status', el => el.innerHTML.trim())
+        const message = await page.$eval('.moduk-character-count__status', el => el.innerHTML.trim())
         expect(message).toEqual('You have 10 words remaining')
 
-        const srMessage = await page.$eval('.govuk-character-count__sr-status', el => el.innerHTML.trim())
+        const srMessage = await page.$eval('.moduk-character-count__sr-status', el => el.innerHTML.trim())
         expect(srMessage).toEqual('You have 10 words remaining')
       })
 
       it('counts down to the word limit', async () => {
         await goToExample('with-word-count')
-        await page.type('.govuk-js-character-count', 'Hello world')
+        await page.type('.moduk-js-character-count', 'Hello world')
 
-        const message = await page.$eval('.govuk-character-count__status', el => el.innerHTML.trim())
+        const message = await page.$eval('.moduk-character-count__status', el => el.innerHTML.trim())
         expect(message).toEqual('You have 8 words remaining')
 
         // Wait for debounced update to happen
         await new Promise((resolve) => setTimeout(resolve, debouncedWaitTime))
 
-        const srMessage = await page.$eval('.govuk-character-count__sr-status', el => el.innerHTML.trim())
+        const srMessage = await page.$eval('.moduk-character-count__sr-status', el => el.innerHTML.trim())
         expect(srMessage).toEqual('You have 8 words remaining')
       })
 
       it('uses the singular when there is only one word remaining', async () => {
         await goToExample('with-word-count')
-        await page.type('.govuk-js-character-count', 'Hello '.repeat(9))
+        await page.type('.moduk-js-character-count', 'Hello '.repeat(9))
 
-        const message = await page.$eval('.govuk-character-count__status', el => el.innerHTML.trim())
+        const message = await page.$eval('.moduk-character-count__status', el => el.innerHTML.trim())
         expect(message).toEqual('You have 1 word remaining')
 
         // Wait for debounced update to happen
         await new Promise((resolve) => setTimeout(resolve, debouncedWaitTime))
 
-        const srMessage = await page.$eval('.govuk-character-count__sr-status', el => el.innerHTML.trim())
+        const srMessage = await page.$eval('.moduk-character-count__sr-status', el => el.innerHTML.trim())
         expect(srMessage).toEqual('You have 1 word remaining')
       })
 
       describe('when the word limit is exceeded', () => {
         beforeAll(async () => {
           await goToExample('with-word-count')
-          await page.type('.govuk-js-character-count', 'Hello '.repeat(11))
+          await page.type('.moduk-js-character-count', 'Hello '.repeat(11))
         })
 
         it('shows the number of words over the limit', async () => {
-          const message = await page.$eval('.govuk-character-count__status', el => el.innerHTML.trim())
+          const message = await page.$eval('.moduk-character-count__status', el => el.innerHTML.trim())
           expect(message).toEqual('You have 1 word too many')
 
           // Wait for debounced update to happen
           await new Promise((resolve) => setTimeout(resolve, debouncedWaitTime))
 
-          const srMessage = await page.$eval('.govuk-character-count__sr-status', el => el.innerHTML.trim())
+          const srMessage = await page.$eval('.moduk-character-count__sr-status', el => el.innerHTML.trim())
           expect(srMessage).toEqual('You have 1 word too many')
         })
 
         it('uses the plural when the limit is exceeded by 2 or more', async () => {
-          await page.type('.govuk-js-character-count', 'World')
+          await page.type('.moduk-js-character-count', 'World')
 
-          const message = await page.$eval('.govuk-character-count__status', el => el.innerHTML.trim())
+          const message = await page.$eval('.moduk-character-count__status', el => el.innerHTML.trim())
           expect(message).toEqual('You have 2 words too many')
 
           // Wait for debounced update to happen
           await new Promise((resolve) => setTimeout(resolve, debouncedWaitTime))
 
-          const srMessage = await page.$eval('.govuk-character-count__sr-status', el => el.innerHTML.trim())
+          const srMessage = await page.$eval('.moduk-character-count__sr-status', el => el.innerHTML.trim())
           expect(srMessage).toEqual('You have 2 words too many')
         })
 
         it('adds error styles to the textarea', async () => {
-          const textareaClasses = await page.$eval('.govuk-js-character-count', el => el.className)
-          expect(textareaClasses).toContain('govuk-textarea--error')
+          const textareaClasses = await page.$eval('.moduk-js-character-count', el => el.className)
+          expect(textareaClasses).toContain('moduk-textarea--error')
         })
 
         it('adds error styles to the count message', async () => {
-          const messageClasses = await page.$eval('.govuk-character-count__status', el => el.className)
-          expect(messageClasses).toContain('govuk-error-message')
+          const messageClasses = await page.$eval('.moduk-character-count__status', el => el.className)
+          expect(messageClasses).toContain('moduk-error-message')
         })
       })
     })
@@ -342,10 +342,10 @@ describe('Character count', () => {
             }
           })
 
-          await page.type('.govuk-js-character-count', 'A'.repeat(11))
+          await page.type('.moduk-js-character-count', 'A'.repeat(11))
 
           const message = await page.$eval(
-            '.govuk-character-count__status',
+            '.moduk-character-count__status',
             (el) => el.innerHTML.trim()
           )
           expect(message).toEqual('You have 1 character too many')
@@ -359,10 +359,10 @@ describe('Character count', () => {
             }
           })
 
-          await page.type('.govuk-js-character-count', 'Hello '.repeat(11))
+          await page.type('.moduk-js-character-count', 'Hello '.repeat(11))
 
           const message = await page.$eval(
-            '.govuk-character-count__status',
+            '.moduk-character-count__status',
             (el) => el.innerHTML.trim()
           )
           expect(message).toEqual('You have 1 word too many')
@@ -377,9 +377,9 @@ describe('Character count', () => {
             }
           })
 
-          await page.type('.govuk-js-character-count', 'A'.repeat(8))
+          await page.type('.moduk-js-character-count', 'A'.repeat(8))
 
-          const visibility = await page.$eval('.govuk-character-count__status', el => window.getComputedStyle(el).visibility)
+          const visibility = await page.$eval('.moduk-character-count__status', el => window.getComputedStyle(el).visibility)
           expect(visibility).toEqual('visible')
         })
       })
@@ -398,10 +398,10 @@ describe('Character count', () => {
             }
           })
 
-          await page.type('.govuk-js-character-count', 'A'.repeat(11))
+          await page.type('.moduk-js-character-count', 'A'.repeat(11))
 
           const message = await page.$eval(
-            '.govuk-character-count__status',
+            '.moduk-character-count__status',
             (el) => el.innerHTML.trim()
           )
           expect(message).toEqual('You have 1 character too many')
@@ -420,10 +420,10 @@ describe('Character count', () => {
             }
           })
 
-          await page.type('.govuk-js-character-count', 'Hello '.repeat(11))
+          await page.type('.moduk-js-character-count', 'Hello '.repeat(11))
 
           const message = await page.$eval(
-            '.govuk-character-count__status',
+            '.moduk-character-count__status',
             (el) => el.innerHTML.trim()
           )
           expect(message).toEqual('You have 1 word too many')
@@ -442,10 +442,10 @@ describe('Character count', () => {
             }
           })
 
-          await page.type('.govuk-js-character-count', 'A'.repeat(8))
+          await page.type('.moduk-js-character-count', 'A'.repeat(8))
 
           const visibility = await page.$eval(
-            '.govuk-character-count__status',
+            '.moduk-character-count__status',
             (el) => window.getComputedStyle(el).visibility
           )
           expect(visibility).toEqual('visible')
@@ -462,10 +462,10 @@ describe('Character count', () => {
             }
           })
 
-          await page.type('.govuk-js-character-count', 'A'.repeat(11))
+          await page.type('.moduk-js-character-count', 'A'.repeat(11))
 
           const message = await page.$eval(
-            '.govuk-character-count__status',
+            '.moduk-character-count__status',
             (el) => el.innerHTML.trim()
           )
           expect(message).toEqual('You have 1 character too many')
@@ -480,10 +480,10 @@ describe('Character count', () => {
             }
           })
 
-          await page.type('.govuk-js-character-count', 'A'.repeat(11))
+          await page.type('.moduk-js-character-count', 'A'.repeat(11))
 
           const message = await page.$eval(
-            '.govuk-character-count__status',
+            '.moduk-character-count__status',
             (el) => el.innerHTML.trim()
           )
           expect(message).toEqual('You have 1 character too many')
@@ -498,10 +498,10 @@ describe('Character count', () => {
             }
           })
 
-          await page.type('.govuk-js-character-count', 'Hello '.repeat(11))
+          await page.type('.moduk-js-character-count', 'Hello '.repeat(11))
 
           const message = await page.$eval(
-            '.govuk-character-count__status',
+            '.moduk-character-count__status',
             (el) => el.innerHTML.trim()
           )
           expect(message).toEqual('You have 1 word too many')
@@ -516,10 +516,10 @@ describe('Character count', () => {
             }
           })
 
-          await page.type('.govuk-js-character-count', 'Hello '.repeat(11))
+          await page.type('.moduk-js-character-count', 'Hello '.repeat(11))
 
           const message = await page.$eval(
-            '.govuk-character-count__status',
+            '.moduk-character-count__status',
             (el) => el.innerHTML.trim()
           )
           expect(message).toEqual('You have 1 word too many')
@@ -531,7 +531,7 @@ describe('Character count', () => {
   describe('custom options', () => {
     it('allows customisation of the fallback message', async () => {
       await goToExample('with-custom-fallback-text')
-      const message = await page.$eval('.govuk-character-count__message', el => el.innerHTML.trim())
+      const message = await page.$eval('.moduk-character-count__message', el => el.innerHTML.trim())
 
       expect(message).toEqual('Gallwch ddefnyddio hyd at 10 nod')
     })

@@ -4,7 +4,7 @@ import '../../vendor/polyfills/Function/prototype/bind.mjs'
 
 function Header ($module) {
   this.$module = $module
-  this.$menuButton = $module && $module.querySelector('.govuk-js-header-toggle')
+  this.$menuButton = $module && $module.querySelector('.moduk-js-header-toggle')
   this.$menu = this.$menuButton && $module.querySelector(
     '#' + this.$menuButton.getAttribute('aria-controls')
   )
@@ -37,7 +37,7 @@ Header.prototype.init = function () {
   }
 
   if ('matchMedia' in window) {
-    // Set the matchMedia to the govuk-frontend desktop breakpoint
+    // Set the matchMedia to the moduk-frontend desktop breakpoint
     this.mql = window.matchMedia('(min-width: 48.0625em)')
 
     if ('addEventListener' in this.mql) {

@@ -27,7 +27,7 @@ describe('Header navigation', () => {
     })
 
     it('shows the navigation', async () => {
-      const navDisplay = await page.$eval('.govuk-header__navigation-list',
+      const navDisplay = await page.$eval('.moduk-header__navigation-list',
         el => window.getComputedStyle(el).getPropertyValue('display')
       )
 
@@ -35,7 +35,7 @@ describe('Header navigation', () => {
     })
 
     it('does not show the mobile menu button', async () => {
-      const buttonDisplay = await page.$eval('.govuk-js-header-toggle',
+      const buttonDisplay = await page.$eval('.moduk-js-header-toggle',
         el => window.getComputedStyle(el).getPropertyValue('display')
       )
 
@@ -61,11 +61,11 @@ describe('Header navigation', () => {
       })
 
       it('reveals the menu button', async () => {
-        const hidden = await page.$eval('.govuk-js-header-toggle',
+        const hidden = await page.$eval('.moduk-js-header-toggle',
           el => el.hasAttribute('hidden')
         )
 
-        const buttonDisplay = await page.$eval('.govuk-js-header-toggle',
+        const buttonDisplay = await page.$eval('.moduk-js-header-toggle',
           el => window.getComputedStyle(el).getPropertyValue('display')
         )
 
@@ -74,11 +74,11 @@ describe('Header navigation', () => {
       })
 
       it('hides the menu via the hidden attribute', async () => {
-        const hidden = await page.$eval('.govuk-header__navigation-list',
+        const hidden = await page.$eval('.moduk-header__navigation-list',
           el => el.hasAttribute('hidden')
         )
 
-        const navDisplay = await page.$eval('.govuk-header__navigation-list',
+        const navDisplay = await page.$eval('.moduk-header__navigation-list',
           el => window.getComputedStyle(el).getPropertyValue('display')
         )
 
@@ -87,7 +87,7 @@ describe('Header navigation', () => {
       })
 
       it('exposes the collapsed state of the menu button using aria-expanded', async () => {
-        const ariaExpanded = await page.$eval('.govuk-header__menu-button',
+        const ariaExpanded = await page.$eval('.moduk-header__menu-button',
           el => el.getAttribute('aria-expanded')
         )
 
@@ -99,18 +99,18 @@ describe('Header navigation', () => {
       beforeAll(async () => {
         await Promise.all([
           page.goto(`${baseUrl}/components/header/with-navigation/preview`, { waitUntil: 'load' }),
-          page.waitForSelector('.govuk-js-header-toggle')
+          page.waitForSelector('.moduk-js-header-toggle')
         ])
 
-        await page.click('.govuk-js-header-toggle')
+        await page.click('.moduk-js-header-toggle')
       })
 
       it('shows the menu', async () => {
-        const hidden = await page.$eval('.govuk-header__navigation-list',
+        const hidden = await page.$eval('.moduk-header__navigation-list',
           el => el.hasAttribute('hidden')
         )
 
-        const navDisplay = await page.$eval('.govuk-header__navigation-list',
+        const navDisplay = await page.$eval('.moduk-header__navigation-list',
           el => window.getComputedStyle(el).getPropertyValue('display')
         )
 
@@ -119,7 +119,7 @@ describe('Header navigation', () => {
       })
 
       it('exposes the expanded state of the menu button using aria-expanded', async () => {
-        const ariaExpanded = await page.$eval('.govuk-header__menu-button',
+        const ariaExpanded = await page.$eval('.moduk-header__menu-button',
           el => el.getAttribute('aria-expanded')
         )
 
@@ -131,19 +131,19 @@ describe('Header navigation', () => {
       beforeAll(async () => {
         await Promise.all([
           page.goto(`${baseUrl}/components/header/with-navigation/preview`, { waitUntil: 'load' }),
-          page.waitForSelector('.govuk-js-header-toggle')
+          page.waitForSelector('.moduk-js-header-toggle')
         ])
 
-        await page.click('.govuk-js-header-toggle')
-        await page.click('.govuk-js-header-toggle')
+        await page.click('.moduk-js-header-toggle')
+        await page.click('.moduk-js-header-toggle')
       })
 
       it('adds the hidden attribute back to the menu, hiding it', async () => {
-        const hidden = await page.$eval('.govuk-header__navigation-list',
+        const hidden = await page.$eval('.moduk-header__navigation-list',
           el => el.hasAttribute('hidden')
         )
 
-        const navDisplay = await page.$eval('.govuk-header__navigation-list',
+        const navDisplay = await page.$eval('.moduk-header__navigation-list',
           el => window.getComputedStyle(el).getPropertyValue('display')
         )
 
@@ -152,7 +152,7 @@ describe('Header navigation', () => {
       })
 
       it('exposes the collapsed state of the menu button using aria-expanded', async () => {
-        const ariaExpanded = await page.$eval('.govuk-header__menu-button',
+        const ariaExpanded = await page.$eval('.moduk-header__menu-button',
           el => el.getAttribute('aria-expanded')
         )
 

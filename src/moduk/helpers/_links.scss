@@ -8,35 +8,35 @@
 ///
 /// @access public
 
-@mixin govuk-link-common {
-  @include govuk-typography-common;
-  @include govuk-link-decoration;
+@mixin moduk-link-common {
+  @include moduk-typography-common;
+  @include moduk-link-decoration;
 
   &:hover {
-    @include govuk-link-hover-decoration;
+    @include moduk-link-hover-decoration;
   }
 
   &:focus {
-    @include govuk-focused-text;
+    @include moduk-focused-text;
   }
 }
 
 /// Link decoration
 ///
 /// Provides the text decoration for links, including thickness and underline
-/// offset. Use this mixin only if you cannot use the `govuk-link-common` mixin.
+/// offset. Use this mixin only if you cannot use the `moduk-link-common` mixin.
 ///
 /// @access public
-@mixin govuk-link-decoration {
+@mixin moduk-link-decoration {
   text-decoration: underline;
 
-  @if $govuk-new-link-styles {
-    @if $govuk-link-underline-thickness {
-      text-decoration-thickness: $govuk-link-underline-thickness;
+  @if $moduk-new-link-styles {
+    @if $moduk-link-underline-thickness {
+      text-decoration-thickness: $moduk-link-underline-thickness;
     }
 
-    @if $govuk-link-underline-offset {
-      text-underline-offset: $govuk-link-underline-offset;
+    @if $moduk-link-underline-offset {
+      text-underline-offset: $moduk-link-underline-offset;
     }
   }
 }
@@ -45,13 +45,13 @@
 ///
 /// Provides the text decoration for links in their hover state, for you to use
 /// within a `:hover` pseudo-selector. Use this mixin only if you cannot use the
-/// `govuk-link-common` mixin.
+/// `moduk-link-common` mixin.
 ///
 /// @access public
 
-@mixin govuk-link-hover-decoration {
-  @if $govuk-new-link-styles and $govuk-link-hover-underline-thickness {
-    text-decoration-thickness: $govuk-link-hover-underline-thickness;
+@mixin moduk-link-hover-decoration {
+  @if $moduk-new-link-styles and $moduk-link-hover-underline-thickness {
+    text-decoration-thickness: $moduk-link-hover-underline-thickness;
     // Disable ink skipping on underlines on hover. Browsers haven't
     // standardised on this part of the spec yet, so set both properties
     text-decoration-skip-ink: none; // Chromium, Firefox
@@ -64,37 +64,37 @@
 /// Makes links use the default unvisited, visited, hover and active colours.
 ///
 /// If you use this mixin in a component, you must also include the
-/// `govuk-link-common` mixin to get the correct focus and hover states.
+/// `moduk-link-common` mixin to get the correct focus and hover states.
 ///
 /// @example scss
-///   .govuk-component__link {
-///     @include govuk-link-common;
-///     @include govuk-link-style-default;
+///   .moduk-component__link {
+///     @include moduk-link-common;
+///     @include moduk-link-style-default;
 ///   }
 ///
 /// @access public
 
-@mixin govuk-link-style-default {
+@mixin moduk-link-style-default {
   &:link {
-    color: $govuk-link-colour;
+    color: $moduk-link-colour;
   }
 
   &:visited {
-    color: $govuk-link-visited-colour;
+    color: $moduk-link-visited-colour;
   }
 
   &:hover {
-    color: $govuk-link-hover-colour;
+    color: $moduk-link-hover-colour;
   }
 
   &:active {
-    color: $govuk-link-active-colour;
+    color: $moduk-link-active-colour;
   }
 
   // When focussed, the text colour needs to be darker to ensure that colour
   // contrast is still acceptable
   &:focus {
-    color: $govuk-focus-text-colour;
+    color: $moduk-focus-text-colour;
   }
 
   // alphagov/govuk_template includes a specific a:link:focus selector
@@ -102,9 +102,9 @@
   // we need to override the text colour for that combination of selectors so
   // so that unvisited links styled as buttons do not end up with dark blue
   // text when focussed.
-  @include _govuk-compatibility(govuk_template) {
+  @include _moduk-compatibility(govuk_template) {
     &:link:focus {
-      color: $govuk-focus-text-colour;
+      color: $moduk-focus-text-colour;
     }
   }
 }
@@ -115,34 +115,34 @@
 /// user hovers their cursor over it.
 ///
 /// If you use this mixin in a component, you must also include the
-/// `govuk-link-common` mixin to get the correct focus and hover states.
+/// `moduk-link-common` mixin to get the correct focus and hover states.
 ///
 /// @example scss
-///   .govuk-component__link {
-///     @include govuk-link-common;
-///     @include govuk-link-style-error;
+///   .moduk-component__link {
+///     @include moduk-link-common;
+///     @include moduk-link-style-error;
 ///   }
 ///
 /// @access public
 
-@mixin govuk-link-style-error {
+@mixin moduk-link-style-error {
   &:link,
   &:visited {
-    color: $govuk-error-colour;
+    color: $moduk-error-colour;
   }
 
   &:hover {
-    color: scale-color($govuk-error-colour, $lightness: -30%);
+    color: scale-color($moduk-error-colour, $lightness: -30%);
   }
 
   &:active {
-    color: $govuk-error-colour;
+    color: $moduk-error-colour;
   }
 
   // When focussed, the text colour needs to be darker to ensure that colour
   // contrast is still acceptable
   &:focus {
-    color: $govuk-focus-text-colour;
+    color: $moduk-focus-text-colour;
   }
 
   // alphagov/govuk_template includes a specific a:link:focus selector
@@ -150,9 +150,9 @@
   // we need to override the text colour for that combination of selectors so
   // so that unvisited links styled as buttons do not end up with dark blue
   // text when focussed.
-  @include _govuk-compatibility(govuk_template) {
+  @include _moduk-compatibility(govuk_template) {
     &:link:focus {
-      color: $govuk-focus-text-colour;
+      color: $moduk-focus-text-colour;
     }
   }
 }
@@ -163,34 +163,34 @@
 /// user hovers their cursor over it.
 ///
 /// If you use this mixin in a component, you must also include the
-/// `govuk-link-common` mixin to get the correct focus and hover states.
+/// `moduk-link-common` mixin to get the correct focus and hover states.
 ///
 /// @example scss
-///   .govuk-component__link {
-///     @include govuk-link-common;
-///     @include govuk-link-style-success;
+///   .moduk-component__link {
+///     @include moduk-link-common;
+///     @include moduk-link-style-success;
 ///   }
 ///
 /// @access public
 
-@mixin govuk-link-style-success {
+@mixin moduk-link-style-success {
   &:link,
   &:visited {
-    color: $govuk-success-colour;
+    color: $moduk-success-colour;
   }
 
   &:hover {
-    color: scale-color($govuk-success-colour, $lightness: -30%);
+    color: scale-color($moduk-success-colour, $lightness: -30%);
   }
 
   &:active {
-    color: $govuk-success-colour;
+    color: $moduk-success-colour;
   }
 
   // When focussed, the text colour needs to be darker to ensure that colour
   // contrast is still acceptable
   &:focus {
-    color: $govuk-focus-text-colour;
+    color: $moduk-focus-text-colour;
   }
 
   // alphagov/govuk_template includes a specific a:link:focus selector
@@ -198,9 +198,9 @@
   // we need to override the text colour for that combination of selectors so
   // so that unvisited links styled as buttons do not end up with dark blue
   // text when focussed.
-  @include _govuk-compatibility(govuk_template) {
+  @include _moduk-compatibility(govuk_template) {
     &:link:focus {
-      color: $govuk-focus-text-colour;
+      color: $moduk-focus-text-colour;
     }
   }
 }
@@ -211,39 +211,39 @@
 /// active or a user hovers their cursor over it.
 ///
 /// If you use this mixin in a component, you must also include the
-/// `govuk-link-common` mixin to get the correct focus and hover states.
+/// `moduk-link-common` mixin to get the correct focus and hover states.
 ///
 /// @example scss
-///   .govuk-component__link {
-///     @include govuk-link-common;
-///     @include govuk-link-style-muted;
+///   .moduk-component__link {
+///     @include moduk-link-common;
+///     @include moduk-link-style-muted;
 ///   }
 ///
 /// @access public
 
-@mixin govuk-link-style-muted {
+@mixin moduk-link-style-muted {
   &:link,
   &:visited {
-    color: $govuk-secondary-text-colour;
+    color: $moduk-secondary-text-colour;
   }
 
   &:hover,
   &:active {
-    color: $govuk-text-colour;
+    color: $moduk-text-colour;
   }
 
   // When focussed, the text colour needs to be darker to ensure that colour
   // contrast is still acceptable
   &:focus {
-    color: $govuk-focus-text-colour;
+    color: $moduk-focus-text-colour;
   }
 
   // alphagov/govuk_template includes a specific a:link:focus selector designed
   // to make unvisited links a slightly darker blue when focussed, so we need to
   // override the text colour for that combination of selectors.
-  @include _govuk-compatibility(govuk_template) {
+  @include _moduk-compatibility(govuk_template) {
     &:link:focus {
-      @include govuk-text-colour;
+      @include moduk-text-colour;
     }
   }
 }
@@ -254,41 +254,41 @@
 /// navigation components, such as breadcrumbs or the back link.
 ///
 /// If you use this mixin in a component, you must also include the
-/// `govuk-link-common` mixin to get the correct focus and hover states.
+/// `moduk-link-common` mixin to get the correct focus and hover states.
 ///
 /// @example scss
-///   .govuk-component__link {
-///     @include govuk-link-common;
-///     @include govuk-link-style-text;
+///   .moduk-component__link {
+///     @include moduk-link-common;
+///     @include moduk-link-style-text;
 ///   }
 ///
 /// @access public
 
-@mixin govuk-link-style-text {
+@mixin moduk-link-style-text {
   &:link,
   &:visited {
-    @include govuk-text-colour;
+    @include moduk-text-colour;
   }
 
   // Force a colour change on hover to work around a bug in Safari
   // https://bugs.webkit.org/show_bug.cgi?id=224483
   &:hover {
-    @if type-of($govuk-text-colour) == color {
-      color: rgba($govuk-text-colour, .99);
+    @if type-of($moduk-text-colour) == color {
+      color: rgba($moduk-text-colour, .99);
     }
   }
 
   &:active,
   &:focus {
-    @include govuk-text-colour;
+    @include moduk-text-colour;
   }
 
   // alphagov/govuk_template includes a specific a:link:focus selector designed
   // to make unvisited links a slightly darker blue when focussed, so we need to
   // override the text colour for that combination of selectors.
-  @include _govuk-compatibility(govuk_template) {
+  @include _moduk-compatibility(govuk_template) {
     &:link:focus {
-      @include govuk-text-colour;
+      @include moduk-text-colour;
     }
   }
 }
@@ -299,39 +299,39 @@
 /// against a dark background.
 ///
 /// If you use this mixin in a component, you must also include the
-/// `govuk-link-common` mixin to get the correct focus and hover states.
+/// `moduk-link-common` mixin to get the correct focus and hover states.
 ///
 /// @example scss
-///   .govuk-component__link {
-///     @include govuk-link-common;
-///     @include govuk-link-style-inverse;
+///   .moduk-component__link {
+///     @include moduk-link-common;
+///     @include moduk-link-style-inverse;
 ///   }
 ///
 /// @access public
 
-@mixin govuk-link-style-inverse {
+@mixin moduk-link-style-inverse {
   &:link,
   &:visited {
-    color: govuk-colour("white");
+    color: moduk-colour("white");
   }
 
   // Force a colour change on hover to work around a bug in Safari
   // https://bugs.webkit.org/show_bug.cgi?id=224483
   &:hover,
   &:active {
-    color: rgba(govuk-colour("white"), .99);
+    color: rgba(moduk-colour("white"), .99);
   }
 
   &:focus {
-    color: $govuk-focus-text-colour;
+    color: $moduk-focus-text-colour;
   }
 
   // alphagov/govuk_template includes a specific a:link:focus selector designed
   // to make unvisited links a slightly darker blue when focussed, so we need to
   // override the text colour for that combination of selectors.
-  @include _govuk-compatibility(govuk_template) {
+  @include _moduk-compatibility(govuk_template) {
     &:link:focus {
-      color: $govuk-focus-text-colour;
+      color: $moduk-focus-text-colour;
     }
   }
 }
@@ -346,37 +346,37 @@
 /// frequently-changing content, such as the dashboard for an admin interface.
 ///
 /// If you use this mixin in a component, you must also include the
-/// `govuk-link-common` mixin to get the correct focus and hover states.
+/// `moduk-link-common` mixin to get the correct focus and hover states.
 ///
 /// @example scss
-///   .govuk-component__link {
-///     @include govuk-link-common;
-///     @include govuk-link-style-no-visited-state;
+///   .moduk-component__link {
+///     @include moduk-link-common;
+///     @include moduk-link-style-no-visited-state;
 ///   }
 ///
 /// @access public
 
-@mixin govuk-link-style-no-visited-state {
+@mixin moduk-link-style-no-visited-state {
   &:link {
-    color: $govuk-link-colour;
+    color: $moduk-link-colour;
   }
 
   &:visited {
-    color: $govuk-link-colour;
+    color: $moduk-link-colour;
   }
 
   &:hover {
-    color: $govuk-link-hover-colour;
+    color: $moduk-link-hover-colour;
   }
 
   &:active {
-    color: $govuk-link-active-colour;
+    color: $moduk-link-active-colour;
   }
 
   // When focussed, the text colour needs to be darker to ensure that colour
   // contrast is still acceptable
   &:focus {
-    color: $govuk-focus-text-colour;
+    color: $moduk-focus-text-colour;
   }
 }
 
@@ -387,15 +387,15 @@
 /// because IE8 does not support `:not`.
 ///
 /// @example scss
-///   .govuk-component__link {
-///     @include govuk-link-common;
-///     @include govuk-link-style-default;
-///     @include govuk-link-style-no-underline;
+///   .moduk-component__link {
+///     @include moduk-link-common;
+///     @include moduk-link-style-default;
+///     @include moduk-link-style-no-underline;
 ///   }
 ///
 /// @access public
 
-@mixin govuk-link-style-no-underline {
+@mixin moduk-link-style-no-underline {
   &:not(:hover):not(:active) {
     text-decoration: none;
   }
@@ -408,8 +408,8 @@
 ///
 /// @access public
 
-@mixin govuk-link-print-friendly {
-  @include govuk-media-query($media-type: print) {
+@mixin moduk-link-print-friendly {
+  @include moduk-media-query($media-type: print) {
     &[href^="/"],
     &[href^="http://"],
     &[href^="https://"] {

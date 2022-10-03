@@ -16,7 +16,7 @@ describe('Error Summary', () => {
   it('adds the tabindex attribute on page load', async () => {
     await page.goto(baseUrl + '/components/error-summary/preview', { waitUntil: 'load' })
 
-    const tabindex = await page.$eval('.govuk-error-summary', el => el.getAttribute('tabindex'))
+    const tabindex = await page.$eval('.moduk-error-summary', el => el.getAttribute('tabindex'))
     expect(tabindex).toEqual('-1')
   })
 
@@ -24,15 +24,15 @@ describe('Error Summary', () => {
     await page.goto(`${baseUrl}/components/error-summary/preview`, { waitUntil: 'load' })
 
     const moduleName = await page.evaluate(() => document.activeElement.dataset.module)
-    expect(moduleName).toBe('govuk-error-summary')
+    expect(moduleName).toBe('moduk-error-summary')
   })
 
   it('removes the tabindex attribute on blur', async () => {
     await page.goto(baseUrl + '/components/error-summary/preview', { waitUntil: 'load' })
 
-    await page.$eval('.govuk-error-summary', el => el.blur())
+    await page.$eval('.moduk-error-summary', el => el.blur())
 
-    const tabindex = await page.$eval('.govuk-error-summary', el => el.getAttribute('tabindex'))
+    const tabindex = await page.$eval('.moduk-error-summary', el => el.getAttribute('tabindex'))
     expect(tabindex).toBeNull()
   })
 
@@ -46,7 +46,7 @@ describe('Error Summary', () => {
       })
 
       it('does not have a tabindex attribute', async () => {
-        const tabindex = await page.$eval('.govuk-error-summary', (el) =>
+        const tabindex = await page.$eval('.moduk-error-summary', (el) =>
           el.getAttribute('tabindex')
         )
 
@@ -58,7 +58,7 @@ describe('Error Summary', () => {
           () => document.activeElement.dataset.module
         )
 
-        expect(activeElement).not.toBe('govuk-error-summary')
+        expect(activeElement).not.toBe('moduk-error-summary')
       })
     })
 
@@ -76,7 +76,7 @@ describe('Error Summary', () => {
       })
 
       it('does not have a tabindex attribute', async () => {
-        const tabindex = await page.$eval('.govuk-error-summary', (el) =>
+        const tabindex = await page.$eval('.moduk-error-summary', (el) =>
           el.getAttribute('tabindex')
         )
 
@@ -88,7 +88,7 @@ describe('Error Summary', () => {
           () => document.activeElement.dataset.module
         )
 
-        expect(activeElement).not.toBe('govuk-error-summary')
+        expect(activeElement).not.toBe('moduk-error-summary')
       })
     })
 
@@ -118,7 +118,7 @@ describe('Error Summary', () => {
       })
 
       it('adds the tabindex attribute on page load', async () => {
-        const tabindex = await page.$eval('.govuk-error-summary', (el) =>
+        const tabindex = await page.$eval('.moduk-error-summary', (el) =>
           el.getAttribute('tabindex')
         )
         expect(tabindex).toEqual('-1')
@@ -128,7 +128,7 @@ describe('Error Summary', () => {
         const moduleName = await page.evaluate(
           () => document.activeElement.dataset.module
         )
-        expect(moduleName).toBe('govuk-error-summary')
+        expect(moduleName).toBe('moduk-error-summary')
       })
     })
 
@@ -150,7 +150,7 @@ describe('Error Summary', () => {
       })
 
       it('does not have a tabindex attribute', async () => {
-        const tabindex = await page.$eval('.govuk-error-summary', (el) =>
+        const tabindex = await page.$eval('.moduk-error-summary', (el) =>
           el.getAttribute('tabindex')
         )
 
@@ -162,7 +162,7 @@ describe('Error Summary', () => {
           () => document.activeElement.dataset.module
         )
 
-        expect(activeElement).not.toBe('govuk-error-summary')
+        expect(activeElement).not.toBe('moduk-error-summary')
       })
     })
   })
@@ -188,7 +188,7 @@ describe('Error Summary', () => {
   describe.each(inputTypes)('when linking to %s', (_, inputId, legendOrLabelSelector) => {
     beforeAll(async () => {
       await page.goto(`${baseUrl}/examples/error-summary`, { waitUntil: 'load' })
-      await page.click(`.govuk-error-summary a[href="#${inputId}"]`)
+      await page.click(`.moduk-error-summary a[href="#${inputId}"]`)
     })
 
     it('focuses the target input', async () => {

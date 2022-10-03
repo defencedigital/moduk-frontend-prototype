@@ -17,13 +17,13 @@ describe('Table', () => {
   it('can have additional classes', () => {
     const $ = render('table', examples.classes)
 
-    expect($('.govuk-table').hasClass('custom-class-goes-here')).toBeTruthy()
+    expect($('.moduk-table').hasClass('custom-class-goes-here')).toBeTruthy()
   })
 
   it('can have additional attributes', () => {
     const $ = render('table', examples.attributes)
 
-    expect($('.govuk-table').attr('data-foo')).toEqual('bar')
+    expect($('.moduk-table').attr('data-foo')).toEqual('bar')
   })
 
   // =========================================================
@@ -33,16 +33,16 @@ describe('Table', () => {
   describe('captions', () => {
     it('can have custom text', () => {
       const $ = render('table', examples['table with head and caption'])
-      const $caption = $('.govuk-table__caption')
+      const $caption = $('.moduk-table__caption')
 
       expect($caption.text()).toBe('Caption 1: Months and rates')
     })
 
     it('can have additional classes', () => {
       const $ = render('table', examples['table with head and caption'])
-      const $caption = $('.govuk-table__caption')
+      const $caption = $('.moduk-table__caption')
 
-      expect($caption.hasClass('govuk-heading-m')).toBeTruthy()
+      expect($caption.hasClass('moduk-heading-m')).toBeTruthy()
     })
   })
 
@@ -55,7 +55,7 @@ describe('Table', () => {
       const args = examples['table with head']
       const $ = render('table', args)
 
-      const headings = $('.govuk-table').find('thead tr th')
+      const headings = $('.moduk-table').find('thead tr th')
         .map((_, e) => $(e).text())
         .get()
 
@@ -69,7 +69,7 @@ describe('Table', () => {
     it('have HTML escaped when passed as text', () => {
       const $ = render('table', examples['html as text'])
 
-      const $th = $('.govuk-table thead tr th')
+      const $th = $('.moduk-table thead tr th')
 
       expect($th.html()).toEqual('Foo &lt;script&gt;hacking.do(1337)&lt;/script&gt;')
     })
@@ -77,7 +77,7 @@ describe('Table', () => {
     it('allow HTML when passed as HTML', () => {
       const $ = render('table', examples.html)
 
-      const $th = $('.govuk-table thead tr th')
+      const $th = $('.moduk-table thead tr th')
 
       expect($th.html()).toEqual('Foo <span>bar</span>')
     })
@@ -85,15 +85,15 @@ describe('Table', () => {
     it('can have a format specified', () => {
       const $ = render('table', examples['table with head'])
 
-      const $th = $('.govuk-table thead tr th')
+      const $th = $('.moduk-table thead tr th')
 
-      expect($th.hasClass('govuk-table__header--numeric')).toBeTruthy()
+      expect($th.hasClass('moduk-table__header--numeric')).toBeTruthy()
     })
 
     it('can have additional classes', () => {
       const $ = render('table', examples['head with classes'])
 
-      const $th = $('.govuk-table thead tr th')
+      const $th = $('.moduk-table thead tr th')
 
       expect($th.hasClass('my-custom-class')).toBeTruthy()
     })
@@ -101,7 +101,7 @@ describe('Table', () => {
     it('can have rowspan specified', () => {
       const $ = render('table', examples['head with rowspan and colspan'])
 
-      const $th = $('.govuk-table thead tr th')
+      const $th = $('.moduk-table thead tr th')
 
       expect($th.attr('rowspan')).toEqual('2')
     })
@@ -109,7 +109,7 @@ describe('Table', () => {
     it('can have colspan specified', () => {
       const $ = render('table', examples['head with rowspan and colspan'])
 
-      const $th = $('.govuk-table thead tr th')
+      const $th = $('.moduk-table thead tr th')
 
       expect($th.attr('colspan')).toEqual('2')
     })
@@ -117,7 +117,7 @@ describe('Table', () => {
     it('can have additional attributes', () => {
       const $ = render('table', examples['head with attributes'])
 
-      const $th = $('.govuk-table thead tr th')
+      const $th = $('.moduk-table thead tr th')
 
       expect($th.attr('data-fizz')).toEqual('buzz')
     })
@@ -132,7 +132,7 @@ describe('Table', () => {
       it('are not included', () => {
         const $ = render('table', examples.default)
 
-        const cells = $('.govuk-table').find('tbody tr td')
+        const cells = $('.moduk-table').find('tbody tr td')
           .map((_, e) => $(e).text())
           .get()
 
@@ -146,7 +146,7 @@ describe('Table', () => {
       it('are included', () => {
         const $ = render('table', examples['with firstCellIsHeader true'])
 
-        const headings = $('.govuk-table').find('tbody tr th')
+        const headings = $('.moduk-table').find('tbody tr th')
           .map((_, e) => $(e).text())
           .get()
 
@@ -156,7 +156,7 @@ describe('Table', () => {
       it('have HTML escaped when passed as text', () => {
         const $ = render('table', examples['firstCellIsHeader with html as text'])
 
-        const $th = $('.govuk-table tbody tr th')
+        const $th = $('.moduk-table tbody tr th')
 
         expect($th.html()).toEqual('Foo &lt;script&gt;hacking.do(1337)&lt;/script&gt;')
       })
@@ -164,7 +164,7 @@ describe('Table', () => {
       it('allow HTML when passed as HTML', () => {
         const $ = render('table', examples['firstCellIsHeader with html'])
 
-        const $th = $('.govuk-table tbody tr th')
+        const $th = $('.moduk-table tbody tr th')
 
         expect($th.html()).toEqual('Foo <span>bar</span>')
       })
@@ -172,23 +172,23 @@ describe('Table', () => {
       it('are associated with their rows using scope="row"', () => {
         const $ = render('table', examples['with firstCellIsHeader true'])
 
-        const $th = $('.govuk-table').find('tbody tr th')
+        const $th = $('.moduk-table').find('tbody tr th')
 
         expect($th.attr('scope')).toEqual('row')
       })
 
-      it('have the govuk-table__header class', () => {
+      it('have the moduk-table__header class', () => {
         const $ = render('table', examples['with firstCellIsHeader true'])
 
-        const $th = $('.govuk-table').find('tbody tr th')
+        const $th = $('.moduk-table').find('tbody tr th')
 
-        expect($th.hasClass('govuk-table__header')).toBeTruthy()
+        expect($th.hasClass('moduk-table__header')).toBeTruthy()
       })
 
       it('can have additional classes', () => {
         const $ = render('table', examples['firstCellIsHeader with classes'])
 
-        const $th = $('.govuk-table').find('tbody tr th')
+        const $th = $('.moduk-table').find('tbody tr th')
 
         expect($th.hasClass('my-custom-class')).toBeTruthy()
       })
@@ -196,7 +196,7 @@ describe('Table', () => {
       it('can have rowspan specified', () => {
         const $ = render('table', examples['firstCellIsHeader with rowspan and colspan'])
 
-        const $th = $('.govuk-table').find('tbody tr th')
+        const $th = $('.moduk-table').find('tbody tr th')
 
         expect($th.attr('rowspan')).toEqual('2')
       })
@@ -204,7 +204,7 @@ describe('Table', () => {
       it('can have colspan specified', () => {
         const $ = render('table', examples['firstCellIsHeader with rowspan and colspan'])
 
-        const $th = $('.govuk-table').find('tbody tr th')
+        const $th = $('.moduk-table').find('tbody tr th')
 
         expect($th.attr('colspan')).toEqual('2')
       })
@@ -212,7 +212,7 @@ describe('Table', () => {
       it('can have additional attributes', () => {
         const $ = render('table', examples['firstCellIsHeader with attributes'])
 
-        const $th = $('.govuk-table').find('tbody tr th')
+        const $th = $('.moduk-table').find('tbody tr th')
 
         expect($th.attr('data-fizz')).toEqual('buzz')
       })
@@ -227,7 +227,7 @@ describe('Table', () => {
     it('can be specified', () => {
       const $ = render('table', examples.default)
 
-      const cells = $('.govuk-table').find('tbody tr')
+      const cells = $('.moduk-table').find('tbody tr')
         .map((_, tr) => {
           return [$(tr).find('td').map((_, td) => $(td).text()).get()]
         })
@@ -243,7 +243,7 @@ describe('Table', () => {
     it('can be skipped when falsely', () => {
       const $ = render('table', examples['with falsey items'])
 
-      const cells = $('.govuk-table').find('tbody tr')
+      const cells = $('.moduk-table').find('tbody tr')
         .map((_, tr) => {
           return [$(tr).find('td').map((_, td) => $(td).text()).get()]
         })
@@ -259,7 +259,7 @@ describe('Table', () => {
     it('have HTML escaped when passed as text', () => {
       const $ = render('table', examples['html as text'])
 
-      const $td = $('.govuk-table td')
+      const $td = $('.moduk-table td')
 
       expect($td.html()).toEqual('Foo &lt;script&gt;hacking.do(1337)&lt;/script&gt;')
     })
@@ -267,7 +267,7 @@ describe('Table', () => {
     it('allow HTML when passed as HTML', () => {
       const $ = render('table', examples.html)
 
-      const $td = $('.govuk-table td')
+      const $td = $('.moduk-table td')
 
       expect($td.html()).toEqual('Foo <span>bar</span>')
     })
@@ -275,15 +275,15 @@ describe('Table', () => {
     it('can have a format specified', () => {
       const $ = render('table', examples.default)
 
-      const $td = $('.govuk-table td')
+      const $td = $('.moduk-table td')
 
-      expect($td.hasClass('govuk-table__cell--numeric')).toBeTruthy()
+      expect($td.hasClass('moduk-table__cell--numeric')).toBeTruthy()
     })
 
     it('can have additional classes', () => {
       const $ = render('table', examples['rows with classes'])
 
-      const $td = $('.govuk-table td')
+      const $td = $('.moduk-table td')
 
       expect($td.hasClass('my-custom-class')).toBeTruthy()
     })
@@ -291,7 +291,7 @@ describe('Table', () => {
     it('can have rowspan specified', () => {
       const $ = render('table', examples['rows with rowspan and colspan'])
 
-      const $td = $('.govuk-table td')
+      const $td = $('.moduk-table td')
 
       expect($td.attr('rowspan')).toEqual('2')
     })
@@ -299,7 +299,7 @@ describe('Table', () => {
     it('can have colspan specified', () => {
       const $ = render('table', examples['rows with rowspan and colspan'])
 
-      const $td = $('.govuk-table td')
+      const $td = $('.moduk-table td')
 
       expect($td.attr('colspan')).toEqual('2')
     })
@@ -307,7 +307,7 @@ describe('Table', () => {
     it('can have additional attributes', () => {
       const $ = render('table', examples['rows with attributes'])
 
-      const $td = $('.govuk-table td')
+      const $td = $('.moduk-table td')
 
       expect($td.attr('data-fizz')).toEqual('buzz')
     })

@@ -1,48 +1,48 @@
-@include govuk-exports("govuk/component/table") {
-  .govuk-table {
-    @include govuk-font($size: 19);
-    @include govuk-text-colour;
+@include moduk-exports("moduk/component/table") {
+  .moduk-table {
+    @include moduk-font($size: 19);
+    @include moduk-text-colour;
     width: 100%;
-    @include govuk-responsive-margin(6, "bottom");
+    @include moduk-responsive-margin(6, "bottom");
 
     border-spacing: 0;
     border-collapse: collapse;
   }
 
-  .govuk-table__header {
-    @include govuk-typography-weight-bold;
+  .moduk-table__header {
+    @include moduk-typography-weight-bold;
   }
 
-  .govuk-table__header,
-  .govuk-table__cell {
-    padding: govuk-spacing(2) govuk-spacing(4) govuk-spacing(2) 0;
-    border-bottom: 1px solid $govuk-border-colour;
+  .moduk-table__header,
+  .moduk-table__cell {
+    padding: moduk-spacing(2) moduk-spacing(4) moduk-spacing(2) 0;
+    border-bottom: 1px solid $moduk-border-colour;
     text-align: left;
     vertical-align: top;
     // GOV.UK Elements sets the font-size and line-height for all headers and cells
     // in tables.
-    @include _govuk-compatibility(govuk_elements) {
+    @include _moduk-compatibility(govuk_elements) {
       font-size: inherit;
       line-height: inherit;
     }
   }
 
-  .govuk-table__cell--numeric {
-    @include govuk-font($size: false, $tabular: true);
+  .moduk-table__cell--numeric {
+    @include moduk-font($size: false, $tabular: true);
   }
 
-  .govuk-table__header--numeric,
-  .govuk-table__cell--numeric {
+  .moduk-table__header--numeric,
+  .moduk-table__cell--numeric {
     text-align: right;
   }
 
-  .govuk-table__header:last-child,
-  .govuk-table__cell:last-child {
+  .moduk-table__header:last-child,
+  .moduk-table__cell:last-child {
     padding-right: 0;
   }
 
-  .govuk-table__caption {
-    @include govuk-typography-weight-bold;
+  .moduk-table__caption {
+    @include moduk-typography-weight-bold;
 
     display: table-caption;
     text-align: left;
@@ -50,22 +50,22 @@
 
   // Modifiers that make captions look more like their equivalent headings
 
-  .govuk-table__caption--xl {
-    @include govuk-font($size: 48, $weight: bold);
-    margin-bottom: govuk-spacing(3);
+  .moduk-table__caption--xl {
+    @include moduk-font($size: 48, $weight: bold);
+    margin-bottom: moduk-spacing(3);
   }
 
-  .govuk-table__caption--l {
-    @include govuk-font($size: 36, $weight: bold);
-    margin-bottom: govuk-spacing(3);
+  .moduk-table__caption--l {
+    @include moduk-font($size: 36, $weight: bold);
+    margin-bottom: moduk-spacing(3);
   }
 
-  .govuk-table__caption--m {
-    @include govuk-font($size: 24, $weight: bold);
-    margin-bottom: govuk-spacing(3);
+  .moduk-table__caption--m {
+    @include moduk-font($size: 24, $weight: bold);
+    margin-bottom: moduk-spacing(3);
   }
 
-  .govuk-table__caption--s {
-    @include govuk-font($size: 19, $weight: bold);
+  .moduk-table__caption--s {
+    @include moduk-font($size: 19, $weight: bold);
   }
 }

@@ -144,7 +144,7 @@ examples:
       name: select-3
       label:
         text: Label text goes here
-        classes: govuk-label--l
+        classes: moduk-label--l
         isPageHeading: true
       items:
         -
@@ -162,7 +162,7 @@ examples:
     data:
       id: select-1
       name: select-1
-      classes: govuk-!-width-full
+      classes: moduk-!-width-full
       label:
         text: Label text goes here
       items:
@@ -181,7 +181,7 @@ examples:
     data:
       id: select-1
       name: select-1
-      classes: govuk-!-width-full
+      classes: moduk-!-width-full
       label:
         text: Label text goes here
       formGroup:

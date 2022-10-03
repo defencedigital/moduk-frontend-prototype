@@ -193,7 +193,7 @@ describe('Template', () => {
         const $ = renderTemplate({}, { skipLink })
 
         expect($('.my-skip-link').length).toEqual(1)
-        expect($('.govuk-skip-link').length).toEqual(0)
+        expect($('.moduk-skip-link').length).toEqual(0)
       })
     })
 
@@ -204,7 +204,7 @@ describe('Template', () => {
         const $ = renderTemplate({}, { header })
 
         expect($('.my-header').length).toEqual(1)
-        expect($('.govuk-header').length).toEqual(0)
+        expect($('.moduk-header').length).toEqual(0)
       })
     })
 
@@ -262,7 +262,7 @@ describe('Template', () => {
         const $ = renderTemplate({}, { footer })
 
         expect($('.my-footer').length).toEqual(1)
-        expect($('.govuk-footer').length).toEqual(0)
+        expect($('.moduk-footer').length).toEqual(0)
       })
     })
   })

@@ -1014,28 +1014,270 @@ if (detect) return
 
 }).call('object' === typeof window && window || 'object' === typeof self && self || 'object' === typeof global && global || {});
 
-function CharacterCount ($module) {
+(function(undefined) {
+
+  // Detection from https://raw.githubusercontent.com/Financial-Times/polyfill-library/13cf7c340974d128d557580b5e2dafcd1b1192d1/polyfills/Element/prototype/dataset/detect.js
+  var detect = (function(){
+    if (!document.documentElement.dataset) {
+      return false;
+    }
+    var el = document.createElement('div');
+    el.setAttribute("data-a-b", "c");
+    return el.dataset && el.dataset.aB == "c";
+  }());
+
+  if (detect) return
+
+  // Polyfill derived from  https://raw.githubusercontent.com/Financial-Times/polyfill-library/13cf7c340974d128d557580b5e2dafcd1b1192d1/polyfills/Element/prototype/dataset/polyfill.js
+  Object.defineProperty(Element.prototype, 'dataset', {
+    get: function() {
+      var element = this;
+      var attributes = this.attributes;
+      var map = {};
+  
+      for (var i = 0; i < attributes.length; i++) {
+        var attribute = attributes[i];
+  
+        // This regex has been edited from the original polyfill, to add
+        // support for period (.) separators in data-* attribute names. These
+        // are allowed in the HTML spec, but were not covered by the original
+        // polyfill's regex. We use periods in our i18n implementation.
+        if (attribute && attribute.name && (/^data-\w[.\w-]*$/).test(attribute.name)) {
+          var name = attribute.name;
+          var value = attribute.value;
+  
+          var propName = name.substr(5).replace(/-./g, function (prop) {
+            return prop.charAt(1).toUpperCase();
+          });
+          
+          // If this browser supports __defineGetter__ and __defineSetter__,
+          // continue using defineProperty. If not (like IE 8 and below), we use
+          // a hacky fallback which at least gives an object in the right format
+          if ('__defineGetter__' in Object.prototype && '__defineSetter__' in Object.prototype) {
+            Object.defineProperty(map, propName, {
+              enumerable: true,
+              get: function() {
+                return this.value;
+              }.bind({value: value || ''}),
+              set: function setter(name, value) {
+                if (typeof value !== 'undefined') {
+                  this.setAttribute(name, value);
+                } else {
+                  this.removeAttribute(name);
+                }
+              }.bind(element, name)
+            });
+          } else {
+            map[propName] = value;
+          }
+
+        }
+      }
+  
+      return map;
+    }
+  });
+
+}).call('object' === typeof window && window || 'object' === typeof self && self || 'object' === typeof global && global || {});
+
+/**
+ * Config flattening function. Takes any number of objects, flattens them into
+ * namespaced key-value pairs, (e.g. {'i18n.showSection': 'Show section'}) and
+ * combines them together, with greatest priority on the LAST item passed in.
+ *
+ * @param {...Object} - Any number of objects to merge together.
+ * @returns {Object} - A flattened object of key-value pairs.
+ */
+function mergeConfigs (/* ...config objects */) {
+  // Function to take nested objects and flatten them to a dot-separated keyed
+  // object. Doing this means we don't need to do any deep/recursive merging of
+  // each of our objects, nor transform our dataset from a flat list into a
+  // nested object.
+  var flattenObject = function (configObject) {
+    // Prepare an empty return object
+    var flattenedObject = {};
+
+    // Our flattening function, this is called recursively for each level of
+    // depth in the object. At each level we prepend the previous level names to
+    // the key using `prefix`.
+    var flattenLoop = function (obj, prefix) {
+      // Loop through keys...
+      for (var key in obj) {
+        // Check to see if this is a prototypical key/value,
+        // if it is, skip it.
+        if (!Object.prototype.hasOwnProperty.call(obj, key)) {
+          continue
+        }
+        var value = obj[key];
+        var prefixedKey = prefix ? prefix + '.' + key : key;
+        if (typeof value === 'object') {
+          // If the value is a nested object, recurse over that too
+          flattenLoop(value, prefixedKey);
+        } else {
+          // Otherwise, add this value to our return object
+          flattenedObject[prefixedKey] = value;
+        }
+      }
+    };
+
+    // Kick off the recursive loop
+    flattenLoop(configObject);
+    return flattenedObject
+  };
+
+  // Start with an empty object as our base
+  var formattedConfigObject = {};
+
+  // Loop through each of the remaining passed objects and push their keys
+  // one-by-one into configObject. Any duplicate keys will override the existing
+  // key with the new value.
+  for (var i = 0; i < arguments.length; i++) {
+    var obj = flattenObject(arguments[i]);
+    for (var key in obj) {
+      if (Object.prototype.hasOwnProperty.call(obj, key)) {
+        formattedConfigObject[key] = obj[key];
+      }
+    }
+  }
+
+  return formattedConfigObject
+}
+
+/**
+ * Normalise string
+ *
+ * 'If it looks like a duck, and it quacks like a duck…' 🦆
+ *
+ * If the passed value looks like a boolean or a number, convert it to a boolean
+ * or number.
+ *
+ * Designed to be used to convert config passed via data attributes (which are
+ * always strings) into something sensible.
+ *
+ * @param {String} value - The value to normalise
+ * @returns {(String|Boolean|Number)} Normalised data
+ */
+function normaliseString (value) {
+  if (typeof value !== 'string') {
+    return value
+  }
+
+  var trimmedValue = value.trim();
+
+  if (trimmedValue === 'true') {
+    return true
+  }
+
+  if (trimmedValue === 'false') {
+    return false
+  }
+
+  // Empty / whitespace-only strings are considered finite so we need to check
+  // the length of the trimmed string as well
+  if (trimmedValue.length > 0 && isFinite(trimmedValue)) {
+    return Number(trimmedValue)
+  }
+
+  return value
+}
+
+/**
+ * Normalise dataset
+ *
+ * Loop over an object and normalise each value using normaliseData function
+ *
+ * @param {DOMStringMap} dataset
+ * @returns {Object} Normalised dataset
+ */
+function normaliseDataset (dataset) {
+  var out = {};
+
+  for (var key in dataset) {
+    out[key] = normaliseString(dataset[key]);
+  }
+
+  return out
+}
+
+/**
+ * JavaScript enhancements for the CharacterCount component
+ *
+ * Tracks the number of characters or words in the `.moduk-js-character-count`
+ * `<textarea>` inside the element. Displays a message with the remaining number
+ * of characters/words available, or the number of characters/words in excess.
+ *
+ * You can configure the message to only appear after a certain percentage
+ * of the available characters/words has been entered.
+ *
+ * @class
+ * @param {HTMLElement} $module - The element this component controls
+ * @param {Object} config
+ * @param {Number} config.maxlength - If `maxwords` is set, this is not required.
+ * The maximum number of characters. If `maxwords` is provided, it will be ignored.
+ * @param {Number} config.maxwords - If `maxlength` is set, this is not required.
+ * The maximum number of words. If `maxwords` is provided, `maxlength` will be ignored.
+ * @param {Number} [config.threshold=0] - The percentage value of the limit at
+ * which point the count message is displayed. If this attribute is set, the
+ * count message will be hidden by default.
+ */
+function CharacterCount ($module, config) {
+  if (!$module) {
+    return this
+  }
+
+  var defaultConfig = {
+    threshold: 0
+  };
+
+  // Read config set using dataset ('data-' values)
+  var datasetConfig = normaliseDataset($module.dataset);
+
+  // To ensure data-attributes take complete precedence, even if they change the
+  // type of count, we need to reset the `maxlength` and `maxwords` from the
+  // JavaScript config.
+  //
+  // We can't mutate `config`, though, as it may be shared across multiple
+  // components inside `initAll`.
+  var configOverrides = {};
+  if ('maxwords' in datasetConfig || 'maxlength' in datasetConfig) {
+    configOverrides = {
+      maxlength: false,
+      maxwords: false
+    };
+  }
+
+  this.config = mergeConfigs(
+    defaultConfig,
+    config || {},
+    configOverrides,
+    datasetConfig
+  );
+
+  // Determine the limit attribute (characters or words)
+  if (this.config.maxwords) {
+    this.maxLength = this.config.maxwords;
+  } else if (this.config.maxlength) {
+    this.maxLength = this.config.maxlength;
+  } else {
+    return
+  }
+
   this.$module = $module;
-  this.$textarea = $module.querySelector('.govuk-js-character-count');
+  this.$textarea = $module.querySelector('.moduk-js-character-count');
   this.$visibleCountMessage = null;
   this.$screenReaderCountMessage = null;
   this.lastInputTimestamp = null;
 }
 
-CharacterCount.prototype.defaults = {
-  characterCountAttribute: 'data-maxlength',
-  wordCountAttribute: 'data-maxwords'
-};
-
-// Initialize component
+/**
+ * Initialise component
+ */
 CharacterCount.prototype.init = function () {
   // Check that required elements are present
   if (!this.$textarea) {
     return
   }
 
-  // Check for module
-  var $module = this.$module;
   var $textarea = this.$textarea;
   var $fallbackLimitMessage = document.getElementById($textarea.id + '-info');
 
@@ -1052,7 +1294,8 @@ CharacterCount.prototype.init = function () {
   $fallbackLimitMessage.insertAdjacentElement('afterend', $screenReaderCountMessage);
 
   // Create our live-updating counter element, copying the classes from the
-  // fallback element for backwards compatibility as these may have been configured
+  // fallback element for backwards compatibility as these may have been
+  // configured
   var $visibleCountMessage = document.createElement('div');
   $visibleCountMessage.className = $fallbackLimitMessage.className;
   $visibleCountMessage.classList.add('govuk-character-count__status');
@@ -1063,32 +1306,15 @@ CharacterCount.prototype.init = function () {
   // Hide the fallback limit message
   $fallbackLimitMessage.classList.add('govuk-visually-hidden');
 
-  // Read options set using dataset ('data-' values)
-  this.options = this.getDataset($module);
-
-  // Determine the limit attribute (characters or words)
-  var countAttribute = this.defaults.characterCountAttribute;
-  if (this.options.maxwords) {
-    countAttribute = this.defaults.wordCountAttribute;
-  }
-
-  // Save the element limit
-  this.maxLength = $module.getAttribute(countAttribute);
-
-  // Check for limit
-  if (!this.maxLength) {
-    return
-  }
-
   // Remove hard limit if set
   $textarea.removeAttribute('maxlength');
 
   this.bindChangeEvents();
 
   // When the page is restored after navigating 'back' in some browsers the
-  // state of the character count is not restored until *after* the DOMContentLoaded
-  // event is fired, so we need to manually update it after the pageshow event
-  // in browsers that support it.
+  // state of the character count is not restored until *after* the
+  // DOMContentLoaded event is fired, so we need to manually update it after the
+  // pageshow event in browsers that support it.
   if ('onpageshow' in window) {
     window.addEventListener('pageshow', this.updateCountMessage.bind(this));
   } else {
@@ -1097,35 +1323,12 @@ CharacterCount.prototype.init = function () {
   this.updateCountMessage();
 };
 
-// Read data attributes
-CharacterCount.prototype.getDataset = function (element) {
-  var dataset = {};
-  var attributes = element.attributes;
-  if (attributes) {
-    for (var i = 0; i < attributes.length; i++) {
-      var attribute = attributes[i];
-      var match = attribute.name.match(/^data-(.+)/);
-      if (match) {
-        dataset[match[1]] = attribute.value;
-      }
-    }
-  }
-  return dataset
-};
-
-// Counts characters or words in text
-CharacterCount.prototype.count = function (text) {
-  var length;
-  if (this.options.maxwords) {
-    var tokens = text.match(/\S+/g) || []; // Matches consecutive non-whitespace chars
-    length = tokens.length;
-  } else {
-    length = text.length;
-  }
-  return length
-};
-
-// Bind input propertychange to the elements and update based on the change
+/**
+ * Bind change events
+ *
+ * Set up event listeners on the $textarea so that the count messages update
+ * when the user types.
+ */
 CharacterCount.prototype.bindChangeEvents = function () {
   var $textarea = this.$textarea;
   $textarea.addEventListener('keyup', this.handleKeyUp.bind(this));
@@ -1135,10 +1338,52 @@ CharacterCount.prototype.bindChangeEvents = function () {
   $textarea.addEventListener('blur', this.handleBlur.bind(this));
 };
 
-// Speech recognition software such as Dragon NaturallySpeaking will modify the
-// fields by directly changing its `value`. These changes don't trigger events
-// in JavaScript, so we need to poll to handle when and if they occur.
-CharacterCount.prototype.checkIfValueChanged = function () {
+/**
+ * Handle key up event
+ *
+ * Update the visible character counter and keep track of when the last update
+ * happened for each keypress
+ */
+CharacterCount.prototype.handleKeyUp = function () {
+  this.updateVisibleCountMessage();
+  this.lastInputTimestamp = Date.now();
+};
+
+/**
+ * Handle focus event
+ *
+ * Speech recognition software such as Dragon NaturallySpeaking will modify the
+ * fields by directly changing its `value`. These changes don't trigger events
+ * in JavaScript, so we need to poll to handle when and if they occur.
+ *
+ * Once the keyup event hasn't been detected for at least 1000 ms (1s), check if
+ * the textarea value has changed and update the count message if it has.
+ *
+ * This is so that the update triggered by the manual comparison doesn't
+ * conflict with debounced KeyboardEvent updates.
+ */
+CharacterCount.prototype.handleFocus = function () {
+  this.valueChecker = setInterval(function () {
+    if (!this.lastInputTimestamp || (Date.now() - 500) >= this.lastInputTimestamp) {
+      this.updateIfValueChanged();
+    }
+  }.bind(this), 1000);
+};
+
+/**
+ * Handle blur event
+ *
+ * Stop checking the textarea value once the textarea no longer has focus
+ */
+CharacterCount.prototype.handleBlur = function () {
+  // Cancel value checking on blur
+  clearInterval(this.valueChecker);
+};
+
+/**
+ * Update count message if textarea value has changed
+ */
+CharacterCount.prototype.updateIfValueChanged = function () {
   if (!this.$textarea.oldValue) this.$textarea.oldValue = '';
   if (this.$textarea.value !== this.$textarea.oldValue) {
     this.$textarea.oldValue = this.$textarea.value;
@@ -1146,14 +1391,20 @@ CharacterCount.prototype.checkIfValueChanged = function () {
   }
 };
 
-// Helper function to update both the visible and screen reader-specific
-// counters simultaneously (e.g. on init)
+/**
+ * Update count message
+ *
+ * Helper function to update both the visible and screen reader-specific
+ * counters simultaneously (e.g. on init)
+ */
 CharacterCount.prototype.updateCountMessage = function () {
   this.updateVisibleCountMessage();
   this.updateScreenReaderCountMessage();
 };
 
-// Update visible counter
+/**
+ * Update visible count message
+ */
 CharacterCount.prototype.updateVisibleCountMessage = function () {
   var $textarea = this.$textarea;
   var $visibleCountMessage = this.$visibleCountMessage;
@@ -1179,10 +1430,12 @@ CharacterCount.prototype.updateVisibleCountMessage = function () {
   }
 
   // Update message
-  $visibleCountMessage.innerHTML = this.formattedUpdateMessage();
+  $visibleCountMessage.innerHTML = this.getCountMessage();
 };
 
-// Update screen reader-specific counter
+/**
+ * Update screen reader count message
+ */
 CharacterCount.prototype.updateScreenReaderCountMessage = function () {
   var $screenReaderCountMessage = this.$screenReaderCountMessage;
 
@@ -1195,19 +1448,39 @@ CharacterCount.prototype.updateScreenReaderCountMessage = function () {
   }
 
   // Update message
-  $screenReaderCountMessage.innerHTML = this.formattedUpdateMessage();
+  $screenReaderCountMessage.innerHTML = this.getCountMessage();
 };
 
-// Format update message
-CharacterCount.prototype.formattedUpdateMessage = function () {
+/**
+ * Count the number of characters (or words, if `config.maxwords` is set)
+ * in the given text
+ *
+ * @param {String} text - The text to count the characters of
+ * @returns {Number} the number of characters (or words) in the text
+ */
+CharacterCount.prototype.count = function (text) {
+  if (this.config.maxwords) {
+    var tokens = text.match(/\S+/g) || []; // Matches consecutive non-whitespace chars
+    return tokens.length
+  } else {
+    return text.length
+  }
+};
+
+/**
+ * Get count message
+ *
+ * @returns {String} Status message
+ */
+CharacterCount.prototype.getCountMessage = function () {
   var $textarea = this.$textarea;
-  var options = this.options;
+  var config = this.config;
   var remainingNumber = this.maxLength - this.count($textarea.value);
 
   var charVerb = 'remaining';
   var charNoun = 'character';
   var displayNumber = remainingNumber;
-  if (options.maxwords) {
+  if (config.maxwords) {
     charNoun = 'word';
   }
   charNoun = charNoun + ((remainingNumber === -1 || remainingNumber === 1) ? '' : 's');
@@ -1218,46 +1491,31 @@ CharacterCount.prototype.formattedUpdateMessage = function () {
   return 'You have ' + displayNumber + ' ' + charNoun + ' ' + charVerb
 };
 
-// Checks whether the value is over the configured threshold for the input.
-// If there is no configured threshold, it is set to 0 and this function will
-// always return true.
+/**
+ * Check if count is over threshold
+ *
+ * Checks whether the value is over the configured threshold for the input.
+ * If there is no configured threshold, it is set to 0 and this function will
+ * always return true.
+ *
+ * @returns {Boolean} true if the current count is over the config.threshold
+ *   (or no threshold is set)
+ */
 CharacterCount.prototype.isOverThreshold = function () {
+  // No threshold means we're always above threshold so save some computation
+  if (!this.config.threshold) {
+    return true
+  }
+
   var $textarea = this.$textarea;
-  var options = this.options;
 
   // Determine the remaining number of characters/words
   var currentLength = this.count($textarea.value);
   var maxLength = this.maxLength;
 
-  // Set threshold if presented in options
-  var thresholdPercent = options.threshold ? options.threshold : 0;
-  var thresholdValue = maxLength * thresholdPercent / 100;
+  var thresholdValue = maxLength * this.config.threshold / 100;
 
   return (thresholdValue <= currentLength)
-};
-
-// Update the visible character counter and keep track of when the last update
-// happened for each keypress
-CharacterCount.prototype.handleKeyUp = function () {
-  this.updateVisibleCountMessage();
-  this.lastInputTimestamp = Date.now();
-};
-
-CharacterCount.prototype.handleFocus = function () {
-  // If the field is focused, and a keyup event hasn't been detected for at
-  // least 1000 ms (1 second), then run the manual change check.
-  // This is so that the update triggered by the manual comparison doesn't
-  // conflict with debounced KeyboardEvent updates.
-  this.valueChecker = setInterval(function () {
-    if (!this.lastInputTimestamp || (Date.now() - 500) >= this.lastInputTimestamp) {
-      this.checkIfValueChanged();
-    }
-  }.bind(this), 1000);
-};
-
-CharacterCount.prototype.handleBlur = function () {
-  // Cancel value checking on blur
-  clearInterval(this.valueChecker);
 };
 
 return CharacterCount;

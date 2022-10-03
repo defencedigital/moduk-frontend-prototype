@@ -86,7 +86,7 @@ examples:
     name: file-upload-1
     label:
       text: Upload a file
-      classes: govuk-label--l
+      classes: moduk-label--l
       isPageHeading: true
 - name: with optional form-group classes
   data:

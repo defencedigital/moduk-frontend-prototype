@@ -1,98 +1,98 @@
-@include govuk-exports("govuk/component/footer") {
+@include moduk-exports("moduk/component/footer") {
 
-  $govuk-footer-background: $govuk-canvas-background-colour;
-  $govuk-footer-border: $govuk-border-colour;
+  $moduk-footer-background: $moduk-canvas-background-colour;
+  $moduk-footer-border: $moduk-border-colour;
   // This variable can be removed entirely once the legacy palette goes away,
-  // as it'll just be the same as $govuk-footer-border.
-  $govuk-footer-border-top: $govuk-border-colour;
-  $govuk-footer-text: $govuk-text-colour;
-  $govuk-footer-link-hover-colour: null; // Only used with the legacy palette
+  // as it'll just be the same as $moduk-footer-border.
+  $moduk-footer-border-top: $moduk-border-colour;
+  $moduk-footer-text: $moduk-text-colour;
+  $moduk-footer-link-hover-colour: null; // Only used with the legacy palette
 
-  @if $govuk-use-legacy-palette {
-    $govuk-footer-border-top: #a1acb2;
-    $govuk-footer-border: govuk-colour("grey-2");
-    $govuk-footer-text: #454a4c;
-    $govuk-footer-link-hover-colour: #171819;
+  @if $moduk-use-legacy-palette {
+    $moduk-footer-border-top: #a1acb2;
+    $moduk-footer-border: moduk-colour("grey-2");
+    $moduk-footer-text: #454a4c;
+    $moduk-footer-link-hover-colour: #171819;
   }
 
-  // Based on the govuk-crest-2x.png image dimensions.
-  $govuk-footer-crest-image-width-2x: 250px;
-  $govuk-footer-crest-image-height-2x: 204px;
+  // Based on the moduk-crest-2x.png image dimensions.
+  $moduk-footer-crest-image-width-2x: 250px;
+  $moduk-footer-crest-image-height-2x: 204px;
   // Half the 2x image so that it fits the regular 1x size.
-  $govuk-footer-crest-image-width: ($govuk-footer-crest-image-width-2x / 2);
-  $govuk-footer-crest-image-height: ($govuk-footer-crest-image-height-2x / 2);
+  $moduk-footer-crest-image-width: ($moduk-footer-crest-image-width-2x / 2);
+  $moduk-footer-crest-image-height: ($moduk-footer-crest-image-height-2x / 2);
 
-  .govuk-footer {
-    @include govuk-font($size: 16);
-    @include govuk-responsive-padding(7, "top");
-    @include govuk-responsive-padding(5, "bottom");
+  .moduk-footer {
+    @include moduk-font($size: 16);
+    @include moduk-responsive-padding(7, "top");
+    @include moduk-responsive-padding(5, "bottom");
 
-    border-top: 1px solid $govuk-footer-border-top;
-    color: $govuk-footer-text;
-    background: $govuk-footer-background;
+    border-top: 1px solid $moduk-footer-border-top;
+    color: $moduk-footer-text;
+    background: $moduk-footer-background;
   }
 
-  .govuk-footer__link {
-    @include govuk-link-common;
+  .moduk-footer__link {
+    @include moduk-link-common;
 
-    @if $govuk-use-legacy-palette {
+    @if $moduk-use-legacy-palette {
       &:link,
       &:visited {
-        color: $govuk-footer-text;
+        color: $moduk-footer-text;
       }
 
       &:hover,
       &:active {
-        color: $govuk-footer-link-hover-colour;
+        color: $moduk-footer-link-hover-colour;
       }
     } @else {
-      @include govuk-link-style-text;
+      @include moduk-link-style-text;
     }
 
     // alphagov/govuk_template includes a specific a:link:focus selector
     // designed to make unvisited links a slightly darker blue when focussed, so
     // we need to override the text colour for that combination of selectors.
-    @include _govuk-compatibility(govuk_template) {
+    @include _moduk-compatibility(govuk_template) {
       &:link:focus {
-        @include govuk-text-colour;
+        @include moduk-text-colour;
       }
     }
   }
 
-  .govuk-footer__section-break {
+  .moduk-footer__section-break {
     margin: 0; // Reset `<hr>` default margins
-    @include govuk-responsive-margin(8, "bottom");
+    @include moduk-responsive-margin(8, "bottom");
     border: 0; // Reset `<hr>` default borders
-    border-bottom: 1px solid $govuk-footer-border;
+    border-bottom: 1px solid $moduk-footer-border;
   }
 
-  .govuk-footer__meta {
+  .moduk-footer__meta {
     display: flex; // Support: Flexbox
-    margin-right: -$govuk-gutter-half;
-    margin-left: -$govuk-gutter-half;
+    margin-right: -$moduk-gutter-half;
+    margin-left: -$moduk-gutter-half;
     flex-wrap: wrap; // Support: Flexbox
     align-items: flex-end; // Support: Flexbox
     justify-content: center; // Support: Flexbox
   }
 
-  .govuk-footer__meta-item {
-    margin-right: $govuk-gutter-half;
-    margin-bottom: govuk-spacing(5);
-    margin-left: $govuk-gutter-half;
+  .moduk-footer__meta-item {
+    margin-right: $moduk-gutter-half;
+    margin-bottom: moduk-spacing(5);
+    margin-left: $moduk-gutter-half;
   }
 
-  .govuk-footer__meta-item--grow {
+  .moduk-footer__meta-item--grow {
     flex: 1; // Support: Flexbox
-    @include govuk-media-query ($until: tablet) {
+    @include moduk-media-query ($until: tablet) {
       flex-basis: 320px; // Support: Flexbox
     }
   }
 
-  .govuk-footer__licence-logo {
+  .moduk-footer__licence-logo {
     display: inline-block;
-    margin-right: govuk-spacing(2);
-    @include govuk-media-query ($until: desktop) {
-      margin-bottom: govuk-spacing(3);
+    margin-right: moduk-spacing(2);
+    @include moduk-media-query ($until: desktop) {
+      margin-bottom: moduk-spacing(3);
     }
     vertical-align: top;
     // Work around SVGs not inheriting color from parent in forced color mode
@@ -100,92 +100,92 @@
     forced-color-adjust: auto;
   }
 
-  .govuk-footer__licence-description {
+  .moduk-footer__licence-description {
     display: inline-block;
   }
 
-  .govuk-footer__copyright-logo {
+  .moduk-footer__copyright-logo {
     display: inline-block;
-    min-width: $govuk-footer-crest-image-width;
-    padding-top: ($govuk-footer-crest-image-height + govuk-spacing(2));
-    background-image: govuk-image-url("govuk-crest.png");
-    @include govuk-device-pixel-ratio {
-      background-image: govuk-image-url("govuk-crest-2x.png");
+    min-width: $moduk-footer-crest-image-width;
+    padding-top: ($moduk-footer-crest-image-height + moduk-spacing(2));
+    background-image: moduk-image-url("moduk-crest.png");
+    @include moduk-device-pixel-ratio {
+      background-image: moduk-image-url("moduk-crest-2x.png");
     }
     background-repeat: no-repeat;
     background-position: 50% 0%;
-    background-size: $govuk-footer-crest-image-width $govuk-footer-crest-image-height;
+    background-size: $moduk-footer-crest-image-width $moduk-footer-crest-image-height;
     text-align: center;
     white-space: nowrap;
   }
 
-  .govuk-footer__inline-list {
+  .moduk-footer__inline-list {
     margin-top: 0;
-    margin-bottom: govuk-spacing(3);
+    margin-bottom: moduk-spacing(3);
     padding: 0;
   }
 
-  .govuk-footer__meta-custom {
-    margin-bottom: govuk-spacing(4);
+  .moduk-footer__meta-custom {
+    margin-bottom: moduk-spacing(4);
   }
 
-  .govuk-footer__inline-list-item {
+  .moduk-footer__inline-list-item {
     display: inline-block;
-    margin-right: govuk-spacing(3);
-    margin-bottom: govuk-spacing(1);
+    margin-right: moduk-spacing(3);
+    margin-bottom: moduk-spacing(1);
   }
 
-  .govuk-footer__heading {
-    margin-bottom: govuk-spacing(6);
-    padding-bottom: govuk-spacing(4);
+  .moduk-footer__heading {
+    margin-bottom: moduk-spacing(6);
+    padding-bottom: moduk-spacing(4);
 
-    @include govuk-media-query ($until: tablet) {
-      padding-bottom: govuk-spacing(2);
+    @include moduk-media-query ($until: tablet) {
+      padding-bottom: moduk-spacing(2);
     }
-    border-bottom: 1px solid $govuk-footer-border;
+    border-bottom: 1px solid $moduk-footer-border;
   }
 
-  .govuk-footer__navigation {
-    @include govuk-clearfix;
-    margin-right: -$govuk-gutter-half;
-    margin-left: -$govuk-gutter-half;
+  .moduk-footer__navigation {
+    @include moduk-clearfix;
+    margin-right: -$moduk-gutter-half;
+    margin-left: -$moduk-gutter-half;
   }
 
-  .govuk-footer__section {
+  .moduk-footer__section {
     display: inline-block;
-    margin-bottom: $govuk-gutter;
+    margin-bottom: $moduk-gutter;
     vertical-align: top;
   }
 
-  .govuk-footer__list {
+  .moduk-footer__list {
     margin: 0;
     padding: 0;
     list-style: none;
-    column-gap: $govuk-gutter; // Support: Columns
+    column-gap: $moduk-gutter; // Support: Columns
 
     // Disable thicker underlines on hover because of a bug in Chromium
     // affecting links within columns
     // https://bugs.chromium.org/p/chromium/issues/detail?id=1190987
-    .govuk-footer__link:hover {
+    .moduk-footer__link:hover {
       text-decoration-thickness: auto;
     }
   }
 
-  @include govuk-media-query ($from: desktop) {
-    .govuk-footer__list--columns-2 {
+  @include moduk-media-query ($from: desktop) {
+    .moduk-footer__list--columns-2 {
       column-count: 2; // Support: Columns
     }
 
-    .govuk-footer__list--columns-3 {
+    .moduk-footer__list--columns-3 {
       column-count: 3; // Support: Columns
     }
   }
 
-  .govuk-footer__list-item {
-    @include govuk-responsive-margin(4, "bottom");
+  .moduk-footer__list-item {
+    @include moduk-responsive-margin(4, "bottom");
   }
 
-  .govuk-footer__list-item:last-child {
+  .moduk-footer__list-item:last-child {
     margin-bottom: 0;
   }
 }

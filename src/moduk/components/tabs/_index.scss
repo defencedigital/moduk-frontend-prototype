@@ -1,70 +1,70 @@
-@include govuk-exports("govuk/component/tabs") {
-  .govuk-tabs {
-    @include govuk-responsive-margin(1, "top");
-    @include govuk-responsive-margin(6, "bottom");
+@include moduk-exports("moduk/component/tabs") {
+  .moduk-tabs {
+    @include moduk-responsive-margin(1, "top");
+    @include moduk-responsive-margin(6, "bottom");
   }
 
-  .govuk-tabs__title {
-    @include govuk-font($size: 19);
-    @include govuk-text-colour;
-    margin-bottom: govuk-spacing(2);
+  .moduk-tabs__title {
+    @include moduk-font($size: 19);
+    @include moduk-text-colour;
+    margin-bottom: moduk-spacing(2);
   }
 
-  .govuk-tabs__list {
+  .moduk-tabs__list {
     margin: 0;
     padding: 0;
     list-style: none;
-    @include govuk-responsive-margin(6, "bottom");
+    @include moduk-responsive-margin(6, "bottom");
   }
 
-  .govuk-tabs__list-item {
-    @include govuk-font($size: 19);
-    margin-left: govuk-spacing(5);
+  .moduk-tabs__list-item {
+    @include moduk-font($size: 19);
+    margin-left: moduk-spacing(5);
 
     &:before {
-      @include govuk-text-colour;
+      @include moduk-text-colour;
       content: "\2014 "; // "— "
-      margin-left: govuk-spacing(-5);
-      padding-right: govuk-spacing(1);
+      margin-left: moduk-spacing(-5);
+      padding-right: moduk-spacing(1);
     }
   }
 
-  .govuk-tabs__tab {
-    @include govuk-link-common;
-    @include govuk-link-style-default;
+  .moduk-tabs__tab {
+    @include moduk-link-common;
+    @include moduk-link-style-default;
 
     display: inline-block;
-    margin-bottom: govuk-spacing(2);
+    margin-bottom: moduk-spacing(2);
   }
 
-  .govuk-tabs__panel {
-    @include govuk-responsive-margin(8, "bottom");
+  .moduk-tabs__panel {
+    @include moduk-responsive-margin(8, "bottom");
   }
 
   // JavaScript enabled
   .js-enabled {
 
-    @include govuk-media-query($from: tablet) {
-      .govuk-tabs__list {
-        @include govuk-clearfix;
+    @include moduk-media-query($from: tablet) {
+      .moduk-tabs__list {
+        @include moduk-clearfix;
         margin-bottom: 0;
-        border-bottom: 1px solid $govuk-border-colour;
+        border-bottom: 1px solid $moduk-border-colour;
       }
 
-      .govuk-tabs__title {
+      .moduk-tabs__title {
         display: none;
       }
 
-      .govuk-tabs__list-item {
+      .moduk-tabs__list-item {
         position: relative;
 
-        margin-right: govuk-spacing(1);
+        margin-right: moduk-spacing(1);
         margin-bottom: 0;
         margin-left: 0;
-        padding: govuk-spacing(2) govuk-spacing(4);
+        padding: moduk-spacing(2) moduk-spacing(4);
 
         float: left;
-        background-color: govuk-colour("light-grey", $legacy: "grey-4");
+        background-color: moduk-colour("light-grey", $legacy: "grey-4");
         text-align: center;
 
         &:before {
@@ -72,32 +72,32 @@
         }
       }
 
-      .govuk-tabs__list-item--selected {
+      .moduk-tabs__list-item--selected {
         $border-width: 1px;
 
         position: relative;
 
-        margin-top: govuk-spacing(-1);
+        margin-top: moduk-spacing(-1);
 
         // Compensation for border (otherwise we get a shift)
         margin-bottom: -$border-width;
-        padding-top: govuk-spacing(3) - $border-width;
-        padding-right: govuk-spacing(4) - $border-width;
-        padding-bottom: govuk-spacing(3) + $border-width;
-        padding-left: govuk-spacing(4) - $border-width;
+        padding-top: moduk-spacing(3) - $border-width;
+        padding-right: moduk-spacing(4) - $border-width;
+        padding-bottom: moduk-spacing(3) + $border-width;
+        padding-left: moduk-spacing(4) - $border-width;
 
-        border: $border-width solid $govuk-border-colour;
+        border: $border-width solid $moduk-border-colour;
         border-bottom: 0;
 
-        background-color: $govuk-body-background-colour;
+        background-color: $moduk-body-background-colour;
 
-        .govuk-tabs__tab {
+        .moduk-tabs__tab {
           text-decoration: none;
         }
       }
 
-      .govuk-tabs__tab {
-        @include govuk-link-style-text;
+      .moduk-tabs__tab {
+        @include moduk-link-style-text;
 
         margin-bottom: 0;
 
@@ -111,10 +111,10 @@
         }
       }
 
-      .govuk-tabs__panel {
-        @include govuk-responsive-margin(0, "bottom");
-        padding: govuk-spacing(6) govuk-spacing(4);
-        border: 1px solid $govuk-border-colour;
+      .moduk-tabs__panel {
+        @include moduk-responsive-margin(0, "bottom");
+        padding: moduk-spacing(6) moduk-spacing(4);
+        border: 1px solid $moduk-border-colour;
         border-top: 0;
 
         & > :last-child {
@@ -122,7 +122,7 @@
         }
       }
 
-      .govuk-tabs__panel--hidden {
+      .moduk-tabs__panel--hidden {
         display: none;
       }
     }

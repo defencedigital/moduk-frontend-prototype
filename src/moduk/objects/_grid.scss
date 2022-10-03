@@ -1,24 +1,24 @@
 @import "../base";
 
-@include govuk-exports("govuk/objects/grid") {
-  .govuk-grid-row {
-    @include govuk-clearfix;
-    margin-right: - ($govuk-gutter-half);
-    margin-left: - ($govuk-gutter-half);
+@include moduk-exports("govuk/objects/grid") {
+  .moduk-grid-row {
+    @include moduk-clearfix;
+    margin-right: - ($moduk-gutter-half);
+    margin-left: - ($moduk-gutter-half);
   }
 
-  @each $width in map-keys($govuk-grid-widths) {
-    .govuk-grid-column-#{$width} {
-      @include govuk-grid-column($width);
+  @each $width in map-keys($moduk-grid-widths) {
+    .moduk-grid-column-#{$width} {
+      @include moduk-grid-column($width);
     }
   }
 
   // These *must* be defined in a separate loop as they have the same
   // specificity as the non-breakpoint specific classes, so need to appear after
   // them in the outputted CSS
-  @each $width in map-keys($govuk-grid-widths) {
-    .govuk-grid-column-#{$width}-from-desktop {
-      @include govuk-grid-column($width, $at: desktop);
+  @each $width in map-keys($moduk-grid-widths) {
+    .moduk-grid-column-#{$width}-from-desktop {
+      @include moduk-grid-column($width, $at: desktop);
     }
   }
 }

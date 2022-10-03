@@ -1,16 +1,16 @@
-@include govuk-exports("govuk/component/warning-text") {
-  .govuk-warning-text {
+@include moduk-exports("moduk/component/warning-text") {
+  .moduk-warning-text {
     position: relative;
-    @include govuk-responsive-margin(6, "bottom");
-    padding: govuk-spacing(2) 0;
+    @include moduk-responsive-margin(6, "bottom");
+    padding: moduk-spacing(2) 0;
   }
 
-  .govuk-warning-text__assistive {
-    @include govuk-visually-hidden;
+  .moduk-warning-text__assistive {
+    @include moduk-visually-hidden;
   }
 
-  .govuk-warning-text__icon {
-    @include govuk-font($size: false, $weight: bold);
+  .moduk-warning-text__icon {
+    @include moduk-font($size: false, $weight: bold);
 
     box-sizing: border-box;
 
@@ -23,17 +23,17 @@
     min-height: 35px;
     margin-top: -7px;
 
-    @include govuk-media-query($from: tablet) {
+    @include moduk-media-query($from: tablet) {
       margin-top: -5px;
     }
 
     // When a user customises their colours the background colour will often be removed.
     // Adding a border to the component keeps it's shape as a circle.
-    border: 3px solid govuk-colour("black");
+    border: 3px solid moduk-colour("black");
     border-radius: 50%;
 
-    color: govuk-colour("white");
-    background: govuk-colour("black");
+    color: moduk-colour("white");
+    background: moduk-colour("black");
 
     font-size: 30px;
     line-height: 29px;
@@ -55,9 +55,9 @@
     }
   }
 
-  .govuk-warning-text__text {
-    @include govuk-font($size: 19, $weight: bold);
-    @include govuk-text-colour;
+  .moduk-warning-text__text {
+    @include moduk-font($size: 19, $weight: bold);
+    @include moduk-text-colour;
     display: block;
     padding-left: 45px;
   }

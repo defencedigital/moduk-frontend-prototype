@@ -1,6 +1,6 @@
 @import "../base";
 
-@include govuk-exports("govuk/objects/button-group") {
+@include moduk-exports("govuk/objects/button-group") {
   // Button groups can be used to group buttons and links together as a group.
   //
   // Within a button group:
@@ -9,17 +9,17 @@
   //   centre-aligned on mobile
   // - spacing between the buttons and links is handled automatically, including
   //   when they wrap across multiple lines
-  .govuk-button-group {
-    $horizontal-gap: govuk-spacing(3);
-    $vertical-gap: govuk-spacing(3);
+  .moduk-button-group {
+    $horizontal-gap: moduk-spacing(3);
+    $vertical-gap: moduk-spacing(3);
 
     // These need to be kept in sync with the button component's styles
-    $button-padding: govuk-spacing(2);
-    $button-shadow-size: $govuk-border-width-form-element;
+    $button-padding: moduk-spacing(2);
+    $button-shadow-size: $moduk-border-width-form-element;
 
-    $link-spacing: govuk-spacing(1);
+    $link-spacing: moduk-spacing(1);
 
-    @include govuk-responsive-margin(6, "bottom", $adjustment: $vertical-gap * -1);
+    @include moduk-responsive-margin(6, "bottom", $adjustment: $vertical-gap * -1);
 
     // Flexbox is used to center-align links on mobile, align everything along
     // the baseline on tablet and above, and to removes extra whitespace that
@@ -38,8 +38,8 @@
     //
     // Because we want the focus state to be tight around the link text, we use
     // margins where the buttons would use padding.
-    .govuk-link {
-      @include govuk-font($size: 19, $line-height: 19px);
+    .moduk-link {
+      @include moduk-font($size: 19, $line-height: 19px);
       display: inline-block;
       // Prevent links overflowing their container in IE10/11 because of bug
       // with align-items: center
@@ -51,13 +51,13 @@
 
     // Reduce the bottom margin to the size of the vertical gap (accommodating
     // the button shadow) – the 'lost' margin is moved to the button-group.
-    .govuk-button {
+    .moduk-button {
       margin-bottom: $vertical-gap + $button-shadow-size;
     }
 
     // On tablet and above, we also introduce a 'column gap' between the
     // buttons and links in each row and left align links
-    @include govuk-media-query($from: tablet) {
+    @include moduk-media-query($from: tablet) {
       // Cancel out the column gap for the last item in each row
       margin-right: ($horizontal-gap * -1);
 
@@ -65,12 +65,12 @@
       flex-wrap: wrap;
       align-items: baseline;
 
-      .govuk-button,
-      .govuk-link {
+      .moduk-button,
+      .moduk-link {
         margin-right: $horizontal-gap;
       }
 
-      .govuk-link {
+      .moduk-link {
         text-align: left;
       }
     }

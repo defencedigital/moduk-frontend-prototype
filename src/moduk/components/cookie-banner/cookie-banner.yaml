@@ -155,7 +155,7 @@ examples:
     data:
       messages:
         - headingHtml: Cookies on <span>my service</span>
-          html: <p class="govuk-body">We use cookies in <span>our service</span>.</p><p class="govuk-body">We’d like to use analytics cookies so we can understand how you use the Design System and make improvements.</p>
+          html: <p class="moduk-body">We use cookies in <span>our service</span>.</p><p class="moduk-body">We’d like to use analytics cookies so we can understand how you use the Design System and make improvements.</p>
           actions:
             - text: Accept analytics cookies
               type: submit
@@ -184,7 +184,7 @@ examples:
     hidden: true
     data:
       messages:
-        - html: <p class="govuk-body">We use cookies in <span>our service</span>.</p>
+        - html: <p class="moduk-body">We use cookies in <span>our service</span>.</p>
   - name: classes
     hidden: true
     data:

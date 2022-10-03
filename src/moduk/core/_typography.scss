@@ -1,144 +1,144 @@
-@include govuk-exports("govuk/core/typography") {
+@include moduk-exports("moduk/core/typography") {
 
   // Headings
 
-  %govuk-heading-xl {
-    @include govuk-text-colour;
-    @include govuk-font($size: 48, $weight: bold);
+  %moduk-heading-xl {
+    @include moduk-text-colour;
+    @include moduk-font($size: 48, $weight: bold);
 
     display: block;
 
     margin-top: 0;
-    @include govuk-responsive-margin(8, "bottom");
+    @include moduk-responsive-margin(8, "bottom");
   }
 
-  .govuk-heading-xl {
-    @extend %govuk-heading-xl;
+  .moduk-heading-xl {
+    @extend %moduk-heading-xl;
   }
 
-  %govuk-heading-l {
-    @include govuk-text-colour;
-    @include govuk-font($size: 36, $weight: bold);
+  %moduk-heading-l {
+    @include moduk-text-colour;
+    @include moduk-font($size: 36, $weight: bold);
 
     display: block;
 
     margin-top: 0;
-    @include govuk-responsive-margin(6, "bottom");
+    @include moduk-responsive-margin(6, "bottom");
   }
 
-  .govuk-heading-l {
-    @extend %govuk-heading-l;
+  .moduk-heading-l {
+    @extend %moduk-heading-l;
   }
 
-  %govuk-heading-m {
-    @include govuk-text-colour;
-    @include govuk-font($size: 24, $weight: bold);
+  %moduk-heading-m {
+    @include moduk-text-colour;
+    @include moduk-font($size: 24, $weight: bold);
 
     display: block;
 
     margin-top: 0;
-    @include govuk-responsive-margin(4, "bottom");
+    @include moduk-responsive-margin(4, "bottom");
   }
 
-  .govuk-heading-m {
-    @extend %govuk-heading-m;
+  .moduk-heading-m {
+    @extend %moduk-heading-m;
   }
 
-  %govuk-heading-s {
-    @include govuk-text-colour;
-    @include govuk-font($size: 19, $weight: bold);
+  %moduk-heading-s {
+    @include moduk-text-colour;
+    @include moduk-font($size: 19, $weight: bold);
 
     display: block;
 
     margin-top: 0;
-    @include govuk-responsive-margin(4, "bottom");
+    @include moduk-responsive-margin(4, "bottom");
   }
 
-  .govuk-heading-s {
-    @extend %govuk-heading-s;
+  .moduk-heading-s {
+    @extend %moduk-heading-s;
   }
 
   // Captions to be used inside headings
 
-  .govuk-caption-xl {
-    @include govuk-font($size: 27);
+  .moduk-caption-xl {
+    @include moduk-font($size: 27);
 
     display: block;
 
-    margin-bottom: govuk-spacing(1);
+    margin-bottom: moduk-spacing(1);
 
-    color: $govuk-secondary-text-colour;
+    color: $moduk-secondary-text-colour;
   }
 
-  .govuk-caption-l {
-    @include govuk-font($size: 24);
+  .moduk-caption-l {
+    @include moduk-font($size: 24);
 
     display: block;
 
-    margin-bottom: govuk-spacing(1);
-    color: $govuk-secondary-text-colour;
+    margin-bottom: moduk-spacing(1);
+    color: $moduk-secondary-text-colour;
 
-    @include govuk-media-query($from: tablet) {
+    @include moduk-media-query($from: tablet) {
       margin-bottom: 0;
     }
   }
 
-  .govuk-caption-m {
-    @include govuk-font($size: 19);
+  .moduk-caption-m {
+    @include moduk-font($size: 19);
 
     display: block;
 
-    color: $govuk-secondary-text-colour;
+    color: $moduk-secondary-text-colour;
   }
 
   // Body (paragraphs)
 
-  %govuk-body-l {
-    @include govuk-text-colour;
-    @include govuk-font($size: 24);
+  %moduk-body-l {
+    @include moduk-text-colour;
+    @include moduk-font($size: 24);
 
     margin-top: 0;
-    @include govuk-responsive-margin(6, "bottom");
+    @include moduk-responsive-margin(6, "bottom");
   }
 
-  .govuk-body-l {
-    @extend %govuk-body-l;
+  .moduk-body-l {
+    @extend %moduk-body-l;
   }
 
-  %govuk-body-m {
-    @include govuk-text-colour;
-    @include govuk-font($size: 19);
+  %moduk-body-m {
+    @include moduk-text-colour;
+    @include moduk-font($size: 19);
 
     margin-top: 0;
-    @include govuk-responsive-margin(4, "bottom");
+    @include moduk-responsive-margin(4, "bottom");
   }
 
-  .govuk-body-m {
-    @extend %govuk-body-m;
+  .moduk-body-m {
+    @extend %moduk-body-m;
   }
 
-  %govuk-body-s {
-    @include govuk-text-colour;
-    @include govuk-font($size: 16);
+  %moduk-body-s {
+    @include moduk-text-colour;
+    @include moduk-font($size: 16);
 
     margin-top: 0;
-    @include govuk-responsive-margin(4, "bottom");
+    @include moduk-responsive-margin(4, "bottom");
   }
 
-  .govuk-body-s {
-    @extend %govuk-body-s;
+  .moduk-body-s {
+    @extend %moduk-body-s;
   }
 
-  %govuk-body-xs {
-    @include govuk-text-colour;
-    @include govuk-font($size: 14);
+  %moduk-body-xs {
+    @include moduk-text-colour;
+    @include moduk-font($size: 14);
 
     margin-top: 0;
-    @include govuk-responsive-margin(4, "bottom");
+    @include moduk-responsive-margin(4, "bottom");
   }
 
-  .govuk-body-xs {
-    @extend %govuk-body-xs;
+  .moduk-body-xs {
+    @extend %moduk-body-xs;
   }
 
   // Usage aliases
@@ -146,41 +146,41 @@
   // Using extend to alias means we also inherit any contextual adjustments that
   // refer to the 'original' class name
 
-  .govuk-body-lead {
-    @extend %govuk-body-l;
+  .moduk-body-lead {
+    @extend %moduk-body-l;
   }
 
-  .govuk-body {
-    @extend %govuk-body-m;
+  .moduk-body {
+    @extend %moduk-body-m;
   }
 
   // Contextual adjustments
   // Add top padding to headings that appear directly after paragraphs.
 
-  %govuk-body-l  + %govuk-heading-l {
-    padding-top: govuk-spacing(1);
+  %moduk-body-l  + %moduk-heading-l {
+    padding-top: moduk-spacing(1);
 
-    @include govuk-media-query($from: tablet) {
-      padding-top: govuk-spacing(2);
+    @include moduk-media-query($from: tablet) {
+      padding-top: moduk-spacing(2);
     }
   }
 
-  %govuk-body-m  + %govuk-heading-l,
-  %govuk-body-s  + %govuk-heading-l,
-  %govuk-list + %govuk-heading-l {
-    @include govuk-responsive-padding(4, "top");
+  %moduk-body-m  + %moduk-heading-l,
+  %moduk-body-s  + %moduk-heading-l,
+  %moduk-list + %moduk-heading-l {
+    @include moduk-responsive-padding(4, "top");
   }
 
-  %govuk-body-m + %govuk-heading-m,
-  %govuk-body-s + %govuk-heading-m,
-  %govuk-list + %govuk-heading-m,
-  %govuk-body-m + %govuk-heading-s,
-  %govuk-body-s + %govuk-heading-s,
-  %govuk-list + %govuk-heading-s {
-    padding-top: govuk-spacing(1);
+  %moduk-body-m + %moduk-heading-m,
+  %moduk-body-s + %moduk-heading-m,
+  %moduk-list + %moduk-heading-m,
+  %moduk-body-m + %moduk-heading-s,
+  %moduk-body-s + %moduk-heading-s,
+  %moduk-list + %moduk-heading-s {
+    padding-top: moduk-spacing(1);
 
-    @include govuk-media-query($from: tablet) {
-      padding-top: govuk-spacing(2);
+    @include moduk-media-query($from: tablet) {
+      padding-top: moduk-spacing(2);
     }
   }
 }

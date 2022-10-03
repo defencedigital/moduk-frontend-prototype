@@ -1,35 +1,35 @@
-@include govuk-exports("govuk/core/links") {
+@include moduk-exports("moduk/core/links") {
 
-  %govuk-link {
-    @include govuk-link-common;
-    @include govuk-link-style-default;
-    @include govuk-link-print-friendly;
+  %moduk-link {
+    @include moduk-link-common;
+    @include moduk-link-style-default;
+    @include moduk-link-print-friendly;
   }
 
-  .govuk-link {
-    @extend %govuk-link;
+  .moduk-link {
+    @extend %moduk-link;
   }
 
-  // Variant classes should always be used in conjunction with the .govuk-link
+  // Variant classes should always be used in conjunction with the .moduk-link
   // class, so we do not need the common link styles as they will be inherited.
 
-  .govuk-link--muted {
-    @include govuk-link-style-muted;
+  .moduk-link--muted {
+    @include moduk-link-style-muted;
   }
 
-  .govuk-link--text-colour {
-    @include govuk-link-style-text;
+  .moduk-link--text-colour {
+    @include moduk-link-style-text;
   }
 
-  .govuk-link--inverse {
-    @include govuk-link-style-inverse;
+  .moduk-link--inverse {
+    @include moduk-link-style-inverse;
   }
 
-  .govuk-link--no-underline {
-    @include govuk-link-style-no-underline;
+  .moduk-link--no-underline {
+    @include moduk-link-style-no-underline;
   }
 
-  .govuk-link--no-visited-state {
-    @include govuk-link-style-no-visited-state;
+  .moduk-link--no-visited-state {
+    @include moduk-link-style-no-visited-state;
   }
 }

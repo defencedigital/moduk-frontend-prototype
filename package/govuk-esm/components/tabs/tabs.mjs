@@ -7,7 +7,7 @@ import { nodeListForEach } from '../../common.mjs'
 
 function Tabs ($module) {
   this.$module = $module
-  this.$tabs = $module.querySelectorAll('.govuk-tabs__tab')
+  this.$tabs = $module.querySelectorAll('.moduk-tabs__tab')
 
   this.keys = { left: 37, right: 39, up: 38, down: 40 }
   this.jsHiddenClass = 'govuk-tabs__panel--hidden'
@@ -38,8 +38,8 @@ Tabs.prototype.checkMode = function () {
 Tabs.prototype.setup = function () {
   var $module = this.$module
   var $tabs = this.$tabs
-  var $tabList = $module.querySelector('.govuk-tabs__list')
-  var $tabListItems = $module.querySelectorAll('.govuk-tabs__list-item')
+  var $tabList = $module.querySelector('.moduk-tabs__list')
+  var $tabListItems = $module.querySelectorAll('.moduk-tabs__list-item')
 
   if (!$tabs || !$tabList || !$tabListItems) {
     return
@@ -79,8 +79,8 @@ Tabs.prototype.setup = function () {
 Tabs.prototype.teardown = function () {
   var $module = this.$module
   var $tabs = this.$tabs
-  var $tabList = $module.querySelector('.govuk-tabs__list')
-  var $tabListItems = $module.querySelectorAll('.govuk-tabs__list-item')
+  var $tabList = $module.querySelector('.moduk-tabs__list')
+  var $tabListItems = $module.querySelectorAll('.moduk-tabs__list-item')
 
   if (!$tabs || !$tabList || !$tabListItems) {
     return
@@ -137,7 +137,7 @@ Tabs.prototype.showTab = function ($tab) {
 }
 
 Tabs.prototype.getTab = function (hash) {
-  return this.$module.querySelector('.govuk-tabs__tab[href="' + hash + '"]')
+  return this.$module.querySelector('.moduk-tabs__tab[href="' + hash + '"]')
 }
 
 Tabs.prototype.setAttributes = function ($tab) {
@@ -215,7 +215,7 @@ Tabs.prototype.activateNextTab = function () {
   var currentTab = this.getCurrentTab()
   var nextTabListItem = currentTab.parentNode.nextElementSibling
   if (nextTabListItem) {
-    var nextTab = nextTabListItem.querySelector('.govuk-tabs__tab')
+    var nextTab = nextTabListItem.querySelector('.moduk-tabs__tab')
   }
   if (nextTab) {
     this.hideTab(currentTab)
@@ -229,7 +229,7 @@ Tabs.prototype.activatePreviousTab = function () {
   var currentTab = this.getCurrentTab()
   var previousTabListItem = currentTab.parentNode.previousElementSibling
   if (previousTabListItem) {
-    var previousTab = previousTabListItem.querySelector('.govuk-tabs__tab')
+    var previousTab = previousTabListItem.querySelector('.moduk-tabs__tab')
   }
   if (previousTab) {
     this.hideTab(currentTab)
@@ -267,7 +267,7 @@ Tabs.prototype.highlightTab = function ($tab) {
 }
 
 Tabs.prototype.getCurrentTab = function () {
-  return this.$module.querySelector('.govuk-tabs__list-item--selected .govuk-tabs__tab')
+  return this.$module.querySelector('.moduk-tabs__list-item--selected .moduk-tabs__tab')
 }
 
 // this is because IE doesn't always return the actual value but a relative full path

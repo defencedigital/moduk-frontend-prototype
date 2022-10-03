@@ -18,7 +18,7 @@ describe('Tag', () => {
     it('renders the default example with strong element and text', () => {
       const $ = render('tag', examples.default)
 
-      const $component = $('.govuk-tag')
+      const $component = $('.moduk-tag')
       expect($component.get(0).tagName).toEqual('strong')
       expect($component.text()).toContain('alpha')
     })
@@ -26,8 +26,8 @@ describe('Tag', () => {
     it('renders classes', () => {
       const $ = render('tag', examples.inactive)
 
-      const $component = $('.govuk-tag')
-      expect($component.hasClass('govuk-tag--grey')).toBeTruthy()
+      const $component = $('.moduk-tag')
+      expect($component.hasClass('moduk-tag--grey')).toBeTruthy()
     })
   })
 
@@ -35,14 +35,14 @@ describe('Tag', () => {
     it('renders custom text', () => {
       const $ = render('tag', examples.grey)
 
-      const $component = $('.govuk-tag')
+      const $component = $('.moduk-tag')
       expect($component.html()).toContain('Grey')
     })
 
     it('renders attributes', () => {
       const $ = render('tag', examples.attributes)
 
-      const $component = $('.govuk-tag')
+      const $component = $('.moduk-tag')
       expect($component.attr('data-test')).toEqual('attribute')
       expect($component.attr('id')).toEqual('my-tag')
     })
@@ -52,14 +52,14 @@ describe('Tag', () => {
     it('renders escaped html when passed to text', () => {
       const $ = render('tag', examples['html as text'])
 
-      const $component = $('.govuk-tag')
+      const $component = $('.moduk-tag')
       expect($component.html()).toContain('&lt;span&gt;alpha&lt;/span&gt;')
     })
 
     it('renders html', () => {
       const $ = render('tag', examples.html)
 
-      const $component = $('.govuk-tag')
+      const $component = $('.moduk-tag')
       expect($component.html()).toContain('<span>alpha</span>')
     })
   })

@@ -6,7 +6,7 @@ import { mergeConfigs, normaliseDataset } from '../../common.mjs'
 /**
  * JavaScript enhancements for the CharacterCount component
  *
- * Tracks the number of characters or words in the `.govuk-js-character-count`
+ * Tracks the number of characters or words in the `.moduk-js-character-count`
  * `<textarea>` inside the element. Displays a message with the remaining number
  * of characters/words available, or the number of characters/words in excess.
  *
@@ -67,7 +67,7 @@ function CharacterCount ($module, config) {
   }
 
   this.$module = $module
-  this.$textarea = $module.querySelector('.govuk-js-character-count')
+  this.$textarea = $module.querySelector('.moduk-js-character-count')
   this.$visibleCountMessage = null
   this.$screenReaderCountMessage = null
   this.lastInputTimestamp = null
@@ -92,7 +92,7 @@ CharacterCount.prototype.init = function () {
   // Create the *screen reader* specific live-updating counter
   // This doesn't need any styling classes, as it is never visible
   var $screenReaderCountMessage = document.createElement('div')
-  $screenReaderCountMessage.className = 'govuk-character-count__sr-status govuk-visually-hidden'
+  $screenReaderCountMessage.className = 'moduk-character-count__sr-status moduk-visually-hidden'
   $screenReaderCountMessage.setAttribute('aria-live', 'polite')
   this.$screenReaderCountMessage = $screenReaderCountMessage
   $fallbackLimitMessage.insertAdjacentElement('afterend', $screenReaderCountMessage)
@@ -102,13 +102,13 @@ CharacterCount.prototype.init = function () {
   // configured
   var $visibleCountMessage = document.createElement('div')
   $visibleCountMessage.className = $fallbackLimitMessage.className
-  $visibleCountMessage.classList.add('govuk-character-count__status')
+  $visibleCountMessage.classList.add('moduk-character-count__status')
   $visibleCountMessage.setAttribute('aria-hidden', 'true')
   this.$visibleCountMessage = $visibleCountMessage
   $fallbackLimitMessage.insertAdjacentElement('afterend', $visibleCountMessage)
 
   // Hide the fallback limit message
-  $fallbackLimitMessage.classList.add('govuk-visually-hidden')
+  $fallbackLimitMessage.classList.add('moduk-visually-hidden')
 
   // Remove hard limit if set
   $textarea.removeAttribute('maxlength')
@@ -217,20 +217,20 @@ CharacterCount.prototype.updateVisibleCountMessage = function () {
   // If input is over the threshold, remove the disabled class which renders the
   // counter invisible.
   if (this.isOverThreshold()) {
-    $visibleCountMessage.classList.remove('govuk-character-count__message--disabled')
+    $visibleCountMessage.classList.remove('moduk-character-count__message--disabled')
   } else {
-    $visibleCountMessage.classList.add('govuk-character-count__message--disabled')
+    $visibleCountMessage.classList.add('moduk-character-count__message--disabled')
   }
 
   // Update styles
   if (remainingNumber < 0) {
-    $textarea.classList.add('govuk-textarea--error')
-    $visibleCountMessage.classList.remove('govuk-hint')
-    $visibleCountMessage.classList.add('govuk-error-message')
+    $textarea.classList.add('moduk-textarea--error')
+    $visibleCountMessage.classList.remove('moduk-hint')
+    $visibleCountMessage.classList.add('moduk-error-message')
   } else {
-    $textarea.classList.remove('govuk-textarea--error')
-    $visibleCountMessage.classList.remove('govuk-error-message')
-    $visibleCountMessage.classList.add('govuk-hint')
+    $textarea.classList.remove('moduk-textarea--error')
+    $visibleCountMessage.classList.remove('moduk-error-message')
+    $visibleCountMessage.classList.add('moduk-hint')
   }
 
   // Update message

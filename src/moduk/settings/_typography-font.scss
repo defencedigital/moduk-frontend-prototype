@@ -16,23 +16,23 @@
 /// @deprecated Will be removed in v5.0 with the rest of the compatibility mode
 /// suite of tools and settings
 
-$govuk-use-legacy-font: if(
+$moduk-use-legacy-font: if(
   (
-    $govuk-compatibility-govukfrontendtoolkit or
-    $govuk-compatibility-govuktemplate or
-    $govuk-compatibility-govukelements
+    $moduk-compatibility-govukfrontendtoolkit or
+    $moduk-compatibility-govuktemplate or
+    $moduk-compatibility-govukelements
   ),
   true,
   false
 ) !default;
 
-// Only show the deprecation warning if user is setting $govuk-use-legacy-font
+// Only show the deprecation warning if user is setting $moduk-use-legacy-font
 // manually instead of automatically via compatibility variables
-@if $govuk-use-legacy-font == true and
-  $govuk-compatibility-govukfrontendtoolkit == false and
-  $govuk-compatibility-govuktemplate == false and
-  $govuk-compatibility-govukelements == false {
-  @warn "$govuk-use-legacy-font is deprecated. " +
+@if $moduk-use-legacy-font == true and
+  $moduk-compatibility-govukfrontendtoolkit == false and
+  $moduk-compatibility-govuktemplate == false and
+  $moduk-compatibility-govukelements == false {
+  @warn "$moduk-use-legacy-font is deprecated. " +
     "From version 5.0, GOV.UK Frontend will only support the included version " +
     "of GDS Transport";
 }
@@ -46,10 +46,10 @@ $govuk-use-legacy-font: if(
 /// @type List
 /// @access public
 
-$govuk-font-family: if(
-  $govuk-use-legacy-font,
-  $govuk-font-family-nta,
-  $govuk-font-family-gds-transport
+$moduk-font-family: if(
+  $moduk-use-legacy-font,
+  $moduk-font-family-nta,
+  $moduk-font-family-gds-transport
 ) !default;
 
 /// Font families to use when displaying tabular numbers
@@ -59,16 +59,16 @@ $govuk-font-family: if(
 /// @deprecated Will be removed in v5.0 with the rest of the compatibility mode
 /// suite of tools and settings
 
-$govuk-font-family-tabular: if(
-  $govuk-use-legacy-font,
-  $govuk-font-family-nta-tabular,
+$moduk-font-family-tabular: if(
+  $moduk-use-legacy-font,
+  $moduk-font-family-nta-tabular,
   false
 ) !default;
 
-// Only show the deprecation warning if user is setting $govuk-font-family-tabular
-// manually instead of automatically via $govuk-use-legacy-font
-@if $govuk-font-family-tabular != false and $govuk-use-legacy-font == false {
-  @warn "$govuk-font-family-tabular is deprecated. " +
+// Only show the deprecation warning if user is setting $moduk-font-family-tabular
+// manually instead of automatically via $moduk-use-legacy-font
+@if $moduk-font-family-tabular != false and $moduk-use-legacy-font == false {
+  @warn "$moduk-font-family-tabular is deprecated. " +
     "From version 5.0, GOV.UK Frontend will not support using a separate " +
     "font-face for tabular numbers";
 }
@@ -81,18 +81,18 @@ $govuk-font-family-tabular: if(
 /// @type List
 /// @access public
 
-$govuk-font-family-print: sans-serif !default;
+$moduk-font-family-print: sans-serif !default;
 
 /// Include the default @font-face declarations
 ///
-/// If you have set $govuk-font-family to something other than
-/// `$govuk-font-family-gds-transport` this option is disabled by default.
+/// If you have set $moduk-font-family to something other than
+/// `$moduk-font-family-gds-transport` this option is disabled by default.
 ///
 /// @type Boolean
 /// @access public
 
-$govuk-include-default-font-face: (
-  $govuk-font-family == $govuk-font-family-gds-transport
+$moduk-include-default-font-face: (
+  $moduk-font-family == $moduk-font-family-gds-transport
 ) !default;
 
 // =========================================================
@@ -103,10 +103,10 @@ $govuk-include-default-font-face: (
 ///
 /// @type Number
 /// @access public
-$govuk-font-weight-regular: 400 !default;
+$moduk-font-weight-regular: 400 !default;
 
 /// Font weight for bold typography
 ///
 /// @type Number
 /// @access public
-$govuk-font-weight-bold: 700 !default;
+$moduk-font-weight-bold: 700 !default;

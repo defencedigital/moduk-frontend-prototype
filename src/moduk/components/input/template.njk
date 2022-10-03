@@ -5,7 +5,7 @@
 {#- a record of other elements that we need to associate with the input using
    aria-describedby – for example hints or error messages -#}
 {% set describedBy = params.describedBy if params.describedBy else "" %}
-<div class="govuk-form-group {%- if params.errorMessage %} govuk-form-group--error{% endif %} {%- if params.formGroup.classes %} {{ params.formGroup.classes }}{% endif %}">
+<div class="moduk-form-group {%- if params.errorMessage %} moduk-form-group--error{% endif %} {%- if params.formGroup.classes %} {{ params.formGroup.classes }}{% endif %}">
   {{ govukLabel({
     html: params.label.html,
     text: params.label.text,
@@ -38,15 +38,15 @@
   }) | indent(2) | trim }}
 {% endif %}
 
-  {%- if params.prefix or params.suffix %}<div class="govuk-input__wrapper">{% endif -%}
+  {%- if params.prefix or params.suffix %}<div class="moduk-input__wrapper">{% endif -%}
 
   {%- if params.prefix.text or params.prefix.html -%}
-    <div class="govuk-input__prefix {{- ' ' + params.prefix.classes if params.prefix.classes }}" aria-hidden="true" {%- for attribute, value in params.prefix.attributes %} {{attribute}}="{{value}}"{% endfor %}>
+    <div class="moduk-input__prefix {{- ' ' + params.prefix.classes if params.prefix.classes }}" aria-hidden="true" {%- for attribute, value in params.prefix.attributes %} {{attribute}}="{{value}}"{% endfor %}>
       {{- params.prefix.html | safe if params.prefix.html else params.prefix.text -}}
     </div>
   {% endif -%}
 
-  <input class="govuk-input {%- if params.classes %} {{ params.classes }}{% endif %} {%- if params.errorMessage %} govuk-input--error{% endif %}" id="{{ params.id }}" name="{{ params.name }}" type="{{ params.type | default('text') }}"
+  <input class="moduk-input {%- if params.classes %} {{ params.classes }}{% endif %} {%- if params.errorMessage %} moduk-input--error{% endif %}" id="{{ params.id }}" name="{{ params.name }}" type="{{ params.type | default('text') }}"
   {%- if (params.spellcheck === false) or (params.spellcheck === true) %} spellcheck="{{ params.spellcheck }}"{% endif %}
   {%- if params.value %} value="{{ params.value}}"{% endif %}
   {%- if describedBy %} aria-describedby="{{ describedBy }}"{% endif %}
@@ -56,7 +56,7 @@
   {%- for attribute, value in params.attributes %} {{ attribute }}="{{ value }}"{% endfor -%}>
 
   {%- if params.suffix.text or params.suffix.html -%}
-    <div class="govuk-input__suffix {{- ' ' + params.suffix.classes if params.suffix.classes }}" aria-hidden="true" {%- for attribute, value in params.suffix.attributes %} {{attribute}}="{{value}}"{% endfor %}>
+    <div class="moduk-input__suffix {{- ' ' + params.suffix.classes if params.suffix.classes }}" aria-hidden="true" {%- for attribute, value in params.suffix.attributes %} {{attribute}}="{{value}}"{% endfor %}>
       {{- params.suffix.html | safe if params.suffix.html else params.suffix.text -}}
     </div>
   {% endif -%}

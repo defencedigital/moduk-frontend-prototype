@@ -1054,6 +1054,72 @@ if (detect) return
 })
 .call('object' === typeof window && window || 'object' === typeof self && self || 'object' === typeof global && global || {});
 
+(function(undefined) {
+
+  // Detection from https://raw.githubusercontent.com/Financial-Times/polyfill-library/13cf7c340974d128d557580b5e2dafcd1b1192d1/polyfills/Element/prototype/dataset/detect.js
+  var detect = (function(){
+    if (!document.documentElement.dataset) {
+      return false;
+    }
+    var el = document.createElement('div');
+    el.setAttribute("data-a-b", "c");
+    return el.dataset && el.dataset.aB == "c";
+  }());
+
+  if (detect) return
+
+  // Polyfill derived from  https://raw.githubusercontent.com/Financial-Times/polyfill-library/13cf7c340974d128d557580b5e2dafcd1b1192d1/polyfills/Element/prototype/dataset/polyfill.js
+  Object.defineProperty(Element.prototype, 'dataset', {
+    get: function() {
+      var element = this;
+      var attributes = this.attributes;
+      var map = {};
+  
+      for (var i = 0; i < attributes.length; i++) {
+        var attribute = attributes[i];
+  
+        // This regex has been edited from the original polyfill, to add
+        // support for period (.) separators in data-* attribute names. These
+        // are allowed in the HTML spec, but were not covered by the original
+        // polyfill's regex. We use periods in our i18n implementation.
+        if (attribute && attribute.name && (/^data-\w[.\w-]*$/).test(attribute.name)) {
+          var name = attribute.name;
+          var value = attribute.value;
+  
+          var propName = name.substr(5).replace(/-./g, function (prop) {
+            return prop.charAt(1).toUpperCase();
+          });
+          
+          // If this browser supports __defineGetter__ and __defineSetter__,
+          // continue using defineProperty. If not (like IE 8 and below), we use
+          // a hacky fallback which at least gives an object in the right format
+          if ('__defineGetter__' in Object.prototype && '__defineSetter__' in Object.prototype) {
+            Object.defineProperty(map, propName, {
+              enumerable: true,
+              get: function() {
+                return this.value;
+              }.bind({value: value || ''}),
+              set: function setter(name, value) {
+                if (typeof value !== 'undefined') {
+                  this.setAttribute(name, value);
+                } else {
+                  this.removeAttribute(name);
+                }
+              }.bind(element, name)
+            });
+          } else {
+            map[propName] = value;
+          }
+
+        }
+      }
+  
+      return map;
+    }
+  });
+
+}).call('object' === typeof window && window || 'object' === typeof self && self || 'object' === typeof global && global || {});
+
 /**
  * TODO: Ideally this would be a NodeList.prototype.forEach polyfill
  * This seems to fail in IE8, requires more investigation.
@@ -1070,7 +1136,7 @@ function nodeListForEach (nodes, callback) {
 
 function Tabs ($module) {
   this.$module = $module;
-  this.$tabs = $module.querySelectorAll('.govuk-tabs__tab');
+  this.$tabs = $module.querySelectorAll('.moduk-tabs__tab');
 
   this.keys = { left: 37, right: 39, up: 38, down: 40 };
   this.jsHiddenClass = 'govuk-tabs__panel--hidden';
@@ -1101,8 +1167,8 @@ Tabs.prototype.checkMode = function () {
 Tabs.prototype.setup = function () {
   var $module = this.$module;
   var $tabs = this.$tabs;
-  var $tabList = $module.querySelector('.govuk-tabs__list');
-  var $tabListItems = $module.querySelectorAll('.govuk-tabs__list-item');
+  var $tabList = $module.querySelector('.moduk-tabs__list');
+  var $tabListItems = $module.querySelectorAll('.moduk-tabs__list-item');
 
   if (!$tabs || !$tabList || !$tabListItems) {
     return
@@ -1142,8 +1208,8 @@ Tabs.prototype.setup = function () {
 Tabs.prototype.teardown = function () {
   var $module = this.$module;
   var $tabs = this.$tabs;
-  var $tabList = $module.querySelector('.govuk-tabs__list');
-  var $tabListItems = $module.querySelectorAll('.govuk-tabs__list-item');
+  var $tabList = $module.querySelector('.moduk-tabs__list');
+  var $tabListItems = $module.querySelectorAll('.moduk-tabs__list-item');
 
   if (!$tabs || !$tabList || !$tabListItems) {
     return
@@ -1200,7 +1266,7 @@ Tabs.prototype.showTab = function ($tab) {
 };
 
 Tabs.prototype.getTab = function (hash) {
-  return this.$module.querySelector('.govuk-tabs__tab[href="' + hash + '"]')
+  return this.$module.querySelector('.moduk-tabs__tab[href="' + hash + '"]')
 };
 
 Tabs.prototype.setAttributes = function ($tab) {
@@ -1278,7 +1344,7 @@ Tabs.prototype.activateNextTab = function () {
   var currentTab = this.getCurrentTab();
   var nextTabListItem = currentTab.parentNode.nextElementSibling;
   if (nextTabListItem) {
-    var nextTab = nextTabListItem.querySelector('.govuk-tabs__tab');
+    var nextTab = nextTabListItem.querySelector('.moduk-tabs__tab');
   }
   if (nextTab) {
     this.hideTab(currentTab);
@@ -1292,7 +1358,7 @@ Tabs.prototype.activatePreviousTab = function () {
   var currentTab = this.getCurrentTab();
   var previousTabListItem = currentTab.parentNode.previousElementSibling;
   if (previousTabListItem) {
-    var previousTab = previousTabListItem.querySelector('.govuk-tabs__tab');
+    var previousTab = previousTabListItem.querySelector('.moduk-tabs__tab');
   }
   if (previousTab) {
     this.hideTab(currentTab);
@@ -1330,7 +1396,7 @@ Tabs.prototype.highlightTab = function ($tab) {
 };
 
 Tabs.prototype.getCurrentTab = function () {
-  return this.$module.querySelector('.govuk-tabs__list-item--selected .govuk-tabs__tab')
+  return this.$module.querySelector('.moduk-tabs__list-item--selected .moduk-tabs__tab')
 };
 
 // this is because IE doesn't always return the actual value but a relative full path

@@ -1,23 +1,23 @@
 // stylelint-disable declaration-no-important
-@include govuk-exports("govuk/overrides/display") {
-  .govuk-\!-display-inline {
+@include moduk-exports("govuk/overrides/display") {
+  .moduk-\!-display-inline {
     display: inline !important;
   }
 
-  .govuk-\!-display-inline-block {
+  .moduk-\!-display-inline-block {
     display: inline-block !important;
   }
 
-  .govuk-\!-display-block {
+  .moduk-\!-display-block {
     display: block !important;
   }
 
-  .govuk-\!-display-none {
+  .moduk-\!-display-none {
     display: none !important;
   }
 
-  @include govuk-media-query($media-type: print) {
-    .govuk-\!-display-none-print {
+  @include moduk-media-query($media-type: print) {
+    .moduk-\!-display-none-print {
       display: none !important;
     }
   }

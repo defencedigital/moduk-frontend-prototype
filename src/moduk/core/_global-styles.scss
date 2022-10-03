@@ -1,19 +1,19 @@
 @import "links";
 @import "typography";
 
-@mixin govuk-global-styles {
+@mixin moduk-global-styles {
   a {
-    @extend %govuk-link;
+    @extend %moduk-link;
   }
 
   p {
-    @extend %govuk-body-m;
+    @extend %moduk-body-m;
   }
 }
 
-@include govuk-exports("govuk/core/global-styles") {
+@include moduk-exports("moduk/core/global-styles") {
 
-  @if $govuk-global-styles == true {
-    @include govuk-global-styles;
+  @if $moduk-global-styles == true {
+    @include moduk-global-styles;
   }
 }

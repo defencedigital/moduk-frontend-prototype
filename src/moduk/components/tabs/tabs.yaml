@@ -62,30 +62,30 @@ examples:
           id: past-day
           panel:
             html: |
-              <h2 class="govuk-heading-l">Past day</h2>
-              <table class="govuk-table">
-                <thead class="govuk-table__head">
-                  <tr class="govuk-table__row">
-                    <th class="govuk-table__header" scope="col">Case manager</th>
-                    <th class="govuk-table__header" scope="col">Cases opened</th>
-                    <th class="govuk-table__header" scope="col">Cases closed</th>
+              <h2 class="moduk-heading-l">Past day</h2>
+              <table class="moduk-table">
+                <thead class="moduk-table__head">
+                  <tr class="moduk-table__row">
+                    <th class="moduk-table__header" scope="col">Case manager</th>
+                    <th class="moduk-table__header" scope="col">Cases opened</th>
+                    <th class="moduk-table__header" scope="col">Cases closed</th>
                   </tr>
                 </thead>
-                <tbody class="govuk-table__body">
-                  <tr class="govuk-table__row">
-                    <td class="govuk-table__cell">David Francis</td>
-                    <td class="govuk-table__cell">3</td>
-                    <td class="govuk-table__cell">0</td>
+                <tbody class="moduk-table__body">
+                  <tr class="moduk-table__row">
+                    <td class="moduk-table__cell">David Francis</td>
+                    <td class="moduk-table__cell">3</td>
+                    <td class="moduk-table__cell">0</td>
                   </tr>
-                  <tr class="govuk-table__row">
-                    <td class="govuk-table__cell">Paul Farmer</td>
-                    <td class="govuk-table__cell">1</td>
-                    <td class="govuk-table__cell">0</td>
+                  <tr class="moduk-table__row">
+                    <td class="moduk-table__cell">Paul Farmer</td>
+                    <td class="moduk-table__cell">1</td>
+                    <td class="moduk-table__cell">0</td>
                   </tr>
-                  <tr class="govuk-table__row">
-                    <td class="govuk-table__cell">Rita Patel</td>
-                    <td class="govuk-table__cell">2</td>
-                    <td class="govuk-table__cell">0</td>
+                  <tr class="moduk-table__row">
+                    <td class="moduk-table__cell">Rita Patel</td>
+                    <td class="moduk-table__cell">2</td>
+                    <td class="moduk-table__cell">0</td>
                   </tr>
                 </tbody>
               </table>
@@ -93,30 +93,30 @@ examples:
           id: past-week
           panel:
             html: |
-              <h2 class="govuk-heading-l">Past week</h2>
-              <table class="govuk-table">
-                <thead class="govuk-table__head">
-                  <tr class="govuk-table__row">
-                    <th class="govuk-table__header" scope="col">Case manager</th>
-                    <th class="govuk-table__header" scope="col">Cases opened</th>
-                    <th class="govuk-table__header" scope="col">Cases closed</th>
+              <h2 class="moduk-heading-l">Past week</h2>
+              <table class="moduk-table">
+                <thead class="moduk-table__head">
+                  <tr class="moduk-table__row">
+                    <th class="moduk-table__header" scope="col">Case manager</th>
+                    <th class="moduk-table__header" scope="col">Cases opened</th>
+                    <th class="moduk-table__header" scope="col">Cases closed</th>
                   </tr>
                 </thead>
-                <tbody class="govuk-table__body">
-                  <tr class="govuk-table__row">
-                    <td class="govuk-table__cell">David Francis</td>
-                    <td class="govuk-table__cell">24</td>
-                    <td class="govuk-table__cell">18</td>
+                <tbody class="moduk-table__body">
+                  <tr class="moduk-table__row">
+                    <td class="moduk-table__cell">David Francis</td>
+                    <td class="moduk-table__cell">24</td>
+                    <td class="moduk-table__cell">18</td>
                   </tr>
-                  <tr class="govuk-table__row">
-                    <td class="govuk-table__cell">Paul Farmer</td>
-                    <td class="govuk-table__cell">16</td>
-                    <td class="govuk-table__cell">20</td>
+                  <tr class="moduk-table__row">
+                    <td class="moduk-table__cell">Paul Farmer</td>
+                    <td class="moduk-table__cell">16</td>
+                    <td class="moduk-table__cell">20</td>
                   </tr>
-                  <tr class="govuk-table__row">
-                    <td class="govuk-table__cell">Rita Patel</td>
-                    <td class="govuk-table__cell">24</td>
-                    <td class="govuk-table__cell">27</td>
+                  <tr class="moduk-table__row">
+                    <td class="moduk-table__cell">Rita Patel</td>
+                    <td class="moduk-table__cell">24</td>
+                    <td class="moduk-table__cell">27</td>
                   </tr>
                 </tbody>
               </table>
@@ -124,30 +124,30 @@ examples:
           id: past-month
           panel:
             html: |
-              <h2 class="govuk-heading-l">Past month</h2>
-              <table class="govuk-table">
-                <thead class="govuk-table__head">
-                  <tr class="govuk-table__row">
-                    <th class="govuk-table__header" scope="col">Case manager</th>
-                    <th class="govuk-table__header" scope="col">Cases opened</th>
-                    <th class="govuk-table__header" scope="col">Cases closed</th>
+              <h2 class="moduk-heading-l">Past month</h2>
+              <table class="moduk-table">
+                <thead class="moduk-table__head">
+                  <tr class="moduk-table__row">
+                    <th class="moduk-table__header" scope="col">Case manager</th>
+                    <th class="moduk-table__header" scope="col">Cases opened</th>
+                    <th class="moduk-table__header" scope="col">Cases closed</th>
                   </tr>
                 </thead>
-                <tbody class="govuk-table__body">
-                  <tr class="govuk-table__row">
-                    <td class="govuk-table__cell">David Francis</td>
-                    <td class="govuk-table__cell">98</td>
-                    <td class="govuk-table__cell">95</td>
+                <tbody class="moduk-table__body">
+                  <tr class="moduk-table__row">
+                    <td class="moduk-table__cell">David Francis</td>
+                    <td class="moduk-table__cell">98</td>
+                    <td class="moduk-table__cell">95</td>
                   </tr>
-                  <tr class="govuk-table__row">
-                    <td class="govuk-table__cell">Paul Farmer</td>
-                    <td class="govuk-table__cell">122</td>
-                    <td class="govuk-table__cell">131</td>
+                  <tr class="moduk-table__row">
+                    <td class="moduk-table__cell">Paul Farmer</td>
+                    <td class="moduk-table__cell">122</td>
+                    <td class="moduk-table__cell">131</td>
                   </tr>
-                  <tr class="govuk-table__row">
-                    <td class="govuk-table__cell">Rita Patel</td>
-                    <td class="govuk-table__cell">126</td>
-                    <td class="govuk-table__cell">142</td>
+                  <tr class="moduk-table__row">
+                    <td class="moduk-table__cell">Rita Patel</td>
+                    <td class="moduk-table__cell">126</td>
+                    <td class="moduk-table__cell">142</td>
                   </tr>
                 </tbody>
               </table>
@@ -164,15 +164,15 @@ examples:
           id: tab-1
           panel:
             html: |
-              <h2 class="govuk-heading-l">Tab 1</h2>
-              <p class="govuk-body">Testing that when you click the anchor it moves to the anchor point successfully</p>
-              <p class="govuk-body"><a class="govuk-link" href="#anchor">Anchor</a></p>
-              <p class="govuk-body"><a id="anchor" tabindex="0">Anchor Point</a></p>
+              <h2 class="moduk-heading-l">Tab 1</h2>
+              <p class="moduk-body">Testing that when you click the anchor it moves to the anchor point successfully</p>
+              <p class="moduk-body"><a class="moduk-link" href="#anchor">Anchor</a></p>
+              <p class="moduk-body"><a id="anchor" tabindex="0">Anchor Point</a></p>
         - label: Tab 2
           id: tab-2
           panel:
             html: |
-              <h2 class="govuk-heading-l">Tab 2</h2>
+              <h2 class="moduk-heading-l">Tab 2</h2>
 
 # Hidden examples are not shown in the review app, but are used for tests and HTML fixtures
   - name: classes

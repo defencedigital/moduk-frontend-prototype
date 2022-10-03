@@ -5,9 +5,9 @@
 /// Include 'global' styles
 ///
 /// Whether to style paragraphs (`<p>`) and links (`<a>`) without explicitly
-/// having to apply the `govuk-body` and `govuk-link` classes.
+/// having to apply the `moduk-body` and `moduk-link` classes.
 ///
 /// @type Boolean
 /// @access public
 
-$govuk-global-styles: false !default;
+$moduk-global-styles: false !default;

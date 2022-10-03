@@ -15,22 +15,22 @@
 ///
 /// @example scss
 ///   .element {
-///     padding: govuk-spacing(5);
+///     padding: moduk-spacing(5);
 ///   }
 ///
 /// @example scss Using negative spacing
 ///   .element {
-///     margin-top: govuk-spacing(-1);
+///     margin-top: moduk-spacing(-1);
 ///   }
 ///
 /// @example scss Marking spacing declarations as important
 ///   .element {
-///     margin-top: govuk-spacing(1) !important;
+///     margin-top: moduk-spacing(1) !important;
 ///   }
 ///
 /// @access public
 
-@function govuk-spacing($spacing-point) {
+@function moduk-spacing($spacing-point) {
 
   $actual-input-type: type-of($spacing-point);
   @if $actual-input-type != "number" {
@@ -44,11 +44,11 @@
     $spacing-point: abs($spacing-point);
   }
 
-  @if not map-has-key($govuk-spacing-points, $spacing-point) {
+  @if not map-has-key($moduk-spacing-points, $spacing-point) {
     @error "Unknown spacing variable `#{$spacing-point}`. Make sure you are using a point from the spacing scale in `_settings/spacing.scss`.";
   }
 
-  $value: map-get($govuk-spacing-points, $spacing-point);
+  $value: map-get($moduk-spacing-points, $spacing-point);
   @return if($is-negative, $value * -1, $value);
 }
 
@@ -58,8 +58,8 @@
 /// by fetching a 'spacing map' from the responsive spacing scale, which defines
 /// different spacing values at different breakpoints.
 ///
-/// To generate responsive spacing, use 'govuk-responsive-margin' or
-/// 'govuk-responsive-padding' mixins
+/// To generate responsive spacing, use 'moduk-responsive-margin' or
+/// 'moduk-responsive-padding' mixins
 ///
 /// @param {Number} $responsive-spacing-point - Point on the responsive spacing
 ///   scale, corresponds to a map of breakpoints and spacing values
@@ -71,20 +71,20 @@
 ///
 /// @access private
 
-@mixin _govuk-responsive-spacing($responsive-spacing-point, $property, $direction: "all", $important: false, $adjustment: false) {
+@mixin _moduk-responsive-spacing($responsive-spacing-point, $property, $direction: "all", $important: false, $adjustment: false) {
 
   $actual-input-type: type-of($responsive-spacing-point);
   @if $actual-input-type != "number" {
     @error "Expected a number (integer), but got a " + "#{$actual-input-type}.";
   }
 
-  @if not map-has-key($govuk-spacing-responsive-scale, $responsive-spacing-point) {
+  @if not map-has-key($moduk-spacing-responsive-scale, $responsive-spacing-point) {
     @error "Unknown spacing point `#{$responsive-spacing-point}`. Make sure you are using a point from the "
     + "responsive spacing scale in `_settings/spacing.scss`.";
   }
 
   // Make sure that the return value from `_settings/spacing.scss` is a map.
-  $scale-map: map-get($govuk-spacing-responsive-scale, $responsive-spacing-point);
+  $scale-map: map-get($moduk-spacing-responsive-scale, $responsive-spacing-point);
   $actual-map-type: type-of($scale-map);
   @if $actual-map-type != "map" {
     @error "Expected a number (integer), but got a "
@@ -107,7 +107,7 @@
         #{$property}-#{$direction}: $breakpoint-value if($important, !important, null);
       }
     } @else {
-      @include govuk-media-query($from: $breakpoint) {
+      @include moduk-media-query($from: $breakpoint) {
         @if $direction == all {
           #{$property}: $breakpoint-value if($important, !important, null);
         } @else {
@@ -122,9 +122,9 @@
 ///
 /// Adds responsive margin by fetching a 'spacing map' from the responsive
 /// spacing scale, which defines different spacing values at different
-/// breakpoints. Wrapper for the `_govuk-responsive-spacing` mixin.
+/// breakpoints. Wrapper for the `_moduk-responsive-spacing` mixin.
 ///
-/// @see {mixin} _govuk-responsive-spacing
+/// @see {mixin} _moduk-responsive-spacing
 ///
 /// @param {Number} $responsive-spacing-point - Point on the responsive spacing
 /// scale, corresponds to a map of breakpoints and spacing values
@@ -135,22 +135,22 @@
 ///
 /// @example scss
 ///   .element {
-///      @include govuk-responsive-margin(6, "left", $adjustment: 1px);
+///      @include moduk-responsive-margin(6, "left", $adjustment: 1px);
 ///   }
 ///
 /// @access public
 
-@mixin govuk-responsive-margin($responsive-spacing-point, $direction: "all", $important: false, $adjustment: false) {
-  @include _govuk-responsive-spacing($responsive-spacing-point, "margin", $direction, $important, $adjustment);
+@mixin moduk-responsive-margin($responsive-spacing-point, $direction: "all", $important: false, $adjustment: false) {
+  @include _moduk-responsive-spacing($responsive-spacing-point, "margin", $direction, $important, $adjustment);
 }
 
 /// Responsive padding
 ///
 /// Adds responsive padding by fetching a 'spacing map' from the responsive
 /// spacing scale, which defines different spacing values at different
-/// breakpoints. Wrapper for the `_govuk-responsive-spacing` mixin.
+/// breakpoints. Wrapper for the `_moduk-responsive-spacing` mixin.
 ///
-/// @see {mixin} _govuk-responsive-spacing
+/// @see {mixin} _moduk-responsive-spacing
 ///
 /// @param {Number} $responsive-spacing-point - Point on the responsive spacing
 ///   scale, corresponds to a map of breakpoints and spacing values
@@ -161,11 +161,11 @@
 ///
 /// @example scss
 ///   .element {
-///      @include govuk-responsive-padding(6, "left", $adjustment: 1px);
+///      @include moduk-responsive-padding(6, "left", $adjustment: 1px);
 ///   }
 ///
 /// @access public
 
-@mixin govuk-responsive-padding($responsive-spacing-point, $direction: "all", $important: false, $adjustment: false) {
-  @include _govuk-responsive-spacing($responsive-spacing-point, "padding", $direction, $important, $adjustment);
+@mixin moduk-responsive-padding($responsive-spacing-point, $direction: "all", $important: false, $adjustment: false) {
+  @include _moduk-responsive-spacing($responsive-spacing-point, "padding", $direction, $important, $adjustment);
 }

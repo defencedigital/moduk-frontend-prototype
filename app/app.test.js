@@ -158,7 +158,7 @@ describe(`http://localhost:${PORT}`, () => {
       const $phaseBanner = $('.govuk-phase-banner')
       const $text = $phaseBanner.find('.govuk-phase-banner__text')
 
-      expect($text.html()).toContain('C&apos;est un nouveau service - vos <a class="govuk-link" href="#">commentaires</a> nous aideront &#xE0; l&apos;am&#xE9;liorer.')
+      expect($text.html()).toContain('C&apos;est un nouveau service - vos <a class="moduk-link" href="#">commentaires</a> nous aideront &#xE0; l&apos;am&#xE9;liorer.')
     })
 
     it('should have a custom Footer component', async () => {

@@ -1,11 +1,11 @@
 {% from "../button/macro.njk" import govukButton -%}
 
-<div class="govuk-cookie-banner {{ params.classes if params.classes }}" data-nosnippet role="region" aria-label="{{ params.ariaLabel | default("Cookie banner") }}"
+<div class="moduk-cookie-banner {{ params.classes if params.classes }}" data-nosnippet role="region" aria-label="{{ params.ariaLabel | default("Cookie banner") }}"
   {%- if params.hidden %} hidden{% endif %}
   {%- for attribute, value in params.attributes %} {{attribute}}="{{value}}"{% endfor %}>
 
   {%- for message in params.messages %}
-    {% set classNames = "govuk-cookie-banner__message govuk-width-container" %}
+    {% set classNames = "moduk-cookie-banner__message moduk-width-container" %}
     {% if message.classes %}
       {% set classNames = classNames + " " + message.classes %}
     {% endif %}
@@ -14,10 +14,10 @@
     {%- for attribute, value in message.attributes %} {{attribute}}="{{value}}"{% endfor %}
     {% if message.hidden %} hidden{% endif %}>
 
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-two-thirds">
+    <div class="moduk-grid-row">
+      <div class="moduk-grid-column-two-thirds">
         {% if message.headingHtml or message.headingText %}
-        <h2 class="govuk-cookie-banner__heading govuk-heading-m">
+        <h2 class="moduk-cookie-banner__heading moduk-heading-m">
           {%- if message.headingHtml -%}
             {{ message.headingHtml | safe }}
           {%- else -%}
@@ -26,18 +26,18 @@
         </h2>
         {% endif %}
 
-        <div class="govuk-cookie-banner__content">
+        <div class="moduk-cookie-banner__content">
           {%- if message.html -%}
             {{ message.html | safe }}
           {%- elif message.text -%}
-            <p class="govuk-body">{{ message.text }}</p>
+            <p class="moduk-body">{{ message.text }}</p>
           {%- endif -%}
         </div>
       </div>
     </div>
 
       {% if message.actions %}
-      <div class="govuk-button-group">
+      <div class="moduk-button-group">
         {% for action in message.actions %}
           {% if action.href %}
             {% if action.type == "button" %}
@@ -49,7 +49,7 @@
                 "attributes": action.attributes
               }) | indent(12) | trim }}
             {% else %}
-              {% set linkClasses = "govuk-link" %}
+              {% set linkClasses = "moduk-link" %}
               {% if action.classes %}
                 {% set linkClasses = linkClasses + " " + action.classes %}
               {% endif %}

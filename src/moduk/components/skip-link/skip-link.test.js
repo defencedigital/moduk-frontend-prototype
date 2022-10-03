@@ -22,31 +22,31 @@ describe('/examples/template-default', () => {
     })
 
     it('adds the tabindex attribute to the linked element', async () => {
-      const tabindex = await page.$eval('.govuk-main-wrapper', el => el.getAttribute('tabindex'))
+      const tabindex = await page.$eval('.moduk-main-wrapper', el => el.getAttribute('tabindex'))
 
       expect(tabindex).toBe('-1')
     })
 
     it('adds the class for removing the native focus style to the linked element', async () => {
-      const cssClass = await page.$eval('.govuk-main-wrapper', el => el.classList.contains('govuk-skip-link-focused-element'))
+      const cssClass = await page.$eval('.moduk-main-wrapper', el => el.classList.contains('moduk-skip-link-focused-element'))
 
       expect(cssClass).toBeTruthy()
     })
 
     it('removes the tabindex attribute from the linked element on blur', async () => {
-      await page.$eval('.govuk-main-wrapper', el => el.blur())
+      await page.$eval('.moduk-main-wrapper', el => el.blur())
 
-      const tabindex = await page.$eval('.govuk-main-wrapper', el => el.getAttribute('tabindex'))
+      const tabindex = await page.$eval('.moduk-main-wrapper', el => el.getAttribute('tabindex'))
 
       expect(tabindex).toBeNull()
     })
 
     it('removes the class for removing the native focus style from the linked element on blur', async () => {
-      await page.$eval('.govuk-main-wrapper', el => el.blur())
+      await page.$eval('.moduk-main-wrapper', el => el.blur())
 
-      const cssClass = await page.$eval('.govuk-main-wrapper', el => el.getAttribute('class'))
+      const cssClass = await page.$eval('.moduk-main-wrapper', el => el.getAttribute('class'))
 
-      expect(cssClass).not.toContain('govuk-skip-link-focused-element')
+      expect(cssClass).not.toContain('moduk-skip-link-focused-element')
     })
   })
 })

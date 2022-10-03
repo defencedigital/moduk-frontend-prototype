@@ -37,7 +37,7 @@
 {% endblock %}
 
 {% block content %}
-  <h1 class="govuk-heading-xl">Translated</h1>
+  <h1 class="moduk-heading-xl">Translated</h1>
 
   {{ govukAccordion({
     id: "accordion-default",
@@ -47,7 +47,7 @@
           text: "Ysgrifennu'n dda ar gyfer y we"
         },
         content: {
-          html: "<p class='govuk-body'>Dyma'r cynnwys ar gyfer Ysgrifennu'n Dda ar gyfer y we.</p>"
+          html: "<p class='moduk-body'>Dyma'r cynnwys ar gyfer Ysgrifennu'n Dda ar gyfer y we.</p>"
         }
       },
       {
@@ -55,7 +55,7 @@
           text: "Ysgrifennu'n dda ar gyfer arbenigwyr"
         },
         content: {
-          html: "<p class='govuk-body'>Dyma'r cynnwys ar gyfer Ysgrifennu'n Dda ar gyfer arbenigwyr.</p>"
+          html: "<p class='moduk-body'>Dyma'r cynnwys ar gyfer Ysgrifennu'n Dda ar gyfer arbenigwyr.</p>"
         }
       },
         {
@@ -63,7 +63,7 @@
           text: "Adnabod eich cynulleidfa"
         },
         content: {
-          html: "<p class='govuk-body'>Dyma'r cynnwys ar gyfer Adnabod eich cynulleidfa.</p>"
+          html: "<p class='moduk-body'>Dyma'r cynnwys ar gyfer Adnabod eich cynulleidfa.</p>"
         }
       },
         {
@@ -71,7 +71,7 @@
           text: "Sut mae pobl yn darllen"
         },
         content: {
-          html: "<p class='govuk-body'>Dyma'r cynnwys ar gyfer Sut mae pobl yn darllen.</p>"
+          html: "<p class='moduk-body'>Dyma'r cynnwys ar gyfer Sut mae pobl yn darllen.</p>"
         }
       }
     ]
@@ -101,7 +101,7 @@
 
   {{ govukButton({
     text: "Cadw a pharhau",
-    classes: "govuk-!-margin-top-4"
+    classes: "moduk-!-margin-top-4"
   }) }}
 
   {{ govukCharacterCount({
@@ -111,7 +111,7 @@
     fallbackHintText: "Gallwch ddefnyddio hyd at %{count} nod",
     label: {
       text: "Allwch chi roi mwy o fanylion?",
-      classes: "govuk-label--l",
+      classes: "moduk-label--l",
       isPageHeading: true
     },
     hint: {
@@ -126,7 +126,7 @@
       legend: {
         text: "Pa fathau o wastraff ydych chi'n eu cludo?",
         isPageHeading: true,
-        classes: "govuk-fieldset__legend--l"
+        classes: "moduk-fieldset__legend--l"
       }
     },
     hint: {
@@ -149,12 +149,12 @@
   }) }}
 
   {% set cookieBannerHtml %}
-    <p class="govuk-body">Rydym yn defnyddio rhai cwcis hanfodol i wneud i'r gwasanaeth hwn weithio.</p>
-    <p class="govuk-body">Hoffem hefyd ddefnyddio cwcis dadansoddol fel y gallwn ddeall sut rydych yn defnyddio'r gwasanaeth a gwneud gwelliannau.</p>
+    <p class="moduk-body">Rydym yn defnyddio rhai cwcis hanfodol i wneud i'r gwasanaeth hwn weithio.</p>
+    <p class="moduk-body">Hoffem hefyd ddefnyddio cwcis dadansoddol fel y gallwn ddeall sut rydych yn defnyddio'r gwasanaeth a gwneud gwelliannau.</p>
   {% endset %}
 
   {{ govukCookieBanner({
-    classes: "govuk-!-margin-bottom-4",
+    classes: "moduk-!-margin-bottom-4",
     ariaLabel: "Cwcis ar y gwasanaeth hwn",
     messages: [
       {
@@ -183,12 +183,12 @@
   }) }}
 
   {% set acceptHtml %}
-    <p class="govuk-body">Rydych chi wedi derbyn cwcis ychwanegol. Gallwch <a class="govuk-link" href="#">newid eich gosodiadau cwci</a> ar unrhyw adeg.</p>
+    <p class="moduk-body">Rydych chi wedi derbyn cwcis ychwanegol. Gallwch <a class="moduk-link" href="#">newid eich gosodiadau cwci</a> ar unrhyw adeg.</p>
   {% endset %}
 
   {{ govukCookieBanner({
     ariaLabel: "Cwcis ar y gwasanaeth hwn",
-    classes: "govuk-!-margin-bottom-4",
+    classes: "moduk-!-margin-bottom-4",
     messages: [
       {
         html: acceptHtml,
@@ -210,7 +210,7 @@
       legend: {
         text: "Pryd gafodd eich pasbort ei gyhoeddi?",
         isPageHeading: true,
-        classes: "govuk-fieldset__legend--l"
+        classes: "moduk-fieldset__legend--l"
       }
     },
     hint: {
@@ -220,19 +220,19 @@
       {
         name: "day",
         label: "Dydd",
-        classes: "govuk-input--width-2",
+        classes: "moduk-input--width-2",
         autocomplete: "bday-day"
       },
       {
         name: "month",
         label: "Mis",
-        classes: "govuk-input--width-2",
+        classes: "moduk-input--width-2",
         autocomplete: "bday-month"
       },
       {
         name: "year",
         label: "Blwyddyn",
-        classes: "govuk-input--width-4",
+        classes: "moduk-input--width-4",
         autocomplete: "bday-year"
       }
     ]
@@ -267,7 +267,7 @@
   }) }}
 
   {{ govukFooter({
-    classes: "govuk-!-margin-bottom-4",
+    classes: "moduk-!-margin-bottom-4",
     navigation: [
       {
         title: "Gwasanaethau a gwybodaeth",
@@ -323,10 +323,10 @@
           text: "Telerau ac Amodau"
         }
       ],
-      html: 'Adeiladwyd gan y <a href="#" class="govuk-footer__link">Government Digital Service</a>'
+      html: 'Adeiladwyd gan y <a href="#" class="moduk-footer__link">Government Digital Service</a>'
     },
     contentLicence: {
-      html: "Mae’r holl gynnwys ar gael o dan y <a href='#' class='govuk-footer__link'>Drwydded Llywodraeth Agored v3.0</a>, ac eithrio lle nodir yn wahanol"
+      html: "Mae’r holl gynnwys ar gael o dan y <a href='#' class='moduk-footer__link'>Drwydded Llywodraeth Agored v3.0</a>, ac eithrio lle nodir yn wahanol"
     },
     copyright: {
       html: "<span>Hawlfraint y Goron</span>"
@@ -365,9 +365,9 @@
   }) }}
 
   {% set notificationBannerHtml %}
-    <p class="govuk-notification-banner__heading">
+    <p class="moduk-notification-banner__heading">
       Mae gennych 7 diwrnod ar ôl i anfon eich cais.
-      <a class="govuk-notification-banner__link" href="#">Gweld cais</a>.
+      <a class="moduk-notification-banner__link" href="#">Gweld cais</a>.
     </p>
   {% endset %}
 
@@ -414,8 +414,8 @@
     tag: {
       text: "alpha"
     },
-    html: "Mae hwn yn wasanaeth newydd – bydd eich <a class='govuk-link' href='#'>feedback</a> yn ein helpu i'w wella.",
-    classes: "govuk-!-margin-bottom-4"
+    html: "Mae hwn yn wasanaeth newydd – bydd eich <a class='moduk-link' href='#'>feedback</a> yn ein helpu i'w wella.",
+    classes: "moduk-!-margin-bottom-4"
   }) }}
 
   {{ govukRadios({
@@ -425,7 +425,7 @@
       legend: {
         text: "Ble rydych chi'n byw?",
         isPageHeading: true,
-        classes: "govuk-fieldset__legend--l"
+        classes: "moduk-fieldset__legend--l"
       }
     },
     items: [
@@ -538,7 +538,7 @@
           text: "Manylion cyswllt"
         },
         value: {
-          html: '<p class="govuk-body">07700 900457</p><p class="govuk-body">sarah.phillips@example.com</p>'
+          html: '<p class="moduk-body">07700 900457</p><p class="moduk-body">sarah.phillips@example.com</p>'
         },
         actions: {
           items: [
@@ -557,7 +557,7 @@
 
   {{ govukTable({
     caption: "Dyddiadau a symiau",
-    captionClasses: "govuk-table__caption--m",
+    captionClasses: "moduk-table__caption--m",
     firstCellIsHeader: true,
     head: [
       {
@@ -596,7 +596,7 @@
   }) }}
 
   {% set pastDayHtml %}
-  <h2 class="govuk-heading-l">Ddoe</h2>
+  <h2 class="moduk-heading-l">Ddoe</h2>
   {{ govukTable({
     head: [
       {
@@ -648,7 +648,7 @@
   {% endset -%}
 
   {% set pastWeekHtml %}
-  <h2 class="govuk-heading-l">Wythnos diwethaf</h2>
+  <h2 class="moduk-heading-l">Wythnos diwethaf</h2>
   {{ govukTable({
     head: [
       {
@@ -700,7 +700,7 @@
   {% endset -%}
 
   {% set pastMonthHtml %}
-  <h2 class="govuk-heading-l">Mis diwethaf</h2>
+  <h2 class="moduk-heading-l">Mis diwethaf</h2>
   {{ govukTable({
     head: [
       {
@@ -752,7 +752,7 @@
   {% endset -%}
 
   {% set pastYearHtml %}
-  <h2 class="govuk-heading-l">Blwyddyn diwethaf</h2>
+  <h2 class="moduk-heading-l">Blwyddyn diwethaf</h2>
   {{ govukTable({
     head: [
       {
@@ -839,13 +839,13 @@
 
   {{ govukTag({
     text: "cyflawn",
-    classes: "govuk-!-margin-bottom-4"
+    classes: "moduk-!-margin-bottom-4"
   }) }}
 
   {{ govukInput({
     label: {
       text: "Beth yw enw'r digwyddiad?",
-      classes: "govuk-label--l",
+      classes: "moduk-label--l",
       isPageHeading: true
     },
     id: "event-name",
@@ -857,7 +857,7 @@
     id: "more-detail",
     label: {
       text: "Allwch chi roi mwy o fanylion?",
-      classes: "govuk-label--l",
+      classes: "moduk-label--l",
       isPageHeading: true
     },
     hint: {
@@ -880,8 +880,8 @@
           showAllSections: "Dangos adrannau",
           hideAllSections: "Cuddio adrannau",
         },
-        "i18n.showSection": "Dangos<span class=\"govuk-visually-hidden\"> adran</span>",
-        "i18n.hideSection": "Cuddio<span class=\"govuk-visually-hidden\"> adran</span>",
+        "i18n.showSection": "Dangos<span class=\"moduk-visually-hidden\"> adran</span>",
+        "i18n.hideSection": "Cuddio<span class=\"moduk-visually-hidden\"> adran</span>",
       }
     })
   </script>

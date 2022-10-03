@@ -11,20 +11,20 @@
 {% endblock %}
 
 {% block content %}
-<h1 class="govuk-heading-xl">Small form controls</h1>
+<h1 class="moduk-heading-xl">Small form controls</h1>
 
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-one-third">
+<div class="moduk-grid-row">
+  <div class="moduk-grid-column-one-third">
     {{ govukCheckboxes({
       fieldset: {
         legend: {
           text: "Display",
-          classes: "govuk-fieldset__legend--s"
+          classes: "moduk-fieldset__legend--s"
         }
       },
       idPrefix: "display",
       name: "sort",
-      classes: "govuk-checkboxes--small",
+      classes: "moduk-checkboxes--small",
       items: [
         {
           value: "consultations",
@@ -49,12 +49,12 @@
       fieldset: {
         legend: {
           text: "Include",
-          classes: "govuk-fieldset__legend--s"
+          classes: "moduk-fieldset__legend--s"
         }
       },
       idPrefix: "include",
       name: "include",
-      classes: "govuk-radios--small",
+      classes: "moduk-radios--small",
       items: [
         {
           value: "everything",
@@ -71,20 +71,20 @@
       ]
     }) }}
   </div>
-  <div class="govuk-grid-column-two-thirds">
+  <div class="moduk-grid-column-two-thirds">
       {{ govukRadios({
         fieldset: {
           legend: {
             text: "Sort by",
-            classes: "govuk-fieldset__legend--s"
+            classes: "moduk-fieldset__legend--s"
           }
         },
         formGroup: {
-          classes: "govuk-!-margin-bottom-0"
+          classes: "moduk-!-margin-bottom-0"
         },
         idPrefix: "sort",
         name: "sort",
-        classes: "govuk-radios--small govuk-radios--inline",
+        classes: "moduk-radios--small moduk-radios--inline",
         items: [
           {
             value: "relevance",
@@ -103,9 +103,9 @@
 
       {{ govukCheckboxes({
         name: "grobulate",
-        classes: "govuk-checkboxes--small",
+        classes: "moduk-checkboxes--small",
         formGroup: {
-          classes: "govuk-!-margin-bottom-0"
+          classes: "moduk-!-margin-bottom-0"
         },
         items: [
           {
@@ -115,23 +115,23 @@
         ]
       }) }}
 
-    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible" style="clear: both;">
+    <hr class="moduk-section-break moduk-section-break--m moduk-section-break--visible" style="clear: both;">
 
-    <h2 class="govuk-heading-m">Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit</h2>
+    <h2 class="moduk-heading-m">Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit</h2>
 
-    <p class="govuk-body">Aenean lacinia bibendum nulla sed consectetur. Vestibulum id ligula porta felis euismod semper. Donec id elit non mi porta gravida at eget metus.</p>
+    <p class="moduk-body">Aenean lacinia bibendum nulla sed consectetur. Vestibulum id ligula porta felis euismod semper. Donec id elit non mi porta gravida at eget metus.</p>
 
-    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+    <hr class="moduk-section-break moduk-section-break--m moduk-section-break--visible">
 
-    <h2 class="govuk-heading-m">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh</h2>
+    <h2 class="moduk-heading-m">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh</h2>
 
-    <p class="govuk-body">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+    <p class="moduk-body">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
 
-    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+    <hr class="moduk-section-break moduk-section-break--m moduk-section-break--visible">
 
-    <h2 class="govuk-heading-m">Bibendum Commodo Ullamcorper Vulputate</h2>
+    <h2 class="moduk-heading-m">Bibendum Commodo Ullamcorper Vulputate</h2>
 
-    <p class="govuk-body">Cras mattis consectetur purus sit amet fermentum. Curabitur blandit tempus porttitor.</p>
+    <p class="moduk-body">Cras mattis consectetur purus sit amet fermentum. Curabitur blandit tempus porttitor.</p>
   </div>
 </div>
 {% endblock %}

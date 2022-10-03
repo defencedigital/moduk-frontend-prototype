@@ -24,33 +24,33 @@ $_spacing-directions: (
 /// @param {String} $property - Property to add spacing to (e.g. 'margin')
 ///
 /// @example css
-///  .govuk-\!-margin-4 {
+///  .moduk-\!-margin-4 {
 ///    margin: 15px !important;
 ///  }
 ///
 ///  @media (min-width: 40.0625em) {
-///    .govuk-\!-margin-4 {
+///    .moduk-\!-margin-4 {
 ///      margin: 20px !important;
 ///    }
 ///  }
 ///
 /// @access private
 
-@mixin _govuk-generate-responsive-spacing-overrides($property) {
+@mixin _moduk-generate-responsive-spacing-overrides($property) {
   // For each point in the spacing scale (defined in settings), create an
   // override that affects all directions...
-  @each $scale-point, $scale-map in $govuk-spacing-responsive-scale {
+  @each $scale-point, $scale-map in $moduk-spacing-responsive-scale {
 
-    .govuk-\!-#{$property}-#{$scale-point} {
+    .moduk-\!-#{$property}-#{$scale-point} {
 
-      @include _govuk-responsive-spacing($scale-point, $property, "all", true);
+      @include _moduk-responsive-spacing($scale-point, $property, "all", true);
     }
 
     // ... and then an override for each individual direction
     @each $direction in $_spacing-directions {
 
-      .govuk-\!-#{$property}-#{$direction}-#{$scale-point} {
-        @include _govuk-responsive-spacing($scale-point, $property, $direction, true);
+      .moduk-\!-#{$property}-#{$direction}-#{$scale-point} {
+        @include _moduk-responsive-spacing($scale-point, $property, $direction, true);
       }
     }
   }
@@ -61,42 +61,42 @@ $_spacing-directions: (
 /// Generate spacing override classes for the given property (e.g. margin)
 /// for each point in the non-responsive spacing scale.
 ///
-/// The classes in the format govuk-#{$property}-static-#{$spacing-point}
-/// and govuk-\!-#{$property}-#{$direction}-static-#{$spacing-point} are deprecated.
-/// For example: govuk-!-margin-static-2 or govuk-!-margin-top-static-2
+/// The classes in the format moduk-#{$property}-static-#{$spacing-point}
+/// and moduk-\!-#{$property}-#{$direction}-static-#{$spacing-point} are deprecated.
+/// For example: moduk-!-margin-static-2 or moduk-!-margin-top-static-2
 ///
-/// Use classes in the format .govuk-\!-static-#{$property}-#{$spacing-point}
-/// and .govuk-\!-static-#{$property}-#{$direction}-#{$spacing-point} instead.
-/// For example: govuk-!-static-margin-2 or govuk-!-static-margin-top-2
+/// Use classes in the format .moduk-\!-static-#{$property}-#{$spacing-point}
+/// and .moduk-\!-static-#{$property}-#{$direction}-#{$spacing-point} instead.
+/// For example: moduk-!-static-margin-2 or moduk-!-static-margin-top-2
 ///
 /// @param {String} $property - Property to add spacing to (e.g. 'margin')
 ///
 /// @example css
-///   .govuk-\!-static-margin-4 {
+///   .moduk-\!-static-margin-4 {
 ///      margin: 20px !important;
 ///   }
 ///
 /// @access private
-@mixin _govuk-generate-static-spacing-overrides($property) {
-  @each $spacing-point in map-keys($govuk-spacing-points) {
-    .govuk-\!-#{$property}-static-#{$spacing-point},
-    .govuk-\!-static-#{$property}-#{$spacing-point} {
-      #{$property}: govuk-spacing($spacing-point) !important;
+@mixin _moduk-generate-static-spacing-overrides($property) {
+  @each $spacing-point in map-keys($moduk-spacing-points) {
+    .moduk-\!-#{$property}-static-#{$spacing-point},
+    .moduk-\!-static-#{$property}-#{$spacing-point} {
+      #{$property}: moduk-spacing($spacing-point) !important;
     }
 
     @each $direction in $_spacing-directions {
-      .govuk-\!-#{$property}-#{$direction}-static-#{$spacing-point},
-      .govuk-\!-static-#{$property}-#{$direction}-#{$spacing-point} {
-        #{$property}-#{$direction}: govuk-spacing($spacing-point) !important;
+      .moduk-\!-#{$property}-#{$direction}-static-#{$spacing-point},
+      .moduk-\!-static-#{$property}-#{$direction}-#{$spacing-point} {
+        #{$property}-#{$direction}: moduk-spacing($spacing-point) !important;
       }
     }
   }
 }
 
-@include govuk-exports("govuk/overrides/spacing") {
-  @include _govuk-generate-responsive-spacing-overrides("margin");
-  @include _govuk-generate-responsive-spacing-overrides("padding");
+@include moduk-exports("govuk/overrides/spacing") {
+  @include _moduk-generate-responsive-spacing-overrides("margin");
+  @include _moduk-generate-responsive-spacing-overrides("padding");
 
-  @include _govuk-generate-static-spacing-overrides("margin");
-  @include _govuk-generate-static-spacing-overrides("padding");
+  @include _moduk-generate-static-spacing-overrides("margin");
+  @include _moduk-generate-static-spacing-overrides("padding");
 }

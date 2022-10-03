@@ -1,45 +1,45 @@
 // stylelint-disable declaration-no-important
-@include govuk-exports("govuk/overrides/width") {
-  .govuk-\!-width-full {
+@include moduk-exports("govuk/overrides/width") {
+  .moduk-\!-width-full {
     width: 100% !important;
   }
 
-  .govuk-\!-width-three-quarters {
+  .moduk-\!-width-three-quarters {
     width: 100% !important;
 
-    @include govuk-media-query($from: tablet) {
+    @include moduk-media-query($from: tablet) {
       width: 75% !important;
     }
   }
 
-  .govuk-\!-width-two-thirds {
+  .moduk-\!-width-two-thirds {
     width: 100% !important;
 
-    @include govuk-media-query($from: tablet) {
+    @include moduk-media-query($from: tablet) {
       width: 66.66% !important;
     }
   }
 
-  .govuk-\!-width-one-half {
+  .moduk-\!-width-one-half {
     width: 100% !important;
 
-    @include govuk-media-query($from: tablet) {
+    @include moduk-media-query($from: tablet) {
       width: 50% !important;
     }
   }
 
-  .govuk-\!-width-one-third {
+  .moduk-\!-width-one-third {
     width: 100% !important;
 
-    @include govuk-media-query($from: tablet) {
+    @include moduk-media-query($from: tablet) {
       width: 33.33% !important;
     }
   }
 
-  .govuk-\!-width-one-quarter {
+  .moduk-\!-width-one-quarter {
     width: 100% !important;
 
-    @include govuk-media-query($from: tablet) {
+    @include moduk-media-query($from: tablet) {
       width: 25% !important;
     }
   }

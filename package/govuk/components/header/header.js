@@ -1016,7 +1016,7 @@ if (detect) return
 
 function Header ($module) {
   this.$module = $module;
-  this.$menuButton = $module && $module.querySelector('.govuk-js-header-toggle');
+  this.$menuButton = $module && $module.querySelector('.moduk-js-header-toggle');
   this.$menu = this.$menuButton && $module.querySelector(
     '#' + this.$menuButton.getAttribute('aria-controls')
   );

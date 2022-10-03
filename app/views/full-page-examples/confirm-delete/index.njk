@@ -8,33 +8,33 @@
 {% block pageTitle %}{{ pageTitle }} - GOV.UK{% endblock %}
 
 {% block content %}
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+  <div class="moduk-grid-row">
+    <div class="moduk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-xl">
+      <h1 class="moduk-heading-xl">
        {{ pageTitle }}
       </h1>
 
-      <p class="govuk-body">Josh Lyman last logged in <strong>3 days ago</strong>.</p>
+      <p class="moduk-body">Josh Lyman last logged in <strong>3 days ago</strong>.</p>
 
-      <p class="govuk-body">By deleting their administrator account they will no longer have access to this system. All cases that <strong>Josh Lyman</strong> is assigned to will remain open but their name will be removed from the case history.</p>
+      <p class="moduk-body">By deleting their administrator account they will no longer have access to this system. All cases that <strong>Josh Lyman</strong> is assigned to will remain open but their name will be removed from the case history.</p>
 
       {{ govukWarningText({
         text: "This action is final and cannot be undone.",
         iconFallbackText: "Warning",
-        classes: "govuk-!-margin-bottom-8"
+        classes: "moduk-!-margin-bottom-8"
       }) }}
 
       <form method="post" novalidate>
-        <div class="govuk-button-group">
+        <div class="moduk-button-group">
           {{ govukButton({
             text: "Delete account",
-            classes: "govuk-button--warning"
+            classes: "moduk-button--warning"
           }) }}
 
           {{ govukButton({
             text: "Cancel",
-            classes: "govuk-button--secondary"
+            classes: "moduk-button--secondary"
           }) }}
         </div>
       </form>
