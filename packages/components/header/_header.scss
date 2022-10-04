@@ -56,21 +56,21 @@
     z-index: 1;
   }
 
-  .moduk-logo__background {
-    fill: $color_moduk-white;
+  // .moduk-logo__background {
+  //   fill: $color_moduk-white;
 
-    @include mq($media-type: print) {
-      fill: $color_moduk-maroon;
-    }
-  }
+  //   @include mq($media-type: print) {
+  //     fill: $color_moduk-maroon;
+  //   }
+  // }
 
-  .moduk-logo__text {
-    fill: $color_moduk-maroon;
+  // .moduk-logo__text {
+  //   fill: $color_moduk-maroon;
 
-    @include mq($media-type: print) {
-      fill: $color_moduk-white;
-    }
-  }
+  //   @include mq($media-type: print) {
+  //     fill: $color_moduk-white;
+  //   }
+  // }
 
   @include mq($from: tablet) {
     padding-left: 0;
@@ -94,6 +94,7 @@
 .moduk-header__link {
   @include moduk-logo-size; /* [1] */
   display: block;
+  fill: $color_moduk-white; // Added [TS]
 
   &:hover {
     .moduk-logo {
@@ -657,6 +658,7 @@
   }
 
   .moduk-header__transactional-service-name {
+    padding-top: moduk-spacing(2);
     float: left;
   }
 
@@ -704,11 +706,11 @@
 
 .moduk-header__service-name {
   @include moduk-font(19);
-
   color: $color_moduk-white;
   display: block;
   padding-left: 0;
   padding-right: 0;
+  padding-top: moduk-spacing(2); // Added by [TS] to align service-name if used
 
   @include mq($from: large-desktop) {
     padding-left: moduk-spacing(3);

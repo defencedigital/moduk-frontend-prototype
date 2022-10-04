@@ -361,11 +361,14 @@
 /// Used in the header and footer.
 
 @mixin moduk-logo-size {
+  // width: 100px;
   height: 40px;
-  width: 100px;
+  width: 210px;
 }
 
 @mixin moduk-logo-size-small {
-  height: 32px;
-  width: 80px;
+  // height: 32px;
+  // width: 80px;
+  height: 40px;
+  width: 210px;
 }
