@@ -1,53 +1,60 @@
-# Running locally
+# Running the application locally
 
-You'll need [Git](https://help.github.com/articles/set-up-git/) and [Node.js](https://nodejs.org/en/) installed to get this project running.
+## Requirements
 
-Note: You will need the Node.js version specified in the [.nvmrc](/../../.nvmrc) file.
-This should reflect the most current [active LTS (Long-term support)](https://github.com/nodejs/Release#release-schedule).
+To run NHS.UK frontend locally you'll need to:
+* [set up git](https://help.github.com/articles/set-up-git/)
+* [install Node.js](https://nodejs.org/en/)
+We recommend to use the [long-term support (LTS) version of Nodejs](https://nodejs.org/en/download/), rather than the latest beta version.
 
-## 1. Fork repository (optional)
-If you're an external contributor make sure to [fork this project first](https://help.github.com/articles/fork-a-repo/)
+> Type `git --version` to check if git is installed. This should print a version number like "git version 2.18.0".
 
-## 2. Clone repository
+> Type `node -v` to check if Node is installed. This should print a version number like "v8.11.3".
+
+## 1. Fork the repository
+
+[Fork the repository](https://help.github.com/articles/fork-a-repo/) first, if you're an external contributor.
+
+## 2. Clone the repository
+
+You can clone the repository directly if you're a member of the [NHS.UK GitHub organisation](https://github.com/nhsuk/)
+
 ```
-git clone git@github.com:alphagov/govuk-frontend.git # or clone your own fork
-
-cd govuk-frontend
+git clone git@github.com:nhsuk/nhsuk-frontend.git nhsuk-frontend
 ```
 
-## 3. Using nvm (optional)
-If you work across multiple Node.js projects there's a good chance they require different Node.js and npm versions.
+Otherwise you'll have to clone your own fork
 
-To enable this we use [nvm (Node Version Manager)](https://github.com/creationix/nvm) to switch between versions easily.
+```
+git clone https://github.com/[Username]/nhsuk-frontend.git nhsuk-frontend
+```
 
-1. [install nvm](https://github.com/creationix/nvm#installation)
-2. Run `nvm install` in the project directory (this will use [.nvmrc](/../../.nvmrc))
+> Replace '[Username]' in the git clone command above with your own GitHub username.
 
-## 4. Install npm dependencies
-We use [npm](https://docs.npmjs.com/getting-started/what-is-npm) to manage the dependencies in development.
+## 3. Install dependencies
+
+We use [node package manager (npm)](https://docs.npmjs.com/getting-started/what-is-npm) to manage third party dependencies.
+
+Whilst in the project directory you will need to install the dependencies listed in `package.json`
+
+```
+cd nhsuk-frontend
+```
+
 ```
 npm install
 ```
 
-### Fixing Node 16+ errors
-If you've previously installed `govuk-frontend` locally using Node v14 or earlier, you may see `node-sass`-related errors when updating to Node v16.
+## 4. Start a local server
 
-To get rid of these errors, delete the `node_modules` folder, then run:
+This will build files, serve web pages and watch for changes when you save a file.
 
-```
-nvm use
-npm uninstall node-sass -g && npm cache clean -force && npm install node-sass
-npm install
-```
-
-## 5. Start a local server
-This will build sources, serve pages and watch for changes.
 ```
 npm start
 ```
 
-## Deploying
+> The application will be available at [http://localhost:3000](http://localhost:3000).
 
-You can deploy your project straight to a Heroku instance.
+---
 
-An existing Heroku instance can be found at: [http://govuk-frontend-review.herokuapp.com/](http://govuk-frontend-review.herokuapp.com/)
+Next: [Application architecture](application-architecture.md)

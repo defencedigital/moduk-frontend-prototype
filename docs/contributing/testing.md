@@ -1,162 +1,109 @@
-# Test your GOV.UK Frontend contribution
 
-Before you submit your contribution to GOV.UK Frontend, you should:
+# Testing
 
-- fix any CSS or JavaScript style errors
-- check your changes look right and behave correctly
-- test your changes in supported browsers and assistive technology
-- run the automated tests
-- update the tests or add new tests if you need to
+## Screen resolution testing
 
-Let us know in your pull request or [contact us](https://design-system.service.gov.uk/#support) if:
+You should test at all the standard device screen resolutions and the top 8 screen
+resolutions for [NHS.UK](https://www.nhs.uk) (in both landscape and portrait mode).
+This combined will give us confidence that it will work for the majority of our users.
 
-- you cannot do some of the checks or tests
-- your contribution might affect other parts of GOV.UK Frontend
+### Standard devices
 
-## 1. Fix any CSS or JavaScript style errors
+Google Chrome DevTools has a preset list of standard device screen resolutions to test against.
+See [Simulate Mobile Devices with Device Mode in Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools/device-mode/)
+and [Test Responsive and Device-specific Viewports](https://developers.google.com/web/tools/chrome-devtools/device-mode/emulate-mobile-viewports).
 
-In your project folder, run `npm test`.
+### NHS website resolution statistics
 
-Fix any CSS or JavaScript style errors that the linting tests report.
+These statistics are from the NHS website, using Google analytics, over a 1 year period (June 2017 to June 2018).
 
-## 2. Fix any invalid HTML
+| Device                  | Screen resolution   | % of sessions |
+|-------------------------|---------------------|---------------|
+| iPhone 6-8              | 375x667             | 20.93%        |
+| Galaxy S8               | 360x640             | 14.92%        |
+| iPhone 5/SE             | 320x568             | 10.41%        |
+| iPad                    | 768x1024            | 7.17%         |
+| iPhone 6+, 6s+, 7+, 8+  | 414x736             | 4.87%         |
+| Surface, iPad Pro       | 1366x768            | 4.10%         |
+| Large Desktop           | 1920x1080           | 2.45%         |
+| Small Desktop, Laptop   | 1280x1024           | 1.21%         |
 
-To make sure your HTML markup is valid, [check your page with W3C's markup validator](https://validator.w3.org/).
+## Browser support
 
-You should also check your HTML markup is valid after JavaScript has modified it. To make sure, [check your page with W3C's 'Check serialized DOM of current page’ bookmarklet](https://validator.w3.org/nu/about.html#extras).
+'Compliant' means that components should look and function as they were designed to do in other modern browsers.
 
-You should use the bookmarklet if:
+'Latest versions' refers to the latest stable version and the version immediately before that.
 
-- your page has a lot of JavaScript
-- you can only check your page when you've logged in to a site
+We no longer support older versions of Internet Explorer. This is due to the very low and falling numbers that these browsers make up compared to our total visits. Read the blog post [Changing our testing requirements for Internet Explorer 8, 9 and 10](https://technology.blog.gov.uk/2018/06/26/changing-our-testing-requirements-for-internet-explorer-8-9-and-10/) by GOV.UK for more information on why we have done this.
 
-If you can, fix any errors or warnings reported by either the validator or bookmarklet.
+| Operating system | Browser                              | Support   |
+|----------------- |--------------------------------------|-----------|
+| Windows          | Internet Explorer 11                 | compliant |
+| Windows          | Edge (latest versions)               | compliant |
+| Windows          | Google Chrome (latest versions)      | compliant |
+| Windows          | Mozilla Firefox (latest versions)    | compliant |
+| macOS            | Safari 12+                           | compliant |
+| macOS            | Google Chrome (latest versions)      | compliant |
+| macOS            | Mozilla Firefox (latest versions)    | compliant |
+| iOS              | Safari for iOS 12.1 and later        | compliant |
+| iOS              | Google Chrome (latest versions)      | compliant |
+| Android          | Google Chrome (latest versions)      | compliant |
+| Android          | Samsung Internet (latest versions)   | compliant |
 
-You do not need to fix any [known issues with our components](https://github.com/alphagov/govuk-frontend/issues/1280#issuecomment-509588851) reported by either the validator or bookmarklet.
+## Assistive technology support
 
-If you need help with fixing an error or a warning, leave a note in your pull request or [contact the Design System team](https://design-system.service.gov.uk/#support).
+| Software                 | Type               | Browser                             |
+|--------------------------|--------------------|-------------------------------------|
+| [JAWS](https://www.freedomscientific.com/Products/Blindness/JAWS)     | Windows desktop screen reader      | Internet Explorer 11, Chrome (latest version) |
+| [NVDA](https://www.nvaccess.org/) | Windows desktop screen reader      | Firefox (latest versions)|
+| [VoiceOver](https://www.apple.com/uk/accessibility/iphone/vision/)           | Apple mobile and desktop screen reader      | Safari 12+ |
+| [TalkBack](https://support.google.com/accessibility/android/topic/3529932?hl=en-GB&ref_topic=9078845)           | Android mobile screen reader      | Chrome (latest version) |
+| [Dragon NaturallySpeaking](https://www.nuance.com/en-gb/dragon.html)| Windows speech recognition | Internet Explorer 11 |
+| [ZoomText](https://www.zoomtext.com/products/zoomtext-magnifierreader/)             | Windows desktop screen magnifier   | Internet Explorer 11 |
 
-## 3. Check your changes in the ‘review app’
+Testing with the various technologies above should cover the vast amount of
+users who use assistive technologies.
 
-In your project folder, run `npm start`, then go to [http://localhost:3000/]([http://localhost:3000/]) in your browser to open the 'review app'.
+### How to test
 
-Check that:
+#### Screen readers
 
-- the examples in the review app look right and behave correctly with your changes
-- your design is consistent with the rest of GOV.UK Frontend
+The following should be checked when testing using a screen reader:
 
-### Add an example
+- every element can be read
+- links and form elements can be keyboard tabbed to
+- landmarks are announced correctly
+- ARIA attributes are correctly used
+- form elements can be used correctly
 
-You should add an example to the review app if the existing examples do not reflect the changes you've made.
 
-1. Open `src/govuk/components/<COMPONENT>/<COMPONENT>.yaml`, where `<COMPONENT>` is the component you've changed.
-2. Add or update examples in the `examples` list.
+#### Screen magnifiers
 
-If you've created a new component, create a new `src/govuk/<COMPONENT>/<COMPONENT>.yaml` file instead, where `<COMPONENT>` is the name of the component you've created.
+The following should be considered when testing using a screen magnifier:
 
-## 4. Test in supported browsers and assistive technology
+- use various levels of magnification, up to at least 10 times
+- ensure scroll width for content is not too long and can be easily understood
+- ensure form elements and their labels are close to each other
 
-You should test that your contribution works:
 
-- in [Internet Explorer 8](https://frontend.design-system.service.gov.uk/supporting-ie8/), 9 and 10 - components do not need to look perfect
-- in [recommended browsers](https://www.gov.uk/service-manual/technology/designing-for-different-browsers-and-devices#browsers-to-test-in), including when you [resize text](/docs/contributing/resize-text-in-browsers.md)
-- when your users [override colours in Windows, Firefox and Chrome](https://accessibility.blog.gov.uk/2018/08/01/supporting-users-who-change-colours-on-gov-uk/)
-- with [recommended assistive technologies](https://www.gov.uk/service-manual/technology/testing-with-assistive-technologies#what-to-test)
+#### Speech recognition
 
-## 5. Run the automated tests
+The following should be considered when testing using speech recognition software:
 
-Automated testing helps ensure that the code changes we make do not unintentionally break functionality.
-Tests are automatically run against a branch, pull request, or when the project is built for release, and will notify us if a test has failed.
+- every link can be accessed
+- every form element can be accessed
+- every interactive element can be accessed
 
-In your project folder, run `npm test` to run the automated tests, including linting.
 
-If a test fails, you should check your code for any errors, then update any tests you need to.
+#### Colour schemes
 
-## 6. Write new tests
+Use the operating system's different colour schemes and ensure that content is
+clear and viewable. Examples of colour schemes include:
 
-You can [read more about the different types of tests in this project](../releasing/testing-and-linting.md).
+- different contrast modes
+- inverted colours
+- greyscale
 
-You should write new tests if you’ve created a new component, or changed the way a component works by:
+---
 
-- changing or adding to the component's JavaScript code
-- changing or adding to the component's Nunjucks macro
-- creating or updating a Sass mixin or function
-
-If you're new to testing, see existing test files for examples of things to do. Do not let the tests keep you from submitting your contribution! If you're not sure which tests are needed or are having trouble updating them, submit your pull request anyway. We will help you create the tests and solve problems during code review.
-
-Some test files use examples from each component’s `.yaml` file, for example `src/govuk/components/button/button.yaml`. When you add or update these tests, you can use the existing examples or add new ones.
-
-Use `hidden: true` in a new example if you do not want to include the example in the review app. The example will still appear in our [test fixtures](http://frontend.design-system.service.gov.uk/testing-your-html/).
-
-All tests should try and meet [our testing conventions](../releasing/testing-and-linting.md#conventions)
-
-### If you created a component
-
-Create the following files in the `src/govuk/components` folder:
-
-- `<COMPONENT>/<COMPONENT>.test.js` - to test functionality if the component uses JavaScript
-- `<COMPONENT>/<COMPONENT>.unit.test.mjs` - to unit test any JavaScript logic
-- `<COMPONENT>/template.test.js` - to test the Nunjucks macro
-
-Where `<COMPONENT>` is the name of the component you created.
-
-You can use the existing files in the `src/govuk/components` folder as templates for your new files.
-
-### If you changed or added to a component
-
-In the `src/govuk/components` folder, update or add tests to:
-
-- `<COMPONENT>/<COMPONENT>.test.js` - if you updated functionality
-- `<COMPONENT>/<COMPONENT>.unit.test.mjs` - if you updated JavaScript logic
-- `<COMPONENT>/template.test.js` - if you updated the Nunjucks macro
-
-Where `<COMPONENT>` is the name of the component you changed or added to.
-
-### If you created or updated a Sass mixin or function
-
-Update or add tests in the `.test.js` file that matches the name of the `.scss` file you created or updated. Create the `.test.js` file if it does not exist.
-
-For example, if you updated a mixin in `src/govuk/helpers/_colour.scss`, update or add tests in `src/govuk/helpers/_colour.test.js`.
-
-## 7. Update the snapshot tests
-
-If your component uses another component, one of the [Jest snapshot tests](https://jestjs.io/docs/en/snapshot-testing) may fail. Snapshot tests compare a component's current markup with a previously stored version.
-
-If a snapshot test fails, follow these steps.
-
-1. Check that the component's new markup is correct.
-2. Run `npm test -- -u src/govuk/components/<COMPONENT>` to update the snapshot test with the new markup.
-3. Commit the updated file in the `/src/govuk/components/<COMPONENT>/__snapshots__/` folder.
-4. In the commit message, tell us you're updating the snapshot file and why.
-
-Where `<COMPONENT>` is the name of the component you've changed.
-
-## 8. Test that your changes work in the GOV.UK Design System (optional)
-
-To make sure your changes work in the Design System, use `npm link` to test before publishing, as follows:
-
-```bash
-cd ../govuk-design-system
-git checkout main
-git pull
-npm install # note running `npm install` after `npm link` will destroy the link.
-npm link ../govuk-frontend/package/
- ```
-
-When you've finished testing, run this command to unlink the package:
-
-```bash
-npm unlink ../govuk-frontend/package/
-```
-
-## 9. Tell us what you’ve tested and checked
-
-When you create the pull request for your contributions, list what you’ve tested and checked in the pull request description.
-
-If your contribution changes how a component looks, include before and after screenshots if you can.
-
-### If GitHub shows that some checks were not successful
-
-At the bottom of your pull request in GitHub, find the checks marked as **Failing**.
-
-For each failing check, select 'Details' and use the build log to find the problem and fix your code.
+Next: [Automated testing](automated-testing.md)

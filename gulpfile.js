@@ -1,100 +1,188 @@
-const gulp = require('gulp')
-const taskListing = require('gulp-task-listing')
-const configPaths = require('./config/paths.js')
-const taskArguments = require('./tasks/task-arguments')
-
-// Gulp sub-tasks
-require('./tasks/gulp/compile-assets.js')
-require('./tasks/gulp/copy-to-destination.js')
-require('./tasks/gulp/watch.js')
-
-// Node tasks
-const { buildSassdocs } = require('./tasks/sassdoc.js')
-const { runNodemon } = require('./tasks/nodemon.js')
-const { updateDistAssetsVersion } = require('./tasks/asset-version.js')
-const { cleanDist, cleanPackage, cleanPublic } = require('./tasks/clean.js')
-const { npmScriptTask } = require('./tasks/run.js')
+const gulp = require('gulp');
+const sass = require('gulp-sass')(require('sass'));
+const clean = require('gulp-clean');
+const rename = require('gulp-rename');
+const cleanCSS = require('gulp-clean-css');
+const uglify = require('gulp-uglify');
+const zip = require('gulp-zip');
+const webpack = require('webpack-stream');
+const { version } = require('./package.json');
 
 /**
- * Umbrella scripts tasks (for watch)
- * Runs JavaScript code quality checks and compilation
+ * Import gulp tasks used for creating
+ * our website pages.
  */
-gulp.task('scripts', gulp.series(
-  npmScriptTask('lint:js', ['--silent']),
-  'js:compile'
-))
+require('./tasks/docs.js');
+
+/* Remove all compiled files */
+function cleanDist() {
+  return gulp.src('dist', { allowEmpty: true })
+    .pipe(clean());
+}
 
 /**
- * Umbrella styles tasks (for watch)
- * Runs Sass code quality checks and compilation
+ * CSS tasks
  */
-gulp.task('styles', gulp.series(
-  npmScriptTask('lint:scss', ['--silent']),
-  'scss:compile'
-))
+
+sass.compiler = require('sass');
+
+/* Build the CSS from source */
+function compileCSS() {
+  return gulp.src(['packages/nhsuk.scss'])
+    .pipe(sass())
+    .pipe(gulp.dest('dist/'))
+    .on('error', (err) => {
+      console.log(err);
+      process.exit(1);
+    });
+}
+
+/* Minify CSS and add a min.css suffix */
+function minifyCSS() {
+  return gulp.src([
+    'dist/*.css',
+    '!dist/*.min.css', // don't re-minify minified css
+  ])
+    .pipe(cleanCSS())
+    .pipe(rename({
+      suffix: `-${version}.min`,
+    }))
+    .pipe(gulp.dest('dist/'));
+}
 
 /**
- * Copy assets task
- * Copies assets to taskArguments.destination (public)
+ * JavaScript tasks
  */
-gulp.task('copy:assets', () => {
-  return gulp.src(configPaths.src + 'assets/**/*')
-    .pipe(gulp.dest(taskArguments.destination + '/assets/'))
-})
+
+/* Use Webpack to build and minify the NHS.UK components JS. */
+function webpackJS() {
+  return gulp.src('./packages/nhsuk.js')
+    .pipe(webpack({
+      mode: 'production',
+      module: {
+        rules: [
+          {
+            use: {
+              loader: 'babel-loader',
+              options: {
+                presets: ['@babel/preset-env'],
+              },
+            },
+          },
+        ],
+      },
+      output: {
+        filename: 'nhsuk.js',
+      },
+      target: 'web',
+    }))
+    .pipe(gulp.dest('./dist'));
+}
+
+/* Minify the JS file for release */
+function minifyJS() {
+  return gulp.src([
+    'dist/*.js',
+    '!dist/*.min.js', // don't re-minify minified javascript
+  ])
+    .pipe(uglify())
+    .pipe(rename({
+      suffix: '.min',
+    }))
+    .pipe(gulp.dest('dist/'));
+}
+
+/* Version the JS file for release */
+function versionJS() {
+  return gulp.src([
+    'dist/*.js',
+    '!dist/*.min.js', // don't re-minify minified javascript
+  ])
+    .pipe(uglify())
+    .pipe(rename({
+      suffix: `-${version}.min`,
+    }))
+    .pipe(gulp.dest('dist/'));
+}
 
 /**
- * Compile task for local & heroku
- * Runs JavaScript and Sass compilation, including Sass documentation
+ * Assets tasks
  */
-gulp.task('compile', gulp.series(
-  'js:compile',
-  'scss:compile',
-  buildSassdocs
-))
 
 /**
- * Serve task
- * Restarts Node.js app when there are changes
- * affecting .js, .mjs and .json files
+ * Copy assets such as icons and images into the distribution
  */
-gulp.task('serve', gulp.parallel(
-  'watch',
-  runNodemon
-))
+function assets() {
+  return gulp.src('packages/assets/**')
+    .pipe(gulp.dest('dist/assets/'));
+}
 
 /**
- * Dev task
- * Runs a sequence of tasks on start
+ * Release tasks
  */
-gulp.task('dev', gulp.series(
-  cleanPublic,
-  'compile',
-  'serve'
-))
+
+/* Copy JS files into their relevant folders */
+function jsFolder() {
+  return gulp.src('dist/*.min.js', '!dist/js/nhsuk.min.js')
+    .pipe(clean())
+    .pipe(gulp.dest('dist/js/'));
+}
+
+/* Copy CSS files into their relevant folders */
+
+function cssFolder() {
+  return gulp.src('dist/*.min.css')
+    .pipe(clean())
+    .pipe(gulp.dest('dist/css/'));
+}
+
+function createZip() {
+  return gulp.src(['dist/css/*.min.css', 'dist/js/*.min.js', 'dist/assets/**', '!dist/js/nhsuk.min.js'], { base: 'dist' })
+    .pipe(zip(`nhsuk-frontend-${version}.zip`))
+    .pipe(gulp.dest('dist'));
+}
 
 /**
- * Build package task
- * Prepare package folder for publishing
+ * Development tasks
  */
-gulp.task('build:package', gulp.series(
-  cleanPackage,
-  'copy:files',
-  'js:compile'
-))
 
-/**
- * Build dist task
- * Prepare dist folder for release
- */
-gulp.task('build:dist', gulp.series(
+/* Recompile CSS, JS and docs when there are any changes */
+function watch() {
+  gulp.watch(['packages/**/*', 'app/**/*'], gulp.series(['build', 'docs:build']));
+}
+
+gulp.task('clean', cleanDist);
+
+gulp.task('style', compileCSS);
+
+gulp.task('build', gulp.series([
+  compileCSS,
+  webpackJS,
+]));
+
+gulp.task('bundle', gulp.series([
   cleanDist,
-  'compile',
-  'copy:assets',
-  updateDistAssetsVersion
-))
+  'build',
+  minifyCSS,
+  minifyJS,
+  versionJS,
+]));
+
+gulp.task('zip', gulp.series([
+  'bundle',
+  assets,
+  jsFolder,
+  cssFolder,
+  createZip,
+]));
+
+gulp.task('watch', watch);
 
 /**
- * Default task
- * Lists out available tasks
+ * The default task is to build everything, serve the docs and watch for changes
  */
-gulp.task('default', taskListing)
+gulp.task('default', gulp.series([
+  cleanDist,
+  'build',
+  gulp.parallel(['docs:serve', watch]),
+]));

@@ -1,66 +1,41 @@
-## Application architecture
+# Application architecture
 
-- `app/`
+The application generates static HTML pages to preview components, with each component having their own page, these files can be found in `app/`. To make changes to components, you will have to edit the individual components files within `packages/`. These are usually the only 2 folders that you will need.
 
-  [Express](https://github.com/expressjs/express) application to preview components; also referred to as _preview app_.
+---
 
-  - `assets/`
+`.github/`
 
-    App-specific assets.
+  GitHub specific files, such templates for pull requests and issues.
 
-  - `views/`
+`app/`
 
-    [Nunjucks](https://github.com/mozilla/nunjucks) template files.
+  Nunjuck (HTML) files for the component example pages that you see at http://localhost:3000 when running the application locally and on https://nhsuk.github.io/nhsuk-frontend
 
-    - `examples/`
+`dist/` (Automatically generated)
 
-      Examples of components usage in various contexts. You can access these examples from the home page of the preview app.
+  Automatically generated compiled files and build assets for GitHub pages, releases and npm packages. Don't manually edit files in this folder as they will be deleted.
 
-    - `layouts/`
+`docs/`
 
-      Generic layout templates used to render preview app pages.
+  Markdown files for documentation on GitHub, such as contributing to the project, coding standards and more.
 
-    - `partials/`
+`node_modules/` (Automatically generated)
 
-      Reusable blocks of template code.
+ Node package manager modules for third party dependencies. This folder is automatically generated when running `npm install`. Don't manually edit files in this folder as they will be deleted.
 
-- `bin/`
+`packages/`
 
-  Binary/executable files (i.e. bash scripts) mainly used in the [publishing process](/docs/releasing/publishing.md).
+  NHS.UK frontend individual components files, such as all the stylesheet (scss) files, HTML templates (nunjucks), READMEs and assets.
 
-- `config/`
+`tasks/`
 
-  Configuration files for the preview app and [Jest](https://github.com/facebook/jest).
+  Gulp.js tasks to build the `dist/` folder from the files in `app`.
 
+`tests/`
 
-- `dist/` **contains auto-generated files**
+  Test configuration files for our testing frameworks Cypress and BackstopJS. Linting configuration for our linters eslint, htmlhint and stylelint.
 
-  Standalone builds of govuk-frontend. Provides a way to consume govuk-frontend without using npm.
+---
 
-- `docs/`
-
-  Documentation files.
-
-- `lib/`
-
-  Application modules and helpers.
-
-- `package/` **contains auto-generated files**
-
-  package published on npm.
-  Consume all of govuk-frontend through a single package.
-
-- `src/`
-
-  Source files. See README.md in the src directory for details.
-
-- `tasks/`
-
-  Application modules and helpers. See [tasks](tasks.md) for more information about the tasks.
-
-
-### Auto-generated directories
-
-- `public/`
-
-  Assets built for the preview app.
+Next: [Coding standards and style guide](coding-standards.md)
