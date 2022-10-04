@@ -6,14 +6,14 @@ Find out more about the tag component and when to use it in the [NHS digital ser
 
 ## Quick start example
 
-[Preview the tag component](https://nhsuk.github.io/nhsuk-frontend/components/tag/index.html)
+[Preview the tag component](https://nhsuk.github.io/moduk-frontend/components/tag/index.html)
 
 ### Default tag
 
 #### HTML markup
 
 ```html
-<strong class="nhsuk-tag">
+<strong class="moduk-tag">
   Active
 </strong>
 ```
@@ -35,7 +35,7 @@ See the full list of tag colours on the [NHS digital service manual](https://ser
 #### HTML markup
 
 ```html
-<strong class="nhsuk-tag nhsuk-tag--grey">
+<strong class="moduk-tag moduk-tag--grey">
   Inactive
 </strong>
 ```

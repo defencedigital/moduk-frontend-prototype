@@ -15,22 +15,22 @@
  */
 
 html {
-  background-color: $color_nhsuk-grey-4;
+  background-color: $color_moduk-grey-4;
   overflow-y: scroll; /* [1] */
 
-  @if $nhsuk-include-font-face {
-    @include _nhsuk-font-face-frutiger;
-    font-family: $nhsuk-font, $nhsuk-font-fallback;
+  @if $moduk-include-font-face {
+    @include _moduk-font-face-frutiger;
+    font-family: $moduk-font, $moduk-font-fallback;
   }
 }
 
 body {
-  background-color: $color_nhsuk-grey-5;
-  color: $nhsuk-text-color;
-  font-size: $nhsuk-base-font-size;
+  background-color: $color_moduk-grey-5;
+  color: $moduk-text-color;
+  font-size: $moduk-base-font-size;
   -moz-osx-font-smoothing: grayscale; /* [2] */
   -webkit-font-smoothing: antialiased; /* [2] */
-  line-height: _nhsuk-line-height($nhsuk-base-line-height, $nhsuk-base-font-size);
+  line-height: _moduk-line-height($moduk-base-line-height, $moduk-base-font-size);
   margin: 0; /* [3] */
   min-height: 100%; /* [4] */
 }

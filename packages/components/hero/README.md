@@ -4,18 +4,18 @@
 
 ### Hero with heading and content
 
-[Preview the hero with heading and content component](https://nhsuk.github.io/nhsuk-frontend/components/hero/index.html)
+[Preview the hero with heading and content component](https://nhsuk.github.io/moduk-frontend/components/hero/index.html)
 
 #### HTML markup
 
 ```html
-<section class="nhsuk-hero">
-  <div class="nhsuk-width-container nhsuk-hero--border">
-    <div class="nhsuk-grid-row">
-      <div class="nhsuk-grid-column-two-thirds">
-        <div class="nhsuk-hero__wrapper">
-          <h1 class="nhsuk-u-margin-bottom-3">We’re here for you</h1>
-          <p class="nhsuk-body-l nhsuk-u-margin-bottom-0">Helping you take control of your health and wellbeing.</p>
+<section class="moduk-hero">
+  <div class="moduk-width-container moduk-hero--border">
+    <div class="moduk-grid-row">
+      <div class="moduk-grid-column-two-thirds">
+        <div class="moduk-hero__wrapper">
+          <h1 class="moduk-u-margin-bottom-3">We’re here for you</h1>
+          <p class="moduk-body-l moduk-u-margin-bottom-0">Helping you take control of your health and wellbeing.</p>
         </div>
       </div>
     </div>
@@ -38,20 +38,20 @@
 
 ### Hero with image, heading and content
 
-[Preview the hero with image, heading and content component](https://nhsuk.github.io/nhsuk-frontend/components/hero/hero-image-content.html)
+[Preview the hero with image, heading and content component](https://nhsuk.github.io/moduk-frontend/components/hero/hero-image-content.html)
 
 #### HTML markup
 
 ```html
-<section class="nhsuk-hero nhsuk-hero--image nhsuk-hero--image-description" style="background-image: url('https://assets.nhs.uk/prod/images/S_0818_homepage_hero_1_F0147446.width-1000.jpg');">
-  <div class="nhsuk-hero__overlay">
-    <div class="nhsuk-width-container">
-      <div class="nhsuk-grid-row">
-        <div class="nhsuk-grid-column-two-thirds">
-          <div class="nhsuk-hero-content">
-            <h1 class="nhsuk-u-margin-bottom-3">We’re here for you</h1>
-            <p class="nhsuk-body-l nhsuk-u-margin-bottom-0">Helping you take control of your health and wellbeing.</p>
-            <span class="nhsuk-hero__arrow" aria-hidden="true"></span>
+<section class="moduk-hero moduk-hero--image moduk-hero--image-description" style="background-image: url('https://assets.nhs.uk/prod/images/S_0818_homepage_hero_1_F0147446.width-1000.jpg');">
+  <div class="moduk-hero__overlay">
+    <div class="moduk-width-container">
+      <div class="moduk-grid-row">
+        <div class="moduk-grid-column-two-thirds">
+          <div class="moduk-hero-content">
+            <h1 class="moduk-u-margin-bottom-3">We’re here for you</h1>
+            <p class="moduk-body-l moduk-u-margin-bottom-0">Helping you take control of your health and wellbeing.</p>
+            <span class="moduk-hero__arrow" aria-hidden="true"></span>
           </div>
         </div>
       </div>
@@ -76,13 +76,13 @@
 
 ### Hero with image only
 
-[Preview the hero with image only component](https://nhsuk.github.io/nhsuk-frontend/components/hero/hero-image.html)
+[Preview the hero with image only component](https://nhsuk.github.io/moduk-frontend/components/hero/hero-image.html)
 
 #### HTML markup
 
 ```html
-<section class="nhsuk-hero nhsuk-hero--image" style="background-image: url('https://assets.nhs.uk/prod/images/S_0818_homepage_hero_1_F0147446.width-1000.jpg');">
-  <div class="nhsuk-hero__overlay">
+<section class="moduk-hero moduk-hero--image" style="background-image: url('https://assets.nhs.uk/prod/images/S_0818_homepage_hero_1_F0147446.width-1000.jpg');">
+  <div class="moduk-hero__overlay">
   </div>
 </section>
 ```

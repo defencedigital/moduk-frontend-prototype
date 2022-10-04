@@ -12,8 +12,8 @@
  * 4. Fallback for older browsers only
  */
 
-.nhsuk-summary-list {
-  @include nhsuk-font($size: 19);
+.moduk-summary-list {
+  @include moduk-font($size: 19);
 
   @include mq($from: tablet) {
     display: table;
@@ -22,36 +22,36 @@
   }
 
   margin: 0; /* [2] */
-  @include nhsuk-responsive-margin(6, 'bottom');
+  @include moduk-responsive-margin(6, 'bottom');
 }
 
-.nhsuk-summary-list__row {
+.moduk-summary-list__row {
   @include mq($until: tablet) {
-    border-bottom: 1px solid $nhsuk-border-color;
-    margin-bottom: nhsuk-spacing(3);
+    border-bottom: 1px solid $moduk-border-color;
+    margin-bottom: moduk-spacing(3);
   }
   @include mq($from: tablet) {
     display: table-row;
   }
 }
 
-.nhsuk-summary-list__key,
-.nhsuk-summary-list__value,
-.nhsuk-summary-list__actions {
+.moduk-summary-list__key,
+.moduk-summary-list__value,
+.moduk-summary-list__actions {
   margin: 0; /* [2] */
   vertical-align: top;
 
   @include mq($from: tablet) {
-    border-bottom: 1px solid $nhsuk-border-color;
+    border-bottom: 1px solid $moduk-border-color;
     display: table-cell;
-    padding-bottom: nhsuk-spacing(2);
-    padding-right: nhsuk-spacing(4);
-    padding-top: nhsuk-spacing(2);
+    padding-bottom: moduk-spacing(2);
+    padding-right: moduk-spacing(4);
+    padding-top: moduk-spacing(2);
   }
 }
 
-.nhsuk-summary-list__actions {
-  margin-bottom: nhsuk-spacing(3);
+.moduk-summary-list__actions {
+  margin-bottom: moduk-spacing(3);
 
   @include mq($from: tablet) {
     padding-right: 0;
@@ -60,67 +60,67 @@
   }
 }
 
-.nhsuk-summary-list__key,
-.nhsuk-summary-list__value {
+.moduk-summary-list__key,
+.moduk-summary-list__value {
   /* [3] */
   overflow-wrap: break-word;
   word-wrap: break-word; /* [4] */
 }
 
-.nhsuk-summary-list__key {
-  @include nhsuk-typography-weight-bold;
+.moduk-summary-list__key {
+  @include moduk-typography-weight-bold;
 
-  margin-bottom: nhsuk-spacing(1);
+  margin-bottom: moduk-spacing(1);
 
   @include mq($from: tablet) {
     width: 30%;
   }
 }
 
-.nhsuk-summary-list__value {
+.moduk-summary-list__value {
   @include mq($until: tablet) {
-    margin-bottom: nhsuk-spacing(3);
+    margin-bottom: moduk-spacing(3);
   }
   @include mq($from: tablet) {
     width: 50%;
   }
 }
 
-.nhsuk-summary-list__value > p {
-  margin-bottom: nhsuk-spacing(2);
+.moduk-summary-list__value > p {
+  margin-bottom: moduk-spacing(2);
 }
 
-.nhsuk-summary-list__value > :last-child {
+.moduk-summary-list__value > :last-child {
   margin-bottom: 0;
 }
 
-.nhsuk-summary-list__actions-list {
+.moduk-summary-list__actions-list {
   margin: 0; /* [2] */
   padding: 0; /* [2] */
   width: 100%;
 }
 
-.nhsuk-summary-list__actions-list-item {
+.moduk-summary-list__actions-list-item {
   display: inline;
-  margin-right: nhsuk-spacing(2);
-  padding-right: nhsuk-spacing(2);
+  margin-right: moduk-spacing(2);
+  padding-right: moduk-spacing(2);
 }
 
-.nhsuk-summary-list__actions-list-item:not(:last-child) {
-  border-right: 1px solid $nhsuk-border-color;
+.moduk-summary-list__actions-list-item:not(:last-child) {
+  border-right: 1px solid $moduk-border-color;
 }
 
-.nhsuk-summary-list__actions-list-item:last-child {
+.moduk-summary-list__actions-list-item:last-child {
   border: 0;
   margin-right: 0;
   padding-right: 0;
 }
 
-.nhsuk-summary-list--no-border {
-  .nhsuk-summary-list__key,
-  .nhsuk-summary-list__value,
-  .nhsuk-summary-list__actions,
-  .nhsuk-summary-list__row {
+.moduk-summary-list--no-border {
+  .moduk-summary-list__key,
+  .moduk-summary-list__value,
+  .moduk-summary-list__actions,
+  .moduk-summary-list__row {
     border: 0;
   }
 }

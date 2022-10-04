@@ -8,23 +8,23 @@ Find out more about the footer component and when to use it in the [NHS digital 
 
 ### Footer
 
-[Preview the footer component](https://nhsuk.github.io/nhsuk-frontend/components/footer/index.html)
+[Preview the footer component](https://nhsuk.github.io/moduk-frontend/components/footer/index.html)
 
 #### HTML markup
 
 ```html
 <footer role="contentinfo">
-  <div class="nhsuk-footer" id="nhsuk-footer">
-    <div class="nhsuk-width-container">
-      <h2 class="nhsuk-u-visually-hidden">Support links</h2>
-      <ul class="nhsuk-footer__list">
-        <li class="nhsuk-footer__list-item"><a class="nhsuk-footer__list-item-link" href="#">Accessibility statement</a></li>
-        <li class="nhsuk-footer__list-item"><a class="nhsuk-footer__list-item-link" href="#">Contact us</a></li>
-        <li class="nhsuk-footer__list-item"><a class="nhsuk-footer__list-item-link" href="#">Cookies</a></li>
-        <li class="nhsuk-footer__list-item"><a class="nhsuk-footer__list-item-link" href="#">Privacy policy</a></li>
-        <li class="nhsuk-footer__list-item"><a class="nhsuk-footer__list-item-link" href="#">Terms and conditions</a></li>
+  <div class="moduk-footer" id="moduk-footer">
+    <div class="moduk-width-container">
+      <h2 class="moduk-u-visually-hidden">Support links</h2>
+      <ul class="moduk-footer__list">
+        <li class="moduk-footer__list-item"><a class="moduk-footer__list-item-link" href="#">Accessibility statement</a></li>
+        <li class="moduk-footer__list-item"><a class="moduk-footer__list-item-link" href="#">Contact us</a></li>
+        <li class="moduk-footer__list-item"><a class="moduk-footer__list-item-link" href="#">Cookies</a></li>
+        <li class="moduk-footer__list-item"><a class="moduk-footer__list-item-link" href="#">Privacy policy</a></li>
+        <li class="moduk-footer__list-item"><a class="moduk-footer__list-item-link" href="#">Terms and conditions</a></li>
       </ul>
-      <p class="nhsuk-footer__copyright">&copy; Crown copyright</p>
+      <p class="moduk-footer__copyright">&copy; Crown copyright</p>
     </div>
   </div>
 </footer>

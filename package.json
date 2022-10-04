@@ -1,7 +1,7 @@
 {
-  "name": "nhsuk-frontend",
+  "name": "moduk-frontend",
   "version": "6.1.2",
-  "description": "NHS.UK frontend contains the code you need to start building user interfaces for NHS websites and services.",
+  "description": "MOD.UK frontend contains the code you need to start building user interfaces for MOD websites and services.",
   "scripts": {
     "prepare": "gulp bundle",
     "build": "gulp build",
@@ -17,7 +17,7 @@
     "backstop:citest": "backstop --config=./tests/backstop/backstop.js test --docker",
     "backstop:approve": "backstop --config=./tests/backstop/backstop.js approve",
     "backstop:clean": "rm -rf tests/backstop/bitmaps_test/* && rm -rf tests/backstop/html_report",
-    "build-gh-pages": "gulp bundle && BASE_URL='/nhsuk-frontend/' gulp docs:build",
+    "build-gh-pages": "gulp bundle && BASE_URL='/moduk-frontend/' gulp docs:build",
     "build-gh-release": "gulp zip",
     "jest:dev": "jest --watch",
     "jest:ci": "jest"
@@ -70,11 +70,11 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nhsuk/nhsuk-frontend.git"
+    "url": "git+https://github.com/defencedigital/moduk-frontend.git"
   },
-  "homepage": "https://nhsuk.github.io/nhsuk-frontend/",
+  "homepage": "https://defencedigital.github.io/moduk-frontend/",
   "bugs": {
-    "url": "https://github.com/nhsuk/nhsuk-frontend/issues"
+    "url": "https://github.com/defencedigital/moduk-frontend/issues"
   },
   "license": "MIT",
   "dependencies": {}

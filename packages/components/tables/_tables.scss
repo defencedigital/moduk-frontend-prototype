@@ -8,8 +8,8 @@
  * 1. Margin is removed so there isn't double spacing.
  */
 
-.nhsuk-table-container {
-  @include nhsuk-responsive-margin(7, 'bottom');
+.moduk-table-container {
+  @include moduk-responsive-margin(7, 'bottom');
 
   display: block;
   -webkit-overflow-scrolling: touch;
@@ -17,7 +17,7 @@
   overflow-x: auto;
   width: 100%;
 
-  .nhsuk-table {
+  .moduk-table {
     margin: 0; /* [1] */
   }
 }
@@ -29,9 +29,9 @@
  * Table row hover is used to aid readability for users.
  */
 
-.nhsuk-table__row {
+.moduk-table__row {
   &:hover {
-    background-color: $color_nhsuk-grey-5;
+    background-color: $color_moduk-grey-5;
   }
 }
 
@@ -42,21 +42,21 @@
  * 1. Margin is removed so there isn't double spacing.
  */
 
-.nhsuk-table__panel-with-heading-tab {
+.moduk-table__panel-with-heading-tab {
   @include panel-with-label(
-    $color_nhsuk-white,
-    $nhsuk-text-color,
-    $color_nhsuk-grey-4
+    $color_moduk-white,
+    $moduk-text-color,
+    $color_moduk-grey-4
   );
 
-  .nhsuk-table-container,
-  .nhsuk-table {
+  .moduk-table-container,
+  .moduk-table {
     margin: 0; /* [1] */
   }
 }
 
-.nhsuk-table__heading-tab {
-  @include heading-label($color_nhsuk-blue, $color_nhsuk-white);
+.moduk-table__heading-tab {
+  @include heading-label($color_moduk-maroon, $color_moduk-white);
 }
 
 /* Responsive table
@@ -75,7 +75,7 @@
  * 10. Adding a display block value due to IE 11 not having full flex support
  */
 
-.nhsuk-table-responsive {
+.moduk-table-responsive {
   margin-bottom: 0;
   width: 100%;
 
@@ -87,10 +87,10 @@
     }
   }
 
-  .nhsuk-table__body {
-    .nhsuk-table-responsive__heading {
-      font-weight: $nhsuk-font-bold;
-      padding-right: nhsuk-spacing(3);
+  .moduk-table__body {
+    .moduk-table-responsive__heading {
+      font-weight: $moduk-font-bold;
+      padding-right: moduk-spacing(3);
       text-align: left; /* [8] */
 
       @include mq($from: desktop) {
@@ -98,9 +98,9 @@
       }
     }
 
-    .nhsuk-table__row {
+    .moduk-table__row {
       display: block; /* [3] */
-      margin-bottom: nhsuk-spacing(4);
+      margin-bottom: moduk-spacing(4);
 
       &:last-child {
         margin-bottom: 0;
@@ -134,7 +134,7 @@
           padding-right: 0;
           text-align: right; /* [7] */
           &:last-child {
-            border-bottom: 3px solid $color_nhsuk-grey-4;
+            border-bottom: 3px solid $color_moduk-grey-4;
           }
         }
       }
@@ -149,7 +149,7 @@
  * Right aligns table cells for numeric tables.
  */
 
-.nhsuk-table__header--numeric,
-.nhsuk-table__cell--numeric {
+.moduk-table__header--numeric,
+.moduk-table__cell--numeric {
   text-align: right;
 }

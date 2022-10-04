@@ -6,18 +6,18 @@
  * 1. Overrides default browser margin values.
  * 2. Makes the image width two thirds of its container for desktop.
  * 3. Avoid image printing full width of a page.
- * 4. Removes top margin from subsequent nhsuk-image.
+ * 4. Removes top margin from subsequent moduk-image.
  */
 
-.nhsuk-image {
-  background-color: $color_nhsuk-white;
-  border-bottom: 1px solid $color_nhsuk-grey-4;
+.moduk-image {
+  background-color: $color_moduk-white;
+  border-bottom: 1px solid $color_moduk-grey-4;
 
   margin-left: 0; /* [1] */
   margin-right: 0; /* [1] */
 
-  @include nhsuk-responsive-margin(6, 'bottom');
-  @include nhsuk-responsive-margin(6, 'top');
+  @include moduk-responsive-margin(6, 'bottom');
+  @include moduk-responsive-margin(6, 'top');
 
   @include mq($from: desktop) {
     width: 66.66667%; /* [2] */
@@ -27,19 +27,19 @@
     width: 50%; /* [3] */
   }
 
-  & + .nhsuk-image {
-    @include nhsuk-responsive-margin(0, 'top'); /* [4] */
+  & + .moduk-image {
+    @include moduk-responsive-margin(0, 'top'); /* [4] */
   }
 
 }
 
-.nhsuk-image__img {
+.moduk-image__img {
   display: block;
   width: 100%;
 }
 
-.nhsuk-image__caption {
-  @include nhsuk-typography-responsive(16);
+.moduk-image__caption {
+  @include moduk-typography-responsive(16);
 
-  padding: nhsuk-spacing(3);
+  padding: moduk-spacing(3);
 }

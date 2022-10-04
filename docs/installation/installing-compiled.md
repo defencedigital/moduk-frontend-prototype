@@ -1,6 +1,6 @@
 # Installing using compiled files
 
-When installing NHS.UK frontend using compiled files, you are using compiled and minified versions of the stylesheet and JavaScript.
+When installing MOD.UK frontend using compiled files, you are using compiled and minified versions of the stylesheet and JavaScript.
 
 This means that you will not be able to:
 
@@ -14,7 +14,7 @@ If you require any of this functionality, you should [install using npm](/docs/i
 
 1. Download the compiled files
 
-    [Download the latest CSS, JavaScript and assets from GitHub (zip file)](https://github.com/nhsuk/nhsuk-frontend/releases)
+    [Download the latest CSS, JavaScript and assets from GitHub (zip file)](https://github.com/nhsuk/moduk-frontend/releases)
 
 2. Include resources
 
@@ -26,10 +26,10 @@ If you require any of this functionality, you should [install using npm](/docs/i
 
     ```html
     <!-- Styles -->
-    <link rel="stylesheet" href="css/nhsuk-[latest version].min.css">
+    <link rel="stylesheet" href="css/moduk-[latest version].min.css">
 
     <!-- Scripts -->
-    <script src="js/nhsuk-[latest version].min.js" defer></script>
+    <script src="js/moduk-[latest version].min.js" defer></script>
 
     <!-- Favicons -->
     <link rel="shortcut icon" href="assets/favicons/favicon.ico" type="image/x-icon">
@@ -52,6 +52,6 @@ If you require any of this functionality, you should [install using npm](/docs/i
       <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
       ```
 
-  4. Create pages using NHS.UK frontend
+  4. Create pages using MOD.UK frontend
 
       You can now create pages using the [Design system on the NHS digital service manual](https://service-manual.nhs.uk/design-system).

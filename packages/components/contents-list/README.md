@@ -6,28 +6,28 @@ Find out more about the contents list component and when to use it in the [NHS d
 
 ## Quick start example
 
-[Preview the contents list component](https://nhsuk.github.io/nhsuk-frontend/components/contents-list/index.html)
+[Preview the contents list component](https://nhsuk.github.io/moduk-frontend/components/contents-list/index.html)
 
 ### HTML markup
 
 ```html
-<nav class="nhsuk-contents-list" role="navigation" aria-label="Pages in this guide">
-  <h2 class="nhsuk-u-visually-hidden">Contents</h2>
-  <ol class="nhsuk-contents-list__list">
-    <li class="nhsuk-contents-list__item" aria-current="page">
-      <span class="nhsuk-contents-list__current">What is AMD?</span>
+<nav class="moduk-contents-list" role="navigation" aria-label="Pages in this guide">
+  <h2 class="moduk-u-visually-hidden">Contents</h2>
+  <ol class="moduk-contents-list__list">
+    <li class="moduk-contents-list__item" aria-current="page">
+      <span class="moduk-contents-list__current">What is AMD?</span>
     </li>
-    <li class="nhsuk-contents-list__item">
-      <a class="nhsuk-contents-list__link" href="https://www.nhs.uk/conditions/age-related-macular-degeneration-amd/symptoms/">Symptoms</a>
+    <li class="moduk-contents-list__item">
+      <a class="moduk-contents-list__link" href="https://www.nhs.uk/conditions/age-related-macular-degeneration-amd/symptoms/">Symptoms</a>
     </li>
-    <li class="nhsuk-contents-list__item">
-      <a class="nhsuk-contents-list__link" href="https://www.nhs.uk/conditions/age-related-macular-degeneration-amd/getting-diagnosed/">Getting diagnosed</a>
+    <li class="moduk-contents-list__item">
+      <a class="moduk-contents-list__link" href="https://www.nhs.uk/conditions/age-related-macular-degeneration-amd/getting-diagnosed/">Getting diagnosed</a>
     </li>
-    <li class="nhsuk-contents-list__item">
-      <a class="nhsuk-contents-list__link" href="https://www.nhs.uk/conditions/age-related-macular-degeneration-amd/treatment/">Treatments</a>
+    <li class="moduk-contents-list__item">
+      <a class="moduk-contents-list__link" href="https://www.nhs.uk/conditions/age-related-macular-degeneration-amd/treatment/">Treatments</a>
     </li>
-    <li class="nhsuk-contents-list__item">
-      <a class="nhsuk-contents-list__link" href="https://www.nhs.uk/conditions/age-related-macular-degeneration-amd/living-with-amd/">Living with AMD</a>
+    <li class="moduk-contents-list__item">
+      <a class="moduk-contents-list__link" href="https://www.nhs.uk/conditions/age-related-macular-degeneration-amd/living-with-amd/">Living with AMD</a>
     </li>
   </ol>
 </nav>

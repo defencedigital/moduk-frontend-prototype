@@ -5,40 +5,40 @@
 //
 // Default link styling
 //
-// Usage: @include nhsuk-link-style-default;
+// Usage: @include moduk-link-style-default;
 //
 
-@mixin nhsuk-link-style-default {
+@mixin moduk-link-style-default {
 
-  color: $nhsuk-link-color;
+  color: $moduk-link-color;
 
   &:visited {
-    color: $nhsuk-link-visited-color;
+    color: $moduk-link-visited-color;
   }
 
   &:hover {
-    color: $nhsuk-link-hover-color;
+    color: $moduk-link-hover-color;
     text-decoration: none;
   }
 
   &:focus {
-    @include nhsuk-focused-text();
+    @include moduk-focused-text();
 
     &:hover {
       text-decoration: none;
     }
 
     &:visited {
-      color: $nhsuk-focus-text-color;
+      color: $moduk-focus-text-color;
     }
 
-    .nhsuk-icon {
-      fill: $nhsuk-focus-text-color;
+    .moduk-icon {
+      fill: $moduk-focus-text-color;
     }
   }
 
   &:active {
-    color: $nhsuk-link-active-color;
+    color: $moduk-link-active-color;
   }
 
 }
@@ -46,31 +46,31 @@
 //
 // White link styling, used in the footer.
 //
-// Usage: @include nhsuk-link-style-white;
+// Usage: @include moduk-link-style-white;
 //
 
-@mixin nhsuk-link-style-white {
+@mixin moduk-link-style-white {
 
-  color: $color_nhsuk-white;
+  color: $color_moduk-white;
 
   &:visited {
-    color: $color_nhsuk-white;
+    color: $color_moduk-white;
   }
 
   &:hover {
-    color: $color_nhsuk-white;
+    color: $color_moduk-white;
     text-decoration: none;
   }
 
   &:focus {
-    color: $nhsuk-focus-text-color;
-    outline: $nhsuk-focus-width solid transparent;
-    outline-offset: $nhsuk-focus-width;
+    color: $moduk-focus-text-color;
+    outline: $moduk-focus-width solid transparent;
+    outline-offset: $moduk-focus-width;
     text-decoration: none;
   }
 
   &:active {
-    color: $nhsuk-link-active-color;
+    color: $moduk-link-active-color;
   }
 
 }
@@ -78,10 +78,10 @@
 //
 // Default link hover only styling
 //
-// Usage: @include nhsuk-link-style-hover;
+// Usage: @include moduk-link-style-hover;
 //
 
-@mixin nhsuk-link-style-hover {
+@mixin moduk-link-style-hover {
   &:hover {
     text-decoration: none;
   }
@@ -97,33 +97,33 @@
 /// that you’ve visited it before is not important.
 ///
 /// If you use this mixin in a component you must also include the
-/// nhsuk-link-style-default mixin in order to get the focus state.
+/// moduk-link-style-default mixin in order to get the focus state.
 ///
 /// @example scss
-///   .nhsuk-component__link {
-///     @include nhsuk-link-style-default;
-///     @include nhsuk-link-style-no-visited-state;
+///   .moduk-component__link {
+///     @include moduk-link-style-default;
+///     @include moduk-link-style-no-visited-state;
 ///   }
 ///
 
-@mixin nhsuk-link-style-no-visited-state {
+@mixin moduk-link-style-no-visited-state {
   &:link {
-    color: $nhsuk-link-color;
+    color: $moduk-link-color;
   }
 
   &:visited {
-    color: $nhsuk-link-color;
+    color: $moduk-link-color;
   }
 
   &:hover {
-    color: $nhsuk-link-hover-color;
+    color: $moduk-link-hover-color;
   }
 
   &:active {
-    color: $nhsuk-link-active-color;
+    color: $moduk-link-active-color;
   }
 
   &:focus {
-    color: $nhsuk-focus-text-color;
+    color: $moduk-focus-text-color;
   }
 }

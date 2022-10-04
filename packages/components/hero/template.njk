@@ -1,18 +1,18 @@
-<section class="nhsuk-hero
-{%- if params.imageURL and params.heading %} nhsuk-hero--image nhsuk-hero--image-description
-{%- elif params.imageURL %} nhsuk-hero--image{% endif %}
+<section class="moduk-hero
+{%- if params.imageURL and params.heading %} moduk-hero--image moduk-hero--image-description
+{%- elif params.imageURL %} moduk-hero--image{% endif %}
 {%- if params.classes %} {{ params.classes }}{% endif %}"
 {%- if params.imageURL %} style="background-image: url('{{ params.imageURL }}');"{% endif %}
 {%- for attribute, value in params.attributes %} {{ attribute }}="{{ value }}"{% endfor %}>
-{% if params.imageURL %}<div class="nhsuk-hero__overlay">{% endif %}
+{% if params.imageURL %}<div class="moduk-hero__overlay">{% endif %}
 {%- if params.heading %}
-  <div class="nhsuk-width-container{% if not params.imageURL %} nhsuk-hero--border{% endif %}">
-    <div class="nhsuk-grid-row">
-      <div class="nhsuk-grid-column-two-thirds">
-        <div class="{% if params.imageURL %}nhsuk-hero-content{% else %}nhsuk-hero__wrapper{% endif %}">
-          <h1 {% if params.text %}class="nhsuk-u-margin-bottom-3"{% endif %}>{{ params.heading }}</h1>
-          {% if params.text %}<p class="nhsuk-body-l nhsuk-u-margin-bottom-0">{{ params.text }}</p>{% endif %}
-          {% if params.imageURL %}<span class="nhsuk-hero__arrow" aria-hidden="true"></span>{% endif %}
+  <div class="moduk-width-container{% if not params.imageURL %} moduk-hero--border{% endif %}">
+    <div class="moduk-grid-row">
+      <div class="moduk-grid-column-two-thirds">
+        <div class="{% if params.imageURL %}moduk-hero-content{% else %}moduk-hero__wrapper{% endif %}">
+          <h1 {% if params.text %}class="moduk-u-margin-bottom-3"{% endif %}>{{ params.heading }}</h1>
+          {% if params.text %}<p class="moduk-body-l moduk-u-margin-bottom-0">{{ params.text }}</p>{% endif %}
+          {% if params.imageURL %}<span class="moduk-hero__arrow" aria-hidden="true"></span>{% endif %}
         </div>
       </div>
     </div>

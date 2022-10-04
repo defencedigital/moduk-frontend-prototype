@@ -8,12 +8,12 @@ Find out more about the button component and when to use it in the [NHS digital 
 
 ### Button
 
-[Preview the button component](https://nhsuk.github.io/nhsuk-frontend/components/button/index.html)
+[Preview the button component](https://nhsuk.github.io/moduk-frontend/components/button/index.html)
 
 #### HTML markup
 
 ```html
-<button class="nhsuk-button" type="submit">
+<button class="moduk-button" type="submit">
   Save and continue
 </button>
 ```
@@ -32,12 +32,12 @@ Find out more about the button component and when to use it in the [NHS digital 
 
 ### Button as a link
 
-[Preview the button as a link component](https://nhsuk.github.io/nhsuk-frontend/components/button/link.html)
+[Preview the button as a link component](https://nhsuk.github.io/moduk-frontend/components/button/link.html)
 
 #### HTML markup
 
 ```html
-<a href="/" class="nhsuk-button" draggable="false">
+<a href="/" class="moduk-button" draggable="false">
   Link button
 </a>
 ```
@@ -57,12 +57,12 @@ Find out more about the button component and when to use it in the [NHS digital 
 
 ### Button disabled
 
-[Preview the button disabled component](https://nhsuk.github.io/nhsuk-frontend/components/button/disabled.html)
+[Preview the button disabled component](https://nhsuk.github.io/moduk-frontend/components/button/disabled.html)
 
 #### HTML markup
 
 ```html
-<button class="nhsuk-button nhsuk-button--disabled" type="submit" disabled="disabled" aria-disabled="true">
+<button class="moduk-button moduk-button--disabled" type="submit" disabled="disabled" aria-disabled="true">
   Disabled button
 </button>
 ```
@@ -82,12 +82,12 @@ Find out more about the button component and when to use it in the [NHS digital 
 
 ### Button secondary
 
-[Preview the button secondary component](https://nhsuk.github.io/nhsuk-frontend/components/button/secondary.html)
+[Preview the button secondary component](https://nhsuk.github.io/moduk-frontend/components/button/secondary.html)
 
 #### HTML markup
 
 ```html
-<button class="nhsuk-button nhsuk-button--secondary" type="submit">
+<button class="moduk-button moduk-button--secondary" type="submit">
   Find my location
 </button>
 ```
@@ -99,7 +99,7 @@ Find out more about the button component and when to use it in the [NHS digital 
 
 {{ button({
   "text": "Find my location",
-  "classes": "nhsuk-button--secondary"
+  "classes": "moduk-button--secondary"
 }) }}
 ```
 
@@ -107,12 +107,12 @@ Find out more about the button component and when to use it in the [NHS digital 
 
 ### Button reverse
 
-[Preview the button reverse component](https://nhsuk.github.io/nhsuk-frontend/components/button/reverse.html)
+[Preview the button reverse component](https://nhsuk.github.io/moduk-frontend/components/button/reverse.html)
 
 #### HTML markup
 
 ```html
-<button class="nhsuk-button nhsuk-button--reverse" type="submit">
+<button class="moduk-button moduk-button--reverse" type="submit">
   Save and continue
 </button>
 ```
@@ -124,7 +124,7 @@ Find out more about the button component and when to use it in the [NHS digital 
 
 {{ button({
   "text": "Save and continue",
-  "classes": "nhsuk-button--reverse"
+  "classes": "moduk-button--reverse"
 }) }}
 ```
 

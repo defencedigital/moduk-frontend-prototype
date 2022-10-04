@@ -6,12 +6,12 @@ Find out more about the hint component and when to use it in the [NHS digital se
 
 ## Quick start example
 
-[Preview the hint component](https://nhsuk.github.io/nhsuk-frontend/components/hint/index.html)
+[Preview the hint component](https://nhsuk.github.io/moduk-frontend/components/hint/index.html)
 
 ### HTML markup
 
 ```html
-<div class="nhsuk-hint">
+<div class="moduk-hint">
   It’s on your National Insurance card, benefit letter, payslip or P60. For example, ‘QQ 12 34 56 C’.
 </div>
 ```

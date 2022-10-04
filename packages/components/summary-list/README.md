@@ -4,68 +4,68 @@
 
 ### Summary list
 
-[Preview the summary list component](https://nhsuk.github.io/nhsuk-frontend/components/summary-list/index.html)
+[Preview the summary list component](https://nhsuk.github.io/moduk-frontend/components/summary-list/index.html)
 
 #### HTML markup
 
 ```html
-<dl class="nhsuk-summary-list">
-  <div class="nhsuk-summary-list__row">
-    <dt class="nhsuk-summary-list__key">
+<dl class="moduk-summary-list">
+  <div class="moduk-summary-list__row">
+    <dt class="moduk-summary-list__key">
       Name
     </dt>
-    <dd class="nhsuk-summary-list__value">
+    <dd class="moduk-summary-list__value">
       Sarah Philips
     </dd>
-    <dd class="nhsuk-summary-list__actions">
+    <dd class="moduk-summary-list__actions">
       <a href="#">
         Change
-        <span class="nhsuk-u-visually-hidden"> name</span>
+        <span class="moduk-u-visually-hidden"> name</span>
       </a>
     </dd>
   </div>
-  <div class="nhsuk-summary-list__row">
-    <dt class="nhsuk-summary-list__key">
+  <div class="moduk-summary-list__row">
+    <dt class="moduk-summary-list__key">
       Date of birth
     </dt>
-    <dd class="nhsuk-summary-list__value">
+    <dd class="moduk-summary-list__value">
       5 January 1978
     </dd>
-    <dd class="nhsuk-summary-list__actions">
+    <dd class="moduk-summary-list__actions">
       <a href="#">
         Change
-        <span class="nhsuk-u-visually-hidden"> date of birth</span>
+        <span class="moduk-u-visually-hidden"> date of birth</span>
       </a>
     </dd>
   </div>
-  <div class="nhsuk-summary-list__row">
-    <dt class="nhsuk-summary-list__key">
+  <div class="moduk-summary-list__row">
+    <dt class="moduk-summary-list__key">
       Contact information
     </dt>
-    <dd class="nhsuk-summary-list__value">
+    <dd class="moduk-summary-list__value">
       72 Guild Street
       <br>London
       <br>SE23 6FH
     </dd>
-    <dd class="nhsuk-summary-list__actions">
+    <dd class="moduk-summary-list__actions">
       <a href="#">
         Change
-        <span class="nhsuk-u-visually-hidden"> contact information</span>
+        <span class="moduk-u-visually-hidden"> contact information</span>
       </a>
     </dd>
   </div>
-  <div class="nhsuk-summary-list__row">
-    <dt class="nhsuk-summary-list__key">
+  <div class="moduk-summary-list__row">
+    <dt class="moduk-summary-list__key">
       Contact details
     </dt>
-    <dd class="nhsuk-summary-list__value">
-      <p class="nhsuk-body">07700 900457</p>
-      <p class="nhsuk-body">sarah.phillips@example.com</p>
+    <dd class="moduk-summary-list__value">
+      <p class="moduk-body">07700 900457</p>
+      <p class="moduk-body">sarah.phillips@example.com</p>
     </dd>
-    <dd class="nhsuk-summary-list__actions">
+    <dd class="moduk-summary-list__actions">
       <a href="#">
         Change
-        <span class="nhsuk-u-visually-hidden"> contact details</span>
+        <span class="moduk-u-visually-hidden"> contact details</span>
       </a>
     </dd>
   </div>
@@ -155,45 +155,45 @@
 
 ### Summary list without actions
 
-[Preview the summary list without actions component](https://nhsuk.github.io/nhsuk-frontend/components/summary-list/without-actions.html)
+[Preview the summary list without actions component](https://nhsuk.github.io/moduk-frontend/components/summary-list/without-actions.html)
 
 #### HTML markup
 
 ```html
-<dl class="nhsuk-summary-list">
-  <div class="nhsuk-summary-list__row">
-    <dt class="nhsuk-summary-list__key">
+<dl class="moduk-summary-list">
+  <div class="moduk-summary-list__row">
+    <dt class="moduk-summary-list__key">
       Name
     </dt>
-    <dd class="nhsuk-summary-list__value">
+    <dd class="moduk-summary-list__value">
       Sarah Philips
     </dd>
   </div>
-  <div class="nhsuk-summary-list__row">
-    <dt class="nhsuk-summary-list__key">
+  <div class="moduk-summary-list__row">
+    <dt class="moduk-summary-list__key">
       Date of birth
     </dt>
-    <dd class="nhsuk-summary-list__value">
+    <dd class="moduk-summary-list__value">
       5 January 1978
     </dd>
   </div>
-  <div class="nhsuk-summary-list__row">
-    <dt class="nhsuk-summary-list__key">
+  <div class="moduk-summary-list__row">
+    <dt class="moduk-summary-list__key">
       Contact information
     </dt>
-    <dd class="nhsuk-summary-list__value">
+    <dd class="moduk-summary-list__value">
       72 Guild Street
       <br>London
       <br>SE23 6FH
     </dd>
   </div>
-  <div class="nhsuk-summary-list__row">
-    <dt class="nhsuk-summary-list__key">
+  <div class="moduk-summary-list__row">
+    <dt class="moduk-summary-list__key">
       Contact details
     </dt>
-    <dd class="nhsuk-summary-list__value">
-      <p class="nhsuk-body">07700 900457</p>
-      <p class="nhsuk-body">sarah.phillips@example.com</p>
+    <dd class="moduk-summary-list__value">
+      <p class="moduk-body">07700 900457</p>
+      <p class="moduk-body">sarah.phillips@example.com</p>
     </dd>
   </div>
 </dl>
@@ -246,45 +246,45 @@
 
 ### Summary list without border
 
-[Preview the summary list without border component](https://nhsuk.github.io/nhsuk-frontend/components/summary-list/without-border.html)
+[Preview the summary list without border component](https://nhsuk.github.io/moduk-frontend/components/summary-list/without-border.html)
 
 #### HTML markup
 
 ```html
-<dl class="nhsuk-summary-list nhsuk-summary-list--no-border">
-  <div class="nhsuk-summary-list__row">
-    <dt class="nhsuk-summary-list__key">
+<dl class="moduk-summary-list moduk-summary-list--no-border">
+  <div class="moduk-summary-list__row">
+    <dt class="moduk-summary-list__key">
       Name
     </dt>
-    <dd class="nhsuk-summary-list__value">
+    <dd class="moduk-summary-list__value">
       Sarah Philips
     </dd>
   </div>
-  <div class="nhsuk-summary-list__row">
-    <dt class="nhsuk-summary-list__key">
+  <div class="moduk-summary-list__row">
+    <dt class="moduk-summary-list__key">
       Date of birth
     </dt>
-    <dd class="nhsuk-summary-list__value">
+    <dd class="moduk-summary-list__value">
       5 January 1978
     </dd>
   </div>
-  <div class="nhsuk-summary-list__row">
-    <dt class="nhsuk-summary-list__key">
+  <div class="moduk-summary-list__row">
+    <dt class="moduk-summary-list__key">
       Contact information
     </dt>
-    <dd class="nhsuk-summary-list__value">
+    <dd class="moduk-summary-list__value">
       72 Guild Street
       <br>London
       <br>SE23 6FH
     </dd>
   </div>
-  <div class="nhsuk-summary-list__row">
-    <dt class="nhsuk-summary-list__key">
+  <div class="moduk-summary-list__row">
+    <dt class="moduk-summary-list__key">
       Contact details
     </dt>
-    <dd class="nhsuk-summary-list__value">
-      <p class="nhsuk-body">07700 900457</p>
-      <p class="nhsuk-body">sarah.phillips@example.com</p>
+    <dd class="moduk-summary-list__value">
+      <p class="moduk-body">07700 900457</p>
+      <p class="moduk-body">sarah.phillips@example.com</p>
     </dd>
   </div>
 </dl>
@@ -296,7 +296,7 @@
 {% from "components/summary-list/macro.njk" import summaryList %}
 
 {{ summaryList({
-  classes: 'nhsuk-summary-list--no-border',
+  classes: 'moduk-summary-list--no-border',
   rows: [
     {
       key: {

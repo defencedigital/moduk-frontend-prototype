@@ -4,100 +4,100 @@
 
 // Default icon size
 
-.nhsuk-icon {
-  height: $nhsuk-icon-size;
-  width: $nhsuk-icon-size;
+.moduk-icon {
+  height: $moduk-icon-size;
+  width: $moduk-icon-size;
 }
 
 // Default icon colours
 
-.nhsuk-icon__search {
-  fill: $color_nhsuk-blue;
+.moduk-icon__search {
+  fill: $color_moduk-maroon;
 }
 
-.nhsuk-icon__chevron-left {
-  fill: $color_nhsuk-blue;
+.moduk-icon__chevron-left {
+  fill: $color_moduk-maroon;
 }
 
-.nhsuk-icon__chevron-right {
-  fill: $color_nhsuk-blue;
+.moduk-icon__chevron-right {
+  fill: $color_moduk-maroon;
 }
 
-.nhsuk-icon__close {
-  fill: $color_nhsuk-blue;
+.moduk-icon__close {
+  fill: $color_moduk-maroon;
 }
 
-.nhsuk-icon__cross {
-  fill: $color_nhsuk-red;
+.moduk-icon__cross {
+  fill: $color_moduk-red;
 }
 
-.nhsuk-icon__tick {
-  stroke: $color_nhsuk-green;
+.moduk-icon__tick {
+  stroke: $color_moduk-green;
 }
 
-.nhsuk-icon__arrow-right {
-  fill: $color_nhsuk-blue;
+.moduk-icon__arrow-right {
+  fill: $color_moduk-maroon;
 }
 
-.nhsuk-icon__arrow-left {
-  fill: $color_nhsuk-blue;
+.moduk-icon__arrow-left {
+  fill: $color_moduk-maroon;
 }
 
-.nhsuk-icon__arrow-right-circle {
-  fill: $color_nhsuk-green;
+.moduk-icon__arrow-right-circle {
+  fill: $color_moduk-green;
 }
 
-.nhsuk-icon__chevron-down {
-  fill: $color_nhsuk-blue;
+.moduk-icon__chevron-down {
+  fill: $color_moduk-maroon;
   -moz-transform: rotate(180deg);
   -ms-transform: rotate(180deg);
   -o-transform: rotate(180deg);
   -webkit-transform: rotate(180deg);
   transform: rotate(180deg);
   path {
-    fill: $color_nhsuk-white;
+    fill: $color_moduk-white;
   }
 }
 
-.nhsuk-icon__chevron-up {
-  fill: $color_nhsuk-blue;
+.moduk-icon__chevron-up {
+  fill: $color_moduk-maroon;
   path {
-    fill: $color_nhsuk-white;
+    fill: $color_moduk-white;
   }
 }
 
-.nhsuk-icon__emdash {
+.moduk-icon__emdash {
   path {
-    fill: $color_nhsuk-grey-3;
+    fill: $color_moduk-grey-3;
   }
 }
 
-.nhsuk-icon__plus {
-  fill: $color_nhsuk-blue;
+.moduk-icon__plus {
+  fill: $color_moduk-maroon;
 }
 
-.nhsuk-icon__minus {
-  fill: $color_nhsuk-blue;
+.moduk-icon__minus {
+  fill: $color_moduk-maroon;
 }
 
 // Icon size adjustments
 
-.nhsuk-icon--size-25 {
-  height: $nhsuk-icon-size * 1.25;
-  width: $nhsuk-icon-size * 1.25;
+.moduk-icon--size-25 {
+  height: $moduk-icon-size * 1.25;
+  width: $moduk-icon-size * 1.25;
 }
 
-.nhsuk-icon--size-50 {
-  height: $nhsuk-icon-size * 1.5;
-  width: $nhsuk-icon-size * 1.5;
+.moduk-icon--size-50 {
+  height: $moduk-icon-size * 1.5;
+  width: $moduk-icon-size * 1.5;
 }
 
-.nhsuk-icon--size-75 {
-  height: $nhsuk-icon-size * 1.75;
-  width: $nhsuk-icon-size * 1.75;
+.moduk-icon--size-75 {
+  height: $moduk-icon-size * 1.75;
+  width: $moduk-icon-size * 1.75;
 }
 
-.nhsuk-icon--size-100 {
-  height: $nhsuk-icon-size * 2;
-  width: $nhsuk-icon-size * 2;
+.moduk-icon--size-100 {
+  height: $moduk-icon-size * 2;
+  width: $moduk-icon-size * 2;
 }

@@ -6,13 +6,13 @@ Find out more about the inset text component and when to use it in the [NHS digi
 
 ## Quick start example
 
-[Preview the inset text component](https://nhsuk.github.io/nhsuk-frontend/components/inset-text/index.html)
+[Preview the inset text component](https://nhsuk.github.io/moduk-frontend/components/inset-text/index.html)
 
 ### HTML markup
 
 ```html
-<div class="nhsuk-inset-text">
-  <span class="nhsuk-u-visually-hidden">Information: </span>
+<div class="moduk-inset-text">
+  <span class="moduk-u-visually-hidden">Information: </span>
   <p>You can report any suspected side effect to the <a href="https://yellowcard.mhra.gov.uk/" title="External website">UK safety scheme</a>.</p>
 </div>
 ```

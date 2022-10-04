@@ -2,8 +2,10 @@
 
 There are many articles about best practices for git workflow. These are our preferred practices for:
 
-- [Commits and messages](#commits-and-messages)
-- [Branching and merging](#branching-and-merging)
+- [Git style guide](#git-style-guide)
+  - [Commits and messages](#commits-and-messages)
+  - [Branching and merging](#branching-and-merging)
+    - [Never call `git push -f` without additional arguments](#never-call-git-push--f-without-additional-arguments)
 
 ## Commits and messages
 
@@ -29,7 +31,7 @@ After the summary line should come a blank line, followed by a more detailed des
 We are reducing the extra code and overheads for Internet Explorer 8,
 so we are removing fallback icons. We have replaced a fallback icon
 with the text search so it still functions.
-See https://github.com/nhsuk/nhsuk-frontend/issues/94
+See https://github.com/defencedigital/moduk-frontend/issues/94
 
 ```
 

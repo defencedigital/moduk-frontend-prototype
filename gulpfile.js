@@ -28,7 +28,7 @@ sass.compiler = require('sass');
 
 /* Build the CSS from source */
 function compileCSS() {
-  return gulp.src(['packages/nhsuk.scss'])
+  return gulp.src(['packages/moduk.scss'])
     .pipe(sass())
     .pipe(gulp.dest('dist/'))
     .on('error', (err) => {
@@ -56,7 +56,7 @@ function minifyCSS() {
 
 /* Use Webpack to build and minify the NHS.UK components JS. */
 function webpackJS() {
-  return gulp.src('./packages/nhsuk.js')
+  return gulp.src('./packages/moduk.js')
     .pipe(webpack({
       mode: 'production',
       module: {
@@ -72,7 +72,7 @@ function webpackJS() {
         ],
       },
       output: {
-        filename: 'nhsuk.js',
+        filename: 'moduk.js',
       },
       target: 'web',
     }))
@@ -123,7 +123,7 @@ function assets() {
 
 /* Copy JS files into their relevant folders */
 function jsFolder() {
-  return gulp.src('dist/*.min.js', '!dist/js/nhsuk.min.js')
+  return gulp.src('dist/*.min.js', '!dist/js/moduk.min.js')
     .pipe(clean())
     .pipe(gulp.dest('dist/js/'));
 }
@@ -137,8 +137,8 @@ function cssFolder() {
 }
 
 function createZip() {
-  return gulp.src(['dist/css/*.min.css', 'dist/js/*.min.js', 'dist/assets/**', '!dist/js/nhsuk.min.js'], { base: 'dist' })
-    .pipe(zip(`nhsuk-frontend-${version}.zip`))
+  return gulp.src(['dist/css/*.min.css', 'dist/js/*.min.js', 'dist/assets/**', '!dist/js/moduk.min.js'], { base: 'dist' })
+    .pipe(zip(`moduk-frontend-${version}.zip`))
     .pipe(gulp.dest('dist'));
 }
 

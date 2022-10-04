@@ -2,22 +2,22 @@
    COMPONENTS / #FOOTER
    ========================================================================== */
 
-.nhsuk-footer {
+.moduk-footer {
   @include clearfix();
   @include print-hide();
-  @include nhsuk-responsive-padding(5, bottom);
-  @include nhsuk-responsive-padding(5, top);
+  @include moduk-responsive-padding(5, bottom);
+  @include moduk-responsive-padding(5, top);
 
-  background-color: $color_nhsuk-grey-4;
-  border-top: nhsuk-spacing(1) solid $color_nhsuk-blue;
+  background-color: $color_moduk-grey-4;
+  border-top: moduk-spacing(1) solid $color_moduk-maroon;
 }
 
-.nhsuk-footer__list {
-  @include nhsuk-responsive-padding(4, bottom);
+.moduk-footer__list {
+  @include moduk-responsive-padding(4, bottom);
 
   list-style-type: none;
   margin: 0;
-  padding-left: nhsuk-spacing(0);
+  padding-left: moduk-spacing(0);
 
   @include mq($from: desktop) {
     float: left;
@@ -26,31 +26,31 @@
   }
 }
 
-.nhsuk-footer__list-item {
-  @include nhsuk-font(16);
+.moduk-footer__list-item {
+  @include moduk-font(16);
 
   @include mq($from: desktop) {
     float: left;
-    margin-right: nhsuk-spacing(5);
+    margin-right: moduk-spacing(5);
   }
 }
 
-.nhsuk-footer__list-item-link {
-  color: $nhsuk-secondary-text-color;
+.moduk-footer__list-item-link {
+  color: $moduk-secondary-text-color;
 
   &:visited {
-    color: $nhsuk-secondary-text-color;
+    color: $moduk-secondary-text-color;
   }
 
   &:hover {
-    color: $nhsuk-text-color;
+    color: $moduk-text-color;
   }
 }
 
-.nhsuk-footer__copyright {
-  @include nhsuk-font(16);
+.moduk-footer__copyright {
+  @include moduk-font(16);
 
-  color: $nhsuk-secondary-text-color;
+  color: $moduk-secondary-text-color;
   margin-bottom: 0;
 
   @include mq($from: desktop) {

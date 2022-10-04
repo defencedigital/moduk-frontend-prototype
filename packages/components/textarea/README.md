@@ -8,19 +8,19 @@ Find out more about the textarea component and when to use it in the [NHS digita
 
 ### Textarea
 
-[Preview the textarea component](https://nhsuk.github.io/nhsuk-frontend/components/textarea/index.html)
+[Preview the textarea component](https://nhsuk.github.io/moduk-frontend/components/textarea/index.html)
 
 #### HTML markup
 
 ```html
-<div class="nhsuk-form-group">
-  <label class="nhsuk-label" for="more-detail">
+<div class="moduk-form-group">
+  <label class="moduk-label" for="more-detail">
   Can you provide more detail?
   </label>
-  <div class="nhsuk-hint" id="more-detail-hint">
+  <div class="moduk-hint" id="more-detail-hint">
   Don&#39;t include personal or financial information, eg your National Insurance number or credit card details.
   </div>
-  <textarea class="nhsuk-textarea" id="more-detail" name="more-detail" rows="5" aria-describedby="more-detail-hint"></textarea>
+  <textarea class="moduk-textarea" id="more-detail" name="more-detail" rows="5" aria-describedby="more-detail-hint"></textarea>
 </div>
 ```
 
@@ -45,7 +45,7 @@ Find out more about the textarea component and when to use it in the [NHS digita
 
 ### Textarea with autocomplete attribute
 
-[Preview the textarea with autocomplete attribute component](https://nhsuk.github.io/nhsuk-frontend/components/textarea/autocomplete.html)
+[Preview the textarea with autocomplete attribute component](https://nhsuk.github.io/moduk-frontend/components/textarea/autocomplete.html)
 
 #### Guidance
 
@@ -54,11 +54,11 @@ See [Autofilling form controls: the autocomplete attribute](https://html.spec.wh
 #### HTML markup
 
 ```html
-<div class="nhsuk-form-group">
-  <label class="nhsuk-label" for="textarea-with-autocomplete-attribute">
+<div class="moduk-form-group">
+  <label class="moduk-label" for="textarea-with-autocomplete-attribute">
   Full address
   </label>
-  <textarea class="nhsuk-textarea" id="textarea-with-autocomplete-attribute" name="address" rows="5" autocomplete="street-address"></textarea>
+  <textarea class="moduk-textarea" id="textarea-with-autocomplete-attribute" name="address" rows="5" autocomplete="street-address"></textarea>
 </div>
 ```
 
@@ -81,19 +81,19 @@ See [Autofilling form controls: the autocomplete attribute](https://html.spec.wh
 
 ### Textarea with error message
 
-[Preview the textarea with error message component](https://nhsuk.github.io/nhsuk-frontend/components/textarea/error.html)
+[Preview the textarea with error message component](https://nhsuk.github.io/moduk-frontend/components/textarea/error.html)
 
 #### HTML markup
 
 ```html
-<div class="nhsuk-form-group nhsuk-form-group--error">
-  <label class="nhsuk-label" for="no-ni-reason">
+<div class="moduk-form-group moduk-form-group--error">
+  <label class="moduk-label" for="no-ni-reason">
     Why can&#39;t you provide a National Insurance number?
   </label>
-  <span id="no-ni-reason-error" class="nhsuk-error-message">
+  <span id="no-ni-reason-error" class="moduk-error-message">
     You must provide an explanation
   </span>
-  <textarea class="nhsuk-textarea nhsuk-textarea--error" id="no-ni-reason" name="no-ni-reason" rows="5" aria-describedby="no-ni-reason-error"></textarea>
+  <textarea class="moduk-textarea moduk-textarea--error" id="no-ni-reason" name="no-ni-reason" rows="5" aria-describedby="no-ni-reason-error"></textarea>
 </div>
 ```
 
@@ -127,9 +127,9 @@ The textarea Nunjucks macro takes the following arguments:
 | **name**            | string   | Yes       | The name of the textarea, which is submitted with the form data. |
 | **rows**            | string   | No        | Optional number of textarea rows (default is 5 rows). |
 | **value**           | string   | No        | Optional initial value of the textarea. |
-| **label**           | object   | Yes       | Arguments for the label component. See [label](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/label) component. |
-| **hint**            | object   | No        | Arguments for the hint component (e.g. text). See [hint](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/hint) component. |
-| **errorMessage**    | object   | No        | Arguments for the error message component (e.g. text). See [error message](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/error-message) component. |
+| **label**           | object   | Yes       | Arguments for the label component. See [label](https://github.com/nhsuk/moduk-frontend/tree/master/packages/components/label) component. |
+| **hint**            | object   | No        | Arguments for the hint component (e.g. text). See [hint](https://github.com/nhsuk/moduk-frontend/tree/master/packages/components/hint) component. |
+| **errorMessage**    | object   | No        | Arguments for the error message component (e.g. text). See [error message](https://github.com/nhsuk/moduk-frontend/tree/master/packages/components/error-message) component. |
 | **classes**         | string   | No        | Optional additional classes to add to the textarea tag. Separate each class with a space. |
 | **autocomplete**          | string   | No        | Attribute to [identify input purpose](https://www.w3.org/WAI/WCAG21/Understanding/identify-input-purpose.html), for instance "postal-code" or "username". See [Autofilling form controls: the autocomplete attribute](https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#autofill) for the full list of attributes that can be used. |
 | **attributes**      | object   | No        | Any extra HTML attributes (for example data attributes) to add to the textarea tag. |

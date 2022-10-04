@@ -6,19 +6,19 @@ Find out more about the breadcrumb component and when to use it in the [NHS digi
 
 ## Quick start example
 
-[Preview the breadcrumb component](https://nhsuk.github.io/nhsuk-frontend/components/breadcrumb/index.html)
+[Preview the breadcrumb component](https://nhsuk.github.io/moduk-frontend/components/breadcrumb/index.html)
 
 ### HTML markup
 
 ```html
-<nav class="nhsuk-breadcrumb" aria-label="Breadcrumb">
-  <div class="nhsuk-width-container">
-    <ol class="nhsuk-breadcrumb__list">
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/level-one">Level one</a></li>
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/level-one/level-two">Level two</a></li>
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/level-one/level-two/level-three">Level three</a></li>
+<nav class="moduk-breadcrumb" aria-label="Breadcrumb">
+  <div class="moduk-width-container">
+    <ol class="moduk-breadcrumb__list">
+      <li class="moduk-breadcrumb__item"><a class="moduk-breadcrumb__link" href="/level-one">Level one</a></li>
+      <li class="moduk-breadcrumb__item"><a class="moduk-breadcrumb__link" href="/level-one/level-two">Level two</a></li>
+      <li class="moduk-breadcrumb__item"><a class="moduk-breadcrumb__link" href="/level-one/level-two/level-three">Level three</a></li>
     </ol>
-    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/level-one/level-two/level-three">Back to Level three</a></p>
+    <p class="moduk-breadcrumb__back"><a class="moduk-breadcrumb__backlink" href="/level-one/level-two/level-three">Back to Level three</a></p>
   </div>
 </nav>
 ```

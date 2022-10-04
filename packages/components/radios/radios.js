@@ -7,13 +7,13 @@ import { toggleConditionalInput } from '../../common';
 
 export default () => {
   // Radio input HTMLElements inside a conditional form group
-  const radioInputs = document.querySelectorAll('.nhsuk-radios--conditional .nhsuk-radios__input');
+  const radioInputs = document.querySelectorAll('.moduk-radios--conditional .moduk-radios__input');
 
   /**
    * Update all conditional reveals to match checked state
   */
   const syncAllConditionalReveals = () => {
-    radioInputs.forEach((input) => toggleConditionalInput(input, 'nhsuk-radios__conditional--hidden'));
+    radioInputs.forEach((input) => toggleConditionalInput(input, 'moduk-radios__conditional--hidden'));
   };
 
   // When the page is restored after navigating 'back' in some browsers the
