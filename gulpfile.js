@@ -54,7 +54,7 @@ function minifyCSS() {
  * JavaScript tasks
  */
 
-/* Use Webpack to build and minify the NHS.UK components JS. */
+/* Use Webpack to build and minify the MOD.UK components JS. */
 function webpackJS() {
   return gulp.src('./packages/moduk.js')
     .pipe(webpack({
