@@ -2,27 +2,27 @@
    COMPONENTS/ #SELECT
    ========================================================================== */
 
-.nhsuk-select {
-  @include nhsuk-font(19);
+.moduk-select {
+  @include moduk-font(19);
 
-  border: $nhsuk-border-width-form-element solid $nhsuk-form-border-color;
+  border: $moduk-border-width-form-element solid $moduk-form-border-color;
   box-sizing: border-box;
   height: 40px;
   max-width: 100%;
-  padding: nhsuk-spacing(1);
+  padding: moduk-spacing(1);
 
   &:focus {
-    @include nhsuk-focused-input;
+    @include moduk-focused-input;
   }
 }
 
-.nhsuk-select option:active,
-.nhsuk-select option:checked,
-.nhsuk-select:focus::-ms-value {
-  background-color: $color_nhsuk-blue;
-  color: $color_nhsuk-white;
+.moduk-select option:active,
+.moduk-select option:checked,
+.moduk-select:focus::-ms-value {
+  background-color: $color_moduk-maroon;
+  color: $color_moduk-white;
 }
 
-.nhsuk-select--error {
-  border: $nhsuk-border-width-form-element-error solid $nhsuk-error-color;
+.moduk-select--error {
+  border: $moduk-border-width-form-element-error solid $moduk-error-color;
 }

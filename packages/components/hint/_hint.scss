@@ -3,44 +3,44 @@
    COMPONENTS/ #HINT
    ========================================================================== */
 
-.nhsuk-hint {
-  @include nhsuk-font(19);
+.moduk-hint {
+  @include moduk-font(19);
 
-  color: $nhsuk-secondary-text-color;
+  color: $moduk-secondary-text-color;
   display: block;
-  margin-bottom: nhsuk-spacing(3);
+  margin-bottom: moduk-spacing(3);
 }
 
 // Reduces margin-bottom of hint when used after the default label (no class)
-// or nhsuk-label--s for better vertical alignment.
+// or moduk-label--s for better vertical alignment.
 
 // This adjustment will not work when the label is inside the <h1>, however it
-// is unlikely that the default or nhsuk-label--s class would be used in this
+// is unlikely that the default or moduk-label--s class would be used in this
 // case.
 
 // This adjustment will not work in browsers that do not support :not().
 // Users with these browsers will see the default size margin (5px larger).
 
-.nhsuk-label:not(.nhsuk-label--m):not(.nhsuk-label--l):not(.nhsuk-label--xl) + .nhsuk-hint {
-  margin-bottom: nhsuk-spacing(2);
+.moduk-label:not(.moduk-label--m):not(.moduk-label--l):not(.moduk-label--xl) + .moduk-hint {
+  margin-bottom: moduk-spacing(2);
 }
 
 // Reduces margin-bottom of hint when used after the default legend (no class)
-// or nhsuk-fieldset__legend--s for better vertical alignment.
+// or moduk-fieldset__legend--s for better vertical alignment.
 
 // This adjustment will not work when the legend is outside the <h1>, however
-// it is unlikely that the default or nhsuk-fieldset__legend--s class would be
+// it is unlikely that the default or moduk-fieldset__legend--s class would be
 // used in this case.
 
 // This adjustment will not work in browsers that do not support :not().
 // Users with these browsers will see the default size margin (5px larger).
 
-.nhsuk-fieldset__legend:not(.nhsuk-fieldset__legend--m):not(.nhsuk-fieldset__legend--l):not(.nhsuk-fieldset__legend--xl) + .nhsuk-hint {
-  margin-bottom: nhsuk-spacing(2);
+.moduk-fieldset__legend:not(.moduk-fieldset__legend--m):not(.moduk-fieldset__legend--l):not(.moduk-fieldset__legend--xl) + .moduk-hint {
+  margin-bottom: moduk-spacing(2);
 }
 
 // Reduces visual spacing of legend when there is a hint
 
-.nhsuk-fieldset__legend + .nhsuk-hint {
-  margin-top: -(nhsuk-spacing(1));
+.moduk-fieldset__legend + .moduk-hint {
+  margin-top: -(moduk-spacing(1));
 }

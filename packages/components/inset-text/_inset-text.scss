@@ -9,18 +9,18 @@
  *    readability.
  */
 
-.nhsuk-inset-text {
+.moduk-inset-text {
   @include top-and-bottom(); /* [1] */
   @include reading-width(); /* [2] */
 
-  @include nhsuk-responsive-margin(7, 'bottom');
-  @include nhsuk-responsive-margin(7, 'top');
-  @include nhsuk-responsive-padding(4);
+  @include moduk-responsive-margin(7, 'bottom');
+  @include moduk-responsive-margin(7, 'top');
+  @include moduk-responsive-padding(4);
 
-  border-left: $nhsuk-border-width-inset-text solid $color_nhsuk-blue;
+  border-left: $moduk-border-width-inset-text solid $color_moduk-maroon;
 
   @include mq($media-type: print) {
-    border-color: $nhsuk-print-text-color;
+    border-color: $moduk-print-text-color;
   }
 
 }

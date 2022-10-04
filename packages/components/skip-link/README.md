@@ -17,12 +17,12 @@ Ensure the correct `id` value has been added to your main content for the skip l
 
 ## Quick start example
 
-[Preview the skip link component](https://nhsuk.github.io/nhsuk-frontend/components/skip-link/index.html)
+[Preview the skip link component](https://nhsuk.github.io/moduk-frontend/components/skip-link/index.html)
 
 ### HTML markup
 
 ```html
-<a class="nhsuk-skip-link" href="#maincontent">Skip to main content</a>
+<a class="moduk-skip-link" href="#maincontent">Skip to main content</a>
 ```
 
 ### Nunjucks macro

@@ -8,16 +8,16 @@ Find out more about the input component and when to use it in the [NHS digital s
 
 ### Input
 
-[Preview the input component](https://nhsuk.github.io/nhsuk-frontend/components/input/index.html)
+[Preview the input component](https://nhsuk.github.io/moduk-frontend/components/input/index.html)
 
 #### HTML markup
 
 ```html
-<div class="nhsuk-form-group">
-  <label class="nhsuk-label" for="input-example">
+<div class="moduk-form-group">
+  <label class="moduk-label" for="input-example">
     National Insurance number
   </label>
-  <input class="nhsuk-input" id="input-example" name="test-name" type="text">
+  <input class="moduk-input" id="input-example" name="test-name" type="text">
 </div>
 ```
 
@@ -39,7 +39,7 @@ Find out more about the input component and when to use it in the [NHS digital s
 
 ### Input with autocomplete attribute
 
-[Preview the input with autocomplete attribute component](https://nhsuk.github.io/nhsuk-frontend/components/input/autocomplete.html)
+[Preview the input with autocomplete attribute component](https://nhsuk.github.io/moduk-frontend/components/input/autocomplete.html)
 
 #### Guidance
 
@@ -48,11 +48,11 @@ See [Autofilling form controls: the autocomplete attribute](https://html.spec.wh
 #### HTML markup
 
 ```html
-<div class="nhsuk-form-group">
-  <label class="nhsuk-label" for="input-with-autocomplete-attribute">
+<div class="moduk-form-group">
+  <label class="moduk-label" for="input-with-autocomplete-attribute">
   Postcode
   </label>
-  <input class="nhsuk-input" id="input-with-autocomplete-attribute" name="postcode" type="text" autocomplete="postal-code">
+  <input class="moduk-input" id="input-with-autocomplete-attribute" name="postcode" type="text" autocomplete="postal-code">
 </div>
 ```
 
@@ -75,19 +75,19 @@ See [Autofilling form controls: the autocomplete attribute](https://html.spec.wh
 
 ### Input with hint text
 
-[Preview the input with hint text component](https://nhsuk.github.io/nhsuk-frontend/components/input/hint.html)
+[Preview the input with hint text component](https://nhsuk.github.io/moduk-frontend/components/input/hint.html)
 
 #### HTML markup
 
 ```html
-<div class="nhsuk-form-group">
-  <label class="nhsuk-label" for="input-with-hint-text">
+<div class="moduk-form-group">
+  <label class="moduk-label" for="input-with-hint-text">
   National insurance number
   </label>
-  <div class="nhsuk-hint" id="input-with-hint-text-hint">
+  <div class="moduk-hint" id="input-with-hint-text-hint">
   It’s on your National Insurance card, benefit letter, payslip or P60. For example, ‘QQ 12 34 56 C’.
   </div>
-  <input class="nhsuk-input" id="input-with-hint-text" name="test-name-2" type="text" aria-describedby="input-with-hint-text-hint">
+  <input class="moduk-input" id="input-with-hint-text" name="test-name-2" type="text" aria-describedby="input-with-hint-text-hint">
 </div>
 ```
 
@@ -112,22 +112,22 @@ See [Autofilling form controls: the autocomplete attribute](https://html.spec.wh
 
 ### Input with error message
 
-[Preview the input with error message component](https://nhsuk.github.io/nhsuk-frontend/components/input/error.html)
+[Preview the input with error message component](https://nhsuk.github.io/moduk-frontend/components/input/error.html)
 
 #### HTML markup
 
 ```html
-<div class="nhsuk-form-group nhsuk-form-group--error">
-  <label class="nhsuk-label" for="input-with-error-message">
+<div class="moduk-form-group moduk-form-group--error">
+  <label class="moduk-label" for="input-with-error-message">
   National Insurance number
   </label>
-  <div class="nhsuk-hint" id="input-with-error-message-hint">
+  <div class="moduk-hint" id="input-with-error-message-hint">
   It’s on your National Insurance card, benefit letter, payslip or P60. For example, ‘QQ 12 34 56 C’.
   </div>
-  <span id="input-with-error-message-error" class="nhsuk-error-message">
+  <span id="input-with-error-message-error" class="moduk-error-message">
   Error message goes here
   </span>
-  <input class="nhsuk-input nhsuk-input--error" id="input-with-error-message" name="test-name-3" type="text" aria-describedby="input-with-error-message-hint input-with-error-message-error">
+  <input class="moduk-input moduk-input--error" id="input-with-error-message" name="test-name-3" type="text" aria-describedby="input-with-error-message-hint input-with-error-message-error">
 </div>
 ```
 
@@ -155,19 +155,19 @@ See [Autofilling form controls: the autocomplete attribute](https://html.spec.wh
 
 ### Input with width modifier
 
-[Preview the input with width modifier component](https://nhsuk.github.io/nhsuk-frontend/components/input/custom-width.html)
+[Preview the input with width modifier component](https://nhsuk.github.io/moduk-frontend/components/input/custom-width.html)
 
 #### HTML markup
 
 ```html
-<div class="nhsuk-form-group">
-  <label class="nhsuk-label" for="input-width-10">
+<div class="moduk-form-group">
+  <label class="moduk-label" for="input-width-10">
   National insurance number
   </label>
-  <div class="nhsuk-hint" id="input-width-10-hint">
+  <div class="moduk-hint" id="input-width-10-hint">
   It’s on your National Insurance card, benefit letter, payslip or P60. For example, ‘QQ 12 34 56 C’.
   </div>
-  <input class="nhsuk-input nhsuk-input--width-10" id="input-width-10" name="test-width-10" type="text" aria-describedby="input-width-10-hint">
+  <input class="moduk-input moduk-input--width-10" id="input-width-10" name="test-width-10" type="text" aria-describedby="input-width-10-hint">
 </div>
 ```
 
@@ -185,7 +185,7 @@ See [Autofilling form controls: the autocomplete attribute](https://html.spec.wh
   },
   "id": "input-width-10",
   "name": "test-width-10",
-  "classes": "nhsuk-input--width-10"
+  "classes": "moduk-input--width-10"
 }) }}
 ```
 
@@ -203,8 +203,8 @@ The input macro takes the following arguments:
 | **inputmode**       | string   | No        | Optional value for [inputmode](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode). |
 | **value**           | string   | No        | Optional initial value of the input. |
 | **label**           | object   | No        | Arguments for the label component. See label component. |
-| **hint**            | object   | No        | Arguments for the hint component (e.g. text). See [hint](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/hint) component. |
-| **errorMessage**    | object   | No        | Arguments for the error message component (e.g. text). See [error message](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/error-message) component. |
+| **hint**            | object   | No        | Arguments for the hint component (e.g. text). See [hint](https://github.com/nhsuk/moduk-frontend/tree/master/packages/components/hint) component. |
+| **errorMessage**    | object   | No        | Arguments for the error message component (e.g. text). See [error message](https://github.com/nhsuk/moduk-frontend/tree/master/packages/components/error-message) component. |
 | **classes**         | string   | No        | Optional additional classes add to the input component. Separate each class with a space. |
 | **autocomplete**    | string   | No        | Attribute to [identify input purpose](https://www.w3.org/WAI/WCAG21/Understanding/identify-input-purpose.html), for instance "postal-code" or "username". See [Autofilling form controls: the autocomplete attribute](https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#autofill) for the full list of attributes that can be used. |
 | **pattern**         | string   | No        | Attribute to [provide a regular expression pattern](https://www.w3.org/TR/html51/sec-forms.html#the-pattern-attribute), used to match allowed character combinations for the input value. |

@@ -5,10 +5,10 @@
 /**
  * Adds a grey border to the bottom of an <li> tag
  *
- * Usage: class="nhsuk-list--border"
+ * Usage: class="moduk-list--border"
  */
 
-.nhsuk-list--border li {
-  border-bottom: 1px solid $color_nhsuk-grey-4;
+.moduk-list--border li {
+  border-bottom: 1px solid $color_moduk-grey-4;
   padding: 8px 0 16px;
 }

@@ -11,7 +11,7 @@
  *    not there.
  */
 
-.nhsuk-fieldset {
+.moduk-fieldset {
   @include clearfix;
 
   border: 0;
@@ -19,13 +19,13 @@
   padding: 0;
 }
 
-.nhsuk-fieldset__legend {
-  @include nhsuk-font(19);
+.moduk-fieldset__legend {
+  @include moduk-font(19);
 
   box-sizing: border-box; /* 1 */
-  color: $color_nhsuk-black;
+  color: $color_moduk-black;
   display: table; /* 2 */
-  margin-bottom: nhsuk-spacing(2);
+  margin-bottom: moduk-spacing(2);
   margin-top: 0;
   max-width: 100%; /* 1 */
   padding: 0;
@@ -34,27 +34,27 @@
 
 /* Heading modifiers */
 
-.nhsuk-fieldset__legend--xl {
-  @include nhsuk-font($size: 48, $weight: bold);
-  margin-bottom: nhsuk-spacing(3);
+.moduk-fieldset__legend--xl {
+  @include moduk-font($size: 48, $weight: bold);
+  margin-bottom: moduk-spacing(3);
 }
 
-.nhsuk-fieldset__legend--l {
-  @include nhsuk-font($size: 32, $weight: bold);
-  margin-bottom: nhsuk-spacing(3);
+.moduk-fieldset__legend--l {
+  @include moduk-font($size: 32, $weight: bold);
+  margin-bottom: moduk-spacing(3);
 }
 
-.nhsuk-fieldset__legend--m {
-  @include nhsuk-font($size: 24, $weight: bold);
-  margin-bottom: nhsuk-spacing(3);
+.moduk-fieldset__legend--m {
+  @include moduk-font($size: 24, $weight: bold);
+  margin-bottom: moduk-spacing(3);
 }
 
-.nhsuk-fieldset__legend--s {
-  @include nhsuk-font($size: 19, $weight: bold);
-  margin-bottom: nhsuk-spacing(3);
+.moduk-fieldset__legend--s {
+  @include moduk-font($size: 19, $weight: bold);
+  margin-bottom: moduk-spacing(3);
 }
 
-.nhsuk-fieldset__heading { /* 4 */
+.moduk-fieldset__heading { /* 4 */
   font-size: inherit;
   font-weight: inherit;
   margin: 0;

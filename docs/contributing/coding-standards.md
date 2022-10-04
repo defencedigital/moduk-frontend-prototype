@@ -41,7 +41,7 @@ Classes make for great reusable components, so they come first. Ids are more spe
 
 ### Class naming convention
 
-All class names start with a `.nhsuk-` namespace to reduce the likelihood of
+All class names start with a `.moduk-` namespace to reduce the likelihood of
 conflicting with existing classes in your application. It also helps to identify
 where the styling for a particular element is coming from.
 
@@ -61,9 +61,9 @@ The naming convention follows this pattern:
 .block__element {}
 .block--modifier {}
 
-.nhsuk-card              // Block - the root of a component
-.nhsuk-card__heading     // Element - a part of the block
-.nhsuk-card--clickable   // Modifier - a variant of the block
+.moduk-card              // Block - the root of a component
+.moduk-card__heading     // Element - a part of the block
+.moduk-card--clickable   // Modifier - a variant of the block
 ```
 
 It uses double hyphens (`--`) and underscores (`__`) so that the block, element
@@ -72,9 +72,9 @@ or modifiers themselves can be hyphen delimited without causing ambiguity.
 For example:
 
 ```scss
-.nhsuk-a-z-nav
-.nhsuk-a-z-nav__link
-.nhsuk-a-z-nav__link--disabled
+.moduk-a-z-nav
+.moduk-a-z-nav__link
+.moduk-a-z-nav__link--disabled
 ```
 
 #### BEM further reading:
@@ -96,7 +96,7 @@ given class name. It also discourages excessive nesting.
 Bad:
 
 ```scss
-.nhsuk-contents-list {
+.moduk-contents-list {
   ...
   &__item {
     ...
@@ -110,11 +110,11 @@ Bad:
 Good:
 
 ```scss
-.nhsuk-contents-list {
+.moduk-contents-list {
   ...
 }
 
-.nhsuk-contents-list__item {
+.moduk-contents-list__item {
   ...
   &:before {
     ...
@@ -132,9 +132,9 @@ Create separate selectors rather using an `&` in the middle of a selector.
 
 This enables the NHSUK styles to be used inside other applications, where, for example, an ID is being used to isolate a section of a page to style separately from the rest of an application; e.g. 
 ```scss
-div#nhsuk-ers {
+div#moduk-ers {
 ...
-@import 'node_modules/nhsuk-frontend/packages/core/all'; 
+@import 'node_modules/moduk-frontend/packages/core/all'; 
 ...
 }
 ``` 
@@ -142,7 +142,7 @@ div#nhsuk-ers {
 Bad: 
 
 ```scss
-.nhsuk-checkboxes__conditional {
+.moduk-checkboxes__conditional {
   ...
   .js-enabled &--hidden {
     ...
@@ -154,11 +154,11 @@ Bad:
 Good: 
 
 ```scss
-.nhsuk-checkboxes__conditional {
+.moduk-checkboxes__conditional {
   ...
 }
 
-.js-enabled .nhsuk-checkboxes__conditional--hidden {
+.js-enabled .moduk-checkboxes__conditional--hidden {
   ...
 }
 ```
@@ -180,11 +180,11 @@ other components.
 
 Keep all of the variants of a component in the same place.
 
-`.nhsuk-error-summary` modifies the `.nhsuk-list` component.
+`.moduk-error-summary` modifies the `.moduk-list` component.
 
 Component modifiers use an extra class, scoped to the component:
 
-`.nhsuk-error-summary__list`
+`.moduk-error-summary__list`
 
 This class is part of the component, rather than a parent of a component.
 
@@ -273,13 +273,13 @@ When a component has multiple visual presentations, such as the care cards, we m
 Care card urgent (red) example:
 
 ```html
-<div class="nhsuk-card nhsuk-card--care nhsuk-card--care--urgent">
+<div class="moduk-card moduk-card--care moduk-card--care--urgent">
 ```
 
 Care card emergency (red and black) example:
 
 ```html
-<div class="nhsuk-card nhsuk-card--care nhsuk-card--care--emergency">
+<div class="moduk-card moduk-card--care moduk-card--care--emergency">
 ```
 
 ---
@@ -288,9 +288,9 @@ Care card emergency (red and black) example:
 
 You can find NHS.UK frontend components in `packages/components`.
 
-Components must use the `.nhsuk-` namespace.
+Components must use the `.moduk-` namespace.
 
-For example, `.nhsuk-card`.
+For example, `.moduk-card`.
 
 ### Writing SCSS for components
 

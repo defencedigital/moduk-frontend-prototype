@@ -8,13 +8,13 @@ Find out more about the fieldset component and when to use it in the [NHS digita
 
 ### Fieldset
 
-[Preview the fieldset component](https://nhsuk.github.io/nhsuk-frontend/components/fieldset/index.html)
+[Preview the fieldset component](https://nhsuk.github.io/moduk-frontend/components/fieldset/index.html)
 
 #### HTML markup
 
 ```html
-<fieldset class="nhsuk-fieldset">
-  <legend class="nhsuk-fieldset__legend">
+<fieldset class="moduk-fieldset">
+  <legend class="moduk-fieldset__legend">
     What is your address?
   </legend>
 </fieldset>
@@ -36,14 +36,14 @@ Find out more about the fieldset component and when to use it in the [NHS digita
 
 ### Fieldset as page heading
 
-[Preview the fieldset as page heading component](https://nhsuk.github.io/nhsuk-frontend/components/fieldset/page-heading.html)
+[Preview the fieldset as page heading component](https://nhsuk.github.io/moduk-frontend/components/fieldset/page-heading.html)
 
 #### HTML markup
 
 ```html
-<fieldset class="nhsuk-fieldset">
-  <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--xl">
-    <h1 class="nhsuk-fieldset__heading">
+<fieldset class="moduk-fieldset">
+  <legend class="moduk-fieldset__legend moduk-fieldset__legend--xl">
+    <h1 class="moduk-fieldset__heading">
       What is your address?
     </h1>
   </legend>
@@ -58,7 +58,7 @@ Find out more about the fieldset component and when to use it in the [NHS digita
 {{ fieldset({
   "legend": {
     "text": "What is your address?",
-    "classes": "nhsuk-fieldset__legend--xl",
+    "classes": "moduk-fieldset__legend--xl",
     "isPageHeading": true
   }
 }) }}
@@ -68,41 +68,41 @@ Find out more about the fieldset component and when to use it in the [NHS digita
 
 ### Fieldset with input fields
 
-[Preview the fieldset component with input fields](https://nhsuk.github.io/nhsuk-frontend/components/fieldset/with-inputs.html)
+[Preview the fieldset component with input fields](https://nhsuk.github.io/moduk-frontend/components/fieldset/with-inputs.html)
 
 
 #### HTML markup
 
 ```html
-<fieldset class="nhsuk-fieldset">
-  <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--xl">
-    <h1 class="nhsuk-fieldset__heading">
+<fieldset class="moduk-fieldset">
+  <legend class="moduk-fieldset__legend moduk-fieldset__legend--xl">
+    <h1 class="moduk-fieldset__heading">
       What is your address?
     </h1>
   </legend>
-  <div class="nhsuk-form-group">
-    <label class="nhsuk-label" for="input-address1">
+  <div class="moduk-form-group">
+    <label class="moduk-label" for="input-address1">
       Address line 1
     </label>
-    <input class="nhsuk-input" id="input-address1" name="address1" type="text">
+    <input class="moduk-input" id="input-address1" name="address1" type="text">
   </div>
-  <div class="nhsuk-form-group">
-    <label class="nhsuk-label" for="input-address2">
+  <div class="moduk-form-group">
+    <label class="moduk-label" for="input-address2">
       Address line 2
     </label>
-    <input class="nhsuk-input" id="input-address2" name="address2" type="text">
+    <input class="moduk-input" id="input-address2" name="address2" type="text">
   </div>
-  <div class="nhsuk-form-group">
-    <label class="nhsuk-label" for="input-town-city">
+  <div class="moduk-form-group">
+    <label class="moduk-label" for="input-town-city">
       Town or city
     </label>
-    <input class="nhsuk-input" id="input-town-city" name="town" type="text">
+    <input class="moduk-input" id="input-town-city" name="town" type="text">
   </div>
-  <div class="nhsuk-form-group">
-    <label class="nhsuk-label" for="input-county">
+  <div class="moduk-form-group">
+    <label class="moduk-label" for="input-county">
       County
     </label>
-    <input class="nhsuk-input" id="input-county" name="county" type="text">
+    <input class="moduk-input" id="input-county" name="county" type="text">
   </div>
 </fieldset>
 
@@ -119,7 +119,7 @@ To add input fields inside the fieldset, use the `call` block.
 {% call fieldset({
   legend: {
     text: "What is your address?",
-    "classes": "nhsuk-fieldset__legend--xl",
+    "classes": "moduk-fieldset__legend--xl",
     "isPageHeading": true
   }
 }) %}

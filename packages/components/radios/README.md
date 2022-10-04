@@ -8,29 +8,29 @@ Find out more about the radios component and when to use it in the [NHS digital 
 
 ### Radios
 
-[Preview the radios component](https://nhsuk.github.io/nhsuk-frontend/components/radios/index.html)
+[Preview the radios component](https://nhsuk.github.io/moduk-frontend/components/radios/index.html)
 
 #### HTML markup
 
 ```html
-<div class="nhsuk-form-group">
-  <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
-    <legend class="nhsuk-fieldset__legend">
+<div class="moduk-form-group">
+  <fieldset class="moduk-fieldset" aria-describedby="example-hint">
+    <legend class="moduk-fieldset__legend">
       Have you changed your name?
     </legend>
-    <div class="nhsuk-hint" id="example-hint">
+    <div class="moduk-hint" id="example-hint">
     This includes changing your last name or spelling your name differently.
     </div>
-    <div class="nhsuk-radios">
-      <div class="nhsuk-radios__item">
-        <input class="nhsuk-radios__input" id="example-1" name="example" type="radio" value="yes">
-        <label class="nhsuk-label nhsuk-radios__label" for="example-1">
+    <div class="moduk-radios">
+      <div class="moduk-radios__item">
+        <input class="moduk-radios__input" id="example-1" name="example" type="radio" value="yes">
+        <label class="moduk-label moduk-radios__label" for="example-1">
         Yes
         </label>
       </div>
-      <div class="nhsuk-radios__item">
-        <input class="nhsuk-radios__input" id="example-2" name="example" type="radio" value="no" checked>
-        <label class="nhsuk-label nhsuk-radios__label" for="example-2">
+      <div class="moduk-radios__item">
+        <input class="moduk-radios__input" id="example-2" name="example" type="radio" value="no" checked>
+        <label class="moduk-label moduk-radios__label" for="example-2">
         No
         </label>
       </div>
@@ -73,29 +73,29 @@ Find out more about the radios component and when to use it in the [NHS digital 
 
 ### Radios inline
 
-[Preview the radios inline component](https://nhsuk.github.io/nhsuk-frontend/components/radios/inline.html)
+[Preview the radios inline component](https://nhsuk.github.io/moduk-frontend/components/radios/inline.html)
 
 #### HTML markup
 
 ```html
-<div class="nhsuk-form-group">
-  <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
-    <legend class="nhsuk-fieldset__legend">
+<div class="moduk-form-group">
+  <fieldset class="moduk-fieldset" aria-describedby="example-hint">
+    <legend class="moduk-fieldset__legend">
       Have you changed your name?
     </legend>
-    <div class="nhsuk-hint" id="example-hint">
+    <div class="moduk-hint" id="example-hint">
     This includes changing your last name or spelling your name differently.
     </div>
-    <div class="nhsuk-radios nhsuk-radios--inline">
-      <div class="nhsuk-radios__item">
-        <input class="nhsuk-radios__input" id="example-1" name="example" type="radio" value="yes">
-        <label class="nhsuk-label nhsuk-radios__label" for="example-1">
+    <div class="moduk-radios moduk-radios--inline">
+      <div class="moduk-radios__item">
+        <input class="moduk-radios__input" id="example-1" name="example" type="radio" value="yes">
+        <label class="moduk-label moduk-radios__label" for="example-1">
         Yes
         </label>
       </div>
-      <div class="nhsuk-radios__item">
-        <input class="nhsuk-radios__input" id="example-2" name="example" type="radio" value="no" checked>
-        <label class="nhsuk-label nhsuk-radios__label" for="example-2">
+      <div class="moduk-radios__item">
+        <input class="moduk-radios__input" id="example-2" name="example" type="radio" value="no" checked>
+        <label class="moduk-label moduk-radios__label" for="example-2">
         No
         </label>
       </div>
@@ -111,7 +111,7 @@ Find out more about the radios component and when to use it in the [NHS digital 
 
 {{ radios({
   "idPrefix": "example",
-  "classes": "nhsuk-radios--inline",
+  "classes": "moduk-radios--inline",
   "name": "example",
   "fieldset": {
     "legend": {
@@ -139,29 +139,29 @@ Find out more about the radios component and when to use it in the [NHS digital 
 
 ### Radios disabled
 
-[Preview the radios disabled component](https://nhsuk.github.io/nhsuk-frontend/components/radios/disabled.html)
+[Preview the radios disabled component](https://nhsuk.github.io/moduk-frontend/components/radios/disabled.html)
 
 #### HTML markup
 
 ```html
-<div class="nhsuk-form-group">
-  <fieldset class="nhsuk-fieldset" aria-describedby="example-disabled-hint">
-    <legend class="nhsuk-fieldset__legend">
+<div class="moduk-form-group">
+  <fieldset class="moduk-fieldset" aria-describedby="example-disabled-hint">
+    <legend class="moduk-fieldset__legend">
       Have you changed your name?
     </legend>
-    <div class="nhsuk-hint" id="example-disabled-hint">
+    <div class="moduk-hint" id="example-disabled-hint">
     This includes changing your last name or spelling your name differently.
     </div>
-    <div class="nhsuk-radios">
-      <div class="nhsuk-radios__item">
-        <input class="nhsuk-radios__input" id="example-disabled-1" name="example-disabled" type="radio" value="yes" disabled>
-        <label class="nhsuk-label nhsuk-radios__label" for="example-disabled-1">
+    <div class="moduk-radios">
+      <div class="moduk-radios__item">
+        <input class="moduk-radios__input" id="example-disabled-1" name="example-disabled" type="radio" value="yes" disabled>
+        <label class="moduk-label moduk-radios__label" for="example-disabled-1">
         Yes
         </label>
       </div>
-      <div class="nhsuk-radios__item">
-        <input class="nhsuk-radios__input" id="example-disabled-2" name="example-disabled" type="radio" value="no" disabled>
-        <label class="nhsuk-label nhsuk-radios__label" for="example-disabled-2">
+      <div class="moduk-radios__item">
+        <input class="moduk-radios__input" id="example-disabled-2" name="example-disabled" type="radio" value="no" disabled>
+        <label class="moduk-label moduk-radios__label" for="example-disabled-2">
         No
         </label>
       </div>
@@ -205,33 +205,33 @@ Find out more about the radios component and when to use it in the [NHS digital 
 
 ### Radios with a divider
 
-[Preview the radios with a divider component](https://nhsuk.github.io/nhsuk-frontend/components/radios/divider.html)
+[Preview the radios with a divider component](https://nhsuk.github.io/moduk-frontend/components/radios/divider.html)
 
 #### HTML markup
 
 ```html
-<div class="nhsuk-form-group">
-  <fieldset class="nhsuk-fieldset">
-    <legend class="nhsuk-fieldset__legend">
+<div class="moduk-form-group">
+  <fieldset class="moduk-fieldset">
+    <legend class="moduk-fieldset__legend">
       How do you want to sign in?
     </legend>
-    <div class="nhsuk-radios">
-      <div class="nhsuk-radios__item">
-        <input class="nhsuk-radios__input" id="example-divider-1" name="example" type="radio" value="government-gateway">
-        <label class="nhsuk-label nhsuk-radios__label" for="example-divider-1">
+    <div class="moduk-radios">
+      <div class="moduk-radios__item">
+        <input class="moduk-radios__input" id="example-divider-1" name="example" type="radio" value="government-gateway">
+        <label class="moduk-label moduk-radios__label" for="example-divider-1">
         Use Government Gateway
         </label>
       </div>
-      <div class="nhsuk-radios__item">
-        <input class="nhsuk-radios__input" id="example-divider-2" name="example" type="radio" value="nhsuk-login">
-        <label class="nhsuk-label nhsuk-radios__label" for="example-divider-2">
+      <div class="moduk-radios__item">
+        <input class="moduk-radios__input" id="example-divider-2" name="example" type="radio" value="moduk-login">
+        <label class="moduk-label moduk-radios__label" for="example-divider-2">
         Use NHS.UK login
         </label>
       </div>
-      <div class="nhsuk-radios__divider">or</div>
-      <div class="nhsuk-radios__item">
-        <input class="nhsuk-radios__input" id="example-divider-4" name="example" type="radio" value="create-account">
-        <label class="nhsuk-label nhsuk-radios__label" for="example-divider-4">
+      <div class="moduk-radios__divider">or</div>
+      <div class="moduk-radios__item">
+        <input class="moduk-radios__input" id="example-divider-4" name="example" type="radio" value="create-account">
+        <label class="moduk-label moduk-radios__label" for="example-divider-4">
         Create an account
         </label>
       </div>
@@ -259,7 +259,7 @@ Find out more about the radios component and when to use it in the [NHS digital 
       "text": "Use Government Gateway"
     },
     {
-      "value": "nhsuk-login",
+      "value": "moduk-login",
       "text": "Use NHS.UK login"
     },
     {
@@ -277,34 +277,34 @@ Find out more about the radios component and when to use it in the [NHS digital 
 
 ### Radios with hint text on items
 
-[Preview the radios with hint text on items component](https://nhsuk.github.io/nhsuk-frontend/components/radios/hint.html)
+[Preview the radios with hint text on items component](https://nhsuk.github.io/moduk-frontend/components/radios/hint.html)
 
 #### HTML markup
 
 ```html
-<div class="nhsuk-form-group">
-  <fieldset class="nhsuk-fieldset">
-    <legend class="nhsuk-fieldset__legend">
-      <h1 class="nhsuk-fieldset__heading">
+<div class="moduk-form-group">
+  <fieldset class="moduk-fieldset">
+    <legend class="moduk-fieldset__legend">
+      <h1 class="moduk-fieldset__heading">
         How do you want to sign in?
       </h1>
     </legend>
-    <div class="nhsuk-radios">
-      <div class="nhsuk-radios__item">
-        <input class="nhsuk-radios__input" id="gov-1" name="gov" type="radio" value="gateway" aria-describedby="gov-1-item-hint">
-        <label class="nhsuk-label nhsuk-radios__label" for="gov-1">
+    <div class="moduk-radios">
+      <div class="moduk-radios__item">
+        <input class="moduk-radios__input" id="gov-1" name="gov" type="radio" value="gateway" aria-describedby="gov-1-item-hint">
+        <label class="moduk-label moduk-radios__label" for="gov-1">
         Sign in with Government Gateway
         </label>
-        <div class="nhsuk-hint nhsuk-radios__hint" id="gov-1-item-hint">
+        <div class="moduk-hint moduk-radios__hint" id="gov-1-item-hint">
         You&#39;ll have a user ID if you've registered for self-assessment or filed a tax return online before.
         </div>
       </div>
-      <div class="nhsuk-radios__item">
-        <input class="nhsuk-radios__input" id="gov-2" name="gov" type="radio" value="verify" aria-describedby="gov-2-item-hint">
-        <label class="nhsuk-label nhsuk-radios__label" for="gov-2">
+      <div class="moduk-radios__item">
+        <input class="moduk-radios__input" id="gov-2" name="gov" type="radio" value="verify" aria-describedby="gov-2-item-hint">
+        <label class="moduk-label moduk-radios__label" for="gov-2">
         Sign in with NHS.UK login
         </label>
-        <div class="nhsuk-hint nhsuk-radios__hint" id="gov-2-item-hint">
+        <div class="moduk-hint moduk-radios__hint" id="gov-2-item-hint">
         You’ll have an account if you’ve already proved your identity with either Barclays, CitizenSafe, Digidentity, Experian, Post Office, Royal Mail or SecureIdentity.
         </div>
       </div>
@@ -350,28 +350,28 @@ Find out more about the radios component and when to use it in the [NHS digital 
 
 ### Radios without fieldset
 
-[Preview the radios without fieldset component](https://nhsuk.github.io/nhsuk-frontend/components/radios/without-fieldset.html)
+[Preview the radios without fieldset component](https://nhsuk.github.io/moduk-frontend/components/radios/without-fieldset.html)
 
 #### HTML markup
 
 ```html
-<div class="nhsuk-form-group">
-  <div class="nhsuk-radios">
-    <div class="nhsuk-radios__item">
-      <input class="nhsuk-radios__input" id="colours-1" name="colours" type="radio" value="red">
-      <label class="nhsuk-label nhsuk-radios__label" for="colours-1">
+<div class="moduk-form-group">
+  <div class="moduk-radios">
+    <div class="moduk-radios__item">
+      <input class="moduk-radios__input" id="colours-1" name="colours" type="radio" value="red">
+      <label class="moduk-label moduk-radios__label" for="colours-1">
       Red
       </label>
     </div>
-    <div class="nhsuk-radios__item">
-      <input class="nhsuk-radios__input" id="colours-2" name="colours" type="radio" value="green">
-      <label class="nhsuk-label nhsuk-radios__label" for="colours-2">
+    <div class="moduk-radios__item">
+      <input class="moduk-radios__input" id="colours-2" name="colours" type="radio" value="green">
+      <label class="moduk-label moduk-radios__label" for="colours-2">
       Green
       </label>
     </div>
-    <div class="nhsuk-radios__item">
-      <input class="nhsuk-radios__input" id="colours-3" name="colours" type="radio" value="blue">
-      <label class="nhsuk-label nhsuk-radios__label" for="colours-3">
+    <div class="moduk-radios__item">
+      <input class="moduk-radios__input" id="colours-3" name="colours" type="radio" value="blue">
+      <label class="moduk-label moduk-radios__label" for="colours-3">
       Blue
       </label>
     </div>
@@ -407,32 +407,32 @@ Find out more about the radios component and when to use it in the [NHS digital 
 
 ### Radios with hint text and error message
 
-[Preview the radios with hint text and error message component](https://nhsuk.github.io/nhsuk-frontend/components/radios/hint-error.html)
+[Preview the radios with hint text and error message component](https://nhsuk.github.io/moduk-frontend/components/radios/hint-error.html)
 
 #### HTML markup
 
 ```html
-<div class="nhsuk-form-group nhsuk-form-group--error">
-  <fieldset class="nhsuk-fieldset app-fieldset--custom-modifier" aria-describedby="example-hint example-error" data-attribute="value" data-second-attribute="second-value">
-    <legend class="nhsuk-fieldset__legend">
+<div class="moduk-form-group moduk-form-group--error">
+  <fieldset class="moduk-fieldset app-fieldset--custom-modifier" aria-describedby="example-hint example-error" data-attribute="value" data-second-attribute="second-value">
+    <legend class="moduk-fieldset__legend">
       Have you changed your name?
     </legend>
-    <div class="nhsuk-hint" id="example-hint">
+    <div class="moduk-hint" id="example-hint">
     This includes changing your last name or spelling your name differently.
     </div>
-    <span id="example-error" class="nhsuk-error-message">
+    <span id="example-error" class="moduk-error-message">
     Please select an option
     </span>
-    <div class="nhsuk-radios">
-      <div class="nhsuk-radios__item">
-        <input class="nhsuk-radios__input" id="example-1" name="example" type="radio" value="yes">
-        <label class="nhsuk-label nhsuk-radios__label" for="example-1">
+    <div class="moduk-radios">
+      <div class="moduk-radios__item">
+        <input class="moduk-radios__input" id="example-1" name="example" type="radio" value="yes">
+        <label class="moduk-label moduk-radios__label" for="example-1">
         Yes
         </label>
       </div>
-      <div class="nhsuk-radios__item">
-        <input class="nhsuk-radios__input" id="example-2" name="example" type="radio" value="no" checked>
-        <label class="nhsuk-label nhsuk-radios__label" for="example-2">
+      <div class="moduk-radios__item">
+        <input class="moduk-radios__input" id="example-2" name="example" type="radio" value="no" checked>
+        <label class="moduk-label moduk-radios__label" for="example-2">
         No
         </label>
       </div>
@@ -483,62 +483,62 @@ Find out more about the radios component and when to use it in the [NHS digital 
 
 ### Radios with conditional content
 
-[Preview the radios with conditonal content](https://nhsuk.github.io/nhsuk-frontend/components/radios/conditional.html)
+[Preview the radios with conditonal content](https://nhsuk.github.io/moduk-frontend/components/radios/conditional.html)
 
 #### HTML markup
 
 ```html
-<div class="nhsuk-form-group">
-  <fieldset class="nhsuk-fieldset" aria-describedby="contact-hint">
-    <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
-      <h1 class="nhsuk-fieldset__heading">
+<div class="moduk-form-group">
+  <fieldset class="moduk-fieldset" aria-describedby="contact-hint">
+    <legend class="moduk-fieldset__legend moduk-fieldset__legend--l">
+      <h1 class="moduk-fieldset__heading">
         How would you prefer to be contacted?
       </h1>
     </legend>
-    <div class="nhsuk-hint" id="contact-hint">
+    <div class="moduk-hint" id="contact-hint">
       Select one option.
     </div>
-    <div class="nhsuk-radios nhsuk-radios--conditional">
-      <div class="nhsuk-radios__item">
-        <input class="nhsuk-radios__input" id="contact-1" name="contact" type="radio" value="email" aria-controls="conditional-contact-1" aria-expanded="false">
-        <label class="nhsuk-label nhsuk-radios__label" for="contact-1">
+    <div class="moduk-radios moduk-radios--conditional">
+      <div class="moduk-radios__item">
+        <input class="moduk-radios__input" id="contact-1" name="contact" type="radio" value="email" aria-controls="conditional-contact-1" aria-expanded="false">
+        <label class="moduk-label moduk-radios__label" for="contact-1">
           Email
         </label>
       </div>
-      <div class="nhsuk-radios__conditional nhsuk-radios__conditional--hidden" id="conditional-contact-1">
-        <div class="nhsuk-form-group">
-          <label class="nhsuk-label" for="email">
+      <div class="moduk-radios__conditional moduk-radios__conditional--hidden" id="conditional-contact-1">
+        <div class="moduk-form-group">
+          <label class="moduk-label" for="email">
             Email address
           </label>
-          <input class="nhsuk-input nhsuk-u-width-two-thirds" id="email" name="email" type="text">
+          <input class="moduk-input moduk-u-width-two-thirds" id="email" name="email" type="text">
         </div>
       </div>
-      <div class="nhsuk-radios__item">
-        <input class="nhsuk-radios__input" id="contact-2" name="contact" type="radio" value="phone" aria-controls="conditional-contact-2" aria-expanded="false">
-        <label class="nhsuk-label nhsuk-radios__label" for="contact-2">
+      <div class="moduk-radios__item">
+        <input class="moduk-radios__input" id="contact-2" name="contact" type="radio" value="phone" aria-controls="conditional-contact-2" aria-expanded="false">
+        <label class="moduk-label moduk-radios__label" for="contact-2">
           Phone
         </label>
       </div>  
-      <div class="nhsuk-radios__conditional nhsuk-radios__conditional--hidden" id="conditional-contact-2">
-        <div class="nhsuk-form-group">
-          <label class="nhsuk-label" for="phone">
+      <div class="moduk-radios__conditional moduk-radios__conditional--hidden" id="conditional-contact-2">
+        <div class="moduk-form-group">
+          <label class="moduk-label" for="phone">
             Phone number
           </label>
-          <input class="nhsuk-input nhsuk-u-width-two-thirds" id="phone" name="phone" type="text">
+          <input class="moduk-input moduk-u-width-two-thirds" id="phone" name="phone" type="text">
         </div>
       </div>  
-      <div class="nhsuk-radios__item">
-        <input class="nhsuk-radios__input" id="contact-3" name="contact" type="radio" value="text" aria-controls="conditional-contact-3" aria-expanded="false">
-        <label class="nhsuk-label nhsuk-radios__label" for="contact-3">
+      <div class="moduk-radios__item">
+        <input class="moduk-radios__input" id="contact-3" name="contact" type="radio" value="text" aria-controls="conditional-contact-3" aria-expanded="false">
+        <label class="moduk-label moduk-radios__label" for="contact-3">
           Text message
         </label>
       </div>
-      <div class="nhsuk-radios__conditional nhsuk-radios__conditional--hidden" id="conditional-contact-3">
-        <div class="nhsuk-form-group">
-          <label class="nhsuk-label" for="mobile">
+      <div class="moduk-radios__conditional moduk-radios__conditional--hidden" id="conditional-contact-3">
+        <div class="moduk-form-group">
+          <label class="moduk-label" for="mobile">
             Mobile phone number
           </label>
-          <input class="nhsuk-input nhsuk-u-width-two-thirds" id="mobile" name="mobile" type="text">
+          <input class="moduk-input moduk-u-width-two-thirds" id="mobile" name="mobile" type="text">
         </div>
       </div>
     </div>
@@ -556,7 +556,7 @@ Find out more about the radios component and when to use it in the [NHS digital 
   {{ input({
     id: "email",
     name: "email",
-    classes: "nhsuk-u-width-two-thirds",
+    classes: "moduk-u-width-two-thirds",
     label: {
       text: "Email address"
     }
@@ -567,7 +567,7 @@ Find out more about the radios component and when to use it in the [NHS digital 
   {{ input({
     id: "phone",
     name: "phone",
-    classes: "nhsuk-u-width-two-thirds",
+    classes: "moduk-u-width-two-thirds",
     label: {
       text: "Phone number"
     }
@@ -578,7 +578,7 @@ Find out more about the radios component and when to use it in the [NHS digital 
   {{ input({
     id: "mobile",
     name: "mobile",
-    classes: "nhsuk-u-width-two-thirds",
+    classes: "moduk-u-width-two-thirds",
     label: {
       text: "Mobile phone number"
     }
@@ -591,7 +591,7 @@ Find out more about the radios component and when to use it in the [NHS digital 
   "fieldset": {
     "legend": {
       "text": "How would you prefer to be contacted?",
-      "classes": "nhsuk-fieldset__legend--l",
+      "classes": "moduk-fieldset__legend--l",
       "isPageHeading": "true"
     }
   },
@@ -632,9 +632,9 @@ The radios Nunjucks macro takes the following arguments:
 
 | Name                | Type     | Required  | Description                 |
 | --------------------|----------|-----------|-----------------------------|
-| **fieldset**        | object   | No        | Arguments for the fieldset component (e.g. legend). See See [fieldset](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/fieldset) component. |
-| **hint**            | object   | No        | Arguments for the hint component (e.g. text). See [hint](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/hint) component. |
-| **errorMessage**    | object   | No        | Arguments for the errorMessage component (e.g. text). See [error message](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/error-message) component. |
+| **fieldset**        | object   | No        | Arguments for the fieldset component (e.g. legend). See See [fieldset](https://github.com/nhsuk/moduk-frontend/tree/master/packages/components/fieldset) component. |
+| **hint**            | object   | No        | Arguments for the hint component (e.g. text). See [hint](https://github.com/nhsuk/moduk-frontend/tree/master/packages/components/hint) component. |
+| **errorMessage**    | object   | No        | Arguments for the errorMessage component (e.g. text). See [error message](https://github.com/nhsuk/moduk-frontend/tree/master/packages/components/error-message) component. |
 | **idPrefix**        | string   | No        | String to prefix id for each radio item if no id is specified on each item. If`idPrefix` is not passed, fallback to using the name attribute instead.|
 | **name**            | string	 | Yes       | Name attribute for each radio item. |
 | **items**           | array    | Yes       | Array of radio item objects. |
@@ -642,7 +642,7 @@ The radios Nunjucks macro takes the following arguments:
 | **items[].id**     | string  | No        | Specific id attribute for the radio item. If omitted, then `idPrefix` string will be applied.|
 | **items[].name**   | string  | Yes        | Specific name for the radio item. If omitted, then component global `name` string will be applied. |
 | **items[].value**  | string   | Yes        | Value for the radio input. |
-| **items[].hint**   | object   | No        | Provide optional hint to each radio item. See [hint](https://github.com/nhsuk/nhsuk-frontend/tree/master/packages/components/hint) component. |
+| **items[].hint**   | object   | No        | Provide optional hint to each radio item. See [hint](https://github.com/nhsuk/moduk-frontend/tree/master/packages/components/hint) component. |
 | **items[].divider** | string   | No        | Optional divider text to separate radio items, for example the text "or". |
 | **items[].checked** | boolean   | No        | If true, radio will be checked. |
 | **items[].disabled** | boolean   | No        | If true, radio will be disabled. |

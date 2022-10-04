@@ -13,31 +13,31 @@
  * 6. Text decoration underline used to override default <a> styling.
  */
 
-.nhsuk-action-link {
-  @include nhsuk-responsive-margin(6, 'bottom');
+.moduk-action-link {
+  @include moduk-responsive-margin(6, 'bottom');
 }
 
-.nhsuk-action-link__link {
-  @include nhsuk-font(22);
+.moduk-action-link__link {
+  @include moduk-font(22);
 
   display: inline-block; /* [1] */
-  font-weight: $nhsuk-font-bold;
+  font-weight: $moduk-font-bold;
   padding-left: 38px; /* [2] */
   position: relative; /* [3] */
   text-decoration: none; /* [4] */
 
   &:hover {
-    .nhsuk-action-link__text {
+    .moduk-action-link__text {
       text-decoration: underline; /* [6] */
     }
   }
 
   &:focus {
-    @include nhsuk-focused-text();
+    @include moduk-focused-text();
 
     &:hover {
-      .nhsuk-action-link__text {
-        color: $nhsuk-focus-text-color;
+      .moduk-action-link__text {
+        color: $moduk-focus-text-color;
         text-decoration: none;
       }
     }
@@ -49,17 +49,17 @@
   }
 
   @include mq($media-type: print) {
-    color: $nhsuk-print-text-color;
+    color: $moduk-print-text-color;
 
     &:visited {
-      color: $nhsuk-print-text-color;
+      color: $moduk-print-text-color;
     }
   }
 
-  .nhsuk-icon__arrow-right-circle {
-    @include print-color($nhsuk-print-text-color);
+  .moduk-icon__arrow-right-circle {
+    @include print-color($moduk-print-text-color);
 
-    fill: $color_nhsuk-green;
+    fill: $color_moduk-green;
     height: 36px;
     left: -3px;
     position: absolute;

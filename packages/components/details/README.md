@@ -12,18 +12,18 @@ For this component to be accessible and compatible with older browsers, include 
 
 ### Details
 
-[Preview the details component](https://nhsuk.github.io/nhsuk-frontend/components/details/index.html)
+[Preview the details component](https://nhsuk.github.io/moduk-frontend/components/details/index.html)
 
 #### HTML markup
 
 ```html
-<details class="nhsuk-details">
-  <summary class="nhsuk-details__summary">
-    <span class="nhsuk-details__summary-text">
+<details class="moduk-details">
+  <summary class="moduk-details__summary">
+    <span class="moduk-details__summary-text">
     Where can I find my NHS number?
     </span>
   </summary>
-  <div class="nhsuk-details__text">
+  <div class="moduk-details__text">
     <p>An NHS number is a 10 digit number, like 485 777 3456.</p>
     <p>You can find your NHS number on any document sent to you by the NHS. This may include:</p>
     <ul>
@@ -64,7 +64,7 @@ For this component to be accessible and compatible with older browsers, include 
 
 ### Expander
 
-[Preview the expander component](https://nhsuk.github.io/nhsuk-frontend/components/details/expander.html)
+[Preview the expander component](https://nhsuk.github.io/moduk-frontend/components/details/expander.html)
 
 #### Guidance
 
@@ -73,13 +73,13 @@ Find out more about the expander component and when to use it in the [NHS digita
 #### HTML markup
 
 ```html
-<details class="nhsuk-details nhsuk-expander">
-  <summary class="nhsuk-details__summary">
-    <span class="nhsuk-details__summary-text">
+<details class="moduk-details moduk-expander">
+  <summary class="moduk-details__summary">
+    <span class="moduk-details__summary-text">
     Opening times
     </span>
   </summary>
-  <div class="nhsuk-details__text">
+  <div class="moduk-details__text">
     <table>
       <tbody>
         <tr>
@@ -126,7 +126,7 @@ Find out more about the expander component and when to use it in the [NHS digita
 {% from 'components/details/macro.njk' import details %}
 
 {{ details({
-  "classes": "nhsuk-expander",
+  "classes": "moduk-expander",
   "text": "Opening times",
   "HTML": "
   <table>
@@ -172,19 +172,19 @@ Find out more about the expander component and when to use it in the [NHS digita
 
 ### Expander group
 
-[Preview the expander group component](https://nhsuk.github.io/nhsuk-frontend/components/details/expander-group.html)
+[Preview the expander group component](https://nhsuk.github.io/moduk-frontend/components/details/expander-group.html)
 
 #### HTML markup
 
 ```html
-<div class="nhsuk-expander-group">
-  <details class="nhsuk-details nhsuk-expander">
-    <summary class="nhsuk-details__summary">
-      <span class="nhsuk-details__summary-text">
+<div class="moduk-expander-group">
+  <details class="moduk-details moduk-expander">
+    <summary class="moduk-details__summary">
+      <span class="moduk-details__summary-text">
       How to measure your blood glucose levels
       </span>
     </summary>
-    <div class="nhsuk-details__text">
+    <div class="moduk-details__text">
       <p>Testing your blood at home is quick and easy, although it can be uncomfortable. It does get better.</p>
       <p>You would have been given:</p>
       <ul>
@@ -195,13 +195,13 @@ Find out more about the expander component and when to use it in the [NHS digita
       </ul>
     </div>
   </details>
-  <details class="nhsuk-details nhsuk-expander">
-    <summary class="nhsuk-details__summary">
-      <span class="nhsuk-details__summary-text">
+  <details class="moduk-details moduk-expander">
+    <summary class="moduk-details__summary">
+      <span class="moduk-details__summary-text">
       When to check your blood glucose level
       </span>
     </summary>
-    <div class="nhsuk-details__text">
+    <div class="moduk-details__text">
       <p>Try to check your blood:</p>
       <ul>
         <li>before meals</li>
@@ -219,9 +219,9 @@ Find out more about the expander component and when to use it in the [NHS digita
 ```
 {% from 'components/details/macro.njk' import details %}
 
-<div class="nhsuk-expander-group">
+<div class="moduk-expander-group">
   {{ details({
-    "classes": "nhsuk-expander",
+    "classes": "moduk-expander",
     "text": "How to measure your blood glucose levels",
     "HTML": "
     <p>Testing your blood at home is quick and easy, although it can be uncomfortable. It does get better.</p>
@@ -235,7 +235,7 @@ Find out more about the expander component and when to use it in the [NHS digita
     "
   }) }}
   {{ details({
-    "classes": "nhsuk-expander",
+    "classes": "moduk-expander",
     "text": "When to check your blood glucose level",
     "HTML": "
     <p>Try to check your blood:</p>

@@ -9,174 +9,174 @@
 //
 // @example scss
 //  .foo {
-//   @extend %nhsuk-heading-xl;
+//   @extend %moduk-heading-xl;
 //  }
 
-%nhsuk-heading-xl {
-  @include nhsuk-typography-responsive(48);
+%moduk-heading-xl {
+  @include moduk-typography-responsive(48);
 
   display: block;
-  font-weight: $nhsuk-font-bold;
+  font-weight: $moduk-font-bold;
   margin-top: 0;
 
-  @include nhsuk-responsive-margin(7, 'bottom');
+  @include moduk-responsive-margin(7, 'bottom');
 }
 
 h1,
-.nhsuk-heading-xl {
-  @extend %nhsuk-heading-xl;
+.moduk-heading-xl {
+  @extend %moduk-heading-xl;
 }
 
-%nhsuk-heading-l {
-  @include nhsuk-typography-responsive(32);
+%moduk-heading-l {
+  @include moduk-typography-responsive(32);
 
   display: block;
-  font-weight: $nhsuk-font-bold;
+  font-weight: $moduk-font-bold;
   margin-top: 0;
 
-  @include nhsuk-responsive-margin(4, 'bottom');
+  @include moduk-responsive-margin(4, 'bottom');
 }
 
 h2,
-.nhsuk-heading-l {
-  @extend %nhsuk-heading-l;
+.moduk-heading-l {
+  @extend %moduk-heading-l;
 }
 
-%nhsuk-heading-m {
-  @include nhsuk-typography-responsive(24);
+%moduk-heading-m {
+  @include moduk-typography-responsive(24);
 
   display: block;
-  font-weight: $nhsuk-font-bold;
+  font-weight: $moduk-font-bold;
   margin-top: 0;
 
-  @include nhsuk-responsive-margin(4, 'bottom');
+  @include moduk-responsive-margin(4, 'bottom');
 }
 
 h3,
-.nhsuk-heading-m {
-  @extend %nhsuk-heading-m;
+.moduk-heading-m {
+  @extend %moduk-heading-m;
 }
 
-%nhsuk-heading-s {
-  @include nhsuk-typography-responsive(22);
+%moduk-heading-s {
+  @include moduk-typography-responsive(22);
 
   display: block;
-  font-weight: $nhsuk-font-bold;
+  font-weight: $moduk-font-bold;
   margin-top: 0;
 
-  @include nhsuk-responsive-margin(4, 'bottom');
+  @include moduk-responsive-margin(4, 'bottom');
 }
 
 h4,
-.nhsuk-heading-s {
-  @extend %nhsuk-heading-s;
+.moduk-heading-s {
+  @extend %moduk-heading-s;
 }
 
-%nhsuk-heading-xs {
-  @include nhsuk-typography-responsive(19);
+%moduk-heading-xs {
+  @include moduk-typography-responsive(19);
 
   display: block;
-  font-weight: $nhsuk-font-bold;
+  font-weight: $moduk-font-bold;
   margin-top: 0;
 
-  @include nhsuk-responsive-margin(4, 'bottom');
+  @include moduk-responsive-margin(4, 'bottom');
 }
 
 h5,
-.nhsuk-heading-xs {
-  @extend %nhsuk-heading-xs;
+.moduk-heading-xs {
+  @extend %moduk-heading-xs;
 }
 
-%nhsuk-heading-xxs {
-  @include nhsuk-typography-responsive(19);
+%moduk-heading-xxs {
+  @include moduk-typography-responsive(19);
 
   display: block;
-  font-weight: $nhsuk-font-bold;
+  font-weight: $moduk-font-bold;
   margin-top: 0;
 
-  @include nhsuk-responsive-margin(4, 'bottom');
+  @include moduk-responsive-margin(4, 'bottom');
 }
 
 h6,
-.nhsuk-heading-xxs {
-  @extend %nhsuk-heading-xxs;
+.moduk-heading-xxs {
+  @extend %moduk-heading-xxs;
 }
 
 /* Captions to be used inside headings */
 
-.nhsuk-caption-xl {
-  @include nhsuk-font(32);
+.moduk-caption-xl {
+  @include moduk-font(32);
 
-  color: $nhsuk-secondary-text-color;
+  color: $moduk-secondary-text-color;
   display: block;
-  margin-bottom: nhsuk-spacing(1);
+  margin-bottom: moduk-spacing(1);
 }
 
-.nhsuk-caption-l {
-  @include nhsuk-font(24);
+.moduk-caption-l {
+  @include moduk-font(24);
 
-  color: $nhsuk-secondary-text-color;
+  color: $moduk-secondary-text-color;
   display: block;
-  margin-bottom: nhsuk-spacing(1);
+  margin-bottom: moduk-spacing(1);
 }
 
-.nhsuk-caption-m {
-  @include nhsuk-font(19);
+.moduk-caption-m {
+  @include moduk-font(19);
 
-  color: $nhsuk-secondary-text-color;
+  color: $moduk-secondary-text-color;
   display: block;
 }
 
-.nhsuk-caption--bottom {
-  margin-bottom: nhsuk-spacing(0);
-  margin-top: nhsuk-spacing(1);
+.moduk-caption--bottom {
+  margin-bottom: moduk-spacing(0);
+  margin-top: moduk-spacing(1);
 }
 
 /* Body (paragraphs) */
 
-%nhsuk-body-l {
-  @include nhsuk-typography-responsive(24);
+%moduk-body-l {
+  @include moduk-typography-responsive(24);
 
   display: block;
   margin-top: 0;
 
-  @include nhsuk-responsive-margin(5, 'bottom');
+  @include moduk-responsive-margin(5, 'bottom');
 }
 
-.nhsuk-body-l {
-  @extend %nhsuk-body-l;
+.moduk-body-l {
+  @extend %moduk-body-l;
 }
 
-%nhsuk-body-m {
-  @include nhsuk-typography-responsive(19);
+%moduk-body-m {
+  @include moduk-typography-responsive(19);
 
   display: block;
   margin-top: 0;
 
-  @include nhsuk-responsive-margin(4, 'bottom');
+  @include moduk-responsive-margin(4, 'bottom');
 }
 
 p,
-.nhsuk-body-m {
-  @extend %nhsuk-body-m;
+.moduk-body-m {
+  @extend %moduk-body-m;
   color: inherit;
 }
 
-%nhsuk-body-s {
-  @include nhsuk-typography-responsive(16);
+%moduk-body-s {
+  @include moduk-typography-responsive(16);
 
   display: block;
   margin-top: 0;
 
-  @include nhsuk-responsive-margin(4, 'bottom');
+  @include moduk-responsive-margin(4, 'bottom');
 }
 
-.nhsuk-body-s {
-  @extend %nhsuk-body-s;
+.moduk-body-s {
+  @extend %moduk-body-s;
 }
 
 address {
-  @extend %nhsuk-body-m;
+  @extend %moduk-body-m;
 
   font-style: normal;
 }
@@ -188,25 +188,25 @@ address {
  * 2. Reduces the spacing between the page heading and the lede text
  */
 
-.nhsuk-lede-text {
-  @include nhsuk-font(24);
-  @include nhsuk-responsive-margin(7, 'bottom');
+.moduk-lede-text {
+  @include moduk-font(24);
+  @include moduk-responsive-margin(7, 'bottom');
   /* [1] */
   p,
   ul {
-    @include nhsuk-font(24);
+    @include moduk-font(24);
   }
 }
 
-.nhsuk-lede-text--small {
-  @include nhsuk-font(19);
-  @include nhsuk-responsive-margin(5, 'bottom');
+.moduk-lede-text--small {
+  @include moduk-font(19);
+  @include moduk-responsive-margin(5, 'bottom');
 }
 
 /* [2] */
-h1 + .nhsuk-lede-text,
-h1 + .nhsuk-lede-text--small {
-  margin-top: - nhsuk-spacing(2);
+h1 + .moduk-lede-text,
+h1 + .moduk-lede-text--small {
+  margin-top: - moduk-spacing(2);
 }
 
 /**
@@ -217,38 +217,38 @@ h1 + .nhsuk-lede-text--small {
  * 1. Removes the padding-top because of the lede-text's increased margin-bottom
  *
  * Original code taken from GDS (Government Digital Service)
- * https://github.com/alphagov/nhsuk-frontend
+ * https://github.com/alphagov/moduk-frontend
  */
 
-%nhsuk-body-l  + %nhsuk-heading-l {
-  padding-top: nhsuk-spacing(1);
+%moduk-body-l  + %moduk-heading-l {
+  padding-top: moduk-spacing(1);
 
   @include mq($from: tablet) {
-    padding-top: nhsuk-spacing(2);
+    padding-top: moduk-spacing(2);
   }
 }
 
-%nhsuk-body-m  + %nhsuk-heading-l,
-%nhsuk-body-s  + %nhsuk-heading-l,
-%nhsuk-list + %nhsuk-heading-l {
-  @include nhsuk-responsive-padding(4, 'top');
+%moduk-body-m  + %moduk-heading-l,
+%moduk-body-s  + %moduk-heading-l,
+%moduk-list + %moduk-heading-l {
+  @include moduk-responsive-padding(4, 'top');
 }
 
-%nhsuk-body-m + %nhsuk-heading-m,
-%nhsuk-body-s + %nhsuk-heading-m,
-%nhsuk-list + %nhsuk-heading-m,
-%nhsuk-body-m + %nhsuk-heading-s,
-%nhsuk-body-s + %nhsuk-heading-s,
-%nhsuk-list + %nhsuk-heading-s {
-  padding-top: nhsuk-spacing(1);
+%moduk-body-m + %moduk-heading-m,
+%moduk-body-s + %moduk-heading-m,
+%moduk-list + %moduk-heading-m,
+%moduk-body-m + %moduk-heading-s,
+%moduk-body-s + %moduk-heading-s,
+%moduk-list + %moduk-heading-s {
+  padding-top: moduk-spacing(1);
 
   @include mq($from: tablet) {
-    padding-top: nhsuk-spacing(2);
+    padding-top: moduk-spacing(2);
   }
 }
 
 /* [1] */
-.nhsuk-lede-text + %nhsuk-heading-l {
+.moduk-lede-text + %moduk-heading-l {
   padding-top: 0;
 }
 
@@ -256,5 +256,5 @@ h1 + .nhsuk-lede-text--small {
 
 strong,
 b {
-  font-weight: $nhsuk-font-bold;
+  font-weight: $moduk-font-bold;
 }

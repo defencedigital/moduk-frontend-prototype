@@ -2,53 +2,53 @@
    COMPONENTS/ #LABEL
    ========================================================================== */
 
-.nhsuk-label {
-  @include nhsuk-font(19);
+.moduk-label {
+  @include moduk-font(19);
 
   display: block;
-  margin-bottom: nhsuk-spacing(1);
+  margin-bottom: moduk-spacing(1);
 }
 
 /* Modifiers that make labels look more like their equivalent headings */
 
-.nhsuk-label--xl {
-  @include nhsuk-typography-responsive(48);
+.moduk-label--xl {
+  @include moduk-typography-responsive(48);
 
   display: block;
-  font-weight: $nhsuk-font-bold;
+  font-weight: $moduk-font-bold;
   margin-top: 0;
 
-  @include nhsuk-responsive-margin(7, 'bottom');
+  @include moduk-responsive-margin(7, 'bottom');
 }
 
-.nhsuk-label--l {
-  @include nhsuk-typography-responsive(32);
+.moduk-label--l {
+  @include moduk-typography-responsive(32);
 
   display: block;
-  font-weight: $nhsuk-font-bold;
+  font-weight: $moduk-font-bold;
   margin-top: 0;
 
-  @include nhsuk-responsive-margin(4, 'bottom');
+  @include moduk-responsive-margin(4, 'bottom');
 }
 
-.nhsuk-label--m {
-  @include nhsuk-typography-responsive(24);
+.moduk-label--m {
+  @include moduk-typography-responsive(24);
 
   display: block;
-  font-weight: $nhsuk-font-bold;
+  font-weight: $moduk-font-bold;
   margin-top: 0;
 
-  @include nhsuk-responsive-margin(4, 'bottom');
+  @include moduk-responsive-margin(4, 'bottom');
 }
 
-.nhsuk-label--s {
-  @include nhsuk-typography-responsive(19);
+.moduk-label--s {
+  @include moduk-typography-responsive(19);
 
   display: block;
-  font-weight: $nhsuk-font-bold;
+  font-weight: $moduk-font-bold;
   margin-top: 0;
 
-  @include nhsuk-responsive-margin(4, 'bottom');
+  @include moduk-responsive-margin(4, 'bottom');
 }
 
 // When the label is nested inside a heading, override the heading so that it
@@ -57,6 +57,6 @@
 //
 // This breaks BEM conventions because it exists as a parent of the 'block',
 // so we can't really consider an element.
-.nhsuk-label-wrapper {
+.moduk-label-wrapper {
   margin: 0;
 }

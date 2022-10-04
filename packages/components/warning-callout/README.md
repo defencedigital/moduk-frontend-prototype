@@ -8,14 +8,14 @@ Find out more about the warning callout component and when to use it in the [NHS
 
 ### Warning callout
 
-[Preview the warning callout component](https://nhsuk.github.io/nhsuk-frontend/components/warning-callout/index.html)
+[Preview the warning callout component](https://nhsuk.github.io/moduk-frontend/components/warning-callout/index.html)
 
 #### HTML markup
 
 ```html
-<div class="nhsuk-warning-callout">
-  <h3 class="nhsuk-warning-callout__label">
-    Important<span class="nhsuk-u-visually-hidden">:</span>
+<div class="moduk-warning-callout">
+  <h3 class="moduk-warning-callout__label">
+    Important<span class="moduk-u-visually-hidden">:</span>
   </h3>
   <p>If you develop symptoms of anaphylaxis, such as difficulty breathing, you should inject yourself in the outer thigh before seeking emergency medical help.</p>
 </div>
@@ -36,15 +36,15 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
 
 ### Warning callout with custom heading
 
-[Preview the warning callout with custom heading component](https://nhsuk.github.io/nhsuk-frontend/components/warning-callout/custom-heading.html)
+[Preview the warning callout with custom heading component](https://nhsuk.github.io/moduk-frontend/components/warning-callout/custom-heading.html)
 
 #### HTML markup
 
 ```html
-<div class="nhsuk-warning-callout">
-  <h3 class="nhsuk-warning-callout__label">
+<div class="moduk-warning-callout">
+  <h3 class="moduk-warning-callout__label">
     <span role="text">
-      <span class="nhsuk-u-visually-hidden">Important: </span>
+      <span class="moduk-u-visually-hidden">Important: </span>
       School, nursery or work
     </span>
   </h3>

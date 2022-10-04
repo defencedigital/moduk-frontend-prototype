@@ -92,22 +92,22 @@
 //
 // Panel mixin
 //
-// Usage: @include panel-with-label($color_nhsuk-blue, $color_nhsuk-white);
+// Usage: @include panel-with-label($color_moduk-maroon, $color_moduk-white);
 // See components/_panel
 //
 
 @mixin panel($panel-background-color, $panel-text-color) {
 
   @include top-and-bottom();
-  @include nhsuk-responsive-margin(7, 'bottom');
-  @include nhsuk-responsive-margin(7, 'top');
-  @include nhsuk-responsive-padding(5);
+  @include moduk-responsive-margin(7, 'bottom');
+  @include moduk-responsive-margin(7, 'top');
+  @include moduk-responsive-padding(5);
 
   background-color: $panel-background-color;
   color: $panel-text-color;
 
   @include mq($media-type: print) {
-    border: 1px solid $nhsuk-print-text-color;
+    border: 1px solid $moduk-print-text-color;
     page-break-inside: avoid;
   }
 
@@ -119,7 +119,7 @@
 //
 // Used in-conjunction with @mixin heading-label
 //
-// Usage: @include panel-with-label($color_nhsuk-blue, $color_nhsuk-white);
+// Usage: @include panel-with-label($color_moduk-maroon, $color_moduk-white);
 // See components/_warning-component
 //
 
@@ -136,7 +136,7 @@
 //
 // Used in-conjunction with @mixin panel-with-label
 //
-// Usage: @include heading-label($color_nhsuk-blue, $color_nhsuk-white);
+// Usage: @include heading-label($color_moduk-maroon, $color_moduk-white);
 // See components/_warning-component
 //
 // 1. Background colour to be set on the @include.
@@ -148,26 +148,26 @@
 //
 
 @mixin heading-label($heading-background-color, $heading-text-color) {
-  @include nhsuk-typography-responsive(24);
+  @include moduk-typography-responsive(24);
 
   background-color: $heading-background-color; // [1] //
   color: $heading-text-color; // [2] //
   display: inline-block; // [3] //
-  margin: nhsuk-spacing(0) nhsuk-spacing(0) nhsuk-spacing(2) -33px;
-  padding: nhsuk-spacing(2) nhsuk-spacing(5);
+  margin: moduk-spacing(0) moduk-spacing(0) moduk-spacing(2) -33px;
+  padding: moduk-spacing(2) moduk-spacing(5);
   position: relative;
   top: -16px; // [5] //
 
   @include mq($until: tablet) {
     margin-left: -25px;
     margin-right: 0;
-    padding: nhsuk-spacing(2) nhsuk-spacing(4);
+    padding: moduk-spacing(2) moduk-spacing(4);
     top: -8px; // [5] //
   }
 
   @include mq($media-type: print) {
     background: none;
-    color: $color_nhsuk-black;
+    color: $color_moduk-black;
     top: 0;
   }
 }
@@ -176,20 +176,20 @@
 // Care card mixin, used for creating
 // different coloured care cards.
 //
-// Usage: @include care-card($color_nhsuk-blue, $color_nhsuk-white, 4px);
+// Usage: @include care-card($color_moduk-maroon, $color_moduk-white, 4px);
 // See components/card/card
 //
 
 @mixin care-card($heading-background-color, $heading-text-color, $print-border-size) {
 
-  .nhsuk-card--care__heading-container {
+  .moduk-card--care__heading-container {
     background-color: $heading-background-color;
     color: $heading-text-color;
   }
 
   @include mq($media-type: print) {
-    border: $print-border-size solid $nhsuk-print-text-color;
-    color: $nhsuk-print-text-color;
+    border: $print-border-size solid $moduk-print-text-color;
+    color: $moduk-print-text-color;
     page-break-inside: avoid;
   }
 }
@@ -198,7 +198,7 @@
 // Print colour mixin, sets the text print colour
 // warning callout, do and don't lists and panels.
 //
-// Usage: @include print-color($nhsuk-print-text-color);
+// Usage: @include print-color($moduk-print-text-color);
 // See components/_care-card
 //
 
@@ -211,7 +211,7 @@
     &:active,
     &:focus,
     &:visited {
-      color: $nhsuk-print-text-color;
+      color: $moduk-print-text-color;
     }
 
   }
@@ -271,9 +271,9 @@
 
 @mixin toggle-button() {
   background-color: transparent;
-  border: 1px solid $color_nhsuk-white;
-  border-radius: $nhsuk-border-radius;
-  color: $color_nhsuk-white;
+  border: 1px solid $color_moduk-white;
+  border-radius: $moduk-border-radius;
+  color: $color_moduk-white;
   cursor: pointer;
 
 
@@ -282,20 +282,20 @@
   }
 
   &:hover {
-    background-color: $color_shade_nhsuk-blue-35;
-    border-color: $color_nhsuk-grey-5;
+    background-color: $color_shade_moduk-blue-35;
+    border-color: $color_moduk-grey-5;
     box-shadow: none;
   }
 
   &:focus {
-    border: 1px solid $nhsuk-focus-color !important; /* stylelint-disable-line declaration-no-important */ /* [2] */
+    border: 1px solid $moduk-focus-color !important; /* stylelint-disable-line declaration-no-important */ /* [2] */
   }
 
   &:active,
   &.is-active {
-    background-color: $color_shade_nhsuk-blue-50;
-    border-color: $color_nhsuk-grey-5;
-    color: $color_nhsuk-grey-5;
+    background-color: $color_shade_moduk-blue-50;
+    border-color: $color_moduk-grey-5;
+    color: $color_moduk-grey-5;
   }
 
 }
@@ -321,8 +321,8 @@
   padding: 0;
   width: 40px; // [1] //
 
-  .nhsuk-icon__close {
-    fill: $color_nhsuk-blue;
+  .moduk-icon__close {
+    fill: $color_moduk-maroon;
     height: 40px; // [2] //
     width: 40px; // [2] //
   }
@@ -332,13 +332,13 @@
   }
 
   &:hover {
-    .nhsuk-icon__close {
-      fill: $nhsuk-secondary-button-hover-color;
+    .moduk-icon__close {
+      fill: $moduk-secondary-button-hover-color;
     }
   }
 
   &:focus {
-    @include nhsuk-focused-text;
+    @include moduk-focused-text;
   }
 
 }
@@ -350,8 +350,8 @@
 
 @mixin remove-margin-mobile() {
   @include mq($until: tablet) {
-    margin-left: -$nhsuk-gutter-half;
-    margin-right: -$nhsuk-gutter-half;
+    margin-left: -$moduk-gutter-half;
+    margin-right: -$moduk-gutter-half;
   }
 }
 
@@ -360,12 +360,12 @@
 /// Saves duplicating the code for when using the logo as a link.
 /// Used in the header and footer.
 
-@mixin nhsuk-logo-size {
+@mixin moduk-logo-size {
   height: 40px;
   width: 100px;
 }
 
-@mixin nhsuk-logo-size-small {
+@mixin moduk-logo-size-small {
   height: 32px;
   width: 80px;
 }

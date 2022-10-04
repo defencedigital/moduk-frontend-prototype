@@ -1,20 +1,20 @@
-.nhsuk-form-group {
-  @include nhsuk-responsive-margin(4, 'bottom');
+.moduk-form-group {
+  @include moduk-responsive-margin(4, 'bottom');
 
-  .nhsuk-form-group:last-of-type {
+  .moduk-form-group:last-of-type {
     margin-bottom: 0; // Remove margin from last item in nested groups
   }
 }
 
-.nhsuk-form-group--wrapper {
-  @include nhsuk-responsive-margin(5, 'bottom');
+.moduk-form-group--wrapper {
+  @include moduk-responsive-margin(5, 'bottom');
 }
 
-.nhsuk-form-group--error {
-  border-left: $nhsuk-border-width-form-group-error solid $nhsuk-error-color;
-  padding-left: nhsuk-spacing(3);
+.moduk-form-group--error {
+  border-left: $moduk-border-width-form-group-error solid $moduk-error-color;
+  padding-left: moduk-spacing(3);
 
-  .nhsuk-form-group {
+  .moduk-form-group {
     // Reset error styles in nested form groups that might have error class
     border: 0;
     padding: 0;

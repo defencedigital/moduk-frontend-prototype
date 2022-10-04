@@ -8,7 +8,7 @@
 export default () => {
   // Assign required DOM elements
   const heading = document.querySelector('h1');
-  const skipLink = document.querySelector('.nhsuk-skip-link');
+  const skipLink = document.querySelector('.moduk-skip-link');
 
   const addEvents = () => {
     // Add tabindex = -1 and apply focus to heading on skip link click

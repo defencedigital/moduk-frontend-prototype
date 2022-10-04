@@ -7,13 +7,13 @@
 
 //
 // A quick way to convert px into em
-// Usage: nhsuk-em(20px, $nhsuk-base-font-size);
+// Usage: moduk-em(20px, $moduk-base-font-size);
 //
 // Original code taken from GDS (Government Digital Service)
 // https://github.com/alphagov/govuk-frontend
 //
 
-@function nhsuk-em($value, $context-font-size) {
+@function moduk-em($value, $context-font-size) {
   @if (unitless($value)) {
     $value: $value * 1px;
   }
@@ -28,16 +28,16 @@
 
 //
 // A quick way to convert px into rem
-// Usage: nhsuk-px-to-rem(20px);
+// Usage: moduk-px-to-rem(20px);
 //
-// The $nhsuk-base-font-size (defined in settings/_globals.scss)
+// The $moduk-base-font-size (defined in settings/_globals.scss)
 // must be configured to match the font-size of your root (html) element
 //
 
-@function nhsuk-px-to-rem($value) {
+@function moduk-px-to-rem($value) {
   @if (unitless($value)) {
     $value: $value * 1px;
   }
 
-  @return $value / $nhsuk-base-font-size * 1rem;
+  @return $value / $moduk-base-font-size * 1rem;
 }

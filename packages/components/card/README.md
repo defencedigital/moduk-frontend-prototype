@@ -8,15 +8,15 @@ Find out more about the card component and when to use it in the [NHS digital se
 
 ### Basic card
 
-[Preview the basic card component](https://nhsuk.github.io/nhsuk-frontend/components/card/basic-card.html)
+[Preview the basic card component](https://nhsuk.github.io/moduk-frontend/components/card/basic-card.html)
 
 #### HTML markup
 
 ```
-<div class="nhsuk-card">
-  <div class="nhsuk-card__content">
-    <h3 class="nhsuk-card__heading">If you need help now, but it’s not an emergency</h3>
-    <p class="nhsuk-card__description">Go to <a href="#">111.nhs.uk</a> or <a href="#">call 111</a></p>
+<div class="moduk-card">
+  <div class="moduk-card__content">
+    <h3 class="moduk-card__heading">If you need help now, but it’s not an emergency</h3>
+    <p class="moduk-card__description">Go to <a href="#">111.nhs.uk</a> or <a href="#">call 111</a></p>
   </div>
 </div>
 ```
@@ -29,25 +29,25 @@ Find out more about the card component and when to use it in the [NHS digital se
 {{ card({
   "heading": "If you need help now, but it’s not an emergency",
   "headingLevel": "3",
-  "descriptionHtml": "<p class=\"nhsuk-card__description\">Go to <a href=\"#\">111.nhs.uk</a> or <a href=\"#\">call 111</a></p>"
+  "descriptionHtml": "<p class=\"moduk-card__description\">Go to <a href=\"#\">111.nhs.uk</a> or <a href=\"#\">call 111</a></p>"
 }) }}
 ```
 
 ### Clickable card
 
-[Preview the clickable card component](https://nhsuk.github.io/nhsuk-frontend/components/card/clickable-card.html)
+[Preview the clickable card component](https://nhsuk.github.io/moduk-frontend/components/card/clickable-card.html)
 
 #### HTML markup
 
 ```
-<div class="nhsuk-card nhsuk-card--clickable ">
-  <div class="nhsuk-card__content">
-    <h2 class="nhsuk-card__heading nhsuk-heading-m">
-      <a class="nhsuk-card__link" href="#">
+<div class="moduk-card moduk-card--clickable ">
+  <div class="moduk-card__content">
+    <h2 class="moduk-card__heading moduk-heading-m">
+      <a class="moduk-card__link" href="#">
         Introduction to care and support
       </a>
     </h2>
-    <p class="nhsuk-card__description">A quick guide for people who have care and support needs and their carers</p>
+    <p class="moduk-card__description">A quick guide for people who have care and support needs and their carers</p>
   </div>
 </div>
 ```
@@ -61,27 +61,27 @@ Find out more about the card component and when to use it in the [NHS digital se
   "href": "#",
   "clickable": "true",
   "heading": "Introduction to care and support",
-  "headingClasses": "nhsuk-heading-m",
+  "headingClasses": "moduk-heading-m",
   "description": "A quick guide for people who have care and support needs and their carers"
 }) }}
 ```
 
 ### Card with an image
 
-[Preview the card with an image component](https://nhsuk.github.io/nhsuk-frontend/components/card/card-with-image.html)
+[Preview the card with an image component](https://nhsuk.github.io/moduk-frontend/components/card/card-with-image.html)
 
 #### HTML markup
 
 ```
-<div class="nhsuk-card nhsuk-card--clickable ">
-  <img class="nhsuk-card__img" src="https://assets.nhs.uk/prod/images/A_0218_exercise-main_FKW1X7.width-690.jpg" alt="">
-  <div class="nhsuk-card__content">
-    <h2 class="nhsuk-card__heading nhsuk-heading-m">
-      <a class="nhsuk-card__link" href="#">
+<div class="moduk-card moduk-card--clickable ">
+  <img class="moduk-card__img" src="https://assets.nhs.uk/prod/images/A_0218_exercise-main_FKW1X7.width-690.jpg" alt="">
+  <div class="moduk-card__content">
+    <h2 class="moduk-card__heading moduk-heading-m">
+      <a class="moduk-card__link" href="#">
         Exercise
       </a>
     </h2>
-    <p class="nhsuk-card__description">Programmes, workouts and tips to get you moving and improve your fitness and wellbeing</p>
+    <p class="moduk-card__description">Programmes, workouts and tips to get you moving and improve your fitness and wellbeing</p>
   </div>
 </div>
 ```
@@ -96,66 +96,66 @@ Find out more about the card component and when to use it in the [NHS digital se
   "href": "#",
   "clickable": "true",
   "heading": "Exercise",
-  "headingClasses": "nhsuk-heading-m",
+  "headingClasses": "moduk-heading-m",
   "description": "Programmes, workouts and tips to get you moving and improve your fitness and wellbeing"
 }) }}
 ```
 
 ### Card group
 
-[Preview the card group component](https://nhsuk.github.io/nhsuk-frontend/components/card/card-group.html)
+[Preview the card group component](https://nhsuk.github.io/moduk-frontend/components/card/card-group.html)
 
 #### HTML markup
 
 ```
 <h2>Halves</h2>
 
-<ul class="nhsuk-grid-row nhsuk-card-group">
-  <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
-    <div class="nhsuk-card nhsuk-card--clickable ">
-      <div class="nhsuk-card__content">
-        <h2 class="nhsuk-card__heading nhsuk-heading-m">
-          <a class="nhsuk-card__link" href="#">
+<ul class="moduk-grid-row moduk-card-group">
+  <li class="moduk-grid-column-one-half moduk-card-group__item">
+    <div class="moduk-card moduk-card--clickable ">
+      <div class="moduk-card__content">
+        <h2 class="moduk-card__heading moduk-heading-m">
+          <a class="moduk-card__link" href="#">
             Introduction to care and support
           </a>
         </h2>
-        <p class="nhsuk-card__description">A quick guide for people who have care and support needs and their carers</p>
+        <p class="moduk-card__description">A quick guide for people who have care and support needs and their carers</p>
       </div>
     </div>
   </li>
-  <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
-    <div class="nhsuk-card nhsuk-card--clickable ">
-      <div class="nhsuk-card__content">
-        <h2 class="nhsuk-card__heading nhsuk-heading-m">
-          <a class="nhsuk-card__link" href="#">
+  <li class="moduk-grid-column-one-half moduk-card-group__item">
+    <div class="moduk-card moduk-card--clickable ">
+      <div class="moduk-card__content">
+        <h2 class="moduk-card__heading moduk-heading-m">
+          <a class="moduk-card__link" href="#">
             Help from social services and charities
           </a>
         </h2>
-        <p class="nhsuk-card__description">Includes helplines, needs assessments, advocacy and reporting abuse</p>
+        <p class="moduk-card__description">Includes helplines, needs assessments, advocacy and reporting abuse</p>
       </div>
     </div>
   </li>
-  <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
-    <div class="nhsuk-card nhsuk-card--clickable ">
-      <div class="nhsuk-card__content">
-        <h2 class="nhsuk-card__heading nhsuk-heading-m">
-          <a class="nhsuk-card__link" href="#">
+  <li class="moduk-grid-column-one-half moduk-card-group__item">
+    <div class="moduk-card moduk-card--clickable ">
+      <div class="moduk-card__content">
+        <h2 class="moduk-card__heading moduk-heading-m">
+          <a class="moduk-card__link" href="#">
             Money, work and benefits
           </a>
         </h2>
-        <p class="nhsuk-card__description">How to pay for care and support, and where you can get help with costs</p>
+        <p class="moduk-card__description">How to pay for care and support, and where you can get help with costs</p>
       </div>
     </div>
   </li>
-  <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
-    <div class="nhsuk-card nhsuk-card--clickable ">
-      <div class="nhsuk-card__content">
-        <h2 class="nhsuk-card__heading nhsuk-heading-m">
-          <a class="nhsuk-card__link" href="#">
+  <li class="moduk-grid-column-one-half moduk-card-group__item">
+    <div class="moduk-card moduk-card--clickable ">
+      <div class="moduk-card__content">
+        <h2 class="moduk-card__heading moduk-heading-m">
+          <a class="moduk-card__link" href="#">
             Care after a hospital stay
           </a>
         </h2>
-        <p class="nhsuk-card__description">Includes hospital discharge and care and support afterwards</p>
+        <p class="moduk-card__description">Includes hospital discharge and care and support afterwards</p>
       </div>
     </div>
   </li>
@@ -163,40 +163,40 @@ Find out more about the card component and when to use it in the [NHS digital se
 
 <h2>Thirds</h2>
 
-<ul class="nhsuk-grid-row nhsuk-card-group">
-  <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
-    <div class="nhsuk-card nhsuk-card--clickable ">
-      <div class="nhsuk-card__content">
-        <h2 class="nhsuk-card__heading nhsuk-heading-m">
-          <a class="nhsuk-card__link" href="#">
+<ul class="moduk-grid-row moduk-card-group">
+  <li class="moduk-grid-column-one-third moduk-card-group__item">
+    <div class="moduk-card moduk-card--clickable ">
+      <div class="moduk-card__content">
+        <h2 class="moduk-card__heading moduk-heading-m">
+          <a class="moduk-card__link" href="#">
             5 steps to mental wellbeing
           </a>
         </h2>
-        <p class="nhsuk-card__description">Practical advice to help you feel mentally and emotionally better</p>
+        <p class="moduk-card__description">Practical advice to help you feel mentally and emotionally better</p>
       </div>
     </div>
   </li>
-  <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
-    <div class="nhsuk-card nhsuk-card--clickable ">
-      <div class="nhsuk-card__content">
-        <h2 class="nhsuk-card__heading nhsuk-heading-m">
-          <a class="nhsuk-card__link" href="#">
+  <li class="moduk-grid-column-one-third moduk-card-group__item">
+    <div class="moduk-card moduk-card--clickable ">
+      <div class="moduk-card__content">
+        <h2 class="moduk-card__heading moduk-heading-m">
+          <a class="moduk-card__link" href="#">
             Healthy weight
           </a>
         </h2>
-        <p class="nhsuk-card__description">Check your BMI using our healthy weight calculator and find out if you're a healthy weight</p>
+        <p class="moduk-card__description">Check your BMI using our healthy weight calculator and find out if you're a healthy weight</p>
       </div>
     </div>
   </li>
-  <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
-    <div class="nhsuk-card nhsuk-card--clickable ">
-      <div class="nhsuk-card__content">
-        <h2 class="nhsuk-card__heading nhsuk-heading-m">
-          <a class="nhsuk-card__link" href="#">
+  <li class="moduk-grid-column-one-third moduk-card-group__item">
+    <div class="moduk-card moduk-card--clickable ">
+      <div class="moduk-card__content">
+        <h2 class="moduk-card__heading moduk-heading-m">
+          <a class="moduk-card__link" href="#">
             Exercise
           </a>
         </h2>
-        <p class="nhsuk-card__description">Programmes, workouts and tips to get you moving and improve your fitness and wellbeing</p>
+        <p class="moduk-card__description">Programmes, workouts and tips to get you moving and improve your fitness and wellbeing</p>
       </div>
     </div>
   </li>
@@ -204,36 +204,36 @@ Find out more about the card component and when to use it in the [NHS digital se
 
 <h2>Quarters</h2>
 
-<ul class="nhsuk-grid-row nhsuk-card-group">
-  <li class="nhsuk-grid-column-one-quarter nhsuk-card-group__item">
-    <div class="nhsuk-card nhsuk-card--clickable">
-      <div class="nhsuk-card__content">
-        <p class="nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1">91 <span class="nhsuk-u-visually-hidden">Applicants</span></p>
-        <a href="#" class="nhsuk-card__link nhsuk-u-font-weight-normal nhsuk-u-font-size-19 nhsuk-link--no-visited-state" style="display:block">Applicants</a>
+<ul class="moduk-grid-row moduk-card-group">
+  <li class="moduk-grid-column-one-quarter moduk-card-group__item">
+    <div class="moduk-card moduk-card--clickable">
+      <div class="moduk-card__content">
+        <p class="moduk-heading-xl moduk-u-font-size-64 moduk-u-margin-bottom-1">91 <span class="moduk-u-visually-hidden">Applicants</span></p>
+        <a href="#" class="moduk-card__link moduk-u-font-weight-normal moduk-u-font-size-19 moduk-link--no-visited-state" style="display:block">Applicants</a>
       </div>
     </div>
   </li>
-  <li class="nhsuk-grid-column-one-quarter nhsuk-card-group__item">
-    <div class="nhsuk-card nhsuk-card--clickable">
-      <div class="nhsuk-card__content">
-        <p class="nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1">23 <span class="nhsuk-u-visually-hidden">Jobs</span></p>
-        <a href="#" class="nhsuk-card__link nhsuk-u-font-weight-normal nhsuk-u-font-size-19 nhsuk-link--no-visited-state">Jobs</a>
+  <li class="moduk-grid-column-one-quarter moduk-card-group__item">
+    <div class="moduk-card moduk-card--clickable">
+      <div class="moduk-card__content">
+        <p class="moduk-heading-xl moduk-u-font-size-64 moduk-u-margin-bottom-1">23 <span class="moduk-u-visually-hidden">Jobs</span></p>
+        <a href="#" class="moduk-card__link moduk-u-font-weight-normal moduk-u-font-size-19 moduk-link--no-visited-state">Jobs</a>
       </div>
     </div>
   </li>
-  <li class="nhsuk-grid-column-one-quarter nhsuk-card-group__item">
-    <div class="nhsuk-card nhsuk-card--clickable">
-      <div class="nhsuk-card__content">
-        <p class="nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1">8 <span class="nhsuk-u-visually-hidden">Services</span></p>
-        <a href="#" class="nhsuk-card__link nhsuk-u-font-weight-normal nhsuk-u-font-size-19 nhsuk-link--no-visited-state">Services</a>
+  <li class="moduk-grid-column-one-quarter moduk-card-group__item">
+    <div class="moduk-card moduk-card--clickable">
+      <div class="moduk-card__content">
+        <p class="moduk-heading-xl moduk-u-font-size-64 moduk-u-margin-bottom-1">8 <span class="moduk-u-visually-hidden">Services</span></p>
+        <a href="#" class="moduk-card__link moduk-u-font-weight-normal moduk-u-font-size-19 moduk-link--no-visited-state">Services</a>
       </div>
     </div>
   </li>
-  <li class="nhsuk-grid-column-one-quarter nhsuk-card-group__item">
-    <div class="nhsuk-card nhsuk-card--clickable">
-      <div class="nhsuk-card__content">
-        <p class="nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1">33 <span class="nhsuk-u-visually-hidden">Messages</span></p>
-        <a href="#" class="nhsuk-card__link nhsuk-u-font-weight-normal nhsuk-u-font-size-19 nhsuk-link--no-visited-state">Messages</a>
+  <li class="moduk-grid-column-one-quarter moduk-card-group__item">
+    <div class="moduk-card moduk-card--clickable">
+      <div class="moduk-card__content">
+        <p class="moduk-heading-xl moduk-u-font-size-64 moduk-u-margin-bottom-1">33 <span class="moduk-u-visually-hidden">Messages</span></p>
+        <a href="#" class="moduk-card__link moduk-u-font-weight-normal moduk-u-font-size-19 moduk-link--no-visited-state">Messages</a>
       </div>
     </div>
   </li>
@@ -247,40 +247,40 @@ Find out more about the card component and when to use it in the [NHS digital se
 
 <h2>Halves</h2>
 
-<ul class="nhsuk-grid-row nhsuk-card-group">
-  <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
+<ul class="moduk-grid-row moduk-card-group">
+  <li class="moduk-grid-column-one-half moduk-card-group__item">
     {{ card({
       "href": "#",
       "clickable": "true",
       "heading": "Introduction to care and support",
-      "headingClasses": "nhsuk-heading-m",
+      "headingClasses": "moduk-heading-m",
       "description": "A quick guide for people who have care and support needs and their carers"
     }) }}
   </li>
-  <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
+  <li class="moduk-grid-column-one-half moduk-card-group__item">
     {{ card({
       "href": "#",
       "clickable": "true",
       "heading": "Help from social services and charities",
-      "headingClasses": "nhsuk-heading-m",
+      "headingClasses": "moduk-heading-m",
       "description": "Includes helplines, needs assessments, advocacy and reporting abuse"
     }) }}
   </li>
-  <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
+  <li class="moduk-grid-column-one-half moduk-card-group__item">
     {{ card({
       "href": "#",
       "clickable": "true",
       "heading": "Money, work and benefits",
-      "headingClasses": "nhsuk-heading-m",
+      "headingClasses": "moduk-heading-m",
       "description": "How to pay for care and support, and where you can get help with costs"
     }) }}
   </li>
-  <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
+  <li class="moduk-grid-column-one-half moduk-card-group__item">
     {{ card({
       "href": "#",
       "clickable": "true",
       "heading": "Care after a hospital stay",
-      "headingClasses": "nhsuk-heading-m",
+      "headingClasses": "moduk-heading-m",
       "description": "Includes hospital discharge and care and support afterwards"
     }) }}
   </li>
@@ -288,31 +288,31 @@ Find out more about the card component and when to use it in the [NHS digital se
 
 <h2>Thirds</h2>
 
-<ul class="nhsuk-grid-row nhsuk-card-group">
-  <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+<ul class="moduk-grid-row moduk-card-group">
+  <li class="moduk-grid-column-one-third moduk-card-group__item">
     {{ card({
       "href": "#",
       "clickable": "true",
       "heading": "5 steps to mental wellbeing",
-      "headingClasses": "nhsuk-heading-m",
+      "headingClasses": "moduk-heading-m",
       "description": "Practical advice to help you feel mentally and emotionally better"
     }) }}
   </li>
-  <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+  <li class="moduk-grid-column-one-third moduk-card-group__item">
     {{ card({
       "href": "#",
       "clickable": "true",
       "heading": "Healthy weight",
-      "headingClasses": "nhsuk-heading-m",
+      "headingClasses": "moduk-heading-m",
       "description": "Check your BMI using our healthy weight calculator and find out if you're a healthy weight"
     }) }}
   </li>
-  <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+  <li class="moduk-grid-column-one-third moduk-card-group__item">
     {{ card({
       "href": "#",
       "clickable": "true",
       "heading": "Exercise",
-      "headingClasses": "nhsuk-heading-m",
+      "headingClasses": "moduk-heading-m",
       "description": "Programmes, workouts and tips to get you moving and improve your fitness and wellbeing"
     }) }}
   </li>
@@ -320,29 +320,29 @@ Find out more about the card component and when to use it in the [NHS digital se
 
 <h2>Quarters</h2>
 
-<ul class="nhsuk-grid-row nhsuk-card-group">
-  <li class="nhsuk-grid-column-one-quarter nhsuk-card-group__item">
+<ul class="moduk-grid-row moduk-card-group">
+  <li class="moduk-grid-column-one-quarter moduk-card-group__item">
     {{ card({
       "clickable": "true",
-      "headingHtml": "<p class=\"nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1\">91 <span class=\"nhsuk-u-visually-hidden\">Applicants</span></p><a href=\"#\" class=\"nhsuk-card__link nhsuk-u-font-weight-normal nhsuk-u-font-size-19 nhsuk-link--no-visited-state\">Applicants</a>"
+      "headingHtml": "<p class=\"moduk-heading-xl moduk-u-font-size-64 moduk-u-margin-bottom-1\">91 <span class=\"moduk-u-visually-hidden\">Applicants</span></p><a href=\"#\" class=\"moduk-card__link moduk-u-font-weight-normal moduk-u-font-size-19 moduk-link--no-visited-state\">Applicants</a>"
     }) }}
   </li>
-  <li class="nhsuk-grid-column-one-quarter nhsuk-card-group__item">
+  <li class="moduk-grid-column-one-quarter moduk-card-group__item">
     {{ card({
       "clickable": "true",
-      "headingHtml": "<p class=\"nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1\">23 <span class=\"nhsuk-u-visually-hidden\">Jobs</span></p><a href=\"#\" class=\"nhsuk-card__link nhsuk-u-font-weight-normal nhsuk-u-font-size-19 nhsuk-link--no-visited-state\">Jobs</a>"
+      "headingHtml": "<p class=\"moduk-heading-xl moduk-u-font-size-64 moduk-u-margin-bottom-1\">23 <span class=\"moduk-u-visually-hidden\">Jobs</span></p><a href=\"#\" class=\"moduk-card__link moduk-u-font-weight-normal moduk-u-font-size-19 moduk-link--no-visited-state\">Jobs</a>"
     }) }}
   </li>
-  <li class="nhsuk-grid-column-one-quarter nhsuk-card-group__item">
+  <li class="moduk-grid-column-one-quarter moduk-card-group__item">
     {{ card({
       "clickable": "true",
-      "headingHtml": "<p class=\"nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1\">8 <span class=\"nhsuk-u-visually-hidden\">Services</span></p><a href=\"#\" class=\"nhsuk-card__link nhsuk-u-font-weight-normal nhsuk-u-font-size-19 nhsuk-link--no-visited-state\">Services</a>"
+      "headingHtml": "<p class=\"moduk-heading-xl moduk-u-font-size-64 moduk-u-margin-bottom-1\">8 <span class=\"moduk-u-visually-hidden\">Services</span></p><a href=\"#\" class=\"moduk-card__link moduk-u-font-weight-normal moduk-u-font-size-19 moduk-link--no-visited-state\">Services</a>"
     }) }}
   </li>
-  <li class="nhsuk-grid-column-one-quarter nhsuk-card-group__item">
+  <li class="moduk-grid-column-one-quarter moduk-card-group__item">
     {{ card({
       "clickable": "true",
-      "headingHtml": "<p class=\"nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1\">33 <span class=\"nhsuk-u-visually-hidden\">Messages</span></p><a href=\"#\" class=\"nhsuk-card__link nhsuk-u-font-weight-normal nhsuk-u-font-size-19 nhsuk-link--no-visited-state\">Messages</a>"
+      "headingHtml": "<p class=\"moduk-heading-xl moduk-u-font-size-64 moduk-u-margin-bottom-1\">33 <span class=\"moduk-u-visually-hidden\">Messages</span></p><a href=\"#\" class=\"moduk-card__link moduk-u-font-weight-normal moduk-u-font-size-19 moduk-link--no-visited-state\">Messages</a>"
     }) }}
   </li>
 </ul>
@@ -350,18 +350,18 @@ Find out more about the card component and when to use it in the [NHS digital se
 
 ### Feature
 
-[Preview the feature card component](https://nhsuk.github.io/nhsuk-frontend/components/card/feature-card.html)
+[Preview the feature card component](https://nhsuk.github.io/moduk-frontend/components/card/feature-card.html)
 
 #### HTML markup
 
 ```
-<div class="nhsuk-card nhsuk-card--feature ">
-  <div class="nhsuk-card__content
-   nhsuk-card__content--feature ">
-    <h2 class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-heading-m">
+<div class="moduk-card moduk-card--feature ">
+  <div class="moduk-card__content
+   moduk-card__content--feature ">
+    <h2 class="moduk-card__heading moduk-card__heading--feature moduk-heading-m">
       Feature card heading
     </h2>
-    <p class="nhsuk-card__description">Feature card description</p>
+    <p class="moduk-card__description">Feature card description</p>
   </div>
 </div>
 ```
@@ -374,26 +374,26 @@ Find out more about the card component and when to use it in the [NHS digital se
 {{ card({
   "feature": "true",
   "heading": "Feature card heading",
-  "headingClasses": "nhsuk-heading-m",
+  "headingClasses": "moduk-heading-m",
   "description": "Feature card description"
 }) }}
 ```
 
 ### Care card non-urgent (blue)
 
-[Preview the care card non-urgent (blue) component](https://nhsuk.github.io/nhsuk-frontend/components/card/care-card-non-urgent.html)
+[Preview the care card non-urgent (blue) component](https://nhsuk.github.io/moduk-frontend/components/card/care-card-non-urgent.html)
 
 #### HTML markup
 
 ```html
-<div class="nhsuk-card nhsuk-card--care nhsuk-card--care--non-urgent">
-  <div class="nhsuk-card--care__heading-container">
-    <h3 class="nhsuk-card--care__heading">
-      <span role="text"><span class="nhsuk-u-visually-hidden">Non-urgent advice: </span>Speak to a GP if:</span>
+<div class="moduk-card moduk-card--care moduk-card--care--non-urgent">
+  <div class="moduk-card--care__heading-container">
+    <h3 class="moduk-card--care__heading">
+      <span role="text"><span class="moduk-u-visually-hidden">Non-urgent advice: </span>Speak to a GP if:</span>
     </h3>
-    <span class="nhsuk-card--care__arrow" aria-hidden="true"></span>
+    <span class="moduk-card--care__arrow" aria-hidden="true"></span>
   </div>
-  <div class="nhsuk-card__content">
+  <div class="moduk-card__content">
     <ul>
       <li>you're not sure it's chickenpox</li>
       <li>the skin around the blisters is red, hot or painful (signs of infection)</li>
@@ -430,19 +430,19 @@ Find out more about the card component and when to use it in the [NHS digital se
 
 ### Care card urgent (red)
 
-[Preview care card urgent (red) component](https://nhsuk.github.io/nhsuk-frontend/components/card/care-card-urgent.html)
+[Preview care card urgent (red) component](https://nhsuk.github.io/moduk-frontend/components/card/care-card-urgent.html)
 
 #### HTML markup
 
 ```html
-<div class="nhsuk-card nhsuk-card--care nhsuk-card--care--urgent">
-  <div class="nhsuk-card--care__heading-container">
-    <h3 class="nhsuk-card--care__heading">
-      <span role="text"><span class="nhsuk-u-visually-hidden">Urgent advice: </span>Ask for an urgent GP appointment if:</span>
+<div class="moduk-card moduk-card--care moduk-card--care--urgent">
+  <div class="moduk-card--care__heading-container">
+    <h3 class="moduk-card--care__heading">
+      <span role="text"><span class="moduk-u-visually-hidden">Urgent advice: </span>Ask for an urgent GP appointment if:</span>
     </h3>
-    <span class="nhsuk-card--care__arrow" aria-hidden="true"></span>
+    <span class="moduk-card--care__arrow" aria-hidden="true"></span>
   </div>
-  <div class="nhsuk-card__content">
+  <div class="moduk-card__content">
     <ul>
       <li>you're an adult and have chickenpox</li>
       <li>you're pregnant and haven't had chickenpox before and you've been near someone with it</li>
@@ -479,19 +479,19 @@ Find out more about the card component and when to use it in the [NHS digital se
 
 ### Care card emergency (red and black)
 
-[Preview care card emergency (red and black) component](https://nhsuk.github.io/nhsuk-frontend/components/card/care-card-emergency.html)
+[Preview care card emergency (red and black) component](https://nhsuk.github.io/moduk-frontend/components/card/care-card-emergency.html)
 
 #### HTML markup
 
 ```html
-<div class="nhsuk-card nhsuk-card--care nhsuk-card--care--emergency">
-  <div class="nhsuk-card--care__heading-container">
-    <h3 class="nhsuk-card--care__heading">
-      <span role="text"><span class="nhsuk-u-visually-hidden">Immediate action required: </span>Call 999 if you have sudden chest pain that:</span>
+<div class="moduk-card moduk-card--care moduk-card--care--emergency">
+  <div class="moduk-card--care__heading-container">
+    <h3 class="moduk-card--care__heading">
+      <span role="text"><span class="moduk-u-visually-hidden">Immediate action required: </span>Call 999 if you have sudden chest pain that:</span>
     </h3>
-    <span class="nhsuk-card--care__arrow" aria-hidden="true"></span>
+    <span class="moduk-card--care__arrow" aria-hidden="true"></span>
   </div>
-  <div class="nhsuk-card__content">
+  <div class="moduk-card__content">
     <ul>
       <li>spreads to your arms, back, neck or jaw</li>
       <li>makes your chest feel tight or heavy</li>
@@ -533,8 +533,8 @@ The card Nunjucks macro takes the following arguments:
 | **headingClasses**         | string   | No        | Optional additional classes to add to heading. Separate each class with a space. |
 | **headingLevel**    | integer  | No        | Optional heading level for the card heading. Default: 2 |
 | **href**            | string   | No       | The value of the card href attribute |
-| **clickable**            | boolean | No       | If set to true, then the class `nhsuk-card--clickable` will be applied. |
-| **feature**            | boolean | No       | If set to true, then the class `nhsuk-card__heading--feature` and `nhsuk-card__content--feature` will be applied. |
+| **clickable**            | boolean | No       | If set to true, then the class `moduk-card--clickable` will be applied. |
+| **feature**            | boolean | No       | If set to true, then the class `moduk-card__heading--feature` and `moduk-card__content--feature` will be applied. |
 | **type**                | string   | No       | Care card component variant type - non-urgent, urgent or emergency |
 | **imgURL**          | string   | No        | The URL of the image in the card |
 | **imgALT**          | string   | No        | The alternative text of the image in the card |

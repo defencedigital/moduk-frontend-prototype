@@ -4,12 +4,12 @@
 
 ### Label
 
-[Preview the label component](https://nhsuk.github.io/nhsuk-frontend/components/label/index.html)
+[Preview the label component](https://nhsuk.github.io/moduk-frontend/components/label/index.html)
 
 #### HTML markup
 
 ```html
-<label class="nhsuk-label">
+<label class="moduk-label">
   National Insurance number
 </label>
 ```
@@ -28,12 +28,12 @@
 
 ### Label with bold text
 
-[Preview the label with bold text component](https://nhsuk.github.io/nhsuk-frontend/components/label/bold.html)
+[Preview the label with bold text component](https://nhsuk.github.io/moduk-frontend/components/label/bold.html)
 
 #### HTML markup
 
 ```html
-<label class="nhsuk-label nhsuk-label--s">
+<label class="moduk-label moduk-label--s">
   National Insurance number
 </label>
 ```
@@ -44,7 +44,7 @@
 {% from 'components/label/macro.njk' import label %}
 
 {{ label({
-  "classes": "nhsuk-label--s",
+  "classes": "moduk-label--s",
   "text": "National Insurance number"
 }) }}
 ```
@@ -53,13 +53,13 @@
 
 ### Label as page heading
 
-[Preview the label as page heading component](https://nhsuk.github.io/nhsuk-frontend/components/label/page-heading.html)
+[Preview the label as page heading component](https://nhsuk.github.io/moduk-frontend/components/label/page-heading.html)
 
 #### HTML markup
 
 ```html
-<h1 class="nhsuk-label-wrapper">
-  <label class="nhsuk-label nhsuk-label--xl">
+<h1 class="moduk-label-wrapper">
+  <label class="moduk-label moduk-label--xl">
     National Insurance number
   </label>
 </h1>
@@ -72,7 +72,7 @@
 
 {{ label({
   "text": "National Insurance number",
-  "classes": "nhsuk-label--xl",
+  "classes": "moduk-label--xl",
   "isPageHeading": true
 }) }}
 ```
