@@ -1,9 +1,9 @@
 import SearchToggle from '../../packages/components/header/searchToggle';
 
-const toggleButtonHtml = '<button class="nhsuk-header__search-toggle" id="toggle-search" aria-controls="search" aria-label="Open search" aria-expanded="false"><span class="nhsuk-u-visually-hidden">Search</span></button>';
-const closeButtonHtml = '<button class="nhsuk-search__close" id="close-search"><span class="nhsuk-u-visually-hidden">Close search</span></button>';
-const searchContainerHtml = '<div class="nhsuk-header__search-wrap" id="wrap-search"></div>';
-const menuSearchContainerHtml = '<div class="nhsuk-header__content" id="content-header"></div>';
+const toggleButtonHtml = '<button class="moduk-header__search-toggle" id="toggle-search" aria-controls="search" aria-label="Open search" aria-expanded="false"><span class="moduk-u-visually-hidden">Search</span></button>';
+const closeButtonHtml = '<button class="moduk-search__close" id="close-search"><span class="moduk-u-visually-hidden">Close search</span></button>';
+const searchContainerHtml = '<div class="moduk-header__search-wrap" id="wrap-search"></div>';
+const menuSearchContainerHtml = '<div class="moduk-header__content" id="content-header"></div>';
 
 // DOM Elements to be set
 let toggleButton;

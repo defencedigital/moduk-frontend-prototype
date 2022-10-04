@@ -1,7 +1,7 @@
 import SkipLink from '../../packages/components/skip-link/skip-link';
 
 // Mock HTML
-const skipLinkHtml = '<a class="nhsuk-skip-link" href="#maincontent">Skip to main content</a>';
+const skipLinkHtml = '<a class="moduk-skip-link" href="#maincontent">Skip to main content</a>';
 const headingHtml = '<h1>Test Heading</h1>';
 
 // DOM Elements to be set
@@ -12,7 +12,7 @@ let heading;
 const initTest = (html = '') => {
   document.body.innerHTML = html;
   heading = document.querySelector('h1');
-  skipLink = document.querySelector('.nhsuk-skip-link');
+  skipLink = document.querySelector('.moduk-skip-link');
   SkipLink();
 };
 
@@ -68,7 +68,7 @@ describe('NHS.UK skiplink', () => {
     });
   });
 
-  describe('Is initialised by nhsuk.js', () => {
+  describe('Is initialised by moduk.js', () => {
 
   });
 });
