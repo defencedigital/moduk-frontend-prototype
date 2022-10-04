@@ -3,7 +3,7 @@ const TEST_URL = `http://${TEST_HOST}:3000/components`;
 
 module.exports = {
   dockerCommandTemplate: 'docker run --rm --network=host --mount type=bind,source="{cwd}",target=/src backstopjs/backstopjs:{version} {backstopCommand} {args}',
-  id: 'nhsuk-frontend',
+  id: 'moduk-frontend',
   viewports: [
     {
       label: 'iPhone 5/SE',
@@ -48,7 +48,7 @@ module.exports = {
     {
       label: 'Button click',
       url: `${TEST_URL}/button/index.html`,
-      clickSelector: '.nhsuk-button',
+      clickSelector: '.moduk-button',
       viewports: [
         {
           label: 'Surface, iPad Pro',
@@ -154,7 +154,7 @@ module.exports = {
     {
       label: 'Details',
       url: `${TEST_URL}/details/index.html`,
-      clickSelector: '.nhsuk-details__summary',
+      clickSelector: '.moduk-details__summary',
     },
     {
       label: "Do & Don't list",
@@ -179,12 +179,12 @@ module.exports = {
     {
       label: 'Expander',
       url: `${TEST_URL}/details/expander.html`,
-      clickSelector: '.nhsuk-details__summary',
+      clickSelector: '.moduk-details__summary',
     },
     {
       label: 'Expander group',
       url: `${TEST_URL}/details/expander-group.html`,
-      clickSelector: '.nhsuk-details__summary',
+      clickSelector: '.moduk-details__summary',
     },
     {
       label: 'Footer',
@@ -378,7 +378,7 @@ module.exports = {
       label: 'Radios with hint text and error message - focused',
       url: `${TEST_URL}/radios/hint-error.html`,
       clickSelector: '#example-2',
-    },    
+    },
     {
       label: 'Radios with conditional content',
       url: `${TEST_URL}/radios/conditional.html`,
