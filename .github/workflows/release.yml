@@ -1,24 +1,24 @@
 name: Create release
 
 on:
-  workflow_dispatch:
   push:
     tags:
-      - 'v*'
+      - "v*"
 
 jobs:
-  build:
+  release:
     name: Create release
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           persist-credentials: false
 
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v3
         with:
           node-version: 16
+          cache: "npm"
           registry-url: https://registry.npmjs.org/
 
       - name: Install dependencies
@@ -63,13 +63,11 @@ jobs:
         run: npm run build-gh-pages
 
       - name: Deploy GitHub pages
-        uses: JamesIves/github-pages-deploy-action@3.7.1
+        uses: JamesIves/github-pages-deploy-action@4
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH: gh-pages
-          FOLDER: ./dist/app
-          CLEAN: true
-
+          branch: gh-pages
+          folder: ./dist/app
+          clean: true
 #      - name: Publish NPM package
 #        run: npm publish
 #        env:
