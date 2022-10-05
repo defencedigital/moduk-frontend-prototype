@@ -26,7 +26,7 @@ Read our [contributing guidelines](CONTRIBUTING.md) to contribute to MOD.UK fron
 
 ## Get in touch
 
-MOD.UK frontend is maintained by NHS Digital. [Email us](mailto:), open a [GitHub issue](#0) or get in touch on the [MOD digital service manual Slack workspace](#0).
+MOD.UK frontend is maintained by Defence Digital. [Email us](mailto:), open a [GitHub issue](#0) or get in touch on the [MOD digital service manual Slack workspace](#0).
 
 ## Licence
 
