@@ -2,7 +2,7 @@
 
 ## Guidance
 
-Find out more about the details component and when to use it in the [NHS digital service manual](https://service-manual.nhs.uk/design-system/components/details).
+Find out more about the details component and when to use it in the [Defence Service Manual](#0).
 
 ## Dependencies
 
@@ -12,7 +12,7 @@ For this component to be accessible and compatible with older browsers, include 
 
 ### Details
 
-[Preview the details component](https://nhsuk.github.io/moduk-frontend/components/details/index.html)
+[Preview the details component](https://defencedigital.github.io/moduk-frontend/components/details/index.html)
 
 #### HTML markup
 
@@ -20,20 +20,21 @@ For this component to be accessible and compatible with older browsers, include 
 <details class="moduk-details">
   <summary class="moduk-details__summary">
     <span class="moduk-details__summary-text">
-    Where can I find my NHS number?
+    How to label information correctly?
     </span>
   </summary>
   <div class="moduk-details__text">
-    <p>An NHS number is a 10 digit number, like 485 777 3456.</p>
-    <p>You can find your NHS number on any document sent to you by the NHS. This may include:</p>
+    <p>You need to label information correctly so that people understand how to protect and share it.</p>
+    <p>Do:</p>
     <ul>
-      <li>prescriptions</li>
-      <li>test results</li>
-      <li>hospital referral letters</li>
-      <li>appointment letters</li>
-      <li>your NHS medical card</li>
+      <li>Write security classifications in all capitals</li>
+      <li>Clearly label all SECRET and TOP SECRET information</li>
     </ul>
-    <p>Ask your GP practice for help if you can't find your NHS number.</p>
+    <p>Don’t:</p>
+    <ul>
+      <li>Do not classify information higher than it needs</li>
+      <li>Do not use OFFICIAL-SENSITIVE as a security classification</li>
+    </ul> 
   </div>
 </details>
 ```
@@ -44,18 +45,19 @@ For this component to be accessible and compatible with older browsers, include 
 {% from 'components/details/macro.njk' import details %}
 
 {{ details({
-  "text": "Where can I find my NHS number?",
+  "text": "How to label information correctly?",
   "HTML": "
-  <p>An NHS number is a 10 digit number, like 485 777 3456.</p>
-  <p>You can find your NHS number on any document sent to you by the NHS. This may include:</p>
+  <p>You need to label information correctly so that people understand how to protect and share it.</p>
+  <p>Do:</p>
   <ul>
-    <li>prescriptions</li>
-    <li>test results</li>
-    <li>hospital referral letters</li>
-    <li>appointment letters</li>
-    <li>your NHS medical card</li>
+    <li>Write security classifications in all capitals</li>
+    <li>Clearly label all SECRET and TOP SECRET information</li>
   </ul>
-  <p>Ask your GP practice for help if you can't find your NHS number.</p>
+  <p>Don’t:</p>
+  <ul>
+    <li>Write security classifications in all capitals</li>
+    <li>Do not use OFFICIAL-SENSITIVE as a security classification</li>
+  </ul>
   "
 }) }}
 ```
@@ -64,11 +66,11 @@ For this component to be accessible and compatible with older browsers, include 
 
 ### Expander
 
-[Preview the expander component](https://nhsuk.github.io/moduk-frontend/components/details/expander.html)
+[Preview the expander component](https://defencedigital.github.io/moduk-frontend/components/details/expander.html)
 
 #### Guidance
 
-Find out more about the expander component and when to use it in the [NHS digital service manual](https://service-manual.nhs.uk/design-system/components/expander).
+Find out more about the expander component and when to use it in the [Defence Service Manual](#0).
 
 #### HTML markup
 
@@ -172,7 +174,7 @@ Find out more about the expander component and when to use it in the [NHS digita
 
 ### Expander group
 
-[Preview the expander group component](https://nhsuk.github.io/moduk-frontend/components/details/expander-group.html)
+[Preview the expander group component](https://defencedigital.github.io/moduk-frontend/components/details/expander-group.html)
 
 #### HTML markup
 

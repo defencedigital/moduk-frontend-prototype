@@ -2,13 +2,13 @@
 
 ## Guidance
 
-Find out more about the input component and when to use it in the [NHS digital service manual](https://service-manual.nhs.uk/design-system/components/text-input).
+Find out more about the input component and when to use it in the [Defence Service Manual](#0).
 
 ## Quick start examples
 
 ### Input
 
-[Preview the input component](https://nhsuk.github.io/moduk-frontend/components/input/index.html)
+[Preview the input component](https://defencedigital.github.io/moduk-frontend/components/input/index.html)
 
 #### HTML markup
 
@@ -39,7 +39,7 @@ Find out more about the input component and when to use it in the [NHS digital s
 
 ### Input with autocomplete attribute
 
-[Preview the input with autocomplete attribute component](https://nhsuk.github.io/moduk-frontend/components/input/autocomplete.html)
+[Preview the input with autocomplete attribute component](https://defencedigital.github.io/moduk-frontend/components/input/autocomplete.html)
 
 #### Guidance
 
@@ -75,7 +75,7 @@ See [Autofilling form controls: the autocomplete attribute](https://html.spec.wh
 
 ### Input with hint text
 
-[Preview the input with hint text component](https://nhsuk.github.io/moduk-frontend/components/input/hint.html)
+[Preview the input with hint text component](https://defencedigital.github.io/moduk-frontend/components/input/hint.html)
 
 #### HTML markup
 
@@ -112,7 +112,7 @@ See [Autofilling form controls: the autocomplete attribute](https://html.spec.wh
 
 ### Input with error message
 
-[Preview the input with error message component](https://nhsuk.github.io/moduk-frontend/components/input/error.html)
+[Preview the input with error message component](https://defencedigital.github.io/moduk-frontend/components/input/error.html)
 
 #### HTML markup
 
@@ -155,7 +155,7 @@ See [Autofilling form controls: the autocomplete attribute](https://html.spec.wh
 
 ### Input with width modifier
 
-[Preview the input with width modifier component](https://nhsuk.github.io/moduk-frontend/components/input/custom-width.html)
+[Preview the input with width modifier component](https://defencedigital.github.io/moduk-frontend/components/input/custom-width.html)
 
 #### HTML markup
 

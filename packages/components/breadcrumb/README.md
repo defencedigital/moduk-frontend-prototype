@@ -2,11 +2,11 @@
 
 ## Guidance
 
-Find out more about the breadcrumb component and when to use it in the [NHS digital service manual](https://service-manual.nhs.uk/design-system/components/breadcrumbs).
+Find out more about the breadcrumb component and when to use it in the [Defence Service Manual](#0).
 
 ## Quick start example
 
-[Preview the breadcrumb component](https://nhsuk.github.io/moduk-frontend/components/breadcrumb/index.html)
+[Preview the breadcrumb component](https://defencedigital.github.io/moduk-frontend/components/breadcrumb/index.html)
 
 ### HTML markup
 

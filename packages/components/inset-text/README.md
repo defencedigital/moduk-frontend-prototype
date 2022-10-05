@@ -2,11 +2,11 @@
 
 ## Guidance
 
-Find out more about the inset text component and when to use it in the [NHS digital service manual](https://service-manual.nhs.uk/design-system/components/inset-text).
+Find out more about the inset text component and when to use it in the [Defence Service Manual](#0).
 
 ## Quick start example
 
-[Preview the inset text component](https://nhsuk.github.io/moduk-frontend/components/inset-text/index.html)
+[Preview the inset text component](https://defencedigital.github.io/moduk-frontend/components/inset-text/index.html)
 
 ### HTML markup
 

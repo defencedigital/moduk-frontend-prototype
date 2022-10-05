@@ -2,13 +2,13 @@
 
 ## Guidance
 
-Find out more about the fieldset component and when to use it in the [NHS digital service manual](https://service-manual.nhs.uk/design-system/components/fieldset).
+Find out more about the fieldset component and when to use it in the [Defence Service Manual](#0).
 
 ## Quick start examples
 
 ### Fieldset
 
-[Preview the fieldset component](https://nhsuk.github.io/moduk-frontend/components/fieldset/index.html)
+[Preview the fieldset component](https://defencedigital.github.io/moduk-frontend/components/fieldset/index.html)
 
 #### HTML markup
 
@@ -36,7 +36,7 @@ Find out more about the fieldset component and when to use it in the [NHS digita
 
 ### Fieldset as page heading
 
-[Preview the fieldset as page heading component](https://nhsuk.github.io/moduk-frontend/components/fieldset/page-heading.html)
+[Preview the fieldset as page heading component](https://defencedigital.github.io/moduk-frontend/components/fieldset/page-heading.html)
 
 #### HTML markup
 
@@ -68,7 +68,7 @@ Find out more about the fieldset component and when to use it in the [NHS digita
 
 ### Fieldset with input fields
 
-[Preview the fieldset component with input fields](https://nhsuk.github.io/moduk-frontend/components/fieldset/with-inputs.html)
+[Preview the fieldset component with input fields](https://defencedigital.github.io/moduk-frontend/components/fieldset/with-inputs.html)
 
 
 #### HTML markup

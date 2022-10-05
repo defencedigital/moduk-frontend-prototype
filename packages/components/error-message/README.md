@@ -1,11 +1,11 @@
 # Error message
 
 ## Guidance
-Find out more about the error message component and when to use it in the [NHS digital service manual](https://service-manual.nhs.uk/design-system/components/error-message).
+Find out more about the error message component and when to use it in the [Defence Service Manual](#0).
 
 ## Quick start example
 
-[Preview the error message component](https://nhsuk.github.io/moduk-frontend/components/error-message/index.html)
+[Preview the error message component](https://defencedigital.github.io/moduk-frontend/components/error-message/index.html)
 
 ### HTML markup
 

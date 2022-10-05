@@ -2,13 +2,13 @@
 
 ## Guidance
 
-Find out more about the warning callout component and when to use it in the [NHS digital service manual](https://service-manual.nhs.uk/design-system/components/warning-callout).
+Find out more about the warning callout component and when to use it in the [Defence Service Manual](#0).
 
 ## Quick start example
 
 ### Warning callout
 
-[Preview the warning callout component](https://nhsuk.github.io/moduk-frontend/components/warning-callout/index.html)
+[Preview the warning callout component](https://defencedigital.github.io/moduk-frontend/components/warning-callout/index.html)
 
 #### HTML markup
 
@@ -36,7 +36,7 @@ If you’re using Nunjucks macros in production be aware that using `html` argum
 
 ### Warning callout with custom heading
 
-[Preview the warning callout with custom heading component](https://nhsuk.github.io/moduk-frontend/components/warning-callout/custom-heading.html)
+[Preview the warning callout with custom heading component](https://defencedigital.github.io/moduk-frontend/components/warning-callout/custom-heading.html)
 
 #### HTML markup
 

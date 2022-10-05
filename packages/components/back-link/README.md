@@ -2,11 +2,11 @@
 
 ## Guidance
 
-Find out more about the back link component and when to use it in the [NHS digital service manual](https://service-manual.nhs.uk/design-system/components/back-link).
+Find out more about the back link component and when to use it in the [Defence Service Manual](#0).
 
 ## Quick start example
 
-[Preview the back link component](https://nhsuk.github.io/moduk-frontend/components/back-link/index.html)
+[Preview the back link component](https://defencedigital.github.io/moduk-frontend/components/back-link/index.html)
 
 ### HTML markup
 

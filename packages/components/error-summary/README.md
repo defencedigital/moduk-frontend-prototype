@@ -2,11 +2,11 @@
 
 ## Guidance
 
-Find out more about the error summary component and when to use it in the [NHS digital service manual](https://service-manual.nhs.uk/design-system/components/error-summary).
+Find out more about the error summary component and when to use it in the [Defence Service Manual](#0).
 
 ## Quick start example
 
-[Preview the error summary component](https://nhsuk.github.io/moduk-frontend/components/error-summary/index.html)
+[Preview the error summary component](https://defencedigital.github.io/moduk-frontend/components/error-summary/index.html)
 
 ### HTML markup
 
@@ -50,7 +50,7 @@ Find out more about the error summary component and when to use it in the [NHS d
 
 ## With link to an input field
 
-[Preview the error summary component with link to an input field](https://nhsuk.github.io/moduk-frontend/components/error-summary/linking-to-input.html)
+[Preview the error summary component with link to an input field](https://defencedigital.github.io/moduk-frontend/components/error-summary/linking-to-input.html)
 
 ### HTML markup
 
@@ -135,7 +135,7 @@ Find out more about the error summary component and when to use it in the [NHS d
 
 ## With link to a radio field
 
-[Preview the error summary component with link to a radio field](https://nhsuk.github.io/moduk-frontend/components/error-summary/linking-to-radios.html)
+[Preview the error summary component with link to a radio field](https://defencedigital.github.io/moduk-frontend/components/error-summary/linking-to-radios.html)
 
 ### HTML markup
 

@@ -2,11 +2,11 @@
 
 ## Guidance
 
-Find out more about the hint component and when to use it in the [NHS digital service manual](https://service-manual.nhs.uk/design-system/components/hint-text).
+Find out more about the hint component and when to use it in the [Defence Service Manual](#0).
 
 ## Quick start example
 
-[Preview the hint component](https://nhsuk.github.io/moduk-frontend/components/hint/index.html)
+[Preview the hint component](https://defencedigital.github.io/moduk-frontend/components/hint/index.html)
 
 ### HTML markup
 

@@ -1,11 +1,11 @@
 # Do and don't list
 
 ## Guidance
-Find out more about the do and don't list component and when to use it in the [NHS digital service manual](https://service-manual.nhs.uk/design-system/components/do-and-dont-lists).
+Find out more about the do and don't list component and when to use it in the [Defence Service Manual](#0).
 
 ## Quick start example
 
-[Preview the do and don't list component](https://nhsuk.github.io/moduk-frontend/components/do-dont-list/index.html)
+[Preview the do and don't list component](https://defencedigital.github.io/moduk-frontend/components/do-dont-list/index.html)
 
 ### HTML markup
 

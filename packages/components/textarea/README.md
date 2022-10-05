@@ -2,13 +2,13 @@
 
 ## Guidance
 
-Find out more about the textarea component and when to use it in the [NHS digital service manual](https://service-manual.nhs.uk/design-system/components/textarea).
+Find out more about the textarea component and when to use it in the [Defence Service Manual](#0).
 
 ## Quick start examples
 
 ### Textarea
 
-[Preview the textarea component](https://nhsuk.github.io/moduk-frontend/components/textarea/index.html)
+[Preview the textarea component](https://defencedigital.github.io/moduk-frontend/components/textarea/index.html)
 
 #### HTML markup
 
@@ -45,7 +45,7 @@ Find out more about the textarea component and when to use it in the [NHS digita
 
 ### Textarea with autocomplete attribute
 
-[Preview the textarea with autocomplete attribute component](https://nhsuk.github.io/moduk-frontend/components/textarea/autocomplete.html)
+[Preview the textarea with autocomplete attribute component](https://defencedigital.github.io/moduk-frontend/components/textarea/autocomplete.html)
 
 #### Guidance
 
@@ -81,7 +81,7 @@ See [Autofilling form controls: the autocomplete attribute](https://html.spec.wh
 
 ### Textarea with error message
 
-[Preview the textarea with error message component](https://nhsuk.github.io/moduk-frontend/components/textarea/error.html)
+[Preview the textarea with error message component](https://defencedigital.github.io/moduk-frontend/components/textarea/error.html)
 
 #### HTML markup
 

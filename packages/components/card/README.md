@@ -2,13 +2,13 @@
 
 ## Guidance
 
-Find out more about the card component and when to use it in the [NHS digital service manual](https://service-manual.nhs.uk/design-system/components/card).
+Find out more about the card component and when to use it in the [Defence Service Manual](#0).
 
 ## Quick start examples
 
 ### Basic card
 
-[Preview the basic card component](https://nhsuk.github.io/moduk-frontend/components/card/basic-card.html)
+[Preview the basic card component](https://defencedigital.github.io/moduk-frontend/components/card/basic-card.html)
 
 #### HTML markup
 
@@ -35,7 +35,7 @@ Find out more about the card component and when to use it in the [NHS digital se
 
 ### Clickable card
 
-[Preview the clickable card component](https://nhsuk.github.io/moduk-frontend/components/card/clickable-card.html)
+[Preview the clickable card component](https://defencedigital.github.io/moduk-frontend/components/card/clickable-card.html)
 
 #### HTML markup
 
@@ -68,7 +68,7 @@ Find out more about the card component and when to use it in the [NHS digital se
 
 ### Card with an image
 
-[Preview the card with an image component](https://nhsuk.github.io/moduk-frontend/components/card/card-with-image.html)
+[Preview the card with an image component](https://defencedigital.github.io/moduk-frontend/components/card/card-with-image.html)
 
 #### HTML markup
 
@@ -103,7 +103,7 @@ Find out more about the card component and when to use it in the [NHS digital se
 
 ### Card group
 
-[Preview the card group component](https://nhsuk.github.io/moduk-frontend/components/card/card-group.html)
+[Preview the card group component](https://defencedigital.github.io/moduk-frontend/components/card/card-group.html)
 
 #### HTML markup
 
@@ -184,7 +184,7 @@ Find out more about the card component and when to use it in the [NHS digital se
             Healthy weight
           </a>
         </h2>
-        <p class="moduk-card__description">Check your BMI using our healthy weight calculator and find out if you're a healthy weight</p>
+        <p class="moduk-card__description">Check your BMI using our healthy weight calculator and find out if you’re a healthy weight</p>
       </div>
     </div>
   </li>
@@ -350,7 +350,7 @@ Find out more about the card component and when to use it in the [NHS digital se
 
 ### Feature
 
-[Preview the feature card component](https://nhsuk.github.io/moduk-frontend/components/card/feature-card.html)
+[Preview the feature card component](https://defencedigital.github.io/moduk-frontend/components/card/feature-card.html)
 
 #### HTML markup
 
@@ -381,7 +381,7 @@ Find out more about the card component and when to use it in the [NHS digital se
 
 ### Care card non-urgent (blue)
 
-[Preview the care card non-urgent (blue) component](https://nhsuk.github.io/moduk-frontend/components/card/care-card-non-urgent.html)
+[Preview the care card non-urgent (blue) component](https://defencedigital.github.io/moduk-frontend/components/card/care-card-non-urgent.html)
 
 #### HTML markup
 
@@ -430,7 +430,7 @@ Find out more about the card component and when to use it in the [NHS digital se
 
 ### Care card urgent (red)
 
-[Preview care card urgent (red) component](https://nhsuk.github.io/moduk-frontend/components/card/care-card-urgent.html)
+[Preview care card urgent (red) component](https://defencedigital.github.io/moduk-frontend/components/card/care-card-urgent.html)
 
 #### HTML markup
 
@@ -479,7 +479,7 @@ Find out more about the card component and when to use it in the [NHS digital se
 
 ### Care card emergency (red and black)
 
-[Preview care card emergency (red and black) component](https://nhsuk.github.io/moduk-frontend/components/card/care-card-emergency.html)
+[Preview care card emergency (red and black) component](https://defencedigital.github.io/moduk-frontend/components/card/care-card-emergency.html)
 
 #### HTML markup
 

@@ -2,13 +2,13 @@
 
 ## Guidance
 
-Find out more about the button component and when to use it in the [NHS digital service manual](https://service-manual.nhs.uk/design-system/components/buttons).
+Find out more about the button component and when to use it in the [Defence Service Manual](#0).
 
 ## Quick start examples
 
 ### Button
 
-[Preview the button component](https://nhsuk.github.io/moduk-frontend/components/button/index.html)
+[Preview the button component](https://defencedigital.github.io/moduk-frontend/components/button/index.html)
 
 #### HTML markup
 
@@ -32,7 +32,7 @@ Find out more about the button component and when to use it in the [NHS digital 
 
 ### Button as a link
 
-[Preview the button as a link component](https://nhsuk.github.io/moduk-frontend/components/button/link.html)
+[Preview the button as a link component](https://defencedigital.github.io/moduk-frontend/components/button/link.html)
 
 #### HTML markup
 
@@ -57,7 +57,7 @@ Find out more about the button component and when to use it in the [NHS digital 
 
 ### Button disabled
 
-[Preview the button disabled component](https://nhsuk.github.io/moduk-frontend/components/button/disabled.html)
+[Preview the button disabled component](https://defencedigital.github.io/moduk-frontend/components/button/disabled.html)
 
 #### HTML markup
 
@@ -82,7 +82,7 @@ Find out more about the button component and when to use it in the [NHS digital 
 
 ### Button secondary
 
-[Preview the button secondary component](https://nhsuk.github.io/moduk-frontend/components/button/secondary.html)
+[Preview the button secondary component](https://defencedigital.github.io/moduk-frontend/components/button/secondary.html)
 
 #### HTML markup
 
@@ -107,7 +107,7 @@ Find out more about the button component and when to use it in the [NHS digital 
 
 ### Button reverse
 
-[Preview the button reverse component](https://nhsuk.github.io/moduk-frontend/components/button/reverse.html)
+[Preview the button reverse component](https://defencedigital.github.io/moduk-frontend/components/button/reverse.html)
 
 #### HTML markup
 

@@ -2,7 +2,7 @@
 
 ## Guidance
 
-Find out more about the skip link component and when to use it in the [NHS digital service manual](https://service-manual.nhs.uk/design-system/components/skip-link).
+Find out more about the skip link component and when to use it in the [Defence Service Manual](#0).
 
 ## Dependencies
 
@@ -17,7 +17,7 @@ Ensure the correct `id` value has been added to your main content for the skip l
 
 ## Quick start example
 
-[Preview the skip link component](https://nhsuk.github.io/moduk-frontend/components/skip-link/index.html)
+[Preview the skip link component](https://defencedigital.github.io/moduk-frontend/components/skip-link/index.html)
 
 ### HTML markup
 

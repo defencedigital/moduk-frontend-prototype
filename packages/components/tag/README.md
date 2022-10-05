@@ -2,11 +2,11 @@
 
 ## Guidance
 
-Find out more about the tag component and when to use it in the [NHS digital service manual](https://service-manual.nhs.uk/design-system/components/tag).
+Find out more about the tag component and when to use it in the [Defence Service Manual](#0).
 
 ## Quick start example
 
-[Preview the tag component](https://nhsuk.github.io/moduk-frontend/components/tag/index.html)
+[Preview the tag component](https://defencedigital.github.io/moduk-frontend/components/tag/index.html)
 
 ### Default tag
 
@@ -30,7 +30,7 @@ Find out more about the tag component and when to use it in the [NHS digital ser
 
 ### Additional tag colours
 
-See the full list of tag colours on the [NHS digital service manual](https://service-manual.nhs.uk/design-system/components/tag).
+See the full list of tag colours on the [Defence Service Manual](#0).
 
 #### HTML markup
 

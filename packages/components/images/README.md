@@ -2,11 +2,11 @@
 
 ## Guidance
 
-Find out more about the images component and when to use it in the [NHS digital service manual](https://service-manual.nhs.uk/design-system/components/images).
+Find out more about the images component and when to use it in the [Defence Service Manual](#0).
 
 ## Quick start example
 
-[Preview the images component](https://nhsuk.github.io/moduk-frontend/components/images/index.html)
+[Preview the images component](https://defencedigital.github.io/moduk-frontend/components/images/index.html)
 
 ### HTML markup
 

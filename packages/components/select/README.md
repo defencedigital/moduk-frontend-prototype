@@ -2,13 +2,13 @@
 
 ## Guidance
 
-Find out more about the select component and when to use it in the [NHS digital service manual](https://service-manual.nhs.uk/design-system/components/select).
+Find out more about the select component and when to use it in the [Defence Service Manual](#0).
 
 ## Quick start examples
 
 ### Select
 
-[Preview the select component](https://nhsuk.github.io/moduk-frontend/components/select/index.html)
+[Preview the select component](https://defencedigital.github.io/moduk-frontend/components/select/index.html)
 
 #### HTML markup
 
@@ -59,7 +59,7 @@ Find out more about the select component and when to use it in the [NHS digital 
 
 ### Select with hint text and error message
 
-[Preview the select with hint text and error message component](https://nhsuk.github.io/moduk-frontend/components/select/hint-error.html)
+[Preview the select with hint text and error message component](https://defencedigital.github.io/moduk-frontend/components/select/hint-error.html)
 
 #### HTML markup
 

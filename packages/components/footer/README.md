@@ -2,13 +2,13 @@
 
 ## Guidance
 
-Find out more about the footer component and when to use it in the [NHS digital service manual](https://service-manual.nhs.uk/design-system/components/footer).
+Find out more about the footer component and when to use it in the [Defence Service Manual](#0).
 
 ## Quick start examples
 
 ### Footer
 
-[Preview the footer component](https://nhsuk.github.io/moduk-frontend/components/footer/index.html)
+[Preview the footer component](https://defencedigital.github.io/moduk-frontend/components/footer/index.html)
 
 #### HTML markup
 

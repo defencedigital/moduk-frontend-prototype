@@ -2,11 +2,11 @@
 
 ## Guidance
 
-Find out more about the contents list component and when to use it in the [NHS digital service manual](https://service-manual.nhs.uk/design-system/components/contents-list).
+Find out more about the contents list component and when to use it in the [Defence Service Manual](#0).
 
 ## Quick start example
 
-[Preview the contents list component](https://nhsuk.github.io/moduk-frontend/components/contents-list/index.html)
+[Preview the contents list component](https://defencedigital.github.io/moduk-frontend/components/contents-list/index.html)
 
 ### HTML markup
 
@@ -15,19 +15,13 @@ Find out more about the contents list component and when to use it in the [NHS d
   <h2 class="moduk-u-visually-hidden">Contents</h2>
   <ol class="moduk-contents-list__list">
     <li class="moduk-contents-list__item" aria-current="page">
-      <span class="moduk-contents-list__current">What is AMD?</span>
+      <span class="moduk-contents-list__current">Defence users are diverse</span>
     </li>
     <li class="moduk-contents-list__item">
-      <a class="moduk-contents-list__link" href="https://www.nhs.uk/conditions/age-related-macular-degeneration-amd/symptoms/">Symptoms</a>
+      <a class="moduk-contents-list__link" href="#0">User research and military rank</a>
     </li>
     <li class="moduk-contents-list__item">
-      <a class="moduk-contents-list__link" href="https://www.nhs.uk/conditions/age-related-macular-degeneration-amd/getting-diagnosed/">Getting diagnosed</a>
-    </li>
-    <li class="moduk-contents-list__item">
-      <a class="moduk-contents-list__link" href="https://www.nhs.uk/conditions/age-related-macular-degeneration-amd/treatment/">Treatments</a>
-    </li>
-    <li class="moduk-contents-list__item">
-      <a class="moduk-contents-list__link" href="https://www.nhs.uk/conditions/age-related-macular-degeneration-amd/living-with-amd/">Living with AMD</a>
+      <a class="moduk-contents-list__link" href="#0">Help with acronyms</a>
     </li>
   </ol>
 </nav>
@@ -41,27 +35,19 @@ Find out more about the contents list component and when to use it in the [NHS d
 {{ contentsList({
   items: [
     {
-      href: "https://www.nhs.uk/conditions/age-related-macular-degeneration-amd/",
-      text: "What is AMD?",
+      href: "#0",
+      text: "Defence users are diverse",
       current: "true"
-    },
-    {
-      href: "https://www.nhs.uk/conditions/age-related-macular-degeneration-amd/symptoms/",
-      text: "Symptoms"
-    },
-    {
-      href: "https://www.nhs.uk/conditions/age-related-macular-degeneration-amd/getting-diagnosed/",
-      text: "Getting diagnosed"
     }
     ,
     {
-      href: "https://www.nhs.uk/conditions/age-related-macular-degeneration-amd/treatment/",
-      text: "Treatments"
+      href: "#0",
+      text: "User research and military rank"
     }
     ,
     {
-      href: "https://www.nhs.uk/conditions/age-related-macular-degeneration-amd/living-with-amd/",
-      text: "Living with AMD"
+      href: "#0",
+      text: "Help with acronyms"
     }
   ]
 }) }}

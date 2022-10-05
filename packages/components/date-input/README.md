@@ -2,7 +2,7 @@
 
 ## Guidance
 
-Find out more about the date input component and when to use it in the [NHS digital service manual](https://service-manual.nhs.uk/design-system/components/date-input).
+Find out more about the date input component and when to use it in the [Defence Service Manual](#0).
 
 Note: The `pattern` attribute is not valid HTML for inputs where the type attribute is number. It is added deliberately to [force numeric keypads on iOS devices](http://bradfrost.com/blog/post/better-numerical-inputs-for-mobile-forms/). See also [presenting iOS keyboards](https://stackoverflow.com/questions/25425181/iphone-ios-presenting-html-5-keyboard-for-postal-codes) for visual examples of iOS keyboards and attributes.
 
@@ -10,7 +10,7 @@ Note: The `pattern` attribute is not valid HTML for inputs where the type attrib
 
 ### Date input
 
-[Preview the date input component](https://nhsuk.github.io/moduk-frontend/components/date-input/index.html)
+[Preview the date input component](https://defencedigital.github.io/moduk-frontend/components/date-input/index.html)
 
 #### HTML markup
 
@@ -90,7 +90,7 @@ Note: The `pattern` attribute is not valid HTML for inputs where the type attrib
 
 ### Date input with autocomplete attribute
 
-[Preview the date input with autocomplete attribute component](https://nhsuk.github.io/moduk-frontend/components/date-input/autocomplete.html)
+[Preview the date input with autocomplete attribute component](https://defencedigital.github.io/moduk-frontend/components/date-input/autocomplete.html)
 
 #### Guidance
 
@@ -177,7 +177,7 @@ See [Autofilling form controls: the autocomplete attribute](https://html.spec.wh
 
 ### Date input with errors
 
-[Preview the date input with errors component](https://nhsuk.github.io/moduk-frontend/components/date-input/multiple-errors.html)
+[Preview the date input with errors component](https://defencedigital.github.io/moduk-frontend/components/date-input/multiple-errors.html)
 
 #### HTML markup
 
@@ -262,7 +262,7 @@ See [Autofilling form controls: the autocomplete attribute](https://html.spec.wh
 
 ### Date input with error on single input
 
-[Preview the date input with error on single input component](https://nhsuk.github.io/moduk-frontend/components/date-input/error.html)
+[Preview the date input with error on single input component](https://defencedigital.github.io/moduk-frontend/components/date-input/error.html)
 
 #### HTML markup
 

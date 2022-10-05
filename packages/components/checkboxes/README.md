@@ -2,13 +2,13 @@
 
 ## Guidance
 
-Find out more about the checkboxes component and when to use it in the [NHS digital service manual](https://service-manual.nhs.uk/design-system/components/checkboxes).
+Find out more about the checkboxes component and when to use it in the [Defence Service Manual](#0).
 
 ## Quick start examples
 
 ### Checkboxes
 
-[Preview the checkboxes component](https://nhsuk.github.io/moduk-frontend/components/checkboxes/index.html)
+[Preview the checkboxes component](https://defencedigital.github.io/moduk-frontend/components/checkboxes/index.html)
 
 #### HTML markup
 
@@ -82,7 +82,7 @@ Find out more about the checkboxes component and when to use it in the [NHS digi
 
 ### Checkboxes with hint text
 
-[Preview the checkboxes with hint text component](https://nhsuk.github.io/moduk-frontend/components/checkboxes/hint.html)
+[Preview the checkboxes with hint text component](https://defencedigital.github.io/moduk-frontend/components/checkboxes/hint.html)
 
 #### HTML markup
 
@@ -107,7 +107,7 @@ Find out more about the checkboxes component and when to use it in the [NHS digi
       <div class="moduk-checkboxes__item">
         <input class="moduk-checkboxes__input" id="moduk-login" name="verify" type="checkbox" value="moduk-verify" aria-describedby="moduk-login-item-hint">
         <label class="moduk-label moduk-checkboxes__label" for="moduk-login">
-        Sign in with NHS.UK login
+        Sign in with MOD.UK login
         </label>
         <div class="moduk-hint moduk-checkboxes__hint" id="moduk-login-item-hint">
         You’ll have an account if you’ve already proved your identity with either Barclays, CitizenSafe, Digidentity, Experian, Post Office, Royal Mail or SecureIdentity.
@@ -157,7 +157,7 @@ Find out more about the checkboxes component and when to use it in the [NHS digi
 
 ### Checkboxes with disabled item
 
-[Preview the checkboxes with disabled item component](https://nhsuk.github.io/moduk-frontend/components/checkboxes/disabled.html)
+[Preview the checkboxes with disabled item component](https://defencedigital.github.io/moduk-frontend/components/checkboxes/disabled.html)
 
 #### HTML markup
 
@@ -215,7 +215,7 @@ Find out more about the checkboxes component and when to use it in the [NHS digi
 
 ### Checkboxes with legend as page heading
 
-[Preview the checkboxes with legend as page heading component](https://nhsuk.github.io/moduk-frontend/components/checkboxes/page-heading.html)
+[Preview the checkboxes with legend as page heading component](https://defencedigital.github.io/moduk-frontend/components/checkboxes/page-heading.html)
 
 #### HTML markup
 
@@ -292,7 +292,7 @@ Find out more about the checkboxes component and when to use it in the [NHS digi
 
 ### Checkboxes with error message
 
-[Preview the checkboxes with error message component](https://nhsuk.github.io/moduk-frontend/components/checkboxes/error.html)
+[Preview the checkboxes with error message component](https://defencedigital.github.io/moduk-frontend/components/checkboxes/error.html)
 
 #### HTML markup
 
@@ -365,7 +365,7 @@ Find out more about the checkboxes component and when to use it in the [NHS digi
 
 ### Checkboxes with conditional content
 
-[Preview the checkboxes with conditional content](https://nhsuk.github.io/moduk-frontend/components/checkboxes/conditional.html)
+[Preview the checkboxes with conditional content](https://defencedigital.github.io/moduk-frontend/components/checkboxes/conditional.html)
 
 #### HTML markup
 
@@ -510,7 +510,7 @@ Find out more about the checkboxes component and when to use it in the [NHS digi
 
 ### Checkboxes with "none of the above" option
 
-[Preview the checkboxes with "none of the above" option](https://nhsuk.github.io/moduk-frontend/components/checkboxes/none-of-the-above.html)
+[Preview the checkboxes with "none of the above" option](https://defencedigital.github.io/moduk-frontend/components/checkboxes/none-of-the-above.html)
 
 #### HTML markup
 
