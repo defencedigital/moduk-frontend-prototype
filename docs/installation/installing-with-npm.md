@@ -39,7 +39,7 @@ To build the stylesheet you will need a pipeline set up to compile [Sass](https:
 You need to import the MOD.UK frontend styles into the main Sass file in your project. You should place the below code before your own Sass rules (or Sass imports).
 
 ```SCSS
-@import 'node_modules/moduk-frontend/packages/nhsuk';
+@import 'node_modules/moduk-frontend/packages/modukuk';
 ```
 
 Alternatively you can import each of the individual components separately, meaning you can import just the components that you are using.

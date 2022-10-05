@@ -51,7 +51,3 @@ If you require any of this functionality, you should [install using npm](/docs/i
       ```
       <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
       ```
-
-  4. Create pages using MOD.UK frontend
-
-      You can now create pages using the [Design system on the NHS digital service manual](https://service-manual.nhs.uk/design-system).
