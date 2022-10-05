@@ -35,7 +35,7 @@ Bad:
 Good:
 ```
 .selector {
-  color: $colour_nhsuk-blue;
+  color: $colour_moduk-maroon;
 }
 ```
 
@@ -78,7 +78,7 @@ Bad:
 
 Good:
 ```
-.nhsuk-wrapper {
+.moduk-wrapper {
   ...
 }
 ```
@@ -177,7 +177,7 @@ Good:
 @import 'bar/foo';
 ```
 
-### Properties should be formatted with a single space separating the colon from the property's value
+### Properties should be formatted with a single space separating the colon from the property’s value
 
 Bad:
 ```

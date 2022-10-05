@@ -10,7 +10,7 @@ The application generates static HTML pages to preview components, with each com
 
 `app/`
 
-  Nunjuck (HTML) files for the component example pages that you see at http://localhost:3000 when running the application locally and on https://moduk.github.io/moduk-frontend
+  Nunjuck (HTML) files for the component example pages that you see at http://localhost:3000 when running the application locally and on https://defencedigital.github.io/moduk-frontend
 
 `dist/` (Automatically generated)
 
@@ -26,7 +26,7 @@ The application generates static HTML pages to preview components, with each com
 
 `packages/`
 
-  NHS.UK frontend individual components files, such as all the stylesheet (scss) files, HTML templates (nunjucks), READMEs and assets.
+  MOD.UK frontend individual components files, such as all the stylesheet (scss) files, HTML templates (nunjucks), READMEs and assets.
 
 `tasks/`
 

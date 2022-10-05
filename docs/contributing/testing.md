@@ -13,9 +13,9 @@ Google Chrome DevTools has a preset list of standard device screen resolutions t
 See [Simulate Mobile Devices with Device Mode in Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools/device-mode/)
 and [Test Responsive and Device-specific Viewports](https://developers.google.com/web/tools/chrome-devtools/device-mode/emulate-mobile-viewports).
 
-### NHS website resolution statistics
+### MOD website resolution statistics
 
-These statistics are from the NHS website, using Google analytics, over a 1 year period (June 2017 to June 2018).
+These statistics are from the MOD website, using Google analytics, over a 1 year period (June 2017 to June 2018).
 
 | Device                  | Screen resolution   | % of sessions |
 |-------------------------|---------------------|---------------|

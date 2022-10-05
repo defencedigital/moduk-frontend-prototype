@@ -17,16 +17,16 @@ We recommend to use the [long-term support (LTS) version of Nodejs](https://node
 
 ## 2. Clone the repository
 
-You can clone the repository directly if you're a member of the [MOD.UK GitHub organisation](https://github.com/nhsuk/)
+You can clone the repository directly if you’re a member of the [MOD.UK GitHub organisation](https://github.com/defencedigital/)
 
 ```
-git clone git@github.com:nhsuk/nhsuk-frontend.git nhsuk-frontend
+git clone git@github.com:moduk/moduk-frontend.git moduk-frontend
 ```
 
 Otherwise you'll have to clone your own fork
 
 ```
-git clone https://github.com/[Username]/nhsuk-frontend.git nhsuk-frontend
+git clone https://github.com/[Username]/moduk-frontend.git moduk-frontend
 ```
 
 > Replace '[Username]' in the git clone command above with your own GitHub username.
@@ -38,7 +38,7 @@ We use [node package manager (npm)](https://docs.npmjs.com/getting-started/what-
 Whilst in the project directory you will need to install the dependencies listed in `package.json`
 
 ```
-cd nhsuk-frontend
+cd moduk-frontend
 ```
 
 ```
