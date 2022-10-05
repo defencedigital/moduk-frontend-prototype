@@ -1,0 +1,30 @@
+name: Lint and test
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  lint_and_test:
+    name: Lint and test
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Lint and run tests
+        run: npm test
+
+      - name: Run visual regression tests
+        run: npm run backstop:ci
