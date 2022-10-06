@@ -5,17 +5,13 @@
 //
 // Fonts
 //
-// 1. Fallback fonts if Frutiger fails to load
+// Font family and weights
 //
 
-$moduk-font: Frutiger W01 !default;
-$moduk-font-fallback: Arial, Sans-serif !default; // [1] //
-$moduk-font-family-print: sans-serif !default;
+$moduk-font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji' !default;
 $moduk-font-bold: 600 !default;
 $moduk-font-normal: 400 !default;
 $moduk-font-light: $moduk-font-normal !default;
-$moduk-fonts-path: 'https://assets.nhs.uk/fonts/' !default;
-$moduk-include-font-face: true !default;
 
 //
 // Font sizing and spacing
