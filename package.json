@@ -39,7 +39,7 @@
     "gulp-sass": "^5.0.0",
     "gulp-uglify": "^3.0.2",
     "gulp-zip": "^5.0.2",
-    "htmlhint": "^0.14.2",
+    "htmlhint": "^0.16.3",
     "husky": "^4.3.8",
     "jest": "^26.6.3",
     "minimist": "^1.2.5",
@@ -51,7 +51,10 @@
     "stylelint-scss": "^3.19.0",
     "wait-on": "^6.0.0",
     "webpack": "^5.74.0",
-    "webpack-stream": "^5.2.1"
+    "webpack-stream": "^7.0.0"
+  },
+  "overrides": {
+    "glob-parent": "5.1.2"
   },
   "publishConfig": {
     "access": "public"
