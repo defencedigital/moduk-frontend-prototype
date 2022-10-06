@@ -16,7 +16,7 @@ const initTest = (html = '') => {
   SkipLink();
 };
 
-describe('NHS.UK skiplink', () => {
+describe('MOD.UK skiplink', () => {
   describe('Does not throw an error', () => {
     it('if no skiplink exists', () => {
       initTest(headingHtml);

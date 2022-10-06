@@ -22,7 +22,7 @@ const initTest = (html) => {
   SearchToggle();
 };
 
-describe('NHS.UK menuToggle()', () => {
+describe('MOD.UK menuToggle()', () => {
   describe('Does not throw an error', () => {
     it('if no document exists', () => {
       SearchToggle();
