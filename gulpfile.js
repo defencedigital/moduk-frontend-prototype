@@ -74,7 +74,6 @@ function webpackJS() {
       output: {
         filename: 'moduk.js',
       },
-      target: 'web',
     }))
     .pipe(gulp.dest('./dist'));
 }
